@@ -1,0 +1,312 @@
+2026-04-05 10:31:10,180 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos pendentes: 'AprovisionamentoGUI' object has no attribute 'mostrar_lista_pedidos'
+2026-04-06 17:54:15,434 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 262, in listar_pedidos_pendentes
+    return self.list_pendentes_uc.execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\list_pendentes_autorizacao_usecase.py", line 14, in execute
+    return self.repository.list_pendentes_autorizacao()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\pedido_repository.py", line 187, in list_pendentes_autorizacao
+    cur = conn.execute("""
+          ^^^^^^^^^^^^^^^^
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 2, and there are 3 supplied.
+2026-04-06 17:56:06,880 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 262, in listar_pedidos_pendentes
+    return self.list_pendentes_uc.execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\list_pendentes_autorizacao_usecase.py", line 14, in execute
+    return self.repository.list_pendentes_autorizacao()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\pedido_repository.py", line 201, in list_pendentes_autorizacao
+    pedido = self.get_by_numero(n)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\pedido_repository.py", line 160, in get_by_numero
+    estado=PedidoEstado[estado],
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\enum.py", line 792, in __getitem__
+    return cls._member_map_[name]
+           ~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'criado'
+2026-04-06 18:02:45,661 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 262, in listar_pedidos_pendentes
+    return self.list_pendentes_uc.execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\list_pendentes_autorizacao_usecase.py", line 14, in execute
+    return self.repository.list_pendentes_autorizacao()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\pedido_repository.py", line 211, in list_pendentes_autorizacao
+    pedido = self.get_by_numero(n)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\pedido_repository.py", line 170, in get_by_numero
+    estado=PedidoEstado[estado],
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\enum.py", line 792, in __getitem__
+    return cls._member_map_[name]
+           ~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'criado'
+2026-04-06 18:05:07,847 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 262, in listar_pedidos_pendentes
+    return self.list_pendentes_uc.execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\list_pendentes_autorizacao_usecase.py", line 14, in execute
+    return self.repository.list_pendentes_autorizacao()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\pedido_repository.py", line 211, in list_pendentes_autorizacao
+    pedido = self.get_by_numero(n)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\pedido_repository.py", line 164, in get_by_numero
+    pedido = Pedido(
+             ^^^^^^^
+TypeError: Pedido.__init__() missing 1 required positional argument: 'propostas'
+2026-04-08 17:56:45,366 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 262, in listar_pedidos
+    return self.list_by_estado_uc.execute("criado","aguarda_autorizacao_1","aguarda_autorizacao_2")
+           ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AprovisionamentoController' object has no attribute 'list_by_estado_uc'
+2026-04-13 12:05:02,618 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 262, in listar_pedidos
+    return self.list_by_estado_uc.execute("criado","aguarda_autorizacao_1","aguarda_autorizacao_2")
+           ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AprovisionamentoController' object has no attribute 'list_by_estado_uc'
+2026-04-13 12:15:16,055 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 264, in listar_pedidos
+    return self.list_by_estado_uc.execute("criado","aguarda_autorizacao_1","aguarda_autorizacao_2")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ListPendentesAutorizacaoUseCase.execute() takes 2 positional arguments but 4 were given
+2026-04-13 12:42:14,882 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar pedidos
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 262, in listar_pedidos
+    return self.list_pedidos_uc.execute(
+           ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AprovisionamentoController' object has no attribute 'list_pedidos_uc'
+2026-04-16 18:17:13,978 [INFO] presentation.aprovisionamento.pedido_proposta_gui - Chamando controller com: numero=2026/06, fornecedor_id=9, valor=56.0
+2026-04-16 18:17:13,990 [INFO] presentation.aprovisionamento.aprovisionamento_controller - Chamando controller com: numero=2026/06, fornecedor_id=fornecedor_id, valor=56.0, documento=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.2.pdf
+2026-04-16 18:18:15,886 [INFO] presentation.aprovisionamento.pedido_proposta_gui - Chamando controller com: numero=2026/05, fornecedor_id=31, valor=54.0
+2026-04-16 18:18:15,886 [INFO] presentation.aprovisionamento.aprovisionamento_controller - Chamando controller com: numero=2026/05, fornecedor_id=fornecedor_id, valor=54.0, documento=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.2.pdf
+2026-04-16 18:22:38,528 [INFO] presentation.aprovisionamento.pedido_proposta_gui - Chamando controller com: numero=2026/08, fornecedor_id=4, valor=45.0
+2026-04-16 18:22:38,528 [INFO] presentation.aprovisionamento.aprovisionamento_controller - Chamando controller com: numero=2026/08, fornecedor_id=fornecedor_id, valor=45.0, documento=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.1.pdf
+2026-04-16 18:28:45,800 [INFO] presentation.aprovisionamento.pedido_proposta_gui - DEBUG: fornecedor_id = 7
+2026-04-16 18:28:45,800 [INFO] presentation.aprovisionamento.pedido_proposta_gui - DEBUG: controller = <presentation.aprovisionamento.aprovisionamento_controller.AprovisionamentoController object at 0x0000011A48812ED0>
+2026-04-16 18:28:45,800 [INFO] presentation.aprovisionamento.pedido_proposta_gui - DEBUG: controller.adicionar_proposta existe? True
+2026-04-16 18:54:24,875 [INFO] presentation.aprovisionamento.pedido_proposta_gui - >>> JuntarPropostaGUI: __init__ chamado
+2026-04-16 18:55:15,523 [INFO] presentation.aprovisionamento.pedido_proposta_gui - >>> _adicionar: fornecedor_nome='Vaz Oliveira e Cia Lda'
+2026-04-16 18:55:15,523 [INFO] presentation.aprovisionamento.pedido_proposta_gui - >>> _adicionar: fornecedores_obj tem 278 entradas
+2026-04-16 18:55:15,523 [INFO] presentation.aprovisionamento.pedido_proposta_gui - >>> _adicionar: fornecedor está no dict? True
+2026-04-16 18:55:15,538 [INFO] presentation.aprovisionamento.pedido_proposta_gui - DEBUG: fornecedor_id = 266
+2026-04-16 18:55:15,538 [INFO] presentation.aprovisionamento.pedido_proposta_gui - DEBUG: controller = <presentation.aprovisionamento.aprovisionamento_controller.AprovisionamentoController object at 0x000002462FB63F90>
+2026-04-16 18:55:15,538 [INFO] presentation.aprovisionamento.pedido_proposta_gui - DEBUG: controller.adicionar_proposta existe? True
+2026-04-16 19:01:21,117 [INFO] presentation.aprovisionamento.pedido_proposta_gui - Chamando controller com: numero=2026/08, fornecedor_id=266, valor=567.0
+2026-04-16 19:01:50,260 [INFO] presentation.aprovisionamento.aprovisionamento_controller - Chamando controller com: numero=2026/08, fornecedor_id=fornecedor_id, valor=567.0, documento=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.1.pdf
+2026-04-16 19:09:54,982 [INFO] presentation.aprovisionamento.aprovisionamento_controller - Chamando controller com: numero=2026/07, fornecedor_id=fornecedor_id, valor=456.0, documento=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.1.pdf
+2026-04-16 19:09:54,982 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - >>> EXCEPÇÃO em adicionar_proposta: 'NoneType' object has no attribute 'execute'
+2026-04-16 19:09:54,998 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 117, in adicionar_proposta
+    self.add_proposta_uc.execute(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'execute'
+
+2026-04-16 19:31:10,682 [INFO] presentation.aprovisionamento.aprovisionamento_controller - Chamando controller com: numero=2026/08, fornecedor_id=fornecedor_id, valor=33.0, documento=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.1.pdf
+2026-04-16 19:31:10,726 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - >>> EXCEPÇÃO em adicionar_proposta: name 'resultado' is not defined
+2026-04-16 19:31:10,757 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 123, in adicionar_proposta
+    logger.info(f">>> add_proposta_uc.execute concluído, resultado={resultado}")
+                                                                    ^^^^^^^^^
+NameError: name 'resultado' is not defined
+
+2026-04-16 19:32:42,971 [INFO] presentation.aprovisionamento.aprovisionamento_controller - Chamando controller com: numero=2026/08, fornecedor_id=fornecedor_id, valor=567.0, documento=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.2.pdf
+2026-04-16 19:32:43,030 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - >>> EXCEPÇÃO em adicionar_proposta: name 'resultado' is not defined
+2026-04-16 19:32:43,058 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 123, in adicionar_proposta
+    logger.info(f">>> add_proposta_uc.execute concluído, resultado={resultado}")
+                                                                    ^^^^^^^^^
+NameError: name 'resultado' is not defined
+
+2026-04-16 19:42:11,531 [INFO] presentation.aprovisionamento.aprovisionamento_controller - Chamando controller com: numero=2026/08, fornecedor_id=fornecedor_id, valor=456.0, documento=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.2.pdf
+2026-04-16 19:42:11,609 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - >>> EXCEPÇÃO em adicionar_proposta: name 'resultado' is not defined
+2026-04-16 19:42:11,633 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 123, in adicionar_proposta
+    logger.info(f">>> add_proposta_uc.execute concluído, resultado={resultado}")
+                                                                    ^^^^^^^^^
+NameError: name 'resultado' is not defined
+
+2026-04-17 09:59:47,065 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar fornecedores
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 316, in get_fornecedores
+    return self.list_fornecedores_uc.execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\list_fornecedores_usecase.py", line 10, in execute
+    return self.repo.list_all()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 62, in list_all
+    return [_row_to_fornecedor(row) for row in rows]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 62, in <listcomp>
+    return [_row_to_fornecedor(row) for row in rows]
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 15, in _row_to_fornecedor
+    return Fornecedor(
+           ^^^^^^^^^^^
+TypeError: Fornecedor.__init__() got an unexpected keyword argument 'contacto1_nome'
+2026-04-17 10:02:26,241 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar fornecedores
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 316, in get_fornecedores
+    return self.list_fornecedores_uc.execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\list_fornecedores_usecase.py", line 10, in execute
+    return self.repo.list_all()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 62, in list_all
+    return [_row_to_fornecedor(row) for row in rows]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 62, in <listcomp>
+    return [_row_to_fornecedor(row) for row in rows]
+            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 15, in _row_to_fornecedor
+    return Fornecedor(
+           ^^^^^^^^^^^
+TypeError: Fornecedor.__init__() got an unexpected keyword argument 'contacto1_nome'
+2026-04-17 18:19:03,572 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar fornecedores
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 316, in get_fornecedores
+    return self.list_fornecedores_uc.execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\list_fornecedores_usecase.py", line 10, in execute
+    return self.repo.list_all()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 59, in list_all
+    cur = conn.execute(f"SELECT {COLS} FROM fornecedores ORDER BY nome")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: near "FROM": syntax error
+2026-04-17 18:19:07,437 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar fornecedores
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 316, in get_fornecedores
+    return self.list_fornecedores_uc.execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\list_fornecedores_usecase.py", line 10, in execute
+    return self.repo.list_all()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 59, in list_all
+    cur = conn.execute(f"SELECT {COLS} FROM fornecedores ORDER BY nome")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: near "FROM": syntax error
+2026-04-17 19:30:45,146 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao editar fornecedor
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 331, in editar_fornecedor
+    self.fornecedor_repo.update(dados)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 115, in update
+    dados["setor"]
+    ~~~~~^^^^^^^^^
+KeyError: 'setor'
+2026-04-17 19:30:54,129 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao editar fornecedor
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 331, in editar_fornecedor
+    self.fornecedor_repo.update(dados)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\fornecedor_repository.py", line 115, in update
+    dados["setor"]
+    ~~~~~^^^^^^^^^
+KeyError: 'setor'
+2026-04-18 12:14:21,716 [WARNING] application.aprovisionamento.enviar_pedido_email_usecase - Não foi possível ler secção 'emails_sg' do app.ini
+2026-04-18 12:14:21,732 [WARNING] application.aprovisionamento.enviar_pedido_email_usecase - Nenhum destinatário configurado para estado 'autorizado' — email não enviado para pedido 2026/01
+2026-04-18 12:19:08,483 [ERROR] application.aprovisionamento.enviar_pedido_email_usecase - Erro ao enviar email para pedido 2026/02
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\enviar_pedido_email_usecase.py", line 61, in execute
+    msg = build_email(
+          ^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\email_builder.py", line 10, in build_email
+    subject, html = builder.build(template, data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\email_template_builder.py", line 19, in build
+    subject, blocos = carregar_template_word(template_path)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\word_template_loader.py", line 18, in carregar_template_word
+    doc = Document(path)
+          ^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\docx\api.py", line 27, in Document
+    document_part = cast("DocumentPart", Package.open(docx).main_document_part)
+                                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\docx\opc\package.py", line 126, in open
+    pkg_reader = PackageReader.from_file(pkg_file)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\docx\opc\pkgreader.py", line 22, in from_file
+    phys_reader = PhysPkgReader(pkg_file)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\docx\opc\phys_pkg.py", line 76, in __init__
+    self._zipf = ZipFile(pkg_file, "r")
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\zipfile.py", line 1311, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'G:\\.shortcut-targets-by-id\\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\\APPs\\atrpt\\templates\\email\\aprovisionamento\\PedidosCompra.docx'
+2026-04-18 12:21:26,622 [INFO] application.aprovisionamento.enviar_pedido_email_usecase - Email 'autorizado' enviado para ['jlaguiarpinto@atrpt.pt'] — pedido 2026/03
+2026-04-18 17:48:04,008 [INFO] application.aprovisionamento.enviar_pedido_email_usecase - Email 'autorizado' enviado para ['jlaguiarpinto@atrpt.pt'] — pedido 2026/04
+2026-04-18 19:58:00,359 [INFO] application.aprovisionamento.enviar_pedido_email_usecase - Email 'autorizado' enviado para ['jlaguiarpinto@atrpt.pt'] — pedido 2026/01
+2026-04-19 05:40:24,647 [INFO] application.aprovisionamento.encomendar_pedido_usecase - Pedido 2026/01 encomendado por utilizador em 2026-04-19T05:40:24.614542
+2026-04-19 05:40:24,647 [WARNING] application.aprovisionamento.encomendar_pedido_usecase - _enviar_email_fornecedor não implementado — pedido 2026/01
+2026-04-19 20:27:58,828 [INFO] application.aprovisionamento.enviar_pedido_email_usecase - Email 'pendente' enviado para ['jlaguiar_pinto@atrpt.pt'] — pedido 2026/01
+2026-04-21 16:54:26,259 [ERROR] application.aprovisionamento.create_pedido_usecase - Erro ao enviar email para pedido 2026/01
+Traceback (most recent call last):
+  File "application\aprovisionamento\create_pedido_usecase.py", line 66, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
+AttributeError: 'Config' object has no attribute 'get_lista_emails'
+2026-04-21 16:54:28,197 [ERROR] application.aprovisionamento.create_pedido_usecase - Erro ao enviar email para pedido 2026/02
+Traceback (most recent call last):
+  File "application\aprovisionamento\create_pedido_usecase.py", line 66, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
+AttributeError: 'Config' object has no attribute 'get_lista_emails'
+2026-04-21 16:55:44,203 [ERROR] application.aprovisionamento.create_pedido_usecase - Erro ao enviar email para pedido 2026/03
+Traceback (most recent call last):
+  File "application\aprovisionamento\create_pedido_usecase.py", line 66, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
+AttributeError: 'Config' object has no attribute 'get_lista_emails'
+2026-04-22 10:41:16,728 [ERROR] application.aprovisionamento.create_pedido_usecase - Erro ao enviar email para pedido 2026/01
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\create_pedido_usecase.py", line 66, in execute
+    self.enviar_email_uc.execute(pedido)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
+    destinatarios = self._lista("emails_auth_pedidos")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
+    return self.cfg.get_lista_emails(secao)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Config' object has no attribute 'get_lista_emails'
+2026-04-22 10:51:43,704 [ERROR] application.aprovisionamento.create_pedido_usecase - Erro ao enviar email para pedido 2026/01
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\create_pedido_usecase.py", line 66, in execute
+    self.enviar_email_uc.execute(pedido)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
+    destinatarios = self._lista("emails_auth_pedidos")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
+    return self.cfg.get_lista_emails(secao)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Config' object has no attribute 'get_lista_emails'
+2026-04-22 17:22:27,593 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\fornecedor_repository.py", line 84, in save_from_dict
+sqlite3.OperationalError: ON CONFLICT clause does not match any PRIMARY KEY or UNIQUE constraint
+2026-04-22 17:22:33,335 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\fornecedor_repository.py", line 84, in save_from_dict
+sqlite3.OperationalError: ON CONFLICT clause does not match any PRIMARY KEY or UNIQUE constraint
+2026-04-22 17:23:12,362 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\fornecedor_repository.py", line 84, in save_from_dict
+sqlite3.OperationalError: ON CONFLICT clause does not match any PRIMARY KEY or UNIQUE constraint
+2026-04-22 17:23:24,355 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\fornecedor_repository.py", line 84, in save_from_dict
+sqlite3.OperationalError: ON CONFLICT clause does not match any PRIMARY KEY or UNIQUE constraint

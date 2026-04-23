@@ -1,0 +1,2203 @@
+
+2026-03-13 22:57:01,911 [INFO] root - Email profile carregado: associados
+2026-03-13 23:26:25,614 [INFO] root - Email profile carregado: associados
+2026-03-13 23:43:29,631 [INFO] root - Email profile carregado: associados
+2026-03-13 23:57:23,655 [INFO] root - Email profile carregado: associados
+2026-03-13 23:58:30,883 [ERROR] root - Erro ao enviar email para Estela Maria de Sousa Pacheco (estelapacheco@icloud.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:32,915 [ERROR] root - Erro ao enviar email para Belarmino José Baldaia Tavares (familia.leal.tavares@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:34,681 [ERROR] root - Erro ao enviar email para Ana Maria Vieira Gomes Guedes (anamariaguedes1951@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:38,100 [ERROR] root - Erro ao enviar email para Graça Joaquina Duarte Pereira Araújo (ze.luis.araujo@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:39,840 [ERROR] root - Erro ao enviar email para Joaquim Silva Meneses (joaquim.meneses@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:43,736 [ERROR] root - Erro ao enviar email para José Fernando da Silva Pereira (jose.fernando.silva.pereira@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:46,910 [ERROR] root - Erro ao enviar email para Custodio Pereira Beleza de Vasconcelos (custodiobeleza@hotmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:50,124 [ERROR] root - Erro ao enviar email para Joaquim Martins Andrade (joaquim.m.andrade@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:53,058 [ERROR] root - Erro ao enviar email para Alzira Valente Santos Moreira (av.moreira@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:55,932 [ERROR] root - Erro ao enviar email para Mário Alberto Branquinho Ramos (branquinhoramos@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:58:57,789 [ERROR] root - Erro ao enviar email para José Américo Teixeira Barros (jabarros@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:59:01,404 [ERROR] root - Erro ao enviar email para Maria Edite Basto Cerqueira Mota (maria.e.b.c.m.andrade@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:59:04,888 [ERROR] root - Erro ao enviar email para Gabriel Barbosa Silva (gabriel.silva1946@hotmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:59:07,261 [ERROR] root - Erro ao enviar email para Fernando Manuel Nunes Andrade (andradefmn@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:59:09,658 [ERROR] root - Erro ao enviar email para Henrique Augusto Costa Cardoso (henriquecosta1947@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:59:12,975 [ERROR] root - Erro ao enviar email para Eduardo Alfredo Mercês Ferreira (eferreira1949@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-13 23:59:16,674 [ERROR] root - Erro ao enviar email para Maria de Lurdes Silva Santos (santos1080235@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 114, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 89, in send
+    self.smtp.send(mime)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 30, in send
+    smtp.send_message(message)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 Too many sending failures')
+2026-03-14 00:43:27,230 [INFO] root - Email profile carregado: associados
+2026-03-14 06:36:07,228 [INFO] root - Email profile carregado: associados
+2026-03-14 07:04:55,911 [ERROR] root - Erro ao enviar email para Graça Joaquina Duarte Pereira Araújo (ze.luis.araujo@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 113, in executar
+    self.emailer.send(msg)
+    ^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\bdb.py", line 90, in trace_dispatch
+    return self.dispatch_line(frame)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\bdb.py", line 115, in dispatch_line
+    if self.quitting: raise BdbQuit
+                      ^^^^^^^^^^^^^
+bdb.BdbQuit
+2026-03-14 07:07:48,355 [INFO] root - Email profile carregado: associados
+2026-03-14 07:42:16,191 [INFO] root - Email profile carregado: associados
+2026-03-14 07:42:33,589 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 07:42:38,440 [INFO] root - Envios preparados: 920 | Já enviados: 37 | Por enviar: 883
+2026-03-14 08:18:01,853 [INFO] root - Email profile carregado: associados
+2026-03-14 08:18:23,992 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 08:18:29,407 [INFO] root - Envios preparados: 920 | Já enviados: 82 | Por enviar: 838
+2026-03-14 08:19:19,204 [INFO] root - Início do envio...
+2026-03-14 08:19:19,204 [INFO] root - Associados selecionados=263
+2026-03-14 08:36:42,542 [INFO] root - Email profile carregado: associados
+2026-03-14 08:37:08,314 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 08:37:11,994 [INFO] root - Envios preparados: 920 | Já enviados: 97 | Por enviar: 823
+2026-03-14 08:37:34,876 [INFO] root - Início do envio...
+2026-03-14 08:37:34,876 [INFO] root - Associados selecionados=248
+2026-03-14 08:37:34,876 [INFO] root - UseCase.executar iniciado
+2026-03-14 08:37:34,876 [INFO] root - total para processar=248
+2026-03-14 08:37:34,986 [INFO] root - Iteração 1
+2026-03-14 08:37:37,243 [INFO] root - [1/248] Enviado para Guilhermina Cardoso Machado Oliveira | 2.37s
+2026-03-14 08:37:38,819 [INFO] root - Iteração 2
+2026-03-14 08:37:42,187 [INFO] root - [2/248] Enviado para Marilia Farinha Mota Cardoso | 7.32s
+2026-03-14 08:37:43,540 [INFO] root - Iteração 3
+2026-03-14 08:37:46,986 [INFO] root - [3/248] Enviado para Francelina  Oliveira  Mendes | 12.12s
+2026-03-14 08:37:48,158 [INFO] root - Iteração 4
+2026-03-14 08:37:50,329 [INFO] root - [4/248] Enviado para Francisco Gomes Coelho | 15.46s
+2026-03-14 08:37:53,131 [INFO] root - Iteração 5
+2026-03-14 08:37:55,072 [INFO] root - [5/248] Enviado para Fernando Manuel Silva Vasconcelos | 20.20s
+2026-03-14 08:37:57,616 [INFO] root - Iteração 6
+2026-03-14 08:38:01,504 [INFO] root - [6/248] Enviado para Maria Fernanda Barbosa Sousa | 26.63s
+2026-03-14 08:38:03,080 [INFO] root - Iteração 7
+2026-03-14 08:38:05,929 [INFO] root - [7/248] Enviado para Sabino Manuel da Silva Oliveira | 31.06s
+2026-03-14 08:38:07,490 [INFO] root - Iteração 8
+2026-03-14 08:38:10,236 [INFO] root - [8/248] Enviado para Manuel José Figueiredo Marques | 35.37s
+2026-03-14 08:38:11,971 [INFO] root - Iteração 9
+2026-03-14 08:38:13,952 [INFO] root - [9/248] Enviado para Maria Julia Silva Teixeira Vieira | 39.08s
+2026-03-14 08:38:16,271 [INFO] root - Iteração 10
+2026-03-14 08:38:19,871 [INFO] root - [10/248] Enviado para Maria Helena Campos Batista | 45.00s
+2026-03-14 08:38:21,297 [INFO] root - Iteração 11
+2026-03-14 08:38:24,458 [INFO] root - [11/248] Enviado para José Carvalho | 49.58s
+2026-03-14 08:38:26,082 [INFO] root - Iteração 12
+2026-03-14 08:38:29,810 [INFO] root - [12/248] Enviado para Ana Maria Martins Leite Magalhães | 54.94s
+2026-03-14 08:38:31,847 [INFO] root - Iteração 13
+2026-03-14 08:38:35,516 [INFO] root - [13/248] Enviado para Maria Manuela Portero Campos | 60.65s
+2026-03-14 08:38:37,741 [INFO] root - Iteração 14
+2026-03-14 08:38:39,762 [INFO] root - [14/248] Enviado para Lucinda  Vigario Santos Silva  Madureira | 64.89s
+2026-03-14 08:38:40,998 [INFO] root - Iteração 15
+2026-03-14 08:38:44,643 [INFO] root - [15/248] Enviado para Henrique Rocha Ferreira | 69.77s
+2026-03-14 08:38:47,370 [INFO] root - Iteração 16
+2026-03-14 08:38:50,809 [INFO] root - [16/248] Enviado para Artur José Vieira Tavares | 75.94s
+2026-03-14 08:38:52,142 [INFO] root - Iteração 17
+2026-03-14 08:38:55,005 [INFO] root - [17/248] Enviado para José Maia Fernandes | 80.12s
+2026-03-14 08:38:57,953 [INFO] root - Iteração 18
+2026-03-14 08:39:02,190 [INFO] root - [18/248] Enviado para Maria Helena Ribeiro Coelho | 87.32s
+2026-03-14 08:39:04,403 [INFO] root - Iteração 19
+2026-03-14 08:39:07,346 [INFO] root - [19/248] Enviado para Fernanda Eulália da Silva Xavier | 92.47s
+2026-03-14 08:39:10,061 [INFO] root - Iteração 20
+2026-03-14 08:39:13,895 [INFO] root - [20/248] Enviado para Maria Fernanda Oliveira Nunes | 99.03s
+2026-03-14 08:39:15,716 [INFO] root - Iteração 21
+2026-03-14 08:39:17,799 [INFO] root - [21/248] Enviado para José Domingos Silva Fernandes | 102.92s
+2026-03-14 08:39:20,447 [INFO] root - Iteração 22
+2026-03-14 08:39:22,764 [INFO] root - [22/248] Enviado para Manuel Moreira Salgueiro | 107.89s
+2026-03-14 08:39:24,379 [INFO] root - Iteração 23
+2026-03-14 08:39:28,438 [INFO] root - [23/248] Enviado para Maria Conceição Sousa Salgueiro | 113.57s
+2026-03-14 08:39:29,788 [INFO] root - Iteração 24
+2026-03-14 08:39:33,336 [INFO] root - [24/248] Enviado para Rosa Maria Barros Rodrigues Silva Rocha | 118.46s
+2026-03-14 08:39:34,750 [INFO] root - Iteração 25
+2026-03-14 08:39:36,789 [INFO] root - [25/248] Enviado para Augusto Soares Ribeiro | 121.91s
+2026-03-14 08:39:38,032 [INFO] root - Iteração 26
+2026-03-14 08:39:41,693 [INFO] root - [26/248] Enviado para Egas Alfredo Rocha Carvalho | 126.81s
+2026-03-14 08:39:42,764 [INFO] root - Iteração 27
+2026-03-14 08:39:45,147 [INFO] root - [27/248] Enviado para Joel Teixeira | 130.27s
+2026-03-14 08:39:47,002 [INFO] root - Iteração 28
+2026-03-14 08:39:50,184 [INFO] root - [28/248] Enviado para Maria Julieta Moreira Castro | 135.30s
+2026-03-14 08:39:52,874 [INFO] root - Iteração 29
+2026-03-14 08:39:55,787 [INFO] root - [29/248] Enviado para Maria Alice Carneiro Pinto | 140.91s
+2026-03-14 08:39:57,590 [INFO] root - Iteração 30
+2026-03-14 08:40:01,681 [INFO] root - [30/248] Enviado para Maria Eugenia Cunha Costa e Sousa | 146.81s
+2026-03-14 08:40:02,981 [INFO] root - Iteração 31
+2026-03-14 08:40:05,380 [INFO] root - [31/248] Enviado para Ondina Maria Ferreira Marques | 150.50s
+2026-03-14 08:40:07,529 [INFO] root - Iteração 32
+2026-03-14 08:40:11,695 [INFO] root - [32/248] Enviado para Maria Celeste Martins Torres | 156.82s
+2026-03-14 08:40:12,725 [INFO] root - Iteração 33
+2026-03-14 08:40:16,498 [INFO] root - [33/248] Enviado para José Manuel Pinto Barbedo | 161.63s
+2026-03-14 08:40:17,932 [INFO] root - Iteração 34
+2026-03-14 08:40:20,009 [INFO] root - [34/248] Enviado para Virgínia Augusta Ferreira Carvalho Sousa | 165.13s
+2026-03-14 08:40:21,897 [INFO] root - Iteração 35
+2026-03-14 08:40:24,854 [INFO] root - [35/248] Enviado para José Adelino Sousa Paiva | 169.98s
+2026-03-14 08:40:26,860 [INFO] root - Iteração 36
+2026-03-14 08:40:29,164 [INFO] root - [36/248] Enviado para Gracinda Celeste Ferreira Babo Oliveira | 174.30s
+2026-03-14 08:40:31,934 [INFO] root - Iteração 37
+2026-03-14 08:40:34,816 [INFO] root - [37/248] Enviado para José Manuel  Araújo Freitas Guimarães | 179.94s
+2026-03-14 08:40:36,761 [INFO] root - Iteração 38
+2026-03-14 08:40:40,849 [INFO] root - [38/248] Enviado para Fernanda da Silva Martinho Dimitri Pinheiro | 185.97s
+2026-03-14 08:40:42,630 [INFO] root - Iteração 39
+2026-03-14 08:40:44,737 [INFO] root - [39/248] Enviado para Luís Eduardo Andrade Berrance Abreu | 189.86s
+2026-03-14 08:40:47,411 [INFO] root - Iteração 40
+2026-03-14 08:40:51,230 [INFO] root - [40/248] Enviado para Fernando Rodrigues Barbosa | 196.36s
+2026-03-14 08:40:52,690 [INFO] root - Iteração 41
+2026-03-14 08:40:56,061 [INFO] root - [41/248] Enviado para João de Almeida Moreira Queiroz | 201.19s
+2026-03-14 08:40:57,449 [INFO] root - Iteração 42
+2026-03-14 08:41:00,650 [INFO] root - [42/248] Enviado para Maria Teresa Pereira da Silva | 205.78s
+2026-03-14 08:41:02,251 [INFO] root - Iteração 43
+2026-03-14 08:41:04,954 [INFO] root - [43/248] Enviado para José Augusto Cardoso Pinto | 210.08s
+2026-03-14 08:41:07,863 [INFO] root - Iteração 44
+2026-03-14 08:41:09,921 [INFO] root - [44/248] Enviado para Alberto Joaquim Ferreira Gomes | 215.04s
+2026-03-14 08:41:12,193 [INFO] root - Iteração 45
+2026-03-14 08:41:14,539 [INFO] root - [45/248] Enviado para Adosinda Margarida Ribeiro Queiros | 219.67s
+2026-03-14 08:41:17,427 [INFO] root - Iteração 46
+2026-03-14 08:41:20,599 [INFO] root - [46/248] Enviado para Idorindo Vasconcelos da Rocha | 225.72s
+2026-03-14 08:41:23,231 [INFO] root - Iteração 47
+2026-03-14 08:41:25,836 [INFO] root - [47/248] Enviado para Francisco José Andrade da Silva | 230.97s
+2026-03-14 08:41:28,644 [INFO] root - Iteração 48
+2026-03-14 08:41:31,918 [INFO] root - [48/248] Enviado para La Salette Maria Leite Coelho | 237.04s
+2026-03-14 08:41:34,545 [INFO] root - Iteração 49
+2026-03-14 08:41:37,636 [INFO] root - [49/248] Enviado para Maria João de Sá Januário | 242.76s
+2026-03-14 08:41:39,594 [INFO] root - Iteração 50
+2026-03-14 08:41:41,692 [INFO] root - [50/248] Enviado para Cristina Paula Cabral Rodrigues | 246.81s
+2026-03-14 08:42:57,684 [INFO] root - Iteração 51
+2026-03-14 08:43:01,519 [INFO] root - [51/248] Enviado para Ana Sofia Brandariz Manso Preto Bragança | 326.65s
+2026-03-14 08:43:03,583 [INFO] root - Iteração 52
+2026-03-14 08:43:06,243 [INFO] root - [52/248] Enviado para José Correia de Pinho | 331.37s
+2026-03-14 08:43:07,527 [INFO] root - Iteração 53
+2026-03-14 08:43:10,881 [INFO] root - [53/248] Enviado para Catarina de Sena Félix Vasconcelos | 336.01s
+2026-03-14 08:43:13,870 [INFO] root - Iteração 54
+2026-03-14 08:43:17,168 [INFO] root - [54/248] Enviado para Manuel Joaquim Gomes Macedo Fernandes | 342.29s
+2026-03-14 08:43:19,882 [INFO] root - Iteração 55
+2026-03-14 08:43:22,855 [INFO] root - [55/248] Enviado para Valentim Miranda Oliveira Pimentel | 347.98s
+2026-03-14 08:43:25,337 [INFO] root - Iteração 56
+2026-03-14 08:43:27,680 [INFO] root - [56/248] Enviado para António Pinto Verdelho | 352.81s
+2026-03-14 08:43:29,141 [INFO] root - Iteração 57
+2026-03-14 08:43:31,005 [INFO] root - [57/248] Enviado para Manuel Henrique de Paiva Pinheiro Almeida | 356.14s
+2026-03-14 08:43:32,507 [INFO] root - Iteração 58
+2026-03-14 08:43:35,106 [INFO] root - [58/248] Enviado para Helena Margarida Tavares Marques | 360.23s
+2026-03-14 08:43:36,934 [INFO] root - Iteração 59
+2026-03-14 08:43:39,717 [INFO] root - [59/248] Enviado para Maria Edite Carvalho Vaz | 364.85s
+2026-03-14 08:43:41,990 [INFO] root - Iteração 60
+2026-03-14 08:43:44,170 [INFO] root - [60/248] Enviado para Maria Henriqueta Diz Simões | 369.29s
+2026-03-14 08:43:45,387 [INFO] root - Iteração 61
+2026-03-14 08:43:48,695 [INFO] root - [61/248] Enviado para Maria da Graça de Ramajal Monteiro | 373.81s
+2026-03-14 08:43:51,300 [INFO] root - Iteração 62
+2026-03-14 08:43:53,316 [INFO] root - [62/248] Enviado para António Manuel Costa Gonçalves Dias | 378.44s
+2026-03-14 08:43:56,065 [INFO] root - Iteração 63
+2026-03-14 08:44:00,335 [INFO] root - [63/248] Enviado para Luís Ramos Paiva | 385.47s
+2026-03-14 08:44:01,579 [INFO] root - Iteração 64
+2026-03-14 08:44:03,478 [INFO] root - [64/248] Enviado para Luís Filipe da Silva Soares da Cruz | 388.61s
+2026-03-14 08:44:05,509 [INFO] root - Iteração 65
+2026-03-14 08:44:07,325 [INFO] root - [65/248] Enviado para Jaime Macedo Matos | 392.45s
+2026-03-14 08:44:09,025 [INFO] root - Iteração 66
+2026-03-14 08:44:11,054 [INFO] root - [66/248] Enviado para Elisa Maria Sousa Alves | 396.18s
+2026-03-14 08:44:13,729 [INFO] root - Iteração 67
+2026-03-14 08:44:17,270 [INFO] root - [67/248] Enviado para Maria de Fátima Cruzeiro da Silva Alves | 402.40s
+2026-03-14 08:44:18,560 [INFO] root - Iteração 68
+2026-03-14 08:44:20,636 [INFO] root - [68/248] Enviado para Maria Margarida Oliveira da Fonseca Maia | 405.77s
+2026-03-14 08:44:22,927 [INFO] root - Iteração 69
+2026-03-14 08:44:25,305 [INFO] root - [69/248] Enviado para Maria Clementina Jesus Paiva Rocha | 410.43s
+2026-03-14 08:44:27,366 [INFO] root - Iteração 70
+2026-03-14 08:44:29,669 [INFO] root - [70/248] Enviado para Maria Rosalina Freitas Fernandes Oliveira Santos | 414.79s
+2026-03-14 08:44:30,838 [INFO] root - Iteração 71
+2026-03-14 08:44:33,175 [INFO] root - [71/248] Enviado para Rogério Sílvio Magalhães Figueiredo Tojeiro | 418.30s
+2026-03-14 08:44:35,687 [INFO] root - Iteração 72
+2026-03-14 08:44:39,463 [INFO] root - [72/248] Enviado para Carlos Manuel Queirós Pinto Leite | 424.59s
+2026-03-14 08:44:41,911 [INFO] root - Iteração 73
+2026-03-14 08:44:45,908 [INFO] root - [73/248] Enviado para Maria Candida Fernandes da Silva | 431.04s
+2026-03-14 08:44:47,817 [INFO] root - Iteração 74
+2026-03-14 08:44:51,288 [INFO] root - [74/248] Enviado para Maria Manuela Santos Ferreira Carneiro | 436.41s
+2026-03-14 08:44:52,598 [INFO] root - Iteração 75
+2026-03-14 08:44:57,076 [INFO] root - [75/248] Enviado para José Maria Machado | 442.21s
+2026-03-14 08:44:58,746 [INFO] root - Iteração 76
+2026-03-14 08:45:01,272 [INFO] root - [76/248] Enviado para João Luís Stoffel Viseu | 446.40s
+2026-03-14 08:45:03,109 [INFO] root - Iteração 77
+2026-03-14 08:45:06,120 [INFO] root - [77/248] Enviado para Alberto Ribeiro de Sousa | 451.25s
+2026-03-14 08:45:09,076 [INFO] root - Iteração 78
+2026-03-14 08:45:11,700 [INFO] root - [78/248] Enviado para Inês Maria Neno Cardoso Allen Pereira | 456.82s
+2026-03-14 08:45:13,525 [INFO] root - Iteração 79
+2026-03-14 08:45:16,267 [INFO] root - [79/248] Enviado para Vitor José de Oliveira Guedes dos Santos | 461.40s
+2026-03-14 08:45:18,846 [INFO] root - Iteração 80
+2026-03-14 08:45:22,172 [INFO] root - [80/248] Enviado para Maria do Rosário Sousa Rocha | 467.30s
+2026-03-14 08:45:23,460 [INFO] root - Iteração 81
+2026-03-14 08:45:27,115 [INFO] root - [81/248] Enviado para Palmira Maria Dias Pereira | 472.24s
+2026-03-14 08:45:30,074 [INFO] root - Iteração 82
+2026-03-14 08:45:32,562 [INFO] root - [82/248] Enviado para José Augusto Morais Sarmento | 477.70s
+2026-03-14 08:45:33,706 [INFO] root - Iteração 83
+2026-03-14 08:45:37,397 [INFO] root - [83/248] Enviado para Maria Julia Santos Cancela | 482.53s
+2026-03-14 08:45:38,835 [INFO] root - Iteração 84
+2026-03-14 08:45:41,202 [INFO] root - [84/248] Enviado para Maria de Nazaré Silva Rei | 486.33s
+2026-03-14 08:45:43,481 [INFO] root - Iteração 85
+2026-03-14 08:45:46,394 [INFO] root - [85/248] Enviado para Joaquim Augusto Oliveira Passos | 491.52s
+2026-03-14 08:45:49,232 [INFO] root - Iteração 86
+2026-03-14 08:45:51,534 [INFO] root - [86/248] Enviado para António Costa Salvaterra  | 496.67s
+2026-03-14 08:45:53,499 [INFO] root - Iteração 87
+2026-03-14 08:45:55,644 [INFO] root - [87/248] Enviado para Rui de Castro e Silva | 500.77s
+2026-03-14 08:45:57,882 [INFO] root - Iteração 88
+2026-03-14 08:46:00,089 [INFO] root - [88/248] Enviado para Maria Candida Fernandes Moreira | 505.22s
+2026-03-14 08:46:02,412 [INFO] root - Iteração 89
+2026-03-14 08:46:06,493 [INFO] root - [89/248] Enviado para Maria de Lurdes Pinto Vilas  Abreu | 511.62s
+2026-03-14 08:46:08,023 [INFO] root - Iteração 90
+2026-03-14 08:46:10,168 [INFO] root - [90/248] Enviado para Maria Helena Costa Carvalho | 515.30s
+2026-03-14 08:46:11,717 [INFO] root - Iteração 91
+2026-03-14 08:46:16,432 [INFO] root - [91/248] Enviado para Rui António Marta Ferreira Lopes | 521.57s
+2026-03-14 08:46:17,883 [INFO] root - Iteração 92
+2026-03-14 08:46:21,498 [INFO] root - [92/248] Enviado para Luciano Joaquim Moutinho Tavares | 526.62s
+2026-03-14 08:46:24,407 [INFO] root - Iteração 93
+2026-03-14 08:46:27,731 [INFO] root - [93/248] Enviado para Jorge Manuel Guedes | 532.85s
+2026-03-14 08:46:29,595 [INFO] root - Iteração 94
+2026-03-14 08:46:31,924 [INFO] root - [94/248] Enviado para Cesar Borges Meneses Correia | 537.05s
+2026-03-14 08:46:33,974 [INFO] root - Iteração 95
+2026-03-14 08:46:36,638 [INFO] root - [95/248] Enviado para Maria Fernanda Rendeiro Correia | 541.77s
+2026-03-14 08:46:38,968 [INFO] root - Iteração 96
+2026-03-14 08:46:42,514 [INFO] root - [96/248] Enviado para Fernanda Maria Moreira F. Silva Poças da Rosa | 547.64s
+2026-03-14 08:46:44,553 [INFO] root - Iteração 97
+2026-03-14 08:46:46,573 [INFO] root - [97/248] Enviado para Eduardo António Costa Mota | 551.71s
+2026-03-14 08:46:49,407 [INFO] root - Iteração 98
+2026-03-14 08:46:51,791 [INFO] root - [98/248] Enviado para Maria Manuela Alexandrino Sousa Gaio | 556.92s
+2026-03-14 08:46:53,982 [INFO] root - Iteração 99
+2026-03-14 08:46:56,116 [INFO] root - [99/248] Enviado para Maria da Graça Pinheiro Nogueira | 561.24s
+2026-03-14 08:46:58,493 [INFO] root - Iteração 100
+2026-03-14 08:47:01,361 [INFO] root - [100/248] Enviado para Manuel Maria Paulo Caldas Matos | 566.50s
+2026-03-14 08:48:01,771 [INFO] root - Iteração 101
+2026-03-14 08:48:06,420 [INFO] root - [101/248] Enviado para Fernando Francisco Lopes de Oliveira | 631.54s
+2026-03-14 08:48:09,359 [INFO] root - Iteração 102
+2026-03-14 08:48:13,431 [INFO] root - [102/248] Enviado para Fernando Joaquim Ferrão Mascaranhas Loureiro | 638.56s
+2026-03-14 08:48:15,869 [INFO] root - Iteração 103
+2026-03-14 08:48:18,237 [INFO] root - [103/248] Enviado para Valdemar António Soares | 643.37s
+2026-03-14 08:48:19,780 [INFO] root - Iteração 104
+2026-03-14 08:48:23,804 [INFO] root - [104/248] Enviado para Maria Fernanda dos Santos Sousa Neves | 648.93s
+2026-03-14 08:48:25,319 [INFO] root - Iteração 105
+2026-03-14 08:48:27,984 [INFO] root - [105/248] Enviado para José Luís Cravo Aguiar Pinto | 653.12s
+2026-03-14 08:48:30,035 [INFO] root - Iteração 106
+2026-03-14 08:48:33,964 [INFO] root - [106/248] Enviado para Maria Georgina Moreira Felix | 659.08s
+2026-03-14 08:48:35,953 [INFO] root - Iteração 107
+2026-03-14 08:48:37,880 [INFO] root - [107/248] Enviado para Joaquim Freitas Coelho | 663.01s
+2026-03-14 08:48:40,227 [INFO] root - Iteração 108
+2026-03-14 08:48:44,291 [INFO] root - [108/248] Enviado para Teresa Conceição Pinto Oliveira | 669.41s
+2026-03-14 08:48:46,650 [INFO] root - Iteração 109
+2026-03-14 08:48:48,746 [INFO] root - [109/248] Enviado para Jorge Vicente Carreira | 673.87s
+2026-03-14 08:48:50,811 [INFO] root - Iteração 110
+2026-03-14 08:48:53,597 [INFO] root - [110/248] Enviado para Franclim de Sousa Neto | 678.72s
+2026-03-14 08:48:56,397 [INFO] root - Iteração 111
+2026-03-14 08:48:59,470 [INFO] root - [111/248] Enviado para Jorge Manuel Santos Cunha | 684.60s
+2026-03-14 08:49:01,196 [INFO] root - Iteração 112
+2026-03-14 08:49:03,177 [INFO] root - [112/248] Enviado para Maria dos Prazeres G. Araújo Patornilho | 688.31s
+2026-03-14 08:49:04,898 [INFO] root - Iteração 113
+2026-03-14 08:49:06,962 [INFO] root - [113/248] Enviado para Julio da Silva Rocha | 692.10s
+2026-03-14 08:49:09,536 [INFO] root - Iteração 114
+2026-03-14 08:49:11,887 [INFO] root - [114/248] Enviado para Maria de Lourdes A. Silva Cruz | 697.01s
+2026-03-14 08:49:14,717 [INFO] root - Iteração 115
+2026-03-14 08:49:17,684 [INFO] root - [115/248] Enviado para Alfredo Guilherme Cerqueira Prima | 702.81s
+2026-03-14 08:49:19,560 [INFO] root - Iteração 116
+2026-03-14 08:49:21,719 [INFO] root - [116/248] Enviado para Eva Julia Martins Oliveira Prima | 706.85s
+2026-03-14 08:49:24,068 [INFO] root - Iteração 117
+2026-03-14 08:49:28,097 [INFO] root - [117/248] Enviado para Armindo Manuel Oliveira Gomes | 713.23s
+2026-03-14 08:49:30,750 [INFO] root - Iteração 118
+2026-03-14 08:49:34,844 [INFO] root - [118/248] Enviado para Maria Carmo Ferreira Sousa Cruz | 719.96s
+2026-03-14 08:49:36,835 [INFO] root - Iteração 119
+2026-03-14 08:49:40,872 [INFO] root - [119/248] Enviado para Mário Lima Mesquita | 726.00s
+2026-03-14 08:49:42,182 [INFO] root - Iteração 120
+2026-03-14 08:49:46,559 [INFO] root - [120/248] Enviado para Álvaro António da Silva Moreira da Rocha | 731.69s
+2026-03-14 08:49:47,577 [INFO] root - Iteração 121
+2026-03-14 08:49:50,109 [INFO] root - [121/248] Enviado para Manuel António Pinto Fontoura | 735.23s
+2026-03-14 08:49:53,110 [INFO] root - Iteração 122
+2026-03-14 08:49:55,908 [INFO] root - [122/248] Enviado para José Alberto Araújo Lopes | 741.04s
+2026-03-14 08:49:57,969 [INFO] root - Iteração 123
+2026-03-14 08:50:02,235 [INFO] root - [123/248] Enviado para Rui Fernando Gonçalves Neves Morais | 747.37s
+2026-03-14 08:50:04,007 [INFO] root - Iteração 124
+2026-03-14 08:50:07,908 [INFO] root - [124/248] Enviado para Aurora Maria Oliveira Moreira | 753.03s
+2026-03-14 08:50:09,173 [INFO] root - Iteração 125
+2026-03-14 08:50:11,721 [INFO] root - [125/248] Enviado para Carlos Serafim Oliveira Marques | 756.85s
+2026-03-14 08:50:13,534 [INFO] root - Iteração 126
+2026-03-14 08:50:15,626 [INFO] root - [126/248] Enviado para Elsa Maria Ribeiro de Sousa Magalhães | 760.75s
+2026-03-14 08:50:17,045 [INFO] root - Iteração 127
+2026-03-14 08:50:21,183 [INFO] root - [127/248] Enviado para Maria Teresa Ribeiro Costa e Silva Azevedo | 766.31s
+2026-03-14 08:50:23,422 [INFO] root - Iteração 128
+2026-03-14 08:50:25,321 [INFO] root - [128/248] Enviado para Adriano Augusto Campos Batista | 770.44s
+2026-03-14 08:50:27,678 [INFO] root - Iteração 129
+2026-03-14 08:50:31,341 [INFO] root - [129/248] Enviado para David Oliveira Leite | 776.47s
+2026-03-14 08:50:33,295 [INFO] root - Iteração 130
+2026-03-14 08:50:37,051 [INFO] root - [130/248] Enviado para António Fernando Santos Leça | 782.18s
+2026-03-14 08:50:39,539 [INFO] root - Iteração 131
+2026-03-14 08:50:43,689 [INFO] root - [131/248] Enviado para Adão José Mesquita Oliveira | 788.82s
+2026-03-14 08:50:45,275 [INFO] root - Iteração 132
+2026-03-14 08:50:47,847 [INFO] root - [132/248] Enviado para Manuel António Costa | 792.97s
+2026-03-14 08:50:49,035 [INFO] root - Iteração 133
+2026-03-14 08:50:51,230 [INFO] root - [133/248] Enviado para José António Soares Faneco | 796.35s
+2026-03-14 08:50:52,821 [INFO] root - Iteração 134
+2026-03-14 08:50:56,943 [INFO] root - [134/248] Enviado para José Jeronimo Ribeiro Lemos | 802.07s
+2026-03-14 08:50:58,829 [INFO] root - Iteração 135
+2026-03-14 08:51:02,278 [INFO] root - [135/248] Enviado para Osvaldo Costa | 807.40s
+2026-03-14 08:51:03,654 [INFO] root - Iteração 136
+2026-03-14 08:51:05,702 [INFO] root - [136/248] Enviado para Fernando Martins Monteiro | 810.82s
+2026-03-14 08:51:08,664 [INFO] root - Iteração 137
+2026-03-14 08:51:12,526 [INFO] root - [137/248] Enviado para Maria Glória Marques Soares Gomes | 817.64s
+2026-03-14 08:51:13,729 [INFO] root - Iteração 138
+2026-03-14 08:51:16,568 [INFO] root - [138/248] Enviado para José Francisco Nunes Costa | 821.69s
+2026-03-14 08:51:18,067 [INFO] root - Iteração 139
+2026-03-14 08:51:21,486 [INFO] root - [139/248] Enviado para Pedro Duarte Fernandes Sampaio | 826.61s
+2026-03-14 08:51:22,710 [INFO] root - Iteração 140
+2026-03-14 08:51:25,586 [INFO] root - [140/248] Enviado para Fernando de Jesus Castro Oliveira | 830.71s
+2026-03-14 08:51:26,813 [INFO] root - Iteração 141
+2026-03-14 08:51:30,709 [INFO] root - [141/248] Enviado para José Pereira Loureiro Dias | 835.84s
+2026-03-14 08:51:32,560 [INFO] root - Iteração 142
+2026-03-14 08:51:36,043 [INFO] root - [142/248] Enviado para Adriano Augusto Correia Costa | 841.16s
+2026-03-14 08:51:37,464 [INFO] root - Iteração 143
+2026-03-14 08:51:39,337 [INFO] root - [143/248] Enviado para Maria Leopoldina Vale | 844.47s
+2026-03-14 08:51:42,296 [INFO] root - Iteração 144
+2026-03-14 08:51:45,090 [INFO] root - [144/248] Enviado para Casimira Carvalho da Silva | 850.21s
+2026-03-14 08:51:47,810 [INFO] root - Iteração 145
+2026-03-14 08:51:50,084 [INFO] root - [145/248] Enviado para António Luís Correia Sousa | 855.20s
+2026-03-14 08:51:51,259 [INFO] root - Iteração 146
+2026-03-14 08:51:54,704 [INFO] root - [146/248] Enviado para Ricardo João Santos Taveira | 859.83s
+2026-03-14 08:51:55,885 [INFO] root - Iteração 147
+2026-03-14 08:51:59,461 [INFO] root - [147/248] Enviado para José Alberto Loureiro de Brito | 864.60s
+2026-03-14 08:52:02,063 [INFO] root - Iteração 148
+2026-03-14 08:52:04,990 [INFO] root - [148/248] Enviado para António Pereira Silva | 870.11s
+2026-03-14 08:52:07,433 [INFO] root - Iteração 149
+2026-03-14 08:52:09,937 [INFO] root - [149/248] Enviado para Augusto Domingos Valerio Cunha | 875.06s
+2026-03-14 08:52:11,808 [INFO] root - Iteração 150
+2026-03-14 08:52:15,013 [INFO] root - [150/248] Enviado para Celso Prior Gonçalves | 880.13s
+2026-03-14 08:53:47,091 [INFO] root - Iteração 151
+2026-03-14 08:53:49,510 [INFO] root - [151/248] Enviado para Maria Candida Martins Santos Barros | 974.64s
+2026-03-14 08:53:51,203 [INFO] root - Iteração 152
+2026-03-14 08:53:53,131 [INFO] root - [152/248] Enviado para Joaquim Moreira Silva | 978.25s
+2026-03-14 08:53:54,473 [INFO] root - Iteração 153
+2026-03-14 08:53:56,985 [INFO] root - [153/248] Enviado para Luís Filipe de Bastos | 982.12s
+2026-03-14 08:53:59,448 [INFO] root - Iteração 154
+2026-03-14 08:54:03,491 [INFO] root - [154/248] Enviado para Anabela Quintas Pinto Gonçalves | 988.62s
+2026-03-14 08:54:05,312 [INFO] root - Iteração 155
+2026-03-14 08:54:08,516 [INFO] root - [155/248] Enviado para Carlos Alberto Carvalho Silva | 993.64s
+2026-03-14 08:54:09,615 [INFO] root - Iteração 156
+2026-03-14 08:54:11,592 [INFO] root - [156/248] Enviado para Maria Irene Domingues da Rocha | 996.72s
+2026-03-14 08:54:13,246 [INFO] root - Iteração 157
+2026-03-14 08:54:17,070 [INFO] root - [157/248] Enviado para Alcina Maria Cunha Fonseca | 1002.19s
+2026-03-14 08:54:19,782 [INFO] root - Iteração 158
+2026-03-14 08:54:21,830 [INFO] root - [158/248] Enviado para Maria Madalena Santos Rocha | 1006.96s
+2026-03-14 08:54:23,324 [INFO] root - Iteração 159
+2026-03-14 08:54:25,389 [INFO] root - [159/248] Enviado para José Manuel Sousa Pinho | 1010.51s
+2026-03-14 08:54:26,404 [INFO] root - Iteração 160
+2026-03-14 08:54:28,990 [INFO] root - [160/248] Enviado para José António Castelhano Garcia | 1014.12s
+2026-03-14 08:54:31,805 [INFO] root - Iteração 161
+2026-03-14 08:54:33,841 [INFO] root - [161/248] Enviado para Júlio Alberto Soares Carvalho | 1018.97s
+2026-03-14 08:54:36,717 [INFO] root - Iteração 162
+2026-03-14 08:54:39,917 [INFO] root - [162/248] Enviado para Maria Balbina Carvalho | 1025.04s
+2026-03-14 08:54:42,264 [INFO] root - Iteração 163
+2026-03-14 08:54:44,554 [INFO] root - [163/248] Enviado para Porfirio José Faria | 1029.69s
+2026-03-14 08:54:46,495 [INFO] root - Iteração 164
+2026-03-14 08:54:49,593 [INFO] root - [164/248] Enviado para Maria Ivone Barbieri Cardoso Almeida | 1034.72s
+2026-03-14 08:54:52,595 [INFO] root - Iteração 165
+2026-03-14 08:54:55,435 [INFO] root - [165/248] Enviado para Joaquina Céu Pereira Rodrigues Coelho | 1040.55s
+2026-03-14 08:54:57,616 [INFO] root - Iteração 166
+2026-03-14 08:55:01,533 [INFO] root - [166/248] Enviado para Isaura Rosalina Ferreira Conceição | 1046.65s
+2026-03-14 08:55:04,072 [INFO] root - Iteração 167
+2026-03-14 08:55:07,807 [INFO] root - [167/248] Enviado para Amadeu Fernando Lucas de Melo | 1052.93s
+2026-03-14 08:55:10,535 [INFO] root - Iteração 168
+2026-03-14 08:55:13,343 [INFO] root - [168/248] Enviado para Joaquim Manuel Pedroso Silva Faria | 1058.47s
+2026-03-14 08:55:15,462 [INFO] root - Iteração 169
+2026-03-14 08:55:18,052 [INFO] root - [169/248] Enviado para Tiago Daniel Pereira Soares Perfeito | 1063.17s
+2026-03-14 08:55:19,116 [INFO] root - Iteração 170
+2026-03-14 08:55:22,916 [INFO] root - [170/248] Enviado para António Venceslau Silva Santos | 1068.04s
+2026-03-14 08:55:24,729 [INFO] root - Iteração 171
+2026-03-14 08:55:26,573 [INFO] root - [171/248] Enviado para Mário Joaquim Pimenta Sampaio | 1071.70s
+2026-03-14 08:55:28,891 [INFO] root - Iteração 172
+2026-03-14 08:55:32,414 [INFO] root - [172/248] Enviado para Maria Fátima Monteiro Silva Afonso | 1077.53s
+2026-03-14 08:55:33,976 [INFO] root - Iteração 173
+2026-03-14 08:55:35,948 [INFO] root - [173/248] Enviado para Eugenia Alice Gomes Bessa | 1081.08s
+2026-03-14 08:55:37,336 [INFO] root - Iteração 174
+2026-03-14 08:55:39,490 [INFO] root - [174/248] Enviado para Francisco Ferreira dos Santos | 1084.62s
+2026-03-14 08:55:42,026 [INFO] root - Iteração 175
+2026-03-14 08:55:45,145 [INFO] root - [175/248] Enviado para Henrique de Jesus Leite | 1090.27s
+2026-03-14 08:55:47,660 [INFO] root - Iteração 176
+2026-03-14 08:58:30,995 [INFO] root - [176/248] Enviado para José Fernandes do Couto | 1256.12s
+2026-03-14 08:58:32,430 [INFO] root - Iteração 177
+2026-03-14 08:58:36,268 [INFO] root - [177/248] Enviado para Avelino Soares de Almeida | 1261.40s
+2026-03-14 08:58:37,552 [INFO] root - Iteração 178
+2026-03-14 08:58:40,824 [INFO] root - [178/248] Enviado para Nelma Soares Almeida Costa Gilvaia | 1265.95s
+2026-03-14 08:58:42,434 [INFO] root - Iteração 179
+2026-03-14 08:58:45,695 [INFO] root - [179/248] Enviado para Manuel Almeida Cunha Costa e Sousa | 1270.82s
+2026-03-14 08:58:46,781 [INFO] root - Iteração 180
+2026-03-14 08:58:51,110 [INFO] root - [180/248] Enviado para Virgínia Maria Moura Basto | 1276.23s
+2026-03-14 08:58:52,402 [INFO] root - Iteração 181
+2026-03-14 08:58:55,493 [INFO] root - [181/248] Enviado para Regina Leite Cardoso Rodrigues | 1280.62s
+2026-03-14 08:58:57,220 [INFO] root - Iteração 182
+2026-03-14 08:58:59,358 [INFO] root - [182/248] Enviado para Ana Maria Stanislau Carvalho Ribeiro | 1284.48s
+2026-03-14 08:59:00,633 [INFO] root - Iteração 183
+2026-03-14 08:59:04,580 [INFO] root - [183/248] Enviado para Guilhermina Aurora Figueiredo Oliveira | 1289.71s
+2026-03-14 08:59:06,733 [INFO] root - Iteração 184
+2026-03-14 08:59:08,549 [INFO] root - [184/248] Enviado para Vitorina D' Ascenção Dias | 1293.67s
+2026-03-14 08:59:09,836 [INFO] root - Iteração 185
+2026-03-14 08:59:13,322 [INFO] root - [185/248] Enviado para Sofia Margarida do Carmo Goncalves Cruz | 1298.45s
+2026-03-14 08:59:15,834 [INFO] root - Iteração 186
+2026-03-14 08:59:18,986 [INFO] root - [186/248] Enviado para Fátima Nazaré Coutinho Carvalho Costa | 1304.11s
+2026-03-14 08:59:21,672 [INFO] root - Iteração 187
+2026-03-14 08:59:25,891 [INFO] root - [187/248] Enviado para Marta Susana Gonçalves Franco | 1311.01s
+2026-03-14 08:59:27,110 [INFO] root - Iteração 188
+2026-03-14 08:59:29,541 [INFO] root - [188/248] Enviado para José Domingos Henriques Valente | 1314.67s
+2026-03-14 08:59:31,200 [INFO] root - Iteração 189
+2026-03-14 08:59:34,538 [INFO] root - [189/248] Enviado para José Rui Nunes Pinhel | 1319.66s
+2026-03-14 08:59:37,046 [INFO] root - Iteração 190
+2026-03-14 08:59:39,257 [INFO] root - [190/248] Enviado para Paulo Pinto Barbedo | 1324.38s
+2026-03-14 08:59:41,042 [INFO] root - Iteração 191
+2026-03-14 08:59:45,047 [INFO] root - [191/248] Enviado para Laxmiprasad Varajidás | 1330.17s
+2026-03-14 08:59:48,042 [INFO] root - Iteração 192
+2026-03-14 08:59:51,722 [INFO] root - [192/248] Enviado para Vitor Nuno Fernandes Moreira | 1336.86s
+2026-03-14 08:59:53,664 [INFO] root - Iteração 193
+2026-03-14 08:59:55,513 [INFO] root - [193/248] Enviado para Vitor António Dias Amor | 1340.63s
+2026-03-14 08:59:57,973 [INFO] root - Iteração 194
+2026-03-14 09:00:01,940 [INFO] root - [194/248] Enviado para Conceição Maria de Almeida Tavares | 1347.06s
+2026-03-14 09:00:04,686 [INFO] root - Iteração 195
+2026-03-14 09:00:08,584 [INFO] root - [195/248] Enviado para Maria Rosa de Almeida Tavares | 1353.70s
+2026-03-14 09:00:09,634 [INFO] root - Iteração 196
+2026-03-14 09:00:12,818 [INFO] root - [196/248] Enviado para Ana Maria Miranda Gomes Costa | 1357.94s
+2026-03-14 09:00:14,692 [INFO] root - Iteração 197
+2026-03-14 09:00:18,966 [INFO] root - [197/248] Enviado para Maria Goretti Oliveira Sousa Henriques | 1364.10s
+2026-03-14 09:00:20,263 [INFO] root - Iteração 198
+2026-03-14 09:00:23,187 [INFO] root - [198/248] Enviado para João Manuel Jesus Paiva Rocha | 1368.31s
+2026-03-14 09:00:25,147 [INFO] root - Iteração 199
+2026-03-14 09:00:27,505 [INFO] root - [199/248] Enviado para José Manuel da Silva Pacheco | 1372.63s
+2026-03-14 09:00:29,832 [INFO] root - Iteração 200
+2026-03-14 09:00:33,421 [INFO] root - [200/248] Enviado para Valério Neto Ferreira | 1378.55s
+2026-03-14 09:01:29,871 [INFO] root - Iteração 201
+2026-03-14 09:01:32,332 [INFO] root - [201/248] Enviado para Maria Goreti Alves Coelho Carvalho | 1437.46s
+2026-03-14 09:01:34,360 [INFO] root - Iteração 202
+2026-03-14 09:01:38,050 [INFO] root - [202/248] Enviado para Alina Manuela Miranda Brites Gouveia Martins | 1443.18s
+2026-03-14 09:01:40,881 [INFO] root - Iteração 203
+2026-03-14 09:01:44,157 [INFO] root - [203/248] Enviado para António da Silva Cardoso | 1449.28s
+2026-03-14 09:01:45,837 [INFO] root - Iteração 204
+2026-03-14 09:01:49,002 [INFO] root - [204/248] Enviado para António Carlos Carneiro Damas | 1454.13s
+2026-03-14 09:01:50,605 [INFO] root - Iteração 205
+2026-03-14 09:01:52,660 [INFO] root - [205/248] Enviado para Domingos Manuel da Silva | 1457.79s
+2026-03-14 09:01:54,047 [INFO] root - Iteração 206
+2026-03-14 09:01:56,865 [INFO] root - [206/248] Enviado para Amandio Mário Cunha da Fonseca | 1462.00s
+2026-03-14 09:01:58,197 [INFO] root - Iteração 207
+2026-03-14 09:02:01,426 [INFO] root - [207/248] Enviado para Maria Alexandra Almeida Guerra Sardinha | 1466.56s
+2026-03-14 09:02:03,916 [INFO] root - Iteração 208
+2026-03-14 09:02:07,834 [INFO] root - [208/248] Enviado para Ana Andreia Viseu da Conceição | 1472.96s
+2026-03-14 09:02:09,670 [INFO] root - Iteração 209
+2026-03-14 09:02:12,798 [INFO] root - [209/248] Enviado para João Tiago Magalhães Campos Fontes | 1477.92s
+2026-03-14 09:02:15,590 [INFO] root - Iteração 210
+2026-03-14 09:02:17,724 [INFO] root - [210/248] Enviado para 2Higino Angelo Pereira da Silva | 1482.84s
+2026-03-14 09:02:19,026 [INFO] root - Iteração 211
+2026-03-14 09:02:20,907 [INFO] root - [211/248] Enviado para Maria Gabriela Ramalheira de Matos Pereira | 1486.03s
+2026-03-14 09:02:22,793 [INFO] root - Iteração 212
+2026-03-14 09:02:25,389 [INFO] root - [212/248] Enviado para Maria de Fátima da Cunha Dias Vilhena e Mascarenha | 1490.51s
+2026-03-14 09:02:27,680 [INFO] root - Iteração 213
+2026-03-14 09:02:30,244 [INFO] root - [213/248] Enviado para António Candido Moreira Queirós | 1495.37s
+2026-03-14 09:02:32,846 [INFO] root - Iteração 214
+2026-03-14 09:02:35,432 [INFO] root - [214/248] Enviado para Aida da Costa Pinto | 1500.56s
+2026-03-14 09:02:37,743 [INFO] root - Iteração 215
+2026-03-14 09:02:41,298 [INFO] root - [215/248] Enviado para Francisco Orge Basadre | 1506.42s
+2026-03-14 09:02:42,563 [INFO] root - Iteração 216
+2026-03-14 09:02:47,205 [INFO] root - [216/248] Enviado para Ana Paula Pinto Vieira Pinho | 1512.33s
+2026-03-14 09:02:49,465 [INFO] root - Iteração 217
+2026-03-14 09:02:51,801 [INFO] root - [217/248] Enviado para Luísa Cristina Passos Pinto Mouro de M. Loureiro | 1516.92s
+2026-03-14 09:02:52,950 [INFO] root - Iteração 218
+2026-03-14 09:02:55,824 [INFO] root - [218/248] Enviado para José Paulo Dimitri Pinheiro | 1520.95s
+2026-03-14 09:02:58,097 [INFO] root - Iteração 219
+2026-03-14 09:03:00,016 [INFO] root - [219/248] Enviado para Renato Benjamim Lopes Tavares | 1525.14s
+2026-03-14 09:03:02,800 [INFO] root - Iteração 220
+2026-03-14 09:03:06,375 [INFO] root - [220/248] Enviado para Maria Augusta Alves Carvalho | 1531.50s
+2026-03-14 09:03:09,360 [INFO] root - Iteração 221
+2026-03-14 09:03:13,479 [INFO] root - [221/248] Enviado para José Manuel Machado Silva | 1538.60s
+2026-03-14 09:03:14,680 [INFO] root - Iteração 222
+2026-03-14 09:03:18,769 [INFO] root - [222/248] Enviado para Olga do Nascimento Borges Duarte | 1543.90s
+2026-03-14 09:03:21,683 [INFO] root - Iteração 223
+2026-03-14 09:03:25,747 [INFO] root - [223/248] Enviado para Cristina Maria Sá Ferreira | 1550.87s
+2026-03-14 09:03:26,862 [INFO] root - Iteração 224
+2026-03-14 09:03:28,718 [INFO] root - [224/248] Enviado para Maria de Jesus Oliveira Cunha Guimarães | 1553.84s
+2026-03-14 09:03:31,420 [INFO] root - Iteração 225
+2026-03-14 09:03:35,099 [INFO] root - [225/248] Enviado para Maria Paula Martins Baptista C. Miranda Rodrigues | 1560.22s
+2026-03-14 09:03:37,542 [INFO] root - Iteração 226
+2026-03-14 09:03:41,499 [INFO] root - [226/248] Enviado para José Fernando de Almeida Nunes Tavares | 1566.62s
+2026-03-14 09:03:43,173 [INFO] root - Iteração 227
+2026-03-14 09:03:45,228 [INFO] root - [227/248] Enviado para José Luís Cabral da Trindade | 1570.36s
+2026-03-14 09:03:48,073 [INFO] root - Iteração 228
+2026-03-14 09:03:50,440 [INFO] root - [228/248] Enviado para António Alves Pereira Pinto | 1575.56s
+2026-03-14 09:03:51,995 [INFO] root - Iteração 229
+2026-03-14 09:03:55,845 [INFO] root - [229/248] Enviado para Maria da Conceição Pereira Rosas Pinto | 1580.97s
+2026-03-14 09:03:57,947 [INFO] root - Iteração 230
+2026-03-14 09:04:00,036 [INFO] root - [230/248] Enviado para António Jorge da Fonseca Simões | 1585.16s
+2026-03-14 09:04:01,480 [INFO] root - Iteração 231
+2026-03-14 09:04:05,904 [INFO] root - [231/248] Enviado para Eugénio Alberto Ferreira da Silva | 1591.02s
+2026-03-14 09:04:06,932 [INFO] root - Iteração 232
+2026-03-14 09:04:10,076 [INFO] root - [232/248] Enviado para Maria Otília Teixeira Bessa da Silva | 1595.20s
+2026-03-14 09:04:11,563 [INFO] root - Iteração 233
+2026-03-14 09:04:15,556 [INFO] root - [233/248] Enviado para Alexandre Filipe Queirós Vasconcelos da Rocha | 1600.68s
+2026-03-14 09:04:16,758 [INFO] root - Iteração 234
+2026-03-14 09:04:19,931 [INFO] root - [234/248] Enviado para Ana Filipa Espinha Nunes | 1605.05s
+2026-03-14 09:04:21,740 [INFO] root - Iteração 235
+2026-03-14 09:04:23,828 [INFO] root - [235/248] Enviado para Margarida Maria Barros Sousa | 1608.95s
+2026-03-14 09:04:25,587 [INFO] root - Iteração 236
+2026-03-14 09:04:28,657 [INFO] root - [236/248] Enviado para Anabela Maria Ferreira Tedim Vieira | 1613.78s
+2026-03-14 09:04:30,148 [INFO] root - Iteração 237
+2026-03-14 09:04:33,287 [INFO] root - [237/248] Enviado para Maria Clara Martins Sousa Rocha | 1618.41s
+2026-03-14 09:04:34,609 [INFO] root - Iteração 238
+2026-03-14 09:04:37,420 [INFO] root - [238/248] Enviado para Márcio José da Silva Rocha | 1622.54s
+2026-03-14 09:04:39,286 [INFO] root - Iteração 239
+2026-03-14 09:04:42,765 [INFO] root - [239/248] Enviado para José António Lopes Pinto Castro | 1627.90s
+2026-03-14 09:04:45,616 [INFO] root - Iteração 240
+2026-03-14 09:04:49,624 [INFO] root - [240/248] Enviado para Aldina de Jesus Ribeiro | 1634.75s
+2026-03-14 09:04:51,792 [INFO] root - Iteração 241
+2026-03-14 09:04:55,944 [INFO] root - [241/248] Enviado para António Jorge Álvares Soares Pinto | 1641.06s
+2026-03-14 09:04:57,897 [INFO] root - Iteração 242
+2026-03-14 09:05:00,217 [INFO] root - [242/248] Enviado para Manuela Assunção Costa Dias | 1645.34s
+2026-03-14 09:05:02,596 [INFO] root - Iteração 243
+2026-03-14 09:05:06,183 [INFO] root - [243/248] Enviado para Sónia Guedes Magalhães de Carvalho | 1651.30s
+2026-03-14 09:05:07,685 [INFO] root - Iteração 244
+2026-03-14 09:05:09,902 [INFO] root - [244/248] Enviado para Carlos Alberto Martins Ferreira | 1655.04s
+2026-03-14 09:05:11,108 [INFO] root - Iteração 245
+2026-03-14 09:05:14,477 [INFO] root - [245/248] Enviado para Carlos Alberto Alves Pais Moreira | 1659.61s
+2026-03-14 09:05:16,906 [INFO] root - Iteração 246
+2026-03-14 09:05:21,085 [INFO] root - [246/248] Enviado para Maria Alexandra Ferreira Gouveia | 1666.21s
+2026-03-14 09:05:23,685 [INFO] root - Iteração 247
+2026-03-14 09:05:25,654 [INFO] root - [247/248] Enviado para António José Cunha Oliveira | 1670.78s
+2026-03-14 09:05:28,109 [INFO] root - Iteração 248
+2026-03-14 09:05:30,938 [INFO] root - [248/248] Enviado para ??????? | 1676.06s
+2026-03-14 09:38:38,938 [INFO] root - Email profile carregado: associados
+2026-03-14 09:38:39,054 [ERROR] root - Erro fatal no módulo Associados.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 112, in main
+    return run_gui()
+           ^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 72, in run_gui
+    controller.start()
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 20, in start
+    self.gui = AssociadosMenuGUI(self.root, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_menu_gui.py", line 12, in __init__
+    BaseGui.__init__(self, root, controller)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\shared\base_gui.py", line 37, in __init__
+    handler = GuiLogHandler(self.root,self)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GuiLogHandler.__init__() takes 2 positional arguments but 3 were given
+2026-03-14 09:41:43,311 [INFO] root - Email profile carregado: associados
+2026-03-14 09:41:43,422 [ERROR] root - Erro fatal no módulo Associados.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 112, in main
+    return run_gui()
+           ^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 72, in run_gui
+    controller.start()
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 20, in start
+    self.gui = AssociadosMenuGUI(self.root, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_menu_gui.py", line 12, in __init__
+    BaseGui.__init__(self, root, controller)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\shared\base_gui.py", line 37, in __init__
+    handler = GuiLogHandler(self.root,self)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GuiLogHandler.__init__() takes 2 positional arguments but 3 were given
+2026-03-14 09:43:36,005 [INFO] root - Email profile carregado: associados
+2026-03-14 09:43:36,088 [ERROR] root - Erro fatal no módulo Associados.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 112, in main
+    return run_gui()
+           ^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 72, in run_gui
+    controller.start()
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 20, in start
+    self.gui = AssociadosMenuGUI(self.root, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_menu_gui.py", line 12, in __init__
+    BaseGui.__init__(self, root, controller)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\shared\base_gui.py", line 41, in __init__
+    handler = GuiLogHandler(self.root,self)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GuiLogHandler.__init__() takes 2 positional arguments but 3 were given
+2026-03-14 09:47:07,483 [INFO] root - Email profile carregado: associados
+2026-03-14 09:47:33,082 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 09:47:37,440 [INFO] root - Envios preparados: 920 | Já enviados: 345 | Por enviar: 575
+2026-03-14 09:48:35,131 [INFO] root - Início do envio...
+2026-03-14 09:48:35,147 [INFO] root - Associados selecionados=176
+2026-03-14 09:48:35,147 [INFO] root - UseCase.executar iniciado
+2026-03-14 09:48:35,147 [INFO] root - total para processar=176
+2026-03-14 09:48:39,375 [INFO] root - [1/176] Enviado para José Maria Lages Barbosa de Araújo | 4.23s
+2026-03-14 09:48:43,609 [INFO] root - [2/176] Enviado para Ernesto Carvalho Teixeira de Morais | 8.46s
+2026-03-14 09:48:48,892 [INFO] root - [3/176] Enviado para António Alvino Cunha Barbosa | 13.75s
+2026-03-14 09:48:53,977 [INFO] root - [4/176] Enviado para Alexandre Silva Mateus | 18.83s
+2026-03-14 09:48:59,040 [INFO] root - [5/176] Enviado para Lívia Madalena Carvalho Pinto  Cardoso | 23.90s
+2026-03-14 09:49:02,986 [INFO] root - [6/176] Enviado para António Nogueira Vieira | 27.85s
+2026-03-14 09:49:07,560 [INFO] root - [7/176] Enviado para Maria Conceição Oliveira Campos Silva Moreira | 32.42s
+2026-03-14 09:49:12,435 [INFO] root - [8/176] Enviado para Maria Antónia Martins Cardoso Andrade Leite | 37.28s
+2026-03-14 09:49:17,737 [INFO] root - [9/176] Enviado para Manuel Fernando Soares Pinto | 42.59s
+2026-03-14 09:49:21,294 [INFO] root - [10/176] Enviado para Maria de Lurdes Salgueiro | 46.15s
+2026-03-14 09:49:26,408 [INFO] root - [11/176] Enviado para Ana Deolinda Oliveira  Santos Ataíde Fonseca | 51.26s
+2026-03-14 09:49:31,743 [INFO] root - [12/176] Enviado para Candido Conceição Lopes | 56.59s
+2026-03-14 09:49:37,577 [INFO] root - [13/176] Enviado para Maria Teresa Almeida  Dias Silva Oliveira | 62.43s
+2026-03-14 09:49:43,396 [INFO] root - [14/176] Enviado para Adriano Mário Torres Neves | 68.24s
+2026-03-14 09:49:48,958 [ERROR] root - Erro ao enviar email para Lúcia Jesus Aorim Moreira (luciajesusmoreira@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 121, in executar
+    df_full.to_excel(ficheiro_envio, index=False)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\\Associados\\convocatoriaAG260327_envio.xlsx'
+2026-03-14 09:49:48,976 [INFO] root - [15/176] Enviado para Lúcia Jesus Aorim Moreira | 73.82s
+2026-03-14 09:49:54,689 [INFO] root - [16/176] Enviado para Fernando Silva Couto Soares | 79.54s
+2026-03-14 09:50:00,721 [INFO] root - [17/176] Enviado para José Santos Leocadio | 85.57s
+2026-03-14 09:50:04,012 [INFO] root - [18/176] Enviado para Fernando Augusto Teixeira Ferraz | 88.86s
+2026-03-14 09:50:08,335 [INFO] root - [19/176] Enviado para Abel Teixeira Bessa | 93.18s
+2026-03-14 09:50:12,638 [INFO] root - [20/176] Enviado para Fernando Augusto Cunha Sousa | 97.49s
+2026-03-14 09:50:17,183 [INFO] root - [21/176] Enviado para Maria Helena de Melo Rodrigues Machado e Sousa | 102.03s
+2026-03-14 09:50:21,619 [INFO] root - [22/176] Enviado para Alberto Moura Silva | 106.47s
+2026-03-14 09:50:26,690 [INFO] root - [23/176] Enviado para Isabel Maria Valente  Almeida Melo Santos | 111.54s
+2026-03-14 09:50:31,568 [INFO] root - [24/176] Enviado para Paula Cristina Lopes Ventura Firmino | 116.42s
+2026-03-14 09:50:37,896 [INFO] root - [25/176] Enviado para Jorge Manuel Mendes Firmino | 122.75s
+2026-03-14 09:50:43,910 [INFO] root - [26/176] Enviado para Jorge Manuel Tomé dos Santos | 128.76s
+2026-03-14 09:50:50,383 [INFO] root - [27/176] Enviado para Vitória Soares Moura Ribeiro | 135.23s
+2026-03-14 09:50:55,642 [INFO] root - [28/176] Enviado para José Tavares Pinto Brandão | 140.49s
+2026-03-14 09:50:59,143 [INFO] root - [29/176] Enviado para Oscar Valentim Sousa Marques | 143.99s
+2026-03-14 09:51:02,973 [ERROR] root - Erro ao enviar email para Eduardo Fernando Rodrigues de Freitas (vitoria11@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 121, in executar
+    df_full.to_excel(ficheiro_envio, index=False)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\\Associados\\convocatoriaAG260327_envio.xlsx'
+2026-03-14 09:51:02,983 [INFO] root - [30/176] Enviado para Eduardo Fernando Rodrigues de Freitas | 147.83s
+2026-03-14 09:51:07,418 [INFO] root - [31/176] Enviado para Cordelina Silva Cunha Ferreira | 152.27s
+2026-03-14 09:51:11,751 [INFO] root - [32/176] Enviado para João Licinio Silva Botelho | 156.60s
+2026-03-14 09:51:17,483 [INFO] root - [33/176] Enviado para Maria Manuela Martins dos Santos | 162.34s
+2026-03-14 09:51:22,364 [INFO] root - [34/176] Enviado para Luís Nascimento Assunção | 167.22s
+2026-03-14 09:51:28,426 [INFO] root - [35/176] Enviado para António Oliveira Rodrigues | 173.27s
+2026-03-14 09:51:33,094 [INFO] root - [36/176] Enviado para Clarinda Estrela Rocha Vale | 177.95s
+2026-03-14 09:51:37,024 [INFO] root - [37/176] Enviado para Julio Martins Lopes | 181.87s
+2026-03-14 09:51:40,434 [INFO] root - [38/176] Enviado para Maria Julia Carneiro Guimarães  | 185.28s
+2026-03-14 09:51:45,196 [INFO] root - [39/176] Enviado para Zara da Silva Soares | 190.04s
+2026-03-14 09:51:49,021 [INFO] root - [40/176] Enviado para Maria Eduarda Tavares Vieira Costa Ferreira | 193.87s
+2026-03-14 09:51:54,929 [INFO] root - [41/176] Enviado para Manuel Nascimento Duarte | 199.78s
+2026-03-14 09:51:58,535 [INFO] root - [42/176] Enviado para Isabel Maria Teixeira Gomes da Costa | 203.38s
+2026-03-14 09:52:04,354 [INFO] root - [43/176] Enviado para Joaquim Luís Gomes da Costa | 209.21s
+2026-03-14 09:52:09,397 [INFO] root - [44/176] Enviado para Maria Diamantina Cesar Teixeira | 214.24s
+2026-03-14 09:52:16,145 [ERROR] root - Erro ao enviar email para José Loureiro da Rocha (jr1937@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 121, in executar
+    df_full.to_excel(ficheiro_envio, index=False)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\\Associados\\convocatoriaAG260327_envio.xlsx'
+2026-03-14 09:52:16,145 [INFO] root - [45/176] Enviado para José Loureiro da Rocha | 221.00s
+2026-03-14 09:52:22,254 [INFO] root - [46/176] Enviado para Francisco Manuel Ferreira Machado | 227.10s
+2026-03-14 09:52:27,594 [INFO] root - [47/176] Enviado para Ana Paula Ramos Rodrigues Gonçalves | 232.45s
+2026-03-14 09:52:31,904 [INFO] root - [48/176] Enviado para Isabela Maria Martins Silva Mendes | 236.75s
+2026-03-14 09:52:37,214 [INFO] root - [49/176] Enviado para Eduarda Alexandrina Silva Rodrigues Bulhosa | 242.07s
+2026-03-14 09:52:42,974 [INFO] root - [50/176] Enviado para Cristina Maria Graça Lobo | 247.83s
+2026-03-14 09:55:10,584 [INFO] root - [51/176] Enviado para Sara Cristina Amaral Teixeira | 395.43s
+2026-03-14 09:55:14,486 [INFO] root - [52/176] Enviado para Selma Marlene Loureiro | 399.34s
+2026-03-14 09:55:18,967 [INFO] root - [53/176] Enviado para Maria Helena Coelho Magalhaes Barros e Castro | 403.81s
+2026-03-14 09:55:25,444 [INFO] root - [54/176] Enviado para Sofia Alexandra Faria Gomes | 410.29s
+2026-03-14 09:55:30,847 [INFO] root - [55/176] Enviado para Ana Claudia Lima Bettencourt e Avila | 415.70s
+2026-03-14 09:55:37,294 [INFO] root - [56/176] Enviado para Maria Helena Guerra Oliveira Pinto | 422.15s
+2026-03-14 09:55:42,344 [INFO] root - [57/176] Enviado para Maria José Silva Oliveira | 427.20s
+2026-03-14 09:55:48,664 [INFO] root - [58/176] Enviado para Maria de Lurdes Soares Pereira | 433.51s
+2026-03-14 09:55:53,234 [INFO] root - [59/176] Enviado para Alexandra Elisabete Matos Pereira da Silva | 438.08s
+2026-03-14 09:56:00,344 [ERROR] root - Erro ao enviar email para José António Sotto Maior Pestana da Silva (jose.pestana@mail.telepac.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 121, in executar
+    df_full.to_excel(ficheiro_envio, index=False)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\\Associados\\convocatoriaAG260327_envio.xlsx'
+2026-03-14 09:56:00,354 [INFO] root - [60/176] Enviado para José António Sotto Maior Pestana da Silva | 445.20s
+2026-03-14 09:56:05,144 [INFO] root - [61/176] Enviado para Fernanda Isilda Mendes Pereira Silva Gonçalves | 449.99s
+2026-03-14 09:56:09,164 [INFO] root - [62/176] Enviado para Alvaro Alberto Silva Gonçalves | 454.01s
+2026-03-14 09:56:14,304 [INFO] root - [63/176] Enviado para Aida Maria Ferro Gonçalves Junior | 459.16s
+2026-03-14 09:56:18,224 [INFO] root - [64/176] Enviado para Carmen Daniela Fernandes | 463.07s
+2026-03-14 09:56:24,562 [INFO] root - [65/176] Enviado para Carla Alexandra Gonçalves Guedes Martins | 469.42s
+2026-03-14 09:56:29,177 [INFO] root - [66/176] Enviado para Lidia Maria Tavares Coelho | 474.04s
+2026-03-14 09:56:35,322 [INFO] root - [67/176] Enviado para Carla Maria Azevedo Pereira | 480.17s
+2026-03-14 09:56:40,373 [INFO] root - [68/176] Enviado para Elisabete Maria Matias Costa | 485.23s
+2026-03-14 09:56:43,676 [INFO] root - [69/176] Enviado para Alfredo Laranjeira Pinto | 488.54s
+2026-03-14 09:56:47,804 [INFO] root - [70/176] Enviado para Ana Maria Capela Duarte | 492.66s
+2026-03-14 09:56:52,404 [INFO] root - [71/176] Enviado para Aurelina Marques Monteiro | 497.26s
+2026-03-14 09:56:57,324 [INFO] root - [72/176] Enviado para Joaquim Oliveira Soares | 502.17s
+2026-03-14 09:57:03,233 [INFO] root - [73/176] Enviado para Hernani Manuel Gomes Silva Monteiro | 508.08s
+2026-03-14 09:57:07,464 [INFO] root - [74/176] Enviado para Carla Manuela Ribeiro Silva | 512.32s
+2026-03-14 09:57:13,624 [ERROR] root - Erro ao enviar email para Emanuela Rosa Soares Araújo Ferraz (emanuela.ferraz@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 121, in executar
+    df_full.to_excel(ficheiro_envio, index=False)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\\Associados\\convocatoriaAG260327_envio.xlsx'
+2026-03-14 09:57:13,629 [INFO] root - [75/176] Enviado para Emanuela Rosa Soares Araújo Ferraz | 518.48s
+2026-03-14 09:57:19,544 [INFO] root - [76/176] Enviado para Paula Celeste Couto Gonçalves Caldeira | 524.40s
+2026-03-14 09:57:24,222 [INFO] root - [77/176] Enviado para Elisabete Maria Constante da R. Barbosa Rodrigues | 529.07s
+2026-03-14 09:57:28,961 [INFO] root - [78/176] Enviado para Maria Fátima Neves Ribeiro | 533.82s
+2026-03-14 09:57:33,489 [INFO] root - [79/176] Enviado para Sergio Mário Silva Ribeiro | 538.34s
+2026-03-14 09:57:38,287 [INFO] root - [80/176] Enviado para Carla Marina Barradas de Brito Brandão | 543.14s
+2026-03-14 09:57:43,034 [INFO] root - [81/176] Enviado para Carla Alexandra Santos Monteiro Martins | 547.89s
+2026-03-14 09:57:49,921 [INFO] root - [82/176] Enviado para Eugenia Maria Castro Cunha | 554.77s
+2026-03-14 09:57:54,848 [INFO] root - [83/176] Enviado para Maria João Cardoso Almeida Costa | 559.71s
+2026-03-14 09:57:59,429 [INFO] root - [84/176] Enviado para Maria Helena Dias Barreto Malheiro | 564.29s
+2026-03-14 09:58:04,145 [INFO] root - [85/176] Enviado para Maria de Lurdes Preto Galego | 568.99s
+2026-03-14 09:58:08,376 [INFO] root - [86/176] Enviado para Maria Adelaide Taveira Sequeira | 573.22s
+2026-03-14 09:58:14,304 [INFO] root - [87/176] Enviado para Ana Paula Rocha Pina Leite | 579.15s
+2026-03-14 09:58:19,114 [INFO] root - [88/176] Enviado para Maria Edviges da Silva Monteiro Moura | 583.97s
+2026-03-14 09:58:25,674 [INFO] root - [89/176] Enviado para António Fernando Lopes Sousa | 590.53s
+2026-03-14 09:58:31,024 [ERROR] root - Erro ao enviar email para Valdemar Fernando Silva Moreira (valmor1@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 121, in executar
+    df_full.to_excel(ficheiro_envio, index=False)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\\Associados\\convocatoriaAG260327_envio.xlsx'
+2026-03-14 09:58:31,035 [INFO] root - [90/176] Enviado para Valdemar Fernando Silva Moreira | 595.88s
+2026-03-14 09:58:35,558 [INFO] root - [91/176] Enviado para Anabela Jesus Carvalho Moreira | 600.41s
+2026-03-14 09:58:40,550 [INFO] root - [92/176] Enviado para Maria Regina Silva Rodrigues | 605.40s
+2026-03-14 09:58:45,548 [INFO] root - [93/176] Enviado para Ana Cristina dos Santos Silva Vieira Nunes Costa | 610.40s
+2026-03-14 09:58:50,274 [INFO] root - [94/176] Enviado para Fabio Almeida Santos | 615.12s
+2026-03-14 09:58:55,433 [INFO] root - [95/176] Enviado para Rita Conceição Mateus Braga | 620.28s
+2026-03-14 09:59:00,703 [INFO] root - [96/176] Enviado para José Luís Custodio Fernandes | 625.55s
+2026-03-14 09:59:07,474 [INFO] root - [97/176] Enviado para Maria Manuela Vilar Oliveira | 632.32s
+2026-03-14 09:59:11,540 [INFO] root - [98/176] Enviado para Ana Fernanda Queiroz Silva | 636.39s
+2026-03-14 09:59:15,744 [INFO] root - [99/176] Enviado para Vitor Manuel Ferreira Sousa | 640.60s
+2026-03-14 09:59:20,274 [INFO] root - [100/176] Enviado para Maria da Graça Silva Varzim Miranda Berrance | 645.12s
+2026-03-14 10:01:21,954 [INFO] root - [101/176] Enviado para Maria Fernanda Rodrigues | 766.81s
+2026-03-14 10:01:27,244 [INFO] root - [102/176] Enviado para Carla Maria Cardoso Ribeiro | 772.09s
+2026-03-14 10:01:31,977 [INFO] root - [103/176] Enviado para Manuel António Pereira Almeida | 776.83s
+2026-03-14 10:01:38,944 [INFO] root - [104/176] Enviado para Glória Silva Lopes de Sousa | 783.80s
+2026-03-14 10:01:44,054 [ERROR] root - Erro ao enviar email para Maria Conceição Ferreira Alves da Rocha (jr1937@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 121, in executar
+    df_full.to_excel(ficheiro_envio, index=False)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\\Associados\\convocatoriaAG260327_envio.xlsx'
+2026-03-14 10:01:44,054 [INFO] root - [105/176] Enviado para Maria Conceição Ferreira Alves da Rocha | 788.91s
+2026-03-14 10:01:47,886 [INFO] root - [106/176] Enviado para Maria Madalena Monteiro da  Costa e Silva | 792.73s
+2026-03-14 10:01:53,001 [INFO] root - [107/176] Enviado para Luisa Maria Ramalhinho Lourenço | 797.85s
+2026-03-14 10:01:57,054 [INFO] root - [108/176] Enviado para Rogério Ferreira de  Azevedo | 801.91s
+2026-03-14 10:02:01,814 [INFO] root - [109/176] Enviado para Rui Manuel Cruz Silva | 806.66s
+2026-03-14 10:02:07,184 [INFO] root - [110/176] Enviado para Balbina Maria Carvalho Poças Gomes | 812.03s
+2026-03-14 10:02:14,144 [INFO] root - [111/176] Enviado para Claudia Cristina Silva Tavares | 819.00s
+2026-03-14 10:02:21,434 [INFO] root - [112/176] Enviado para Paulo Jorge Maximiano Barbosa | 826.28s
+2026-03-14 10:02:24,654 [INFO] root - [113/176] Enviado para Aida Arminda Aleixo da Silva | 829.50s
+2026-03-14 10:02:28,444 [INFO] root - [114/176] Enviado para Maria Luisa Vale Ferreira Rocha | 833.30s
+2026-03-14 10:02:33,484 [INFO] root - [115/176] Enviado para Maria Helena Pilroto Rodrigues | 838.33s
+2026-03-14 10:02:37,994 [INFO] root - [116/176] Enviado para Claudia Isabel Cerqueira Monteiro | 842.85s
+2026-03-14 10:02:41,587 [INFO] root - [117/176] Enviado para Filomena Maria Campos  Ferreira | 846.43s
+2026-03-14 10:02:47,305 [INFO] root - [118/176] Enviado para Domingos José Amorim Gaspar Jorge | 852.16s
+2026-03-14 10:02:53,195 [INFO] root - [119/176] Enviado para Julio Vitor Mota Marinho | 858.05s
+2026-03-14 10:02:57,330 [INFO] root - [120/176] Enviado para Lucilia Rosa Martins Sales | 862.18s
+2026-03-14 10:03:01,013 [INFO] root - [121/176] Enviado para Maria João Soares de Sá | 865.86s
+2026-03-14 10:03:05,112 [INFO] root - [122/176] Enviado para Avelino Santos Pedrosa | 869.97s
+2026-03-14 10:03:10,992 [INFO] root - [123/176] Enviado para Maria Helena Gomes Jacques | 875.84s
+2026-03-14 10:03:16,144 [INFO] root - [124/176] Enviado para José Sousa Lopes | 880.99s
+2026-03-14 10:03:21,140 [INFO] root - [125/176] Enviado para Paula Margarida Pinto Moura | 885.99s
+2026-03-14 10:03:27,470 [INFO] root - [126/176] Enviado para Mário António Cardoso Sequeira | 892.32s
+2026-03-14 10:03:31,230 [INFO] root - [127/176] Enviado para Glória Augusto Araújo Carvalho | 896.08s
+2026-03-14 10:03:35,136 [INFO] root - [128/176] Enviado para José Manuel Ferreira Portela | 899.98s
+2026-03-14 10:03:38,892 [INFO] root - [129/176] Enviado para Ana Cristina Pires Geração | 903.74s
+2026-03-14 10:03:45,199 [INFO] root - [130/176] Enviado para Adriano Ribeiro Carvalho | 910.05s
+2026-03-14 10:03:48,491 [INFO] root - [131/176] Enviado para Eugenia Maria Oliveira Franco | 913.34s
+2026-03-14 10:04:03,261 [ERROR] root - Erro ao enviar email para Oscar Carlos Pombinho Moutinho (oscar-c-moutinho@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LqiwmZFwroyV1Lqjw18XK Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:04:03,292 [INFO] root - [132/176] Enviado para Oscar Carlos Pombinho Moutinho | 928.14s
+2026-03-14 10:04:20,101 [INFO] root - [133/176] Enviado para Augusto Fernando dos Santos Marinho | 944.95s
+2026-03-14 10:04:39,056 [ERROR] root - Erro ao enviar email para Maria Antónia Morais Aguiar (antoniaaguiar@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LrIwNlKLRj2B1LrJwZVNk Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:04:39,064 [INFO] root - [134/176] Enviado para Maria Antónia Morais Aguiar | 963.91s
+2026-03-14 10:04:53,773 [INFO] root - [135/176] Enviado para Manuel Ângelo da Silva Pinto | 978.63s
+2026-03-14 10:05:06,703 [ERROR] root - Erro ao enviar email para Maria Helena Gil da Costa Pombeiro Castelões (helenacasteloes@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1Lrkw9u1VfGre1LrkwxhrM Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:05:06,719 [INFO] root - [136/176] Enviado para Maria Helena Gil da Costa Pombeiro Castelões | 991.57s
+2026-03-14 10:05:22,132 [INFO] root - [137/176] Enviado para Maria Fátima Pinto Rosas da Silva | 1006.98s
+2026-03-14 10:05:34,002 [ERROR] root - Erro ao enviar email para José António Valerio de Mesquita Coimbra (jose-a-coimbra@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LsBwNmIURj2B1LsCwZVXw Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:05:34,012 [INFO] root - [138/176] Enviado para José António Valerio de Mesquita Coimbra | 1018.86s
+2026-03-14 10:05:47,832 [INFO] root - [139/176] Enviado para Gisela Ferreira Santos Morais da Silva | 1032.68s
+2026-03-14 10:05:59,982 [ERROR] root - Erro ao enviar email para Maria Cristina Santos Carvalho (quica.carvalho@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1Lsbw1gKy2rGz1LscwQJgY Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:05:59,992 [INFO] root - [140/176] Enviado para Maria Cristina Santos Carvalho | 1044.84s
+2026-03-14 10:06:15,931 [INFO] root - [141/176] Enviado para Joaquim Malta Gonçalves | 1060.79s
+2026-03-14 10:06:27,625 [ERROR] root - Erro ao enviar email para Fernando Manuel Ramalho Dias (fernando.m.dias@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1Lt3w9vQUfGre1Lt3wxi3c Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:06:27,632 [INFO] root - [142/176] Enviado para Fernando Manuel Ramalho Dias | 1072.48s
+2026-03-14 10:06:45,482 [INFO] root - [143/176] Enviado para Maria de Lurdes Lopes Marques Dias | 1090.33s
+2026-03-14 10:06:59,842 [ERROR] root - Erro ao enviar email para Claudia Marilia M. Rodrigues Verissimo (clau.verissimo@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LtZwNnemRj2B1LtZwZVif Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:06:59,852 [INFO] root - [144/176] Enviado para Claudia Marilia M. Rodrigues Verissimo | 1104.70s
+2026-03-14 10:07:08,522 [INFO] root - [145/176] Enviado para Maria Armanda Batista Ferreira Pinto | 1113.37s
+2026-03-14 10:07:21,712 [ERROR] root - Erro ao enviar email para Maria Filomena Alves da Silva (mariafgemeas@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1Ltvw3kKioxlx1LtvwnWAO Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:07:21,723 [INFO] root - [146/176] Enviado para Maria Filomena Alves da Silva | 1126.58s
+2026-03-14 10:07:35,525 [INFO] root - [147/176] Enviado para Paulo Jorge Silva Correia | 1140.37s
+2026-03-14 10:07:51,431 [ERROR] root - Erro ao enviar email para António José Silva Ferreira (antonio.j.ferreira@meo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LuPwwimRtofO1LuPwZbVa Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:07:51,432 [INFO] root - [148/176] Enviado para António José Silva Ferreira | 1156.29s
+2026-03-14 10:08:06,182 [INFO] root - [149/176] Enviado para Carla Maria Moura Neves | 1171.04s
+2026-03-14 10:08:20,342 [ERROR] root - Erro ao enviar email para João Carlos da Costa Monteiro (joaoccmonteiro2013@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1Lusw3lEuoxlx1LuswnWHh Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:08:20,353 [INFO] root - [150/176] Enviado para João Carlos da Costa Monteiro | 1185.20s
+2026-03-14 10:10:38,602 [INFO] root - [151/176] Enviado para Carla Maria Ferreira Mesquita | 1323.46s
+2026-03-14 10:10:51,043 [ERROR] root - Erro ao enviar email para Eulalia Maria dos Santos Guedes da Silva (manuelantonio.pereirasilva@edp.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LxIw9zkefGre1LxIwxicW Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:10:51,059 [INFO] root - [152/176] Enviado para Eulalia Maria dos Santos Guedes da Silva | 1335.92s
+2026-03-14 10:11:03,738 [INFO] root - [153/176] Enviado para Helder da Costa Pereira Ribeiro | 1348.60s
+2026-03-14 10:11:20,227 [ERROR] root - Erro ao enviar email para Anabela Ferreira Rodrigues Lopes (afrlopes19@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LxlwNrpvRj2B1LxmwZWHo Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:11:20,243 [INFO] root - [154/176] Enviado para Anabela Ferreira Rodrigues Lopes | 1365.10s
+2026-03-14 10:11:38,610 [INFO] root - [155/176] Enviado para Florinda Maria de Moura Mendes | 1383.47s
+2026-03-14 10:11:51,686 [ERROR] root - Erro ao enviar email para Alvaro Abel Ferreira Anacleto (cletus@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LyHwA0itfGre1LyHwxik2 Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:11:51,686 [INFO] root - [156/176] Enviado para Alvaro Abel Ferreira Anacleto | 1396.55s
+2026-03-14 10:12:03,610 [INFO] root - [157/176] Enviado para Maria Cecilia Maia dos Santos | 1408.46s
+2026-03-14 10:12:13,935 [ERROR] root - Erro ao enviar email para João Paulo Silva Moura (joao.s.moura@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LydwNseWRj2B1LyewZWOb Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:12:13,951 [INFO] root - [158/176] Enviado para João Paulo Silva Moura | 1418.80s
+2026-03-14 10:12:26,387 [INFO] root - [159/176] Enviado para Lurdes Maria Lopes | 1431.25s
+2026-03-14 10:12:40,988 [ERROR] root - Erro ao enviar email para Francisco Manuel de Matos Andrade (fandrade65@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1Lz4wNt3yRj2B1Lz5wZWSl Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:12:41,004 [INFO] root - [160/176] Enviado para Francisco Manuel de Matos Andrade | 1445.86s
+2026-03-14 10:12:54,658 [INFO] root - [161/176] Enviado para Cristina Maria Ferreira Soares | 1459.51s
+2026-03-14 10:13:05,756 [ERROR] root - Erro ao enviar email para Patricia Mafalda Oliveira V. Nogueira (patricianogueira27@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LzTwwo5WtofO1LzTwZcEr Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:13:05,772 [INFO] root - [162/176] Enviado para Patricia Mafalda Oliveira V. Nogueira | 1470.63s
+2026-03-14 10:13:19,321 [INFO] root - [163/176] Enviado para Albino Sousa Rocha | 1484.17s
+2026-03-14 10:13:35,294 [ERROR] root - Erro ao enviar email para Luís Mário Rodrigues Boticário (lboticario@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1LzxwNtyRRj2B1LzxwZWZ4 Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:13:35,307 [INFO] root - [164/176] Enviado para Luís Mário Rodrigues Boticário | 1500.16s
+2026-03-14 10:13:47,545 [ERROR] root - Erro ao enviar email para Manuel José Rodrigues Cunha (mjrcunha@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 121, in executar
+    df_full.to_excel(ficheiro_envio, index=False)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\\Associados\\convocatoriaAG260327_envio.xlsx'
+2026-03-14 10:13:47,545 [INFO] root - [165/176] Enviado para Manuel José Rodrigues Cunha | 1512.40s
+2026-03-14 10:13:57,656 [ERROR] root - Erro ao enviar email para Maria Leonor Castro Pinheiro Ricardo (leonorpinheiro1974@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1M0Jwwp2vtofO1M0JwZcLP Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:13:57,656 [INFO] root - [166/176] Enviado para Maria Leonor Castro Pinheiro Ricardo | 1522.52s
+2026-03-14 10:14:15,097 [INFO] root - [167/176] Enviado para Susana Paula Santos Tavares | 1539.96s
+2026-03-14 10:14:25,304 [ERROR] root - Erro ao enviar email para Rui Pedro Rodrigues Lima Moreira (rui.pl.moreira@icloud.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1M0lwNusdRj2B1M0lwZWg4 Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:14:25,319 [INFO] root - [168/176] Enviado para Rui Pedro Rodrigues Lima Moreira | 1550.17s
+2026-03-14 10:14:37,494 [INFO] root - [169/176] Enviado para Nelson Maria Campos Gonçalves Cruz | 1562.35s
+2026-03-14 10:14:48,050 [ERROR] root - Erro ao enviar email para Maria Emilia Santos Ferreira (m.emilia.ferreira17@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1M17w3rMgoxlx1M18wnX4p Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:14:48,066 [INFO] root - [170/176] Enviado para Maria Emilia Santos Ferreira | 1572.92s
+2026-03-14 10:15:04,079 [INFO] root - [171/176] Enviado para José Mário de Jesus Silva | 1588.94s
+2026-03-14 10:15:14,658 [ERROR] root - Erro ao enviar email para Manuel Almeida Pereira (ana.2000indouro@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1M1Yw1pNC2rGz1M1YwQKrS Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:15:14,674 [INFO] root - [172/176] Enviado para Manuel Almeida Pereira | 1599.53s
+2026-03-14 10:15:27,701 [INFO] root - [173/176] Enviado para José Carlos Araújo da Rocha | 1612.55s
+2026-03-14 10:15:45,035 [ERROR] root - Erro ao enviar email para Cristina Maria Sousa Loureiro (cristina.m.loureiro@sapo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1M22wA4WMfGre1M23wxjFa Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:15:45,051 [INFO] root - [174/176] Enviado para Cristina Maria Sousa Loureiro | 1629.90s
+2026-03-14 10:15:56,823 [INFO] root - [175/176] Enviado para Carlos Jorge Malheiro Simões Reis Ferreira | 1641.68s
+2026-03-14 10:16:12,262 [ERROR] root - Erro ao enviar email para Dignis Isvarlal (dignis@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1M2Uw3so2oxlx1M2UwnXGq Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 10:16:12,278 [INFO] root - [176/176] Enviado para Dignis Isvarlal | 1657.13s
+2026-03-14 11:47:02,779 [INFO] root - Email profile carregado: associados
+2026-03-14 11:47:02,900 [ERROR] root - Erro fatal no módulo Associados.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 112, in main
+    return run_gui()
+           ^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 72, in run_gui
+    controller.start()
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 20, in start
+    self.gui = AssociadosMenuGUI(self.root, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_menu_gui.py", line 14, in __init__
+    self.grid(sticky="nsew")
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\tkinter\__init__.py", line 2568, in grid_configure
+    self.tk.call(
+_tkinter.TclError: cannot use geometry manager grid inside . which already has slaves managed by pack
+2026-03-14 12:28:14,564 [INFO] root - Email profile carregado: associados
+2026-03-14 12:28:14,663 [ERROR] root - Erro fatal no módulo Associados.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 112, in main
+    return run_gui()
+           ^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 72, in run_gui
+    controller.start()
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 21, in start
+    self.gui = AssociadosMenuGUI(self.root, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_menu_gui.py", line 11, in __init__
+    tk.Frame.__init__(self, root, bg="#CADAD9")
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\tkinter\__init__.py", line 3212, in __init__
+    Widget.__init__(self, master, 'frame', cnf, {}, extra)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\tkinter\__init__.py", line 2641, in __init__
+    self._setup(master, cnf)
+    ^^^^^^^^^^^
+AttributeError: 'AssociadosMenuGUI' object has no attribute '_setup'
+2026-03-14 12:31:34,812 [INFO] root - Email profile carregado: associados
+2026-03-14 12:31:34,934 [ERROR] root - Erro fatal no módulo Associados.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 112, in main
+    return run_gui()
+           ^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 72, in run_gui
+    controller.start()
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 21, in start
+    self.gui = AssociadosMenuGUI(self.root, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_menu_gui.py", line 16, in __init__
+    self.build_ui()
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_menu_gui.py", line 20, in build_ui
+    frame = self.gui.abrir_work_area()
+            ^^^^^^^^
+AttributeError: 'AssociadosMenuGUI' object has no attribute 'gui'
+2026-03-14 12:35:23,052 [INFO] root - Email profile carregado: associados
+2026-03-14 12:35:23,185 [ERROR] root - Erro fatal no módulo Associados.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 112, in main
+    return run_gui()
+           ^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\associados_main.py", line 72, in run_gui
+    controller.start()
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 22, in start
+    self.email_gui=self.gui.pack(fill="both", expand=True)
+                   ^^^^^^^^^^^^^
+AttributeError: 'AssociadosMenuGUI' object has no attribute 'pack'
+2026-03-14 12:38:48,015 [INFO] root - Email profile carregado: associados
+2026-03-14 12:39:31,571 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 12:39:43,136 [INFO] root - Envios preparados: 920 | Já enviados: 498 | Por enviar: 422
+2026-03-14 15:25:27,777 [INFO] root - Email profile carregado: associados
+2026-03-14 15:26:20,511 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 15:26:23,165 [INFO] root - Envios preparados: 920 | Já enviados: 498 | Por enviar: 422
+2026-03-14 15:44:14,283 [INFO] root - Email profile carregado: associados
+2026-03-14 15:44:36,503 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 15:44:38,471 [INFO] root - Envios preparados: 920 | Já enviados: 498 | Por enviar: 422
+2026-03-14 15:45:06,899 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 15:45:10,299 [INFO] root - Envios preparados: 920 | Já enviados: 498 | Por enviar: 422
+2026-03-14 15:45:11,626 [INFO] root - Janela de envio não inicializada.
+2026-03-14 15:45:24,230 [INFO] root - Janela de envio não inicializada.
+2026-03-14 15:53:27,983 [INFO] root - Email profile carregado: associados
+2026-03-14 15:53:44,557 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-14 15:53:46,267 [INFO] root - Envios preparados: 920 | Já enviados: 498 | Por enviar: 422
+2026-03-14 15:54:36,240 [INFO] root - Início do envio...
+2026-03-14 15:54:36,240 [INFO] root - Associados selecionados=227
+2026-03-14 15:54:36,240 [INFO] root - UseCase.executar iniciado
+2026-03-14 15:54:36,240 [INFO] root - total para processar=227
+2026-03-14 15:54:51,872 [ERROR] root - Erro ao enviar email para Eulália Rocha Santos Moreira (catiassmoreira@gmail.com)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPdataError(code, resp)
+smtplib.SMTPdataError: (550, b'5.2.0 1RKCw22Y3tofO1RKDwaDI2 Sending Prohibited (Max RcptTo Daily limit)')
+2026-03-14 15:54:51,904 [INFO] root - [1/227] Enviado para Eulália Rocha Santos Moreira | 15.66s
+2026-03-15 07:09:40,304 [INFO] root - Email profile carregado: associados
+2026-03-15 07:10:23,727 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 07:10:35,319 [INFO] root - Envios preparados: 920 | Já enviados: 498 | Por enviar: 422
+2026-03-15 07:11:16,007 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 07:11:23,914 [INFO] root - Envios preparados: 920 | Já enviados: 498 | Por enviar: 422
+2026-03-15 07:11:53,122 [INFO] root - Início do envio...
+2026-03-15 07:11:53,138 [INFO] root - Associados selecionados=227
+2026-03-15 07:11:53,138 [INFO] root - UseCase.executar iniciado
+2026-03-15 07:11:53,138 [INFO] root - total para processar=227
+2026-03-15 07:11:57,494 [INFO] root - [1/227] Enviado para Eulália Rocha Santos Moreira | 4.36s
+2026-03-15 07:12:04,456 [INFO] root - [2/227] Enviado para Américo Magalhães Coutinho Lino | 11.32s
+2026-03-15 07:12:08,972 [INFO] root - [3/227] Enviado para Maria de Lurdes Nestor Pires | 15.83s
+2026-03-15 07:12:13,060 [INFO] root - [4/227] Enviado para Leopoldina Gracinda do Couto | 19.93s
+2026-03-15 07:12:19,007 [INFO] root - [5/227] Enviado para Maria Rosa Macedo Sousa Oliveira | 25.86s
+2026-03-15 07:12:24,622 [INFO] root - [6/227] Enviado para Maria de  Lurdes Oliveira Gonçalves | 31.49s
+2026-03-15 07:12:28,843 [INFO] root - [7/227] Enviado para Isabel Maria Alves Guedes | 35.71s
+2026-03-15 07:12:33,738 [INFO] root - [8/227] Enviado para Laura Amaro da Silva Portela | 40.61s
+2026-03-15 07:12:38,108 [INFO] root - [9/227] Enviado para Agostinho Ferreira Santos | 44.97s
+2026-03-15 07:12:44,051 [INFO] root - [10/227] Enviado para Maria Odete Coelho Cunha Pássaro | 50.92s
+2026-03-15 07:12:49,551 [INFO] root - [11/227] Enviado para Manuel Teixeira Pássaro | 56.42s
+2026-03-15 07:12:54,030 [INFO] root - [12/227] Enviado para Jorge Luis Silva Rocha | 60.89s
+2026-03-15 07:13:00,974 [INFO] root - [13/227] Enviado para Manuel Jorge Castro Teixeira | 67.83s
+2026-03-15 07:13:04,099 [INFO] root - [14/227] Enviado para Rosa Maria Martins  Lopes | 70.97s
+2026-03-15 07:40:04,162 [INFO] root - Email profile carregado: associados
+2026-03-15 07:40:33,175 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 07:40:35,889 [INFO] root - Envios preparados: 920 | Já enviados: 498 | Por enviar: 422
+2026-03-15 07:41:19,337 [INFO] root - Início do envio...
+2026-03-15 07:41:19,337 [INFO] root - Associados selecionados=267
+2026-03-15 07:41:19,337 [INFO] root - UseCase.executar iniciado
+2026-03-15 07:41:19,353 [INFO] root - total para processar=267
+2026-03-15 07:41:23,153 [INFO] root - [1/267] Enviado para Eulália Rocha Santos Moreira | 3.81s
+2026-03-15 07:41:28,745 [INFO] root - [2/267] Enviado para Américo Magalhães Coutinho Lino | 9.40s
+2026-03-15 07:41:34,770 [INFO] root - [3/267] Enviado para Marilia Pires Miranda Brites | 15.42s
+2026-03-15 07:41:41,990 [INFO] root - [4/267] Enviado para Maria de Lurdes Nestor Pires | 22.65s
+2026-03-15 07:41:47,038 [INFO] root - [5/267] Enviado para Vasco Pinto Sousa | 27.69s
+2026-03-15 07:41:52,384 [INFO] root - [6/267] Enviado para Leopoldina Gracinda do Couto | 33.03s
+2026-03-15 07:41:55,972 [INFO] root - [7/267] Enviado para Maria Rosa Macedo Sousa Oliveira | 36.63s
+2026-03-15 07:42:00,371 [INFO] root - [8/267] Enviado para Maria de  Lurdes Oliveira Gonçalves | 41.02s
+2026-03-15 07:42:04,078 [INFO] root - [9/267] Enviado para Isabel Maria Alves Guedes | 44.72s
+2026-03-15 07:42:09,262 [INFO] root - [10/267] Enviado para Manuel  Augusto da Conceição Barbosa | 49.91s
+2026-03-15 07:42:14,881 [INFO] root - [11/267] Enviado para Laura Amaro da Silva Portela | 55.53s
+2026-03-15 07:42:19,871 [INFO] root - [12/267] Enviado para Agostinho Ferreira Santos | 60.52s
+2026-03-15 07:42:24,759 [INFO] root - [13/267] Enviado para Maria Odete Coelho Cunha Pássaro | 65.41s
+2026-03-15 07:42:30,373 [INFO] root - [14/267] Enviado para Manuel Teixeira Pássaro | 71.02s
+2026-03-15 07:42:35,049 [INFO] root - [15/267] Enviado para Jorge Luis Silva Rocha | 75.70s
+2026-03-15 07:42:39,382 [INFO] root - [16/267] Enviado para Manuel Jorge Castro Teixeira | 80.03s
+2026-03-15 07:42:44,051 [INFO] root - [17/267] Enviado para Rosa Maria Martins  Lopes | 84.70s
+2026-03-15 07:42:49,589 [INFO] root - [18/267] Enviado para Alcino Manuel Soares Rocha Gomes | 90.25s
+2026-03-15 07:42:53,954 [INFO] root - [19/267] Enviado para José Manuel Martins Mendonça | 94.61s
+2026-03-15 07:42:57,839 [INFO] root - [20/267] Enviado para Carolina Santos Martins Rendeiro | 98.50s
+2026-03-15 07:43:03,500 [INFO] root - [21/267] Enviado para José Alberto Bordelo Fernandes | 104.15s
+2026-03-15 07:43:08,426 [INFO] root - [22/267] Enviado para Fernando Silva Gonçalves Ferreira | 109.09s
+2026-03-15 07:43:14,202 [INFO] root - [23/267] Enviado para José Augusto dos Santos Sista | 114.86s
+2026-03-15 07:43:17,553 [INFO] root - [24/267] Enviado para Jorge Araújo Maciel | 118.20s
+2026-03-15 07:43:22,763 [INFO] root - [25/267] Enviado para Maria  Zel Rocha Torres | 123.41s
+2026-03-15 07:43:27,638 [INFO] root - [26/267] Enviado para Maria Madalena Jesus Mota | 128.30s
+2026-03-15 07:43:32,987 [INFO] root - [27/267] Enviado para Maria Conceição Hora Ferreira | 133.63s
+2026-03-15 07:43:37,452 [INFO] root - [28/267] Enviado para Emilia Fernandes  Ribeiro Souto Pinto | 138.10s
+2026-03-15 07:43:41,109 [INFO] root - [29/267] Enviado para Maria Helena Pereira Azevedo Cunha | 141.76s
+2026-03-15 07:43:46,461 [INFO] root - [30/267] Enviado para Libânia Augusto Valente Félix | 147.12s
+2026-03-15 07:43:51,226 [INFO] root - [31/267] Enviado para Maria Piedade Raposo Silvestre Coelho | 151.87s
+2026-03-15 07:43:56,930 [INFO] root - [32/267] Enviado para Deolinda Manuela P. Mendonça | 157.59s
+2026-03-15 07:44:01,320 [INFO] root - [33/267] Enviado para Alzira Carmo Silva Azevedo | 161.98s
+2026-03-15 07:44:06,015 [INFO] root - [34/267] Enviado para António Gomes Rosa | 166.67s
+2026-03-15 07:44:11,413 [INFO] root - [35/267] Enviado para Vitorino Mendonça Carvalho | 172.07s
+2026-03-15 07:44:16,157 [INFO] root - [36/267] Enviado para José Alfredo Beira Matos | 176.81s
+2026-03-15 07:44:21,950 [INFO] root - [37/267] Enviado para Maria Adelaide Loureiro Oliveira Almeida | 182.60s
+2026-03-15 07:44:25,715 [INFO] root - [38/267] Enviado para Manuel Oliveira Fonseca | 186.37s
+2026-03-15 07:44:31,774 [INFO] root - [39/267] Enviado para Carminda Oliveira Atalaia Lopes | 192.43s
+2026-03-15 07:44:38,081 [INFO] root - [40/267] Enviado para Maria Rosa Silva Couto Martins | 198.73s
+2026-03-15 07:44:43,236 [INFO] root - [41/267] Enviado para Maria Conceição Reis Ribeiro Pinto Oliveira | 203.89s
+2026-03-15 07:44:48,475 [INFO] root - [42/267] Enviado para Ana Maria Lopes Ferreira | 209.12s
+2026-03-15 07:44:52,351 [INFO] root - [43/267] Enviado para Maria Albertina Oliveira Martins Vieira | 213.00s
+2026-03-15 07:44:56,606 [INFO] root - [44/267] Enviado para Manuel de Sousa Costa | 217.25s
+2026-03-15 07:45:00,691 [INFO] root - [45/267] Enviado para Joaquim Carvalho Nogueira | 221.35s
+2026-03-15 07:45:06,808 [INFO] root - [46/267] Enviado para Maria Fátima Cerqueira Teixeira | 227.47s
+2026-03-15 07:45:12,572 [INFO] root - [47/267] Enviado para Maria Claudia Vieira Azevedo Amarelhe Cunha | 233.22s
+2026-03-15 07:45:16,709 [INFO] root - [48/267] Enviado para António Pereira Barbosa | 237.35s
+2026-03-15 07:45:21,878 [INFO] root - [49/267] Enviado para Carlos Manuel Antunes Mendes | 242.52s
+2026-03-15 07:45:27,025 [INFO] root - [50/267] Enviado para Dina Conceição Silva Fernandes | 247.67s
+2026-03-15 07:48:22,050 [INFO] root - [51/267] Enviado para Analia Maria Pais da Silva | 422.70s
+2026-03-15 07:48:27,034 [INFO] root - [52/267] Enviado para Maria Rosa Silva Dias | 427.68s
+2026-03-15 07:48:31,949 [INFO] root - [53/267] Enviado para Manuel António Martins Santos | 432.59s
+2026-03-15 07:48:37,580 [INFO] root - [54/267] Enviado para Ana M. Jesus Martins Mendes | 438.23s
+2026-03-15 07:48:43,295 [INFO] root - [55/267] Enviado para Maria Bernardete Moreira H. Macedo | 443.94s
+2026-03-15 07:48:46,352 [INFO] root - [56/267] Enviado para Fernando David Rangel | 447.00s
+2026-03-15 07:48:52,270 [INFO] root - [57/267] Enviado para Zulmiro Gonçalves Silva | 452.92s
+2026-03-15 07:48:55,930 [INFO] root - [58/267] Enviado para Olinda Rosa Martinho Rocha Cunha | 456.58s
+2026-03-15 07:49:01,122 [INFO] root - [59/267] Enviado para Ana Maria Lago Vieira Santos | 461.77s
+2026-03-15 07:49:07,288 [INFO] root - [60/267] Enviado para Maria Adelaide T.B. Oliveira | 467.93s
+2026-03-15 07:49:12,070 [INFO] root - [61/267] Enviado para Mário Pereira Martinho | 472.72s
+2026-03-15 07:49:16,820 [INFO] root - [62/267] Enviado para António Barandela Santos | 477.47s
+2026-03-15 07:49:22,700 [INFO] root - [63/267] Enviado para Olinda Conceição Fonseca Rodrigues | 483.35s
+2026-03-15 07:49:27,747 [INFO] root - [64/267] Enviado para Lucinda Manuela Sousa Coimbra | 488.39s
+2026-03-15 07:49:34,162 [INFO] root - [65/267] Enviado para Maria Fernanda Assunção Reina Couto | 494.81s
+2026-03-15 07:49:39,143 [INFO] root - [66/267] Enviado para Fernando António Lourenço Guedes | 499.79s
+2026-03-15 07:49:42,850 [INFO] root - [67/267] Enviado para Olga Violeta Barbosa  Dias | 503.50s
+2026-03-15 07:49:47,273 [INFO] root - [68/267] Enviado para Justino Sobral Barbosa | 507.92s
+2026-03-15 07:49:52,041 [INFO] root - [69/267] Enviado para António Coelho Sousa Carvalho | 512.69s
+2026-03-15 07:49:58,720 [INFO] root - [70/267] Enviado para Maria do Rosário Pinto Gomes Sousa | 519.37s
+2026-03-15 07:50:03,151 [INFO] root - [71/267] Enviado para Maria de Lurdes da Silva Oliveira de Sousa | 523.80s
+2026-03-15 07:50:06,890 [INFO] root - [72/267] Enviado para Acácio Soares Ramos | 527.54s
+2026-03-15 07:50:12,278 [INFO] root - [73/267] Enviado para Gualdino Moura Pinto Lopes | 532.93s
+2026-03-15 07:50:18,640 [INFO] root - [74/267] Enviado para Maria Gloria Moreira Rocha Nunes | 539.29s
+2026-03-15 07:50:24,600 [INFO] root - [75/267] Enviado para Adélia Berta Marques Gonçalves | 545.25s
+2026-03-15 07:50:29,661 [INFO] root - [76/267] Enviado para Antero Fernando Cardoso Sousa | 550.31s
+2026-03-15 07:50:35,591 [INFO] root - [77/267] Enviado para Armando Alves Almeida | 556.24s
+2026-03-15 07:50:39,956 [INFO] root - [78/267] Enviado para Adriano Lopes Pereira | 560.60s
+2026-03-15 07:50:45,690 [INFO] root - [79/267] Enviado para Jeronimo Jesus Sousa  Castro | 566.35s
+2026-03-15 07:50:50,586 [INFO] root - [80/267] Enviado para José Manuel Álvares Pardal | 571.23s
+2026-03-15 07:50:55,860 [INFO] root - [81/267] Enviado para João Luis Duarte Fernandes | 576.51s
+2026-03-15 07:51:00,411 [INFO] root - [82/267] Enviado para Maria de Fátima Ferreira Rocha  Alves | 581.06s
+2026-03-15 07:51:05,930 [INFO] root - [83/267] Enviado para Maria Anaide Pereira Nunes | 586.58s
+2026-03-15 07:51:11,144 [INFO] root - [84/267] Enviado para António Fernando Almeida Ribeiro Cunha | 591.79s
+2026-03-15 07:51:16,780 [INFO] root - [85/267] Enviado para Maria Margarida Pereira Mota Pinto | 597.43s
+2026-03-15 07:51:22,900 [INFO] root - [86/267] Enviado para Carlos Alberto Rodrigues Vilarinho | 603.55s
+2026-03-15 07:51:27,950 [INFO] root - [87/267] Enviado para Anibal Rodrigues | 608.60s
+2026-03-15 07:51:32,670 [INFO] root - [88/267] Enviado para António José Almeida | 613.32s
+2026-03-15 07:51:37,720 [INFO] root - [89/267] Enviado para Maria Cesaltina Pais Oliveira Cabral | 618.37s
+2026-03-15 07:51:44,070 [INFO] root - [90/267] Enviado para Maria Deolinda Ferreira Leite | 624.72s
+2026-03-15 07:51:51,710 [INFO] root - [91/267] Enviado para Maria Adelaide Santos Ribeiro | 632.36s
+2026-03-15 07:51:57,829 [INFO] root - [92/267] Enviado para Maria Arminda Ferreira Santos Oliveira | 638.48s
+2026-03-15 07:52:02,355 [INFO] root - [93/267] Enviado para Lino Rui Guimarães Campos | 643.00s
+2026-03-15 07:52:05,403 [INFO] root - [94/267] Enviado para Armanda Leonor Fernandes Lopes Tavares | 646.05s
+2026-03-15 07:52:10,679 [INFO] root - [95/267] Enviado para Margarida Jesus Marques Araújo | 651.32s
+2026-03-15 07:52:15,015 [INFO] root - [96/267] Enviado para Alfredo Manuel Soares Cruz | 655.66s
+2026-03-15 07:52:20,450 [INFO] root - [97/267] Enviado para António Marques Malheiro | 661.10s
+2026-03-15 07:52:23,796 [INFO] root - [98/267] Enviado para António Francisco Silva Chilro | 664.44s
+2026-03-15 07:52:27,380 [INFO] root - [99/267] Enviado para Alcino Sousa Lopes | 668.03s
+2026-03-15 07:52:32,311 [INFO] root - [100/267] Enviado para Maria Fernanda Coimbra Carvalho | 672.96s
+2026-03-15 07:55:15,940 [INFO] root - [101/267] Enviado para Maria de Lurdes Ribeiro Miranda Seabra | 836.59s
+2026-03-15 07:55:21,916 [INFO] root - [102/267] Enviado para Maria Zulmira Pereira Silva | 842.57s
+2026-03-15 07:55:27,970 [INFO] root - [103/267] Enviado para Maria de Fátima Pinto Barbedo | 848.62s
+2026-03-15 07:55:33,361 [INFO] root - [104/267] Enviado para Pedro Manuel Pereira da Silva | 854.01s
+2026-03-15 07:55:37,120 [INFO] root - [105/267] Enviado para José Fernando Machado Mendes | 857.77s
+2026-03-15 07:55:41,200 [INFO] root - [106/267] Enviado para Manuel Cunha Gonçalves Leite | 861.85s
+2026-03-15 07:55:45,014 [INFO] root - [107/267] Enviado para Joaquim Antunes | 865.66s
+2026-03-15 07:55:49,638 [INFO] root - [108/267] Enviado para Maria Fátima Aires Oliveira Matos | 870.28s
+2026-03-15 07:55:56,301 [INFO] root - [109/267] Enviado para Luisa Maria Marques Bernardo | 876.95s
+2026-03-15 07:56:02,175 [INFO] root - [110/267] Enviado para Maria Fernanda Correia Moreira | 882.82s
+2026-03-15 07:56:07,400 [INFO] root - [111/267] Enviado para Maria Augusta Nunes Vieira  Sousa | 888.05s
+2026-03-15 07:56:13,685 [INFO] root - [112/267] Enviado para Maria Elisa Bordalo Malheiro | 894.33s
+2026-03-15 07:56:17,570 [INFO] root - [113/267] Enviado para Madalena Castro e Sousa | 898.22s
+2026-03-15 07:56:23,720 [INFO] root - [114/267] Enviado para Maria Rosa Oliveira P. Bacelar | 904.37s
+2026-03-15 07:56:29,124 [INFO] root - [115/267] Enviado para Maria Manuela M. da Rocha Soares Cruz | 909.77s
+2026-03-15 07:56:34,441 [INFO] root - [116/267] Enviado para Maria de Fátima Martins Castro | 915.09s
+2026-03-15 07:56:39,141 [INFO] root - [117/267] Enviado para Margarida Maria Maio Meneses | 919.79s
+2026-03-15 07:56:45,732 [INFO] root - [118/267] Enviado para Manuel Mendes | 926.38s
+2026-03-15 07:56:51,475 [INFO] root - [119/267] Enviado para Maria Celeste Moreira Alves Conde  Magalhães | 932.12s
+2026-03-15 07:56:58,607 [INFO] root - [120/267] Enviado para Angelica Felicidade Fernandes Moreira da Costa | 939.25s
+2026-03-15 07:57:03,286 [INFO] root - [121/267] Enviado para João Pereira Fernandes | 943.93s
+2026-03-15 07:57:08,870 [INFO] root - [122/267] Enviado para Manuel Castro Pinto Andrade | 949.52s
+2026-03-15 07:57:12,518 [INFO] root - [123/267] Enviado para Avelino Cardoso Fonseca | 953.16s
+2026-03-15 07:57:17,250 [INFO] root - [124/267] Enviado para Maria Liliana Moreira Maldonado Ribeiro | 957.90s
+2026-03-15 07:57:20,428 [INFO] root - [125/267] Enviado para Ana Fátima Oliveira Neves Ferreira | 961.08s
+2026-03-15 07:57:25,229 [INFO] root - [126/267] Enviado para António Pinto Barbedo | 965.88s
+2026-03-15 07:57:30,925 [INFO] root - [127/267] Enviado para Zélia da Silva Fagundes Neno | 971.57s
+2026-03-15 07:57:36,839 [INFO] root - [128/267] Enviado para Manuel Ilídio Santos Silva | 977.49s
+2026-03-15 07:57:41,304 [INFO] root - [129/267] Enviado para António Afonso Rocha | 981.95s
+2026-03-15 07:57:45,987 [INFO] root - [130/267] Enviado para Filomena Rodrigues Rocha | 986.63s
+2026-03-15 07:57:51,456 [INFO] root - [131/267] Enviado para Maria Julia Ribeiro da Rocha | 992.11s
+2026-03-15 07:57:56,070 [INFO] root - [132/267] Enviado para Rosa Conceição Pereira Neves | 996.72s
+2026-03-15 07:58:01,048 [INFO] root - [133/267] Enviado para José Pinto Vieira dos Santos | 1001.69s
+2026-03-15 07:58:04,636 [INFO] root - [134/267] Enviado para Maria da Conceição Gomes | 1005.28s
+2026-03-15 07:58:11,244 [INFO] root - [135/267] Enviado para Alda Conceição Reis Santos | 1011.89s
+2026-03-15 07:58:17,197 [INFO] root - [136/267] Enviado para Aurora Gisela Fernandes | 1017.85s
+2026-03-15 07:58:22,759 [INFO] root - [137/267] Enviado para Mário José Tavares Costa | 1023.41s
+2026-03-15 07:58:27,247 [INFO] root - [138/267] Enviado para Aida Rosa Oliveira | 1027.90s
+2026-03-15 07:58:34,167 [INFO] root - [139/267] Enviado para Álvaro Sousa Amador Pereira | 1034.81s
+2026-03-15 07:58:38,846 [INFO] root - [140/267] Enviado para Aurora Gracinda Moreira Garcez Ferreira Soares | 1039.49s
+2026-03-15 07:58:45,833 [INFO] root - [141/267] Enviado para Teresa Jacques de Figueiredo Moutinho | 1046.48s
+2026-03-15 07:58:51,306 [INFO] root - [142/267] Enviado para Maria Luisa Marques Marcelo O'Neill | 1051.95s
+2026-03-15 07:58:56,453 [INFO] root - [143/267] Enviado para António Manuel Oliveira Sepulveda Mota Ramôa | 1057.10s
+2026-03-15 07:59:01,877 [INFO] root - [144/267] Enviado para Maria de Lourdes Silva e Sousa Moreira | 1062.53s
+2026-03-15 07:59:08,596 [INFO] root - [145/267] Enviado para António Manuel Silva Enes | 1069.24s
+2026-03-15 07:59:13,632 [INFO] root - [146/267] Enviado para Olga Conceição Félix Rodrigues | 1074.28s
+2026-03-15 07:59:19,908 [INFO] root - [147/267] Enviado para Glória Pereira Abreu Gomes Soares Pinheiro | 1080.55s
+2026-03-15 07:59:26,657 [INFO] root - [148/267] Enviado para José Almerindo Soares Pinheiro | 1087.31s
+2026-03-15 07:59:30,936 [INFO] root - [149/267] Enviado para José Manuel Sousa Gomes Queiroz | 1091.59s
+2026-03-15 07:59:36,736 [INFO] root - [150/267] Enviado para Arménia Freitas Belo Simões | 1097.39s
+2026-03-15 08:02:14,977 [INFO] root - [151/267] Enviado para Maria Beatriz Costa Machado Silva | 1255.62s
+2026-03-15 08:02:21,003 [INFO] root - [152/267] Enviado para Maria Fernanda Cardoso Silva Afonso | 1261.65s
+2026-03-15 08:02:26,676 [INFO] root - [153/267] Enviado para Luisa Maria Pina Gonçalves Castro | 1267.32s
+2026-03-15 08:02:30,937 [INFO] root - [154/267] Enviado para Jorge Rodrigues Milheiro | 1271.58s
+2026-03-15 08:02:35,786 [INFO] root - [155/267] Enviado para Abílio Fernando Ferreira Teixeira | 1276.44s
+2026-03-15 08:02:40,606 [INFO] root - [156/267] Enviado para Ana Maria Bordalo Pereira Gonçalves | 1281.25s
+2026-03-15 08:02:46,156 [INFO] root - [157/267] Enviado para Maria José Carmo Fernandes | 1286.80s
+2026-03-15 08:02:49,896 [INFO] root - [158/267] Enviado para Vasco Stofftel Viseu | 1290.54s
+2026-03-15 08:02:55,487 [INFO] root - [159/267] Enviado para Maria Alice Silva Braga Moreira | 1296.13s
+2026-03-15 08:03:01,496 [INFO] root - [160/267] Enviado para José Manuel M. Correia Amaro | 1302.14s
+2026-03-15 08:03:07,878 [INFO] root - [161/267] Enviado para António Domingos Barbosa Gonçalves | 1308.53s
+2026-03-15 08:03:12,346 [INFO] root - [162/267] Enviado para António Silva Sá Lopes | 1312.99s
+2026-03-15 08:03:18,755 [INFO] root - [163/267] Enviado para Maria Rosário Mota Barros Cunha | 1319.40s
+2026-03-15 08:03:22,246 [INFO] root - [164/267] Enviado para Maria Rosa Oliveira Machado | 1322.89s
+2026-03-15 08:03:29,435 [INFO] root - [165/267] Enviado para Maria Armanda Pacheco Santos Neves | 1330.08s
+2026-03-15 08:03:34,980 [INFO] root - [166/267] Enviado para Luís Fernando Costa Rodrigues | 1335.63s
+2026-03-15 08:03:40,014 [INFO] root - [167/267] Enviado para Marta Isabel Valente Félix | 1340.66s
+2026-03-15 08:03:45,206 [INFO] root - [168/267] Enviado para Maria da Conceição Perfeito Santos | 1345.86s
+2026-03-15 08:03:49,832 [INFO] root - [169/267] Enviado para Alfredina Amélia Cruz Moreira | 1350.48s
+2026-03-15 08:03:54,176 [INFO] root - [170/267] Enviado para Maria Branca Ferreira Rodrigues Portela | 1354.82s
+2026-03-15 08:03:58,914 [INFO] root - [171/267] Enviado para António Armando M. Januário | 1359.56s
+2026-03-15 08:04:05,672 [INFO] root - [172/267] Enviado para Maria Luisa M. S. M. Januário | 1366.32s
+2026-03-15 08:04:09,751 [INFO] root - [173/267] Enviado para José Manuel Gama Lima | 1370.40s
+2026-03-15 08:04:14,286 [INFO] root - [174/267] Enviado para Maria Celeste Oliveira Gonçalves | 1374.93s
+2026-03-15 08:04:20,711 [INFO] root - [175/267] Enviado para Maria Isabel Cyrne Marramaque | 1381.36s
+2026-03-15 08:04:26,252 [INFO] root - [176/267] Enviado para Maria Alice Moreira Duarte | 1386.90s
+2026-03-15 08:04:30,704 [INFO] root - [177/267] Enviado para Maria Teresa Rebelo Pereira da Costa | 1391.35s
+2026-03-15 08:04:35,813 [INFO] root - [178/267] Enviado para Maria Antónia Pinto Braga Sousa | 1396.47s
+2026-03-15 08:04:42,543 [INFO] root - [179/267] Enviado para Fernando Albino Pinto Araújo | 1403.19s
+2026-03-15 08:04:46,962 [INFO] root - [180/267] Enviado para Manuel Jorge Queiros Silva | 1407.61s
+2026-03-15 08:04:51,124 [INFO] root - [181/267] Enviado para Armando Pereira de Almeida | 1411.78s
+2026-03-15 08:04:56,500 [INFO] root - [182/267] Enviado para Bernardo Neves Alves | 1417.15s
+2026-03-15 08:05:01,715 [INFO] root - [183/267] Enviado para Maria da Graça Ferreira Teixeira | 1422.36s
+2026-03-15 08:05:07,684 [INFO] root - [184/267] Enviado para Fernando Octávio Silva | 1428.34s
+2026-03-15 08:05:12,218 [INFO] root - [185/267] Enviado para Laura Couto Queirós | 1432.86s
+2026-03-15 08:05:16,937 [INFO] root - [186/267] Enviado para Maria da Luz de Magalhães Pereira | 1437.58s
+2026-03-15 08:05:21,547 [INFO] root - [187/267] Enviado para Maria Arminda Guedes Barbosa | 1442.19s
+2026-03-15 08:05:25,161 [INFO] root - [188/267] Enviado para Maria de Lourdes Santos David | 1445.81s
+2026-03-15 08:05:29,607 [INFO] root - [189/267] Enviado para Isabel Maria das Neves Alves | 1450.25s
+2026-03-15 08:05:34,462 [INFO] root - [190/267] Enviado para Maria Clara Duarte Leite Magalhães | 1455.11s
+2026-03-15 08:05:40,191 [INFO] root - [191/267] Enviado para Carolina Maria Carneiro | 1460.84s
+2026-03-15 08:05:45,568 [INFO] root - [192/267] Enviado para José Manuel Correia de Sousa | 1466.21s
+2026-03-15 08:05:51,728 [INFO] root - [193/267] Enviado para Pedro Sergio Pinheiro Guimarães | 1472.37s
+2026-03-15 08:05:56,092 [INFO] root - [194/267] Enviado para Maria Emilia Freitas Pereira Ribeiro | 1476.74s
+2026-03-15 08:06:00,491 [INFO] root - [195/267] Enviado para Mário Alberto Soares Esteves | 1481.14s
+2026-03-15 08:06:05,569 [INFO] root - [196/267] Enviado para Manuel José Pereira Machado | 1486.21s
+2026-03-15 08:06:10,921 [INFO] root - [197/267] Enviado para Ermelinda Rosa Santos Almeida | 1491.57s
+2026-03-15 08:06:14,582 [INFO] root - [198/267] Enviado para Maria Irene Lopes Pereira Fernandes | 1495.23s
+2026-03-15 08:06:18,364 [INFO] root - [199/267] Enviado para Maria José Maia Tavares Barandela Santos | 1499.01s
+2026-03-15 08:06:24,022 [INFO] root - [200/267] Enviado para Fausto Valdemar Viegas Nunes | 1504.67s
+2026-03-15 08:09:22,320 [INFO] root - [201/267] Enviado para Jorge Alexandre Lopes Úria | 1682.97s
+2026-03-15 08:09:26,396 [INFO] root - [202/267] Enviado para Olga Odete Jesus Úria | 1687.05s
+2026-03-15 08:09:30,186 [INFO] root - [203/267] Enviado para Maria de Jesus Mendes Ferreira de Bastos | 1690.83s
+2026-03-15 08:09:35,086 [INFO] root - [204/267] Enviado para Vitor Manuel Rodrigues Silva | 1695.74s
+2026-03-15 08:09:40,622 [INFO] root - [205/267] Enviado para António Manuel Correia | 1701.27s
+2026-03-15 08:09:47,398 [INFO] root - [206/267] Enviado para Maria Albertina Neves Pereira | 1708.04s
+2026-03-15 08:09:53,356 [INFO] root - [207/267] Enviado para Manuel Perfeito Almeida Moreira | 1714.01s
+2026-03-15 08:09:57,266 [INFO] root - [208/267] Enviado para António Manuel Espinha Samagaio Duarte | 1717.91s
+2026-03-15 08:10:00,615 [INFO] root - [209/267] Enviado para Blandina Pinto Moreira Santos | 1721.26s
+2026-03-15 08:10:05,226 [INFO] root - [210/267] Enviado para Hernani Mota Marinho | 1725.88s
+2026-03-15 08:10:09,526 [INFO] root - [211/267] Enviado para Adriano Silva Magalhães | 1730.18s
+2026-03-15 08:10:14,836 [INFO] root - [212/267] Enviado para Manuel Pinheiro Barbosa | 1735.48s
+2026-03-15 08:10:21,455 [INFO] root - [213/267] Enviado para Fernando Manuel Nazare Marques | 1742.11s
+2026-03-15 08:10:25,995 [INFO] root - [214/267] Enviado para Oscar Carlos Pombinho Moutinho | 1746.65s
+2026-03-15 08:10:30,459 [INFO] root - [215/267] Enviado para Isabel Maria de Sousa e Moura | 1751.11s
+2026-03-15 08:10:36,596 [INFO] root - [216/267] Enviado para Maria Antónia Morais Aguiar | 1757.24s
+2026-03-15 08:10:40,229 [INFO] root - [217/267] Enviado para Maria Helena Gil da Costa Pombeiro Castelões | 1760.88s
+2026-03-15 08:10:44,586 [INFO] root - [218/267] Enviado para José Carlos Antunes Lopes Mendes | 1765.24s
+2026-03-15 08:10:50,356 [INFO] root - [219/267] Enviado para Lúcia de Fátima Saraiva Correia Dias | 1771.00s
+2026-03-15 08:10:55,656 [INFO] root - [220/267] Enviado para José António Valerio de Mesquita Coimbra | 1776.30s
+2026-03-15 08:10:59,886 [INFO] root - [221/267] Enviado para Maria Cristina Santos Carvalho | 1780.54s
+2026-03-15 08:11:07,026 [INFO] root - [222/267] Enviado para Maria Olivia dos Santos Lima Enes | 1787.67s
+2026-03-15 08:11:10,656 [INFO] root - [223/267] Enviado para Maria Julia Martins Sousa | 1791.30s
+2026-03-15 08:11:15,627 [INFO] root - [224/267] Enviado para Fernando Manuel Ramalho Dias | 1796.28s
+2026-03-15 08:11:20,676 [INFO] root - [225/267] Enviado para Ana Maria Martinho Rocha Cunha | 1801.32s
+2026-03-15 08:11:25,926 [INFO] root - [226/267] Enviado para Claudia Marilia M. Rodrigues Verissimo | 1806.57s
+2026-03-15 08:11:29,976 [INFO] root - [227/267] Enviado para Rosa Lisete Monteiro Gomes Sousa | 1810.62s
+2026-03-15 08:11:35,514 [INFO] root - [228/267] Enviado para Maria Filomena Alves da Silva | 1816.16s
+2026-03-15 08:11:38,586 [INFO] root - [229/267] Enviado para Ana Paula Brandão Duarte Hering | 1819.23s
+2026-03-15 08:11:44,236 [INFO] root - [230/267] Enviado para António José Silva Ferreira | 1824.89s
+2026-03-15 08:11:48,865 [INFO] root - [231/267] Enviado para João Carlos da Costa Monteiro | 1829.51s
+2026-03-15 08:11:52,886 [INFO] root - [232/267] Enviado para Eulalia Maria dos Santos Guedes da Silva | 1833.54s
+2026-03-15 08:11:56,396 [INFO] root - [233/267] Enviado para Maria Isabel Salgueiro Antunes N. Oliveira | 1837.05s
+2026-03-15 08:12:02,266 [INFO] root - [234/267] Enviado para Anabela Ferreira Rodrigues Lopes | 1842.91s
+2026-03-15 08:12:06,832 [INFO] root - [235/267] Enviado para Alvaro Abel Ferreira Anacleto | 1847.48s
+2026-03-15 08:12:13,126 [INFO] root - [236/267] Enviado para João Paulo Silva Moura | 1853.77s
+2026-03-15 08:12:17,167 [INFO] root - [237/267] Enviado para Francisco Manuel de Matos Andrade | 1857.81s
+2026-03-15 08:12:23,316 [INFO] root - [238/267] Enviado para Patricia Mafalda Oliveira V. Nogueira | 1863.97s
+2026-03-15 08:12:27,529 [INFO] root - [239/267] Enviado para Maria Antonieta Almeida Morais Caiado | 1868.18s
+2026-03-15 08:12:34,615 [INFO] root - [240/267] Enviado para Maria Margarida Almeida Marques Mouro | 1875.26s
+2026-03-15 08:12:39,738 [INFO] root - [241/267] Enviado para Maria José Teixeira Matos | 1880.38s
+2026-03-15 08:12:44,002 [INFO] root - [242/267] Enviado para Maria Ivone Sereno Sousa Cabral | 1884.65s
+2026-03-15 08:12:47,956 [INFO] root - [243/267] Enviado para António Manuel Pereira Silva | 1888.60s
+2026-03-15 08:12:53,078 [INFO] root - [244/267] Enviado para Luís Mário Rodrigues Boticário | 1893.72s
+2026-03-15 08:12:56,785 [INFO] root - [245/267] Enviado para Florinda da Silva Pinto de Sousa | 1897.43s
+2026-03-15 08:13:00,629 [INFO] root - [246/267] Enviado para Maria Leonor Castro Pinheiro Ricardo | 1901.28s
+2026-03-15 08:13:05,490 [INFO] root - [247/267] Enviado para Maria Antónia Matos de Jesus | 1906.14s
+2026-03-15 08:13:10,286 [INFO] root - [248/267] Enviado para Serafim Barbosa Monteiro | 1910.94s
+2026-03-15 08:13:13,506 [INFO] root - [249/267] Enviado para Rita Daniela Ferreira Marques | 1914.16s
+2026-03-15 08:13:18,026 [INFO] root - [250/267] Enviado para Ana Gonçalves Lopes Ferreira | 1918.67s
+2026-03-15 08:14:49,436 [INFO] root - [251/267] Enviado para António Fernando Lopes dos Santos | 2010.09s
+2026-03-15 08:14:53,896 [INFO] root - [252/267] Enviado para Rui Pedro Rodrigues Lima Moreira | 2014.55s
+2026-03-15 08:14:59,286 [INFO] root - [253/267] Enviado para Augusto Francisco de Sousa Couto | 2019.93s
+2026-03-15 08:15:03,341 [INFO] root - [254/267] Enviado para Maria Emilia Santos Ferreira | 2023.99s
+2026-03-15 08:15:08,196 [INFO] root - [255/267] Enviado para Ana Maria Gouveia Fernandes Diogo | 2028.85s
+2026-03-15 08:15:12,038 [INFO] root - [256/267] Enviado para Maria da Graça Cardoso Cruz Pereira Almeida | 2032.68s
+2026-03-15 08:15:16,898 [INFO] root - [257/267] Enviado para Ana Maria Tavares Barandela dos Santos | 2037.54s
+2026-03-15 08:15:22,766 [INFO] root - [258/267] Enviado para Helena Carla Pinto Conceição Rodrigues | 2043.42s
+2026-03-15 08:15:27,930 [ERROR] root - Erro ao enviar email para João Manuel Silva Ferreira (jf1958@apo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 118, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'jf1958@apo.pt': (550, b'5.1.1 <jf1958@apo.pt> recipient rejected')}
+2026-03-15 08:15:28,016 [INFO] root - [259/267] Enviado para João Manuel Silva Ferreira | 2048.67s
+2026-03-15 08:15:35,013 [INFO] root - [260/267] Enviado para Maria Gabriela Gomes Pinto Vareta Queirós | 2055.66s
+2026-03-15 08:15:40,459 [INFO] root - [261/267] Enviado para Manuel Almeida Pereira | 2061.10s
+2026-03-15 08:15:44,830 [INFO] root - [262/267] Enviado para Maria Luisa Moreira Sousa Alves | 2065.48s
+2026-03-15 08:15:50,036 [INFO] root - [263/267] Enviado para Maria Gracinda Pereira Vieira | 2070.68s
+2026-03-15 08:15:56,196 [INFO] root - [264/267] Enviado para Cristina Maria Sousa Loureiro | 2076.84s
+2026-03-15 08:16:00,496 [INFO] root - [265/267] Enviado para Maria Manuela Osório de Almeida Coimbra Marques | 2081.15s
+2026-03-15 08:16:05,600 [INFO] root - [266/267] Enviado para Maria Fernanda Nunes Carvalho Moreira | 2086.25s
+2026-03-15 08:16:11,436 [INFO] root - [267/267] Enviado para Dignis Isvarlal | 2092.08s
+2026-03-15 08:16:11,586 [INFO] root - Envio terminado | total: 267 | Enviados: 0 | Por enviar: 267
+2026-03-15 08:16:11,586 [INFO] root - Envio terminado | total=267 | Enviados=0 | Por enviar=267
+2026-03-15 09:36:43,592 [INFO] root - Email profile carregado: associados
+2026-03-15 09:37:39,330 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 09:37:42,512 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 09:37:49,154 [INFO] root - Início do envio...
+2026-03-15 09:37:49,154 [INFO] root - Associados selecionados=156
+2026-03-15 09:37:49,170 [INFO] root - UseCase.executar iniciado
+2026-03-15 09:37:49,170 [INFO] root - total para processar=156
+2026-03-15 09:37:49,275 [ERROR] root - Erro no envio.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 109, in worker
+    resultado=self.usecase.executar(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 110, in executar
+    html = html_template.format(**row.fillna(""))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'Nome'
+2026-03-15 09:37:55,539 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 09:37:57,373 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 09:38:05,341 [INFO] root - Início do envio...
+2026-03-15 09:38:05,341 [INFO] root - Associados selecionados=156
+2026-03-15 09:38:05,341 [INFO] root - UseCase.executar iniciado
+2026-03-15 09:38:05,341 [INFO] root - total para processar=156
+2026-03-15 09:38:05,453 [ERROR] root - Erro no envio.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 109, in worker
+    resultado=self.usecase.executar(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 110, in executar
+    html = html_template.format(**row.fillna(""))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'Nome'
+2026-03-15 09:49:09,126 [INFO] root - Email profile carregado: associados
+2026-03-15 09:49:22,635 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 09:49:25,761 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 09:49:51,280 [INFO] root - Início do envio...
+2026-03-15 09:49:51,280 [INFO] root - Associados selecionados=156
+2026-03-15 09:49:51,280 [INFO] root - UseCase.executar iniciado
+2026-03-15 09:49:51,297 [INFO] root - total para processar=156
+2026-03-15 09:49:54,001 [INFO] root - [1/156] Enviado para Orquídea Fernanda Figueiredo Machado | 2.71s
+2026-03-15 09:56:05,366 [ERROR] root - Erro no envio.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 109, in worker
+    resultado=self.usecase.executar(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 136, in executar
+    continuar = self.confirmar_envio()
+        ^^^^^^^^
+AttributeError: 'EnviarEmailsAssociadosUseCase' object has no attribute 'log'
+2026-03-15 09:58:38,133 [INFO] root - Email profile carregado: associados
+2026-03-15 09:58:52,233 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 09:58:54,071 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 09:59:19,590 [INFO] root - Início do envio...
+2026-03-15 09:59:19,590 [INFO] root - Associados selecionados=156
+2026-03-15 09:59:19,605 [INFO] root - UseCase.executar iniciado
+2026-03-15 09:59:19,605 [INFO] root - total para processar=156
+2026-03-15 09:59:19,701 [ERROR] root - Erro no envio.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 109, in worker
+    resultado=self.usecase.executar(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 107, in executar
+    df_envio["nome"] = df_envio["nome"].apply(simplificar_nome)
+                                              ^^^^^^^^^^^^^^^^
+NameError: name 'simplificar_nome' is not defined
+2026-03-15 10:00:15,297 [INFO] root - Email profile carregado: associados
+2026-03-15 10:00:37,711 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 10:00:42,177 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 10:01:02,913 [INFO] root - Início do envio...
+2026-03-15 10:01:02,929 [INFO] root - Associados selecionados=0
+2026-03-15 10:01:02,929 [INFO] root - UseCase.executar iniciado
+2026-03-15 10:01:02,929 [INFO] root - total para processar=0
+2026-03-15 10:01:03,238 [INFO] root - Envio terminado | total: 0 | Enviados: 0 | Por enviar: 0
+2026-03-15 10:01:03,238 [INFO] root - Envio terminado | total=0 | Enviados=0 | Por enviar=0
+2026-03-15 10:01:20,506 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 10:01:22,031 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 10:01:30,402 [INFO] root - Início do envio...
+2026-03-15 10:01:30,402 [INFO] root - Associados selecionados=0
+2026-03-15 10:01:30,402 [INFO] root - UseCase.executar iniciado
+2026-03-15 10:01:30,402 [INFO] root - total para processar=0
+2026-03-15 10:01:30,707 [INFO] root - Envio terminado | total: 0 | Enviados: 0 | Por enviar: 0
+2026-03-15 10:01:30,707 [INFO] root - Envio terminado | total=0 | Enviados=0 | Por enviar=0
+2026-03-15 10:03:01,038 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 10:03:03,070 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 10:03:12,085 [INFO] root - Início do envio...
+2026-03-15 10:03:12,085 [INFO] root - Associados selecionados=156
+2026-03-15 10:03:12,101 [INFO] root - UseCase.executar iniciado
+2026-03-15 10:03:12,101 [INFO] root - total para processar=156
+2026-03-15 10:03:16,798 [INFO] root - [1/156] Enviado para Orquídea Machado | 4.70s
+2026-03-15 10:03:26,296 [INFO] root - [2/156] Enviado para Nelson Poças | 14.19s
+2026-03-15 10:03:46,597 [INFO] root - [3/156] Enviado para Manuel Castro | 34.49s
+2026-03-15 10:04:44,212 [ERROR] root - Erro no envio.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 109, in worker
+    resultado=self.usecase.executar(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 138, in executar
+    self.log("Envio interrompido após email de teste.")
+    ^^^^^^^^
+AttributeError: 'EnviarEmailsAssociadosUseCase' object has no attribute 'log'
+2026-03-15 10:05:47,263 [INFO] root - Email profile carregado: associados
+2026-03-15 10:06:01,036 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 10:06:03,079 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 10:06:24,996 [INFO] root - Início do envio...
+2026-03-15 10:06:24,996 [INFO] root - Associados selecionados=156
+2026-03-15 10:06:25,012 [INFO] root - UseCase.executar iniciado
+2026-03-15 10:06:25,012 [INFO] root - total para processar=156
+2026-03-15 10:06:28,203 [INFO] root - [1/156] Enviado para Orquídea Machado | 3.19s
+2026-03-15 10:06:37,611 [ERROR] root - Erro no envio.
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\associados_controller.py", line 109, in worker
+    resultado=self.usecase.executar(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 138, in executar
+    self.log("Envio interrompido após email de teste.")
+    ^^^^^^^^
+AttributeError: 'EnviarEmailsAssociadosUseCase' object has no attribute 'log'
+2026-03-15 10:07:10,463 [INFO] root - Email profile carregado: associados
+2026-03-15 10:07:29,920 [INFO] root - Verificar ficheiro: G:\.shortcut-targets-by-id\1U63DGZ6urrQl6543DNHJZQR93oRmv-G2\Associados\convocatoriaAG260327_envio.xlsx
+2026-03-15 10:07:31,324 [INFO] root - Envios preparados: 920 | Já enviados: 764 | Por enviar: 156
+2026-03-15 10:07:42,866 [INFO] root - Início do envio...
+2026-03-15 10:07:42,866 [INFO] root - Associados selecionados=156
+2026-03-15 10:07:42,866 [INFO] root - UseCase.executar iniciado
+2026-03-15 10:07:42,866 [INFO] root - total para processar=156
+2026-03-15 10:07:46,099 [INFO] root - [1/156] Enviado para Orquídea Machado | 3.23s
+2026-03-15 10:07:50,485 [INFO] root - [2/156] Enviado para Nelson Poças | 7.61s
+2026-03-15 10:07:54,074 [INFO] root - [3/156] Enviado para Manuel Castro | 11.20s
+2026-03-15 10:08:00,977 [INFO] root - [4/156] Enviado para Cândida Durão | 18.11s
+2026-03-15 10:08:07,190 [INFO] root - [5/156] Enviado para António Castro | 24.32s
+2026-03-15 10:08:13,414 [INFO] root - [6/156] Enviado para Rodrigues Sousa | 30.53s
+2026-03-15 10:08:17,871 [INFO] root - [7/156] Enviado para Olga Costa | 35.00s
+2026-03-15 10:08:21,801 [INFO] root - [8/156] Enviado para Miguel Silva | 38.93s
+2026-03-15 10:08:28,034 [INFO] root - [9/156] Enviado para Margarida Fonseca | 45.16s
+2026-03-15 10:08:34,625 [INFO] root - [10/156] Enviado para José Silva | 51.75s
+2026-03-15 10:08:41,000 [INFO] root - [11/156] Enviado para Teresa Pereira | 58.12s
+2026-03-15 10:08:46,129 [INFO] root - [12/156] Enviado para Celeste Silva | 63.26s
+2026-03-15 10:08:51,654 [INFO] root - [13/156] Enviado para Rosa Couto | 68.78s
+2026-03-15 10:08:56,461 [INFO] root - [14/156] Enviado para Alzira Borges | 73.58s
+2026-03-15 10:09:01,509 [INFO] root - [15/156] Enviado para José Moreira | 78.63s
+2026-03-15 10:09:07,525 [INFO] root - [16/156] Enviado para Hipolito Novais | 84.66s
+2026-03-15 10:09:12,674 [INFO] root - [17/156] Enviado para Manuel Duarte | 89.80s
+2026-03-15 10:09:18,185 [INFO] root - [18/156] Enviado para Ester Castro | 95.30s
+2026-03-15 10:09:23,087 [INFO] root - [19/156] Enviado para Joaquim Cunha | 100.21s
+2026-03-15 10:09:27,860 [INFO] root - [20/156] Enviado para Eduardo Salazar | 104.99s
+2026-03-15 10:09:32,219 [INFO] root - [21/156] Enviado para Joaquim Lima | 109.34s
+2026-03-15 10:09:36,747 [INFO] root - [22/156] Enviado para Deolinda Sousa | 113.87s
+2026-03-15 10:09:40,803 [INFO] root - [23/156] Enviado para Margarida Nunes | 117.92s
+2026-03-15 10:09:45,783 [INFO] root - [24/156] Enviado para José Vieira | 122.90s
+2026-03-15 10:09:51,311 [INFO] root - [25/156] Enviado para António Aires | 128.44s
+2026-03-15 10:09:56,922 [INFO] root - [26/156] Enviado para Rosário Ribeiro | 134.04s
+2026-03-15 10:10:02,344 [INFO] root - [27/156] Enviado para Ana Faneco | 139.47s
+2026-03-15 10:10:08,408 [INFO] root - [28/156] Enviado para Conceição Silva | 145.53s
+2026-03-15 10:10:12,702 [INFO] root - [29/156] Enviado para Manuel Faria | 149.83s
+2026-03-15 10:10:17,272 [INFO] root - [30/156] Enviado para Rosa Duarte | 154.39s
+2026-03-15 10:10:23,430 [INFO] root - [31/156] Enviado para Fátima Silva | 160.55s
+2026-03-15 10:10:28,316 [INFO] root - [32/156] Enviado para Jorge Reis | 165.43s
+2026-03-15 10:10:33,077 [INFO] root - [33/156] Enviado para Irene Ferreira | 170.20s
+2026-03-15 10:10:38,768 [INFO] root - [34/156] Enviado para Carmo Martins | 175.89s
+2026-03-15 10:10:43,531 [INFO] root - [35/156] Enviado para Ana Ferreira | 180.65s
+2026-03-15 10:10:48,090 [INFO] root - [36/156] Enviado para Fátima Rodrigues | 185.21s
+2026-03-15 10:10:54,218 [INFO] root - [37/156] Enviado para Teodosio Pereira | 191.34s
+2026-03-15 10:10:58,093 [INFO] root - [38/156] Enviado para Boaventura Costa | 195.22s
+2026-03-15 10:11:01,904 [INFO] root - [39/156] Enviado para Carlos Pinto | 199.03s
+2026-03-15 10:11:08,751 [INFO] root - [40/156] Enviado para Joaquim Santos | 205.87s
+2026-03-15 10:11:13,156 [INFO] root - [41/156] Enviado para Albino Marques | 210.28s
+2026-03-15 10:11:18,719 [INFO] root - [42/156] Enviado para Joaquim Marques | 215.84s
+2026-03-15 10:11:22,100 [INFO] root - [43/156] Enviado para Carlos Silva | 219.22s
+2026-03-15 10:11:27,359 [INFO] root - [44/156] Enviado para Lurdes Maia | 224.49s
+2026-03-15 10:11:32,277 [INFO] root - [45/156] Enviado para Conceição Silva | 229.40s
+2026-03-15 10:11:37,291 [INFO] root - [46/156] Enviado para Carlos Guimarães | 234.42s
+2026-03-15 10:11:43,157 [INFO] root - [47/156] Enviado para Margarida Santos | 240.28s
+2026-03-15 10:11:48,204 [INFO] root - [48/156] Enviado para João Nogueira | 245.34s
+2026-03-15 10:11:52,967 [INFO] root - [49/156] Enviado para Amélia Rocha | 250.10s
+2026-03-15 10:11:58,826 [INFO] root - [50/156] Enviado para Assunção Oliveira | 255.95s
+2026-03-15 10:12:55,306 [INFO] root - [51/156] Enviado para Amélia Esteves | 312.43s
+2026-03-15 10:13:01,872 [INFO] root - [52/156] Enviado para Augusto Oliveira | 318.99s
+2026-03-15 10:13:05,375 [INFO] root - [53/156] Enviado para Adelina Sousa | 322.49s
+2026-03-15 10:13:11,125 [INFO] root - [54/156] Enviado para José Armanda | 328.24s
+2026-03-15 10:13:15,438 [INFO] root - [55/156] Enviado para Olinda Sousa | 332.57s
+2026-03-15 10:13:19,872 [INFO] root - [56/156] Enviado para Helena Fonseca | 336.99s
+2026-03-15 10:13:26,081 [INFO] root - [57/156] Enviado para Jorge Coelho | 343.20s
+2026-03-15 10:13:30,670 [INFO] root - [58/156] Enviado para José Cardoso | 347.79s
+2026-03-15 10:13:35,563 [INFO] root - [59/156] Enviado para Rui Quelhas | 352.68s
+2026-03-15 10:13:41,606 [INFO] root - [60/156] Enviado para José Araújo | 358.73s
+2026-03-15 10:13:45,387 [INFO] root - [61/156] Enviado para Gaspar Silva | 362.51s
+2026-03-15 10:13:50,637 [INFO] root - [62/156] Enviado para Edgar Fonseca | 367.76s
+2026-03-15 10:13:55,403 [INFO] root - [63/156] Enviado para Germinal Braga | 372.52s
+2026-03-15 10:13:59,681 [INFO] root - [64/156] Enviado para Antero Dias | 376.80s
+2026-03-15 10:14:05,518 [INFO] root - [65/156] Enviado para Fernando Sereno | 382.64s
+2026-03-15 10:14:10,121 [INFO] root - [66/156] Enviado para Rosa Azevedo | 387.24s
+2026-03-15 10:14:14,437 [INFO] root - [67/156] Enviado para Virgílio Inocêncio | 391.56s
+2026-03-15 10:14:20,985 [INFO] root - [68/156] Enviado para Rosalina Baltazar | 398.11s
+2026-03-15 10:14:26,783 [INFO] root - [69/156] Enviado para Manuela Silva | 403.91s
+2026-03-15 10:14:31,344 [INFO] root - [70/156] Enviado para Jorge Azevedo | 408.47s
+2026-03-15 10:14:38,203 [INFO] root - [71/156] Enviado para Odete Melo | 415.34s
+2026-03-15 10:14:41,673 [INFO] root - [72/156] Enviado para José Dias | 418.79s
+2026-03-15 10:14:45,094 [INFO] root - [73/156] Enviado para Eduarda Costa | 422.22s
+2026-03-15 10:14:48,634 [INFO] root - [74/156] Enviado para José Fuentefria | 425.75s
+2026-03-15 10:14:52,055 [INFO] root - [75/156] Enviado para Antero Seguro | 429.17s
+2026-03-15 10:14:56,300 [INFO] root - [76/156] Enviado para António Vieira | 433.42s
+2026-03-15 10:15:01,447 [INFO] root - [77/156] Enviado para Giordano Couto | 438.58s
+2026-03-15 10:15:07,404 [INFO] root - [78/156] Enviado para Fernando Saraiva | 444.53s
+2026-03-15 10:15:11,190 [INFO] root - [79/156] Enviado para António Oliveira | 448.31s
+2026-03-15 10:15:17,331 [INFO] root - [80/156] Enviado para Jorge Brandão | 454.45s
+2026-03-15 10:15:24,765 [INFO] root - [81/156] Enviado para António Correia | 461.89s
+2026-03-15 10:15:30,623 [INFO] root - [82/156] Enviado para Conceição Pinto | 467.75s
+2026-03-15 10:15:34,607 [INFO] root - [83/156] Enviado para José Cruz | 471.73s
+2026-03-15 10:15:39,254 [INFO] root - [84/156] Enviado para Arminda Fonseca | 476.37s
+2026-03-15 10:15:43,544 [INFO] root - [85/156] Enviado para Conceição Oliveira | 480.66s
+2026-03-15 10:15:48,888 [INFO] root - [86/156] Enviado para Manuela Brenhas | 486.01s
+2026-03-15 10:15:54,950 [INFO] root - [87/156] Enviado para Fátima Barroso | 492.07s
+2026-03-15 10:16:01,253 [INFO] root - [88/156] Enviado para Florinda Costa | 498.37s
+2026-03-15 10:16:06,482 [INFO] root - [89/156] Enviado para Florentino Pereira | 503.60s
+2026-03-15 10:16:12,164 [INFO] root - [90/156] Enviado para Rosa Pereira | 509.29s
+2026-03-15 10:16:18,416 [INFO] root - [91/156] Enviado para Fernando Oliveira | 515.54s
+2026-03-15 10:16:25,436 [INFO] root - [92/156] Enviado para Alice Carvalho | 522.56s
+2026-03-15 10:16:29,771 [INFO] root - [93/156] Enviado para António Silva | 526.89s
+2026-03-15 10:16:34,654 [INFO] root - [94/156] Enviado para Carlos Vieira | 531.77s
+2026-03-15 10:16:37,780 [INFO] root - [95/156] Enviado para Manuel Almeida | 534.90s
+2026-03-15 10:16:42,076 [INFO] root - [96/156] Enviado para Rosalina Fonseca | 539.21s
+2026-03-15 10:16:47,124 [INFO] root - [97/156] Enviado para Isabel Alves | 544.25s
+2026-03-15 10:16:52,790 [INFO] root - [98/156] Enviado para Irene Correia | 549.92s
+2026-03-15 10:16:57,438 [INFO] root - [99/156] Enviado para Armindo Carvalho | 554.56s
+2026-03-15 10:17:02,298 [INFO] root - [100/156] Enviado para Armando Campos | 559.42s
+2026-03-15 10:18:39,733 [INFO] root - [101/156] Enviado para Elvira Cardoso | 656.86s
+2026-03-15 10:18:44,564 [INFO] root - [102/156] Enviado para Horácio Silva | 661.68s
+2026-03-15 10:18:49,810 [INFO] root - [103/156] Enviado para José Adrego | 666.93s
+2026-03-15 10:18:56,512 [INFO] root - [104/156] Enviado para Manuel Fonseca | 673.63s
+2026-03-15 10:19:00,896 [INFO] root - [105/156] Enviado para Laurinda Silva | 678.03s
+2026-03-15 10:19:07,078 [INFO] root - [106/156] Enviado para José Coutinho | 684.21s
+2026-03-15 10:19:13,981 [INFO] root - [107/156] Enviado para Fátima Soares | 691.11s
+2026-03-15 10:19:19,122 [INFO] root - [108/156] Enviado para José Veiga | 696.25s
+2026-03-15 10:19:25,173 [INFO] root - [109/156] Enviado para Manuela Valente | 702.29s
+2026-03-15 10:19:28,795 [INFO] root - [110/156] Enviado para Filomena Serra | 705.92s
+2026-03-15 10:19:33,044 [INFO] root - [111/156] Enviado para Carolina Oliveira | 710.17s
+2026-03-15 10:19:39,531 [INFO] root - [112/156] Enviado para Fernanda Marujo | 716.65s
+2026-03-15 10:19:45,420 [INFO] root - [113/156] Enviado para João Lima | 722.54s
+2026-03-15 10:19:49,560 [INFO] root - [114/156] Enviado para Vitória Cunha | 726.69s
+2026-03-15 10:19:54,653 [INFO] root - [115/156] Enviado para Fátima Campos | 731.78s
+2026-03-15 10:19:59,515 [INFO] root - [116/156] Enviado para Amélia Viana | 736.65s
+2026-03-15 10:20:05,360 [INFO] root - [117/156] Enviado para Avelino Marques | 742.48s
+2026-03-15 10:20:11,401 [INFO] root - [118/156] Enviado para José Bernardo | 748.52s
+2026-03-15 10:20:14,701 [INFO] root - [119/156] Enviado para António Carvalho | 751.83s
+2026-03-15 10:20:19,265 [INFO] root - [120/156] Enviado para Conceição Machado | 756.39s
+2026-03-15 10:20:25,081 [INFO] root - [121/156] Enviado para Ermelinda Monteiro | 762.21s
+2026-03-15 10:20:31,173 [INFO] root - [122/156] Enviado para Fátima Gregório | 768.29s
+2026-03-15 10:20:35,860 [INFO] root - [123/156] Enviado para Fernanda Carvalho | 772.98s
+2026-03-15 10:20:40,852 [INFO] root - [124/156] Enviado para Fernando Nunes | 777.97s
+2026-03-15 10:20:46,702 [INFO] root - [125/156] Enviado para António Fonseca | 783.82s
+2026-03-15 10:20:50,723 [INFO] root - [126/156] Enviado para Manuel Silva | 787.84s
+2026-03-15 10:20:54,775 [INFO] root - [127/156] Enviado para Conceição Almeida | 791.89s
+2026-03-15 10:21:00,437 [INFO] root - [128/156] Enviado para Julieta Pinheiro | 797.56s
+2026-03-15 10:21:05,906 [INFO] root - [129/156] Enviado para Carlos Costa | 803.03s
+2026-03-15 10:21:10,593 [INFO] root - [130/156] Enviado para Idalina Almeida | 807.72s
+2026-03-15 10:21:16,873 [INFO] root - [131/156] Enviado para Manuel Meireis | 813.99s
+2026-03-15 10:21:21,700 [INFO] root - [132/156] Enviado para Isabel Matos | 818.83s
+2026-03-15 10:21:26,436 [INFO] root - [133/156] Enviado para Rogério Santos | 823.57s
+2026-03-15 10:21:31,325 [INFO] root - [134/156] Enviado para Paulo Sousa | 828.46s
+2026-03-15 10:21:35,781 [INFO] root - [135/156] Enviado para Joaquim Assunção | 832.90s
+2026-03-15 10:21:40,448 [INFO] root - [136/156] Enviado para Eduardo Ressurreição | 837.57s
+2026-03-15 10:21:45,370 [INFO] root - [137/156] Enviado para Manuel Coelho | 842.49s
+2026-03-15 10:21:50,888 [INFO] root - [138/156] Enviado para Carla Teixeira | 848.02s
+2026-03-15 10:21:54,461 [INFO] root - [139/156] Enviado para Joaquim Almeida | 851.58s
+2026-03-15 10:21:58,358 [INFO] root - [140/156] Enviado para Lurdes Silva | 855.48s
+2026-03-15 10:22:02,982 [INFO] root - [141/156] Enviado para José Matos | 860.10s
+2026-03-15 10:22:08,107 [INFO] root - [142/156] Enviado para Fernanda Andrade | 865.23s
+2026-03-15 10:22:13,902 [INFO] root - [143/156] Enviado para António Andrade | 871.02s
+2026-03-15 10:22:18,606 [INFO] root - [144/156] Enviado para Adelino Gomes | 875.74s
+2026-03-15 10:22:24,812 [INFO] root - [145/156] Enviado para Paula Pereira | 881.93s
+2026-03-15 10:22:29,223 [INFO] root - [146/156] Enviado para Jorge Gonçalves | 886.34s
+2026-03-15 10:22:35,700 [INFO] root - [147/156] Enviado para Conceição Sousa | 892.83s
+2026-03-15 10:22:39,825 [INFO] root - [148/156] Enviado para Miguel Silva | 896.94s
+2026-03-15 10:22:44,842 [INFO] root - [149/156] Enviado para Rui Felizes | 901.98s
+2026-03-15 10:22:50,279 [ERROR] root - Erro ao enviar email para João Ferreira (jf1958@apo.pt)
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\associados\enviar_emails_usecase.py", line 120, in executar
+    self.emailer.send(msg)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\emailer.py", line 96, in send
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 94, in send
+    self._smtp.send_message(message, to_addrs=recipients)
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\users\Utilizador\miniconda3\envs\atrpt\Lib\smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'jf1958@apo.pt': (550, b'5.1.1 <jf1958@apo.pt> recipient rejected')}
+2026-03-15 10:22:50,311 [INFO] root - [150/156] Enviado para João Ferreira | 907.43s
+2026-03-15 10:25:05,748 [INFO] root - [151/156] Enviado para Julia Dias | 1042.88s
+2026-03-15 10:25:09,973 [INFO] root - [152/156] Enviado para José Guimarães | 1047.09s
+2026-03-15 10:25:13,927 [INFO] root - [153/156] Enviado para Glória Pinto | 1051.05s
+2026-03-15 10:25:19,111 [INFO] root - [154/156] Enviado para Ema Caseiro | 1056.23s
+2026-03-15 10:25:25,345 [INFO] root - [155/156] Enviado para Alice Ramos | 1062.47s
+2026-03-15 10:25:31,969 [INFO] root - [156/156] Enviado para Paula Guimarães | 1069.10s
+2026-03-15 10:25:32,269 [INFO] root - Envio terminado | total: 156 | Enviados: 0 | Por enviar: 156
+2026-03-15 10:25:32,272 [INFO] root - Envio terminado | total=156 | Enviados=0 | Por enviar=156
+2026-03-15 11:00:22,536 [INFO] root - Email profile carregado: associados
+2026-03-15 12:37:20,353 [INFO] root - Email profile carregado: associados
+2026-03-15 12:46:36,497 [INFO] root - Email profile carregado: associados
+2026-03-15 12:47:41,674 [INFO] root - Email profile carregado: associados
+2026-03-15 12:53:54,975 [INFO] root - Email profile carregado: associados
+2026-03-15 12:56:09,974 [INFO] root - Email profile carregado: associados
+2026-03-15 13:02:58,295 [INFO] root - Email profile carregado: associados
+2026-03-15 13:04:13,381 [INFO] root - Email profile carregado: associados
+2026-03-15 13:13:54,273 [INFO] root - Email profile carregado: associados
+2026-03-15 13:19:12,383 [INFO] root - Email profile carregado: associados
+2026-03-15 13:49:27,982 [INFO] root - Email profile carregado: associados
+2026-03-15 13:56:37,936 [INFO] root - Email profile carregado: associados
+2026-03-15 16:16:07,492 [INFO] root - Email profile carregado: associados
+2026-03-15 16:22:35,158 [INFO] root - Email profile carregado: associados
+2026-03-15 16:26:52,874 [INFO] root - Email profile carregado: associados
+2026-03-15 16:30:12,141 [INFO] root - Email profile carregado: associados
+2026-03-15 16:37:52,601 [INFO] root - Email profile carregado: associados
+2026-03-15 17:00:24,528 [INFO] root - Email profile carregado: associados
+2026-03-15 17:02:27,145 [INFO] root - Email profile carregado: associados
+2026-03-15 17:08:04,739 [INFO] root - Email profile carregado: associados
+2026-03-15 17:08:49,823 [INFO] root - Email profile carregado: associados
+2026-03-15 17:12:10,891 [INFO] root - Email profile carregado: associados
+2026-03-15 17:24:47,243 [INFO] root - Email profile carregado: associados
+2026-03-15 17:27:30,738 [INFO] root - Email profile carregado: associados
+2026-03-15 18:36:59,983 [INFO] root - Email profile carregado: associados
+2026-03-15 18:37:54,014 [INFO] root - Email profile carregado: associados
+2026-03-15 18:57:38,900 [INFO] root - Email profile carregado: associados

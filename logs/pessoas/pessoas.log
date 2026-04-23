@@ -1,0 +1,67 @@
+2026-04-22 12:41:49,757 [ERROR] presentation.pessoas.pessoas_controller - Erro ao listar empregados: ('42000', "[42000] [Microsoft][Controlador Microsoft Access de ODBC] Erro de sintaxe (operador em falta) na expressão de consulta ''. (-3100) (SQLExecDirectW)")
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\pessoas\pessoas_controller.py", line 37, in get_empregados
+    return self.repo.list_all(apenas_ativos=apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 48, in list_all
+    rows = self._query_todos(conn, apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 139, in _query_todos
+    cursor.execute(sql, params)
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][Controlador Microsoft Access de ODBC] Erro de sintaxe (operador em falta) na expressão de consulta ''. (-3100) (SQLExecDirectW)")
+2026-04-22 12:41:57,013 [ERROR] presentation.pessoas.pessoas_controller - Erro ao listar empregados: ('42000', "[42000] [Microsoft][Controlador Microsoft Access de ODBC] Erro de sintaxe (operador em falta) na expressão de consulta ''. (-3100) (SQLExecDirectW)")
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\pessoas\pessoas_controller.py", line 37, in get_empregados
+    return self.repo.list_all(apenas_ativos=apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 48, in list_all
+    rows = self._query_todos(conn, apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 139, in _query_todos
+    cursor.execute(sql, params)
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][Controlador Microsoft Access de ODBC] Erro de sintaxe (operador em falta) na expressão de consulta ''. (-3100) (SQLExecDirectW)")
+2026-04-22 12:41:58,550 [ERROR] presentation.pessoas.pessoas_controller - Erro ao listar empregados: ('42000', "[42000] [Microsoft][Controlador Microsoft Access de ODBC] Erro de sintaxe (operador em falta) na expressão de consulta ''. (-3100) (SQLExecDirectW)")
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\pessoas\pessoas_controller.py", line 37, in get_empregados
+    return self.repo.list_all(apenas_ativos=apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 48, in list_all
+    rows = self._query_todos(conn, apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 139, in _query_todos
+    cursor.execute(sql, params)
+pyodbc.ProgrammingError: ('42000', "[42000] [Microsoft][Controlador Microsoft Access de ODBC] Erro de sintaxe (operador em falta) na expressão de consulta ''. (-3100) (SQLExecDirectW)")
+2026-04-22 13:41:51,190 [ERROR] presentation.pessoas.pessoas_controller - Erro ao listar empregados: ('HY000', '[HY000] [Microsoft][Controlador Microsoft Access de ODBC] A expressão JOIN não é suportada. (-3530) (SQLExecDirectW)')
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\pessoas\pessoas_controller.py", line 31, in get_empregados
+    return self.repo.list_all(apenas_ativos=apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 48, in list_all
+    rows = self._query_todos(conn, apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 149, in _query_todos
+    cursor.execute(sql)
+pyodbc.Error: ('HY000', '[HY000] [Microsoft][Controlador Microsoft Access de ODBC] A expressão JOIN não é suportada. (-3530) (SQLExecDirectW)')
+2026-04-22 13:41:55,116 [ERROR] presentation.pessoas.pessoas_controller - Erro ao listar empregados: ('HY000', '[HY000] [Microsoft][Controlador Microsoft Access de ODBC] A expressão JOIN não é suportada. (-3530) (SQLExecDirectW)')
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\pessoas\pessoas_controller.py", line 31, in get_empregados
+    return self.repo.list_all(apenas_ativos=apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 48, in list_all
+    rows = self._query_todos(conn, apenas_ativos)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\empregado_repository.py", line 149, in _query_todos
+    cursor.execute(sql)
+pyodbc.Error: ('HY000', '[HY000] [Microsoft][Controlador Microsoft Access de ODBC] A expressão JOIN não é suportada. (-3530) (SQLExecDirectW)')
+2026-04-22 15:15:11,718 [ERROR] presentation.pessoas.pessoas_controller - Erro ao listar empregados: ('IM002', '[IM002] [Microsoft][Gestor de controladores de ODBC] O nome da origem de dados não foi encontrado e não foi especificado nenhum controlador predefinido (0) (SQLDriverConnect)')
+Traceback (most recent call last):
+  File "presentation\pessoas\pessoas_controller.py", line 31, in get_empregados
+  File "infrastructure\persistence\empregado_repository.py", line 42, in list_all
+  File "infrastructure\persistence\empregado_repository.py", line 39, in _connect
+pyodbc.InterfaceError: ('IM002', '[IM002] [Microsoft][Gestor de controladores de ODBC] O nome da origem de dados não foi encontrado e não foi especificado nenhum controlador predefinido (0) (SQLDriverConnect)')
+2026-04-22 15:15:19,574 [ERROR] presentation.pessoas.pessoas_controller - Erro ao listar empregados: ('IM002', '[IM002] [Microsoft][Gestor de controladores de ODBC] O nome da origem de dados não foi encontrado e não foi especificado nenhum controlador predefinido (0) (SQLDriverConnect)')
+Traceback (most recent call last):
+  File "presentation\pessoas\pessoas_controller.py", line 31, in get_empregados
+  File "infrastructure\persistence\empregado_repository.py", line 42, in list_all
+  File "infrastructure\persistence\empregado_repository.py", line 39, in _connect
+pyodbc.InterfaceError: ('IM002', '[IM002] [Microsoft][Gestor de controladores de ODBC] O nome da origem de dados não foi encontrado e não foi especificado nenhum controlador predefinido (0) (SQLDriverConnect)')

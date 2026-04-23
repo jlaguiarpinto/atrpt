@@ -1,0 +1,5208 @@
+{
+    "data_inicio": "2026-03-26T23:25:53.478644",
+    "data_fim": "2026-03-27T10:25:43.765129",
+    "total": 921,
+    "modo_teste": false,
+    "envios": [
+        {
+            "destino": [
+                "armando1949serra@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:26:06.627349"
+        },
+        {
+            "destino": [
+                "josemariaaraujo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:26:15.063027"
+        },
+        {
+            "destino": [
+                "mfsaazevedo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:26:26.138655"
+        },
+        {
+            "destino": [
+                "moraisernesto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:26:36.918554"
+        },
+        {
+            "destino": [
+                "catiassmoreira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:26:48.274875"
+        },
+        {
+            "destino": [
+                "americoclino@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:26:56.653811"
+        },
+        {
+            "destino": [
+                "alinamanuelamartins@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:27:07.209240"
+        },
+        {
+            "destino": [
+                "sandranestor@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:27:17.072215"
+        },
+        {
+            "destino": [
+                "antonio.a.ribeiro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:27:26.515976"
+        },
+        {
+            "destino": [
+                "florindapsousa11@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:27:36.768555"
+        },
+        {
+            "destino": [
+                "estelapacheco@icloud.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:27:45.089640"
+        },
+        {
+            "destino": [
+                "familia.leal.tavares@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:27:55.542358"
+        },
+        {
+            "destino": [
+                "anamariaguedes1951@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:28:05.666717"
+        },
+        {
+            "destino": [
+                "leopoldina27@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:28:15.907755"
+        },
+        {
+            "destino": [
+                "maria.r.macedo@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:28:27.729627"
+        },
+        {
+            "destino": [
+                "marialurdesgoncalves1958@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:28:37.489097"
+        },
+        {
+            "destino": [
+                "orquideamachado.machado@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:28:47.996331"
+        },
+        {
+            "destino": [
+                "antonio.a.barbosa@meo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:28:56.926228"
+        },
+        {
+            "destino": [
+                "nelsonmpocas0@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:29:06.583992"
+        },
+        {
+            "destino": [
+                "isaguedes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:29:16.414019"
+        },
+        {
+            "destino": [
+                "manuel_barbosa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:29:27.350134"
+        },
+        {
+            "destino": [
+                "carmo.mota@vilacomvida.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:29:39.671033"
+        },
+        {
+            "destino": [
+                "livia.c.pintocardoso@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:29:50.244180"
+        },
+        {
+            "destino": [
+                "jcsleitao@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:30:02.101212"
+        },
+        {
+            "destino": [
+                "mfmcastro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:30:11.246418"
+        },
+        {
+            "destino": [
+                "candidurao@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:30:20.379827"
+        },
+        {
+            "destino": [
+                "manuel.s.moreira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:30:30.695258"
+        },
+        {
+            "destino": [
+                "ze.luis.araujo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:30:40.390632"
+        },
+        {
+            "destino": [
+                "afsantos301@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:30:49.976192"
+        },
+        {
+            "destino": [
+                "mpassaro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:30:59.290231"
+        },
+        {
+            "destino": [
+                "joaquim.meneses@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:31:11.141422"
+        },
+        {
+            "destino": [
+                "mpassaro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:31:22.071483"
+        },
+        {
+            "destino": [
+                "jose.fernando.silva.pereira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:31:34.791042"
+        },
+        {
+            "destino": [
+                "custodiobeleza@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:31:43.725025"
+        },
+        {
+            "destino": [
+                "joaquim.m.andrade@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:31:54.205570"
+        },
+        {
+            "destino": [
+                "amsrocha1955@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:32:04.419749"
+        },
+        {
+            "destino": [
+                "av.moreira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:32:14.696207"
+        },
+        {
+            "destino": [
+                "docemariaclementina@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:32:24.801465"
+        },
+        {
+            "destino": [
+                "rmgbarbosa@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:32:34.962564"
+        },
+        {
+            "destino": [
+                "branquinhoramos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:32:45.520952"
+        },
+        {
+            "destino": [
+                "jabarros@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:35:50.361503"
+        },
+        {
+            "destino": [
+                "jorgeteixeira55@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:36:02.581494"
+        },
+        {
+            "destino": [
+                "suzanaflopes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:36:11.712131"
+        },
+        {
+            "destino": [
+                "maria.e.b.c.m.andrade@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:36:21.774899"
+        },
+        {
+            "destino": [
+                "mariarodriguessousa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:36:33.089857"
+        },
+        {
+            "destino": [
+                "alcino-gomes@outlook.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:36:43.977409"
+        },
+        {
+            "destino": [
+                "josemendo@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:36:55.757104"
+        },
+        {
+            "destino": [
+                "gabriel.silva1946@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:37:05.900193"
+        },
+        {
+            "destino": [
+                "diaconojorgemanuelmoreira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:37:17.895367"
+        },
+        {
+            "destino": [
+                "carolina.rendeiro65@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:37:28.986764"
+        },
+        {
+            "destino": [
+                "jabf.guitarra@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:41:14.021968"
+        },
+        {
+            "destino": [
+                "luisfrsilva@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-26T23:41:22.224559"
+        },
+        {
+            "destino": [
+                "josesista1959@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:47:20.961751"
+        },
+        {
+            "destino": [
+                "olgabcosta@icloud.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:47:30.329592"
+        },
+        {
+            "destino": [
+                "migueljesussilva@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:47:40.782268"
+        },
+        {
+            "destino": [
+                "andradefmn@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:47:50.132262"
+        },
+        {
+            "destino": [
+                "jorge46maciel@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:48:01.790602"
+        },
+        {
+            "destino": [
+                "antonia.cardoso@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:48:10.970731"
+        },
+        {
+            "destino": [
+                "henriquecosta1947@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:48:20.651993"
+        },
+        {
+            "destino": [
+                "soarespinto36@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:48:29.967743"
+        },
+        {
+            "destino": [
+                "zel.torres@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:48:39.950041"
+        },
+        {
+            "destino": [
+                "eferreira1949@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:48:50.448284"
+        },
+        {
+            "destino": [
+                "mmargaridafonseca46@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:49:00.616769"
+        },
+        {
+            "destino": [
+                "mariadelurdessalgueiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:49:12.781081"
+        },
+        {
+            "destino": [
+                "santos1080235@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:49:23.911166"
+        },
+        {
+            "destino": [
+                "mada-lena_57@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:49:35.111960"
+        },
+        {
+            "destino": [
+                "maria.lurdes.sousa@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:49:44.721874"
+        },
+        {
+            "destino": [
+                "silvamariajose55@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:49:55.233098"
+        },
+        {
+            "destino": [
+                "mc.horaferreira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:50:06.562249"
+        },
+        {
+            "destino": [
+                "gloriasantosster@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:50:16.091882"
+        },
+        {
+            "destino": [
+                "emiliaribeiropinto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:50:26.312114"
+        },
+        {
+            "destino": [
+                "mhelena.cunha@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:50:36.922011"
+        },
+        {
+            "destino": [
+                "libania.felix@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:50:48.272263"
+        },
+        {
+            "destino": [
+                "piedaderapososilvestre@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:50:59.461876"
+        },
+        {
+            "destino": [
+                "margarida.granwehr.marinho@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:51:11.342169"
+        },
+        {
+            "destino": [
+                "abilio.aires@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:51:22.412399"
+        },
+        {
+            "destino": [
+                "almargo17@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:51:33.292275"
+        },
+        {
+            "destino": [
+                "misinha.rocha@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:51:41.763345"
+        },
+        {
+            "destino": [
+                "gracinda.cruz@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:51:51.636947"
+        },
+        {
+            "destino": [
+                "jose.trofa@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:52:03.239397"
+        },
+        {
+            "destino": [
+                "antoniogomesrosa@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:52:14.381862"
+        },
+        {
+            "destino": [
+                "adeolinda@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:52:23.021904"
+        },
+        {
+            "destino": [
+                "dinapeleteiro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:52:32.413359"
+        },
+        {
+            "destino": [
+                "vmcarvalho339@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:52:44.049302"
+        },
+        {
+            "destino": [
+                "beira.de.matos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:52:56.282246"
+        },
+        {
+            "destino": [
+                "adelaidealmeida251942@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:53:05.562128"
+        },
+        {
+            "destino": [
+                "balbinamendonca@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:53:15.258186"
+        },
+        {
+            "destino": [
+                "manuelgomespereira40@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:53:25.442528"
+        },
+        {
+            "destino": [
+                "augmarques@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:53:36.152206"
+        },
+        {
+            "destino": [
+                "fonseca.isabel@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:53:46.904008"
+        },
+        {
+            "destino": [
+                "ines.fonseca@live.com.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:53:55.892184"
+        },
+        {
+            "destino": [
+                "carmindalopes51@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:54:07.731834"
+        },
+        {
+            "destino": [
+                "mcosta074@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:56:21.529123"
+        },
+        {
+            "destino": [
+                "vitortava@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:56:30.127089"
+        },
+        {
+            "destino": [
+                "ceciliacoutomartins@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:56:43.758688"
+        },
+        {
+            "destino": [
+                "celestealvessilva42@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:56:53.999646"
+        },
+        {
+            "destino": [
+                "and.oliveira78@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:57:02.721848"
+        },
+        {
+            "destino": [
+                "mariarosacouto54@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:57:12.771747"
+        },
+        {
+            "destino": [
+                "franclim.neto@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:57:23.282592"
+        },
+        {
+            "destino": [
+                "borgesalzira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T05:57:33.421650"
+        },
+        {
+            "destino": [
+                "ilidiosantossilva@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:02:53.791382"
+        },
+        {
+            "destino": [
+                "berialucia@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:03:04.706525"
+        },
+        {
+            "destino": [
+                "antoniopereira011957@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:03:14.165080"
+        },
+        {
+            "destino": [
+                "vilacaferreira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:03:23.721495"
+        },
+        {
+            "destino": [
+                "lopes.candido@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:03:33.211466"
+        },
+        {
+            "destino": [
+                "maria_teresa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:03:43.153973"
+        },
+        {
+            "destino": [
+                "mariafernandasalvaterra@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:03:54.521634"
+        },
+        {
+            "destino": [
+                "nanda.tartaro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:04:04.635012"
+        },
+        {
+            "destino": [
+                "franciscopereirapt1@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:04:15.511612"
+        },
+        {
+            "destino": [
+                "antoniojosepereira56@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:04:27.701576"
+        },
+        {
+            "destino": [
+                "carlaisabell@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:04:36.201280"
+        },
+        {
+            "destino": [
+                "assuncaotocaguitarra@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:04:45.713718"
+        },
+        {
+            "destino": [
+                "maria.fafa.monteiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:04:56.301489"
+        },
+        {
+            "destino": [
+                "marialtribeiro@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:05:06.985973"
+        },
+        {
+            "destino": [
+                "sao.71@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:05:18.409310"
+        },
+        {
+            "destino": [
+                "giselda-m-silva@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:05:29.436854"
+        },
+        {
+            "destino": [
+                "ju.azevedo93@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:05:37.431144"
+        },
+        {
+            "destino": [
+                "antoniopbarbosa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:05:47.027664"
+        },
+        {
+            "destino": [
+                "m.c.c.r.anjos@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:05:56.841156"
+        },
+        {
+            "destino": [
+                "adriano.torres.neves@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:06:07.220480"
+        },
+        {
+            "destino": [
+                "ruiguerra@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:06:15.201236"
+        },
+        {
+            "destino": [
+                "luciajesusmoreira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:06:26.531084"
+        },
+        {
+            "destino": [
+                "ascencaosantos@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:06:36.649708"
+        },
+        {
+            "destino": [
+                "carlosmanuel.mendes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:06:47.345158"
+        },
+        {
+            "destino": [
+                "dinasilvapereira1953@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:06:58.809725"
+        },
+        {
+            "destino": [
+                "jinhadamas@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:07:08.469416"
+        },
+        {
+            "destino": [
+                "nina.andrade@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:07:19.259244"
+        },
+        {
+            "destino": [
+                "otiliateixeira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:07:30.516757"
+        },
+        {
+            "destino": [
+                "goncjsilva@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:07:38.962809"
+        },
+        {
+            "destino": [
+                "as4956771@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:07:51.002719"
+        },
+        {
+            "destino": [
+                "26ruipedro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:07:59.009469"
+        },
+        {
+            "destino": [
+                "fatima.simoes57@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:08:08.919484"
+        },
+        {
+            "destino": [
+                "downlord@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:08:17.993563"
+        },
+        {
+            "destino": [
+                "constanca_santos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:08:27.423189"
+        },
+        {
+            "destino": [
+                "duartemanuelduarte@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:08:38.459791"
+        },
+        {
+            "destino": [
+                "sousanunes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:08:47.850222"
+        },
+        {
+            "destino": [
+                "anamariamendes51@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:08:58.349474"
+        },
+        {
+            "destino": [
+                "amarquesneves@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:09:07.543281"
+        },
+        {
+            "destino": [
+                "mbmhm@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:09:19.139208"
+        },
+        {
+            "destino": [
+                "mcramirescosta@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:09:27.781823"
+        },
+        {
+            "destino": [
+                "manuelamorado3@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:10:02.529347"
+        },
+        {
+            "destino": [
+                "irochamatias@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:10:15.652450"
+        },
+        {
+            "destino": [
+                "estercorina51@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:10:25.533769"
+        },
+        {
+            "destino": [
+                "fernando.couto.soares@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:10:37.347473"
+        },
+        {
+            "destino": [
+                "jose.a.leocadio@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:10:47.591904"
+        },
+        {
+            "destino": [
+                "vandasimoesmoreira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:10:57.342161"
+        },
+        {
+            "destino": [
+                "gilda.reis.cunha-10693p@adv.oa.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:11:09.861676"
+        },
+        {
+            "destino": [
+                "paulamvieira57@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:11:17.252329"
+        },
+        {
+            "destino": [
+                "fernandofreitasrangel@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:11:28.491614"
+        },
+        {
+            "destino": [
+                "mendesartesanato@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:11:38.392583"
+        },
+        {
+            "destino": [
+                "emmas.flower.shop@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:17:36.169104"
+        },
+        {
+            "destino": [
+                "eduardosalazar@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:17:51.595612"
+        },
+        {
+            "destino": [
+                "abiliosoajo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:18:02.740625"
+        },
+        {
+            "destino": [
+                "mariajfsilva76@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:18:12.931857"
+        },
+        {
+            "destino": [
+                "olindacunha3@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:18:23.354746"
+        },
+        {
+            "destino": [
+                "manuela.ribeiro.pinto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:18:33.204054"
+        },
+        {
+            "destino": [
+                "ana.lago.vieira.santos@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:18:42.563531"
+        },
+        {
+            "destino": [
+                "matdboliveira@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:18:53.770671"
+        },
+        {
+            "destino": [
+                "martinho.v@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:19:03.300536"
+        },
+        {
+            "destino": [
+                "benilde.sousa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:19:12.827626"
+        },
+        {
+            "destino": [
+                "ferrazfernando191@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:19:23.145100"
+        },
+        {
+            "destino": [
+                "Paulo.lima.966232091@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:19:33.402129"
+        },
+        {
+            "destino": [
+                "eanafigueiredo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:19:42.295582"
+        },
+        {
+            "destino": [
+                "sbcontabilidadeslda@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:19:52.603447"
+        },
+        {
+            "destino": [
+                "abarandela@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:20:03.202677"
+        },
+        {
+            "destino": [
+                "olindacrodrigues@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:20:13.514589"
+        },
+        {
+            "destino": [
+                "lucia.c.azevedo@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:20:22.953722"
+        },
+        {
+            "destino": [
+                "elsacleite@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:20:31.106566"
+        },
+        {
+            "destino": [
+                "jst1046@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:20:39.907051"
+        },
+        {
+            "destino": [
+                "fernandofacs@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:20:49.433605"
+        },
+        {
+            "destino": [
+                "edmundotcouto@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:21:00.500379"
+        },
+        {
+            "destino": [
+                "fernando_guedes1945@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:21:10.854312"
+        },
+        {
+            "destino": [
+                "eferreira1949@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:21:21.183815"
+        },
+        {
+            "destino": [
+                "helena-melo@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:21:31.240426"
+        },
+        {
+            "destino": [
+                "almf392@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:21:39.917168"
+        },
+        {
+            "destino": [
+                "violetadias@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:21:50.408311"
+        },
+        {
+            "destino": [
+                "algoba@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:21:58.639351"
+        },
+        {
+            "destino": [
+                "deosousa1950@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:22:08.057357"
+        },
+        {
+            "destino": [
+                "mindamont@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:22:19.275990"
+        },
+        {
+            "destino": [
+                "jjb.sobral@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:22:29.176757"
+        },
+        {
+            "destino": [
+                "jacintabaptista@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:22:37.879727"
+        },
+        {
+            "destino": [
+                "afpg@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:22:49.146709"
+        },
+        {
+            "destino": [
+                "joao.conceicao.1944@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:22:59.127217"
+        },
+        {
+            "destino": [
+                "fbranco.pt@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:23:08.223557"
+        },
+        {
+            "destino": [
+                "mariaemiliapinhal@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:23:18.678505"
+        },
+        {
+            "destino": [
+                "antoniocarvalho2209@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:23:28.421193"
+        },
+        {
+            "destino": [
+                "mariadorosariosousa972@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:23:37.589713"
+        },
+        {
+            "destino": [
+                "msilvaoliveirasousa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:23:49.658305"
+        },
+        {
+            "destino": [
+                "alberto.moura@netcabo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:24:01.510594"
+        },
+        {
+            "destino": [
+                "isabelvsantos@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:24:11.825463"
+        },
+        {
+            "destino": [
+                "acacio.s.ramos@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:24:31.753244"
+        },
+        {
+            "destino": [
+                "gualdino.lopes@live.com.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:24:41.232466"
+        },
+        {
+            "destino": [
+                "fjaimefontes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:24:51.934322"
+        },
+        {
+            "destino": [
+                "mariamoreiranunes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:25:03.622583"
+        },
+        {
+            "destino": [
+                "margarida.magalhaes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:25:14.957413"
+        },
+        {
+            "destino": [
+                "delitagoncalves@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:25:27.144514"
+        },
+        {
+            "destino": [
+                "miarosasilva@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:25:37.772904"
+        },
+        {
+            "destino": [
+                "celesteapms@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:25:47.337081"
+        },
+        {
+            "destino": [
+                "odetesantos1950@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:25:56.901893"
+        },
+        {
+            "destino": [
+                "jmeirelesmachado@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:26:08.160790"
+        },
+        {
+            "destino": [
+                "anterofcs@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:31:06.604889"
+        },
+        {
+            "destino": [
+                "aaalmeida@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:31:20.917331"
+        },
+        {
+            "destino": [
+                "abilioacsoares@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:31:30.591742"
+        },
+        {
+            "destino": [
+                "vieiratlp@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:31:41.258163"
+        },
+        {
+            "destino": [
+                "marialtribeiro@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:31:50.523787"
+        },
+        {
+            "destino": [
+                "adrianolopes1947@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:31:58.982324"
+        },
+        {
+            "destino": [
+                "antoniorstorres@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:32:09.993017"
+        },
+        {
+            "destino": [
+                "jeronimo.s.castro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:32:19.865329"
+        },
+        {
+            "destino": [
+                "antonioaires3@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:32:29.387940"
+        },
+        {
+            "destino": [
+                "jfirmino@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:32:40.382505"
+        },
+        {
+            "destino": [
+                "afernandotsoares@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:32:49.679668"
+        },
+        {
+            "destino": [
+                "alvarespardal@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:33:00.443252"
+        },
+        {
+            "destino": [
+                "joaoldf["nome"]rnandes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:33:10.318294"
+        },
+        {
+            "destino": [
+                "mariaemiliapinhal@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:33:21.862005"
+        },
+        {
+            "destino": [
+                "fatimalves1956@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:33:32.718855"
+        },
+        {
+            "destino": [
+                "maiscgo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:33:41.612245"
+        },
+        {
+            "destino": [
+                "manuelestradas@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:33:53.254996"
+        },
+        {
+            "destino": [
+                "rosarioribeiro23@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:34:04.373811"
+        },
+        {
+            "destino": [
+                "ana.c.faneco@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:34:13.794909"
+        },
+        {
+            "destino": [
+                "joanafnsantos@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:34:24.455059"
+        },
+        {
+            "destino": [
+                "fernandoribeiro.mtc@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:34:35.557142"
+        },
+        {
+            "destino": [
+                "mconceicao.pereira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:34:46.438585"
+        },
+        {
+            "destino": [
+                "jcosta1950@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:34:55.554274"
+        },
+        {
+            "destino": [
+                "jfirmino@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:35:05.283627"
+        },
+        {
+            "destino": [
+                "mmargaridapinto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:35:16.088844"
+        },
+        {
+            "destino": [
+                "ammfdealmeida@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:35:26.303911"
+        },
+        {
+            "destino": [
+                "gfab@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:35:37.861204"
+        },
+        {
+            "destino": [
+                "m-mota-faria@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:35:47.688347"
+        },
+        {
+            "destino": [
+                "carlosvilarinho@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:35:59.282746"
+        },
+        {
+            "destino": [
+                "rosa_s_duarte@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:36:09.770596"
+        },
+        {
+            "destino": [
+                "mariadoceurodrigues@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:36:18.572366"
+        },
+        {
+            "destino": [
+                "antoniofatimasoares@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:36:30.927251"
+        },
+        {
+            "destino": [
+                "mverissimoaraujo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:36:40.665236"
+        },
+        {
+            "destino": [
+                "jmtspt@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:36:50.981040"
+        },
+        {
+            "destino": [
+                "joakim_@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:37:00.372056"
+        },
+        {
+            "destino": [
+                "mcesaltina@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:37:09.844239"
+        },
+        {
+            "destino": [
+                "deolinda.leite@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:37:19.705737"
+        },
+        {
+            "destino": [
+                "2015fatimasilva@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:37:30.553356"
+        },
+        {
+            "destino": [
+                "adelaideribeiro56@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:37:39.550098"
+        },
+        {
+            "destino": [
+                "vitormpinho@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:37:48.666558"
+        },
+        {
+            "destino": [
+                "noemia.m.madeira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:38:14.954754"
+        },
+        {
+            "destino": [
+                "maria.minda@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:38:24.757479"
+        },
+        {
+            "destino": [
+                "luis.cunha.sol@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:38:33.966566"
+        },
+        {
+            "destino": [
+                "j.a.reis@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:38:44.616247"
+        },
+        {
+            "destino": [
+                "a_lopes_cruz@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:38:54.274846"
+        },
+        {
+            "destino": [
+                "mjpinho45@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:39:04.563018"
+        },
+        {
+            "destino": [
+                "lino-campos@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:39:13.216563"
+        },
+        {
+            "destino": [
+                "leonorarmanda@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:39:25.403671"
+        },
+        {
+            "destino": [
+                "laurapsousa51@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:39:35.343712"
+        },
+        {
+            "destino": [
+                "asrm.oliveira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:39:43.823512"
+        },
+        {
+            "destino": [
+                "jamarujo22@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:45:37.453420"
+        },
+        {
+            "destino": [
+                "pbrandao39@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:45:48.257721"
+        },
+        {
+            "destino": [
+                "alfredo.s.cruz@formulavencedora.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:45:59.496344"
+        },
+        {
+            "destino": [
+                "antoniomarquesmalheiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:46:08.763668"
+        },
+        {
+            "destino": [
+                "oscarsm1937@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:46:25.054017"
+        },
+        {
+            "destino": [
+                "mina.m.oliveira2018@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:46:34.976535"
+        },
+        {
+            "destino": [
+                "achilro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:46:47.103864"
+        },
+        {
+            "destino": [
+                "alcinolopes3150@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:46:57.209499"
+        },
+        {
+            "destino": [
+                "geral@clinicadentariacardoso.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:47:07.873819"
+        },
+        {
+            "destino": [
+                "irenemaria.machado@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:47:17.285563"
+        },
+        {
+            "destino": [
+                "mfernandacoimbra@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:47:26.766318"
+        },
+        {
+            "destino": [
+                "alvaroseabra1947@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:47:37.553632"
+        },
+        {
+            "destino": [
+                "carmoenes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:47:49.887810"
+        },
+        {
+            "destino": [
+                "anamacedoferreira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:48:00.937964"
+        },
+        {
+            "destino": [
+                "mariarodriguesster@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:48:11.183593"
+        },
+        {
+            "destino": [
+                "franceli.mendes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:48:23.023918"
+        },
+        {
+            "destino": [
+                "maria-zulmira-silva@live.com.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:48:31.963850"
+        },
+        {
+            "destino": [
+                "teodosiofpereira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:48:41.517120"
+        },
+        {
+            "destino": [
+                "gomes.coelho1947@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:48:50.555728"
+        },
+        {
+            "destino": [
+                "fatima.barbedo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:48:59.918176"
+        },
+        {
+            "destino": [
+                "pedrosilvapescador@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:49:11.697944"
+        },
+        {
+            "destino": [
+                "boaventuralcosta@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:49:21.627999"
+        },
+        {
+            "destino": [
+                "paul.mendes@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:49:29.908303"
+        },
+        {
+            "destino": [
+                "fmv2555@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:49:40.204884"
+        },
+        {
+            "destino": [
+                "carlitos_pintinho@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:49:52.493634"
+        },
+        {
+            "destino": [
+                "vitoria11@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:50:01.747409"
+        },
+        {
+            "destino": [
+                "manuel.g.leite@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:50:10.933596"
+        },
+        {
+            "destino": [
+                "lealsandra10@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:50:21.453685"
+        },
+        {
+            "destino": [
+                "joaquimcanez@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:50:30.187869"
+        },
+        {
+            "destino": [
+                "antunespai@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:50:40.389609"
+        },
+        {
+            "destino": [
+                "carla@skimmia.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:50:49.993750"
+        },
+        {
+            "destino": [
+                "albinocmarques@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:51:00.663508"
+        },
+        {
+            "destino": [
+                "jccm49@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:51:13.938725"
+        },
+        {
+            "destino": [
+                "carlus@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:51:22.543803"
+        },
+        {
+            "destino": [
+                "fatynomatos@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:51:30.193611"
+        },
+        {
+            "destino": [
+                "joaolbotelho@msn.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:51:41.414572"
+        },
+        {
+            "destino": [
+                "sabino1231@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:51:51.494173"
+        },
+        {
+            "destino": [
+                "bruno.ex.96@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:52:05.487668"
+        },
+        {
+            "destino": [
+                "jmmribeiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:52:17.003829"
+        },
+        {
+            "destino": [
+                "conceicao.fontesilva@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:52:26.769726"
+        },
+        {
+            "destino": [
+                "lili-marques@live.com.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:52:36.413851"
+        },
+        {
+            "destino": [
+                "carlosmeireles121@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:53:17.165142"
+        },
+        {
+            "destino": [
+                "femavias.can@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:53:27.483544"
+        },
+        {
+            "destino": [
+                "olivrod01@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:53:36.103892"
+        },
+        {
+            "destino": [
+                "lmarquesbernardo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:53:43.943974"
+        },
+        {
+            "destino": [
+                "rosammalves1958@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:53:56.067887"
+        },
+        {
+            "destino": [
+                "mariajuliavieira1954@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:54:07.681235"
+        },
+        {
+            "destino": [
+                "adrianocbaptista@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:54:18.683772"
+        },
+        {
+            "destino": [
+                "antoniocarv@live.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:54:29.574625"
+        },
+        {
+            "destino": [
+                "anabrisa@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:54:40.572178"
+        },
+        {
+            "destino": [
+                "margaridamfsantos18@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:58:02.670033"
+        },
+        {
+            "destino": [
+                "dulce.vale@amkor.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:58:12.819650"
+        },
+        {
+            "destino": [
+                "acastromarques@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:58:23.029412"
+        },
+        {
+            "destino": [
+                "jrbacelar1956@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:58:30.999703"
+        },
+        {
+            "destino": [
+                "mjoao53@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:58:40.179671"
+        },
+        {
+            "destino": [
+                "carlosrodriguesrocha43@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:58:49.094759"
+        },
+        {
+            "destino": [
+                "alfredo@formulavencedora.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:58:58.959799"
+        },
+        {
+            "destino": [
+                "assuncao.c.oliveira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:59:09.119712"
+        },
+        {
+            "destino": [
+                "mariaameliaesteves1947@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:59:18.829617"
+        },
+        {
+            "destino": [
+                "m-fatima-castro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:59:28.022383"
+        },
+        {
+            "destino": [
+                "julio.lopes0809@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:59:36.839566"
+        },
+        {
+            "destino": [
+                "aalo@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:59:48.369934"
+        },
+        {
+            "destino": [
+                "josecarvalho.j@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T06:59:57.896051"
+        },
+        {
+            "destino": [
+                "maguimeneses@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:00:07.063351"
+        },
+        {
+            "destino": [
+                "jmms09157@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:00:17.909881"
+        },
+        {
+            "destino": [
+                "jucasguimaraes@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:00:28.089718"
+        },
+        {
+            "destino": [
+                "anamlmagalhaes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:00:39.096194"
+        },
+        {
+            "destino": [
+                "mariaportero@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:00:48.049863"
+        },
+        {
+            "destino": [
+                "lucindavigario@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:00:57.964802"
+        },
+        {
+            "destino": [
+                "paula.castanheirapereira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:01:09.679544"
+        },
+        {
+            "destino": [
+                "m.manuela.r.mendes@meo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:01:19.939866"
+        },
+        {
+            "destino": [
+                "jarmada222@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:01:31.481548"
+        },
+        {
+            "destino": [
+                "celeste.alves.conde@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:01:41.879762"
+        },
+        {
+            "destino": [
+                "molindacinfaes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:01:51.675425"
+        },
+        {
+            "destino": [
+                "helenarrfonseca@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:02:05.319594"
+        },
+        {
+            "destino": [
+                "jm2coelho@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:02:14.149465"
+        },
+        {
+            "destino": [
+                "henriqueferreira1947@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:02:24.212810"
+        },
+        {
+            "destino": [
+                "angelicacosta.84@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:02:38.224773"
+        },
+        {
+            "destino": [
+                "joao_pfernandes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:02:48.129603"
+        },
+        {
+            "destino": [
+                "arturjvt@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:02:58.519801"
+        },
+        {
+            "destino": [
+                "eduardatferreira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:03:07.579851"
+        },
+        {
+            "destino": [
+                "josefernandes919@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:03:18.815854"
+        },
+        {
+            "destino": [
+                "m.sousa.andrade@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:03:28.971624"
+        },
+        {
+            "destino": [
+                "zenaif9@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:03:37.146900"
+        },
+        {
+            "destino": [
+                "fonseca.isabel@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:03:47.125233"
+        },
+        {
+            "destino": [
+                "lilianamaldonadoribeiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:03:58.279487"
+        },
+        {
+            "destino": [
+                "ana.on.ferreira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:04:08.245685"
+        },
+        {
+            "destino": [
+                "nascimentomduarte@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:04:18.917919"
+        },
+        {
+            "destino": [
+                "maco@netcabo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:04:30.526298"
+        },
+        {
+            "destino": [
+                "fxpacheco@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:04:42.380745"
+        },
+        {
+            "destino": [
+                "moliveiranunes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:04:59.967166"
+        },
+        {
+            "destino": [
+                "rfeq3131@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:05:11.135711"
+        },
+        {
+            "destino": [
+                "jdsfernandes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:05:21.570578"
+        },
+        {
+            "destino": [
+                "mariajoaraujo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:05:32.721860"
+        },
+        {
+            "destino": [
+                "belinha60@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:05:44.281390"
+        },
+        {
+            "destino": [
+                "belinha60@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:05:54.040574"
+        },
+        {
+            "destino": [
+                "mc.salgueiro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:06:02.401422"
+        },
+        {
+            "destino": [
+                "mc.salgueiro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:06:13.358002"
+        },
+        {
+            "destino": [
+                "antonio.p.barbedo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:06:24.359181"
+        },
+        {
+            "destino": [
+                "rosapupy1951@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:06:34.406906"
+        },
+        {
+            "destino": [
+                "auguribeiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:10:55.759692"
+        },
+        {
+            "destino": [
+                "zeliafagundesneno@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:11:06.925382"
+        },
+        {
+            "destino": [
+                "ct1ayi@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:11:18.755387"
+        },
+        {
+            "destino": [
+                "egascarvalho169@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:11:29.289821"
+        },
+        {
+            "destino": [
+                "joel.teixeira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:11:39.724757"
+        },
+        {
+            "destino": [
+                "joel.teixeira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:11:49.895080"
+        },
+        {
+            "destino": [
+                "m.julieta.castro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:12:00.993038"
+        },
+        {
+            "destino": [
+                "ilidiosantossilva@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:12:11.780266"
+        },
+        {
+            "destino": [
+                "jr1937@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:12:20.548885"
+        },
+        {
+            "destino": [
+                "j-carlos-rocha@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:12:30.534791"
+        },
+        {
+            "destino": [
+                "filomenarodriguesrocha@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:12:40.590518"
+        },
+        {
+            "destino": [
+                "edgarmfonseca@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:12:49.069089"
+        },
+        {
+            "destino": [
+                "jcp9903@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:12:58.129969"
+        },
+        {
+            "destino": [
+                "rita.m.braga@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:13:07.863437"
+        },
+        {
+            "destino": [
+                "maltav@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:13:20.025075"
+        },
+        {
+            "destino": [
+                "mjnfs@yahoo.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:13:31.143654"
+        },
+        {
+            "destino": [
+                "genyeu@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:13:40.510238"
+        },
+        {
+            "destino": [
+                "augmarques@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:13:50.190267"
+        },
+        {
+            "destino": [
+                "amsdias@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:14:00.441816"
+        },
+        {
+            "destino": [
+                "fernandosilvasereno@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:14:13.332502"
+        },
+        {
+            "destino": [
+                "fmanuelmachado@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:14:24.466526"
+        },
+        {
+            "destino": [
+                "paulalago@netcabo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:14:35.810036"
+        },
+        {
+            "destino": [
+                "celeste.mrt@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:14:46.605738"
+        },
+        {
+            "destino": [
+                "josebarbedo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:14:54.670966"
+        },
+        {
+            "destino": [
+                "isabelcardoso24@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:15:05.972630"
+        },
+        {
+            "destino": [
+                "mamialda@yahoo.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:15:15.473647"
+        },
+        {
+            "destino": [
+                "ana.paula.goncalves23@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:15:25.751818"
+        },
+        {
+            "destino": [
+                "isamendes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:15:36.834493"
+        },
+        {
+            "destino": [
+                "virginiacarvalhosousa@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:15:46.265172"
+        },
+        {
+            "destino": [
+                "agiselaf@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:15:59.299473"
+        },
+        {
+            "destino": [
+                "mariojtc56@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:16:09.952658"
+        },
+        {
+            "destino": [
+                "vitorguedes1961@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:16:19.215400"
+        },
+        {
+            "destino": [
+                "paula72moreira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:16:30.892667"
+        },
+        {
+            "destino": [
+                "alvarosousapereira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:16:41.080869"
+        },
+        {
+            "destino": [
+                "bulhosaeduarda@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:16:50.926217"
+        },
+        {
+            "destino": [
+                "josesousapaiva@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:17:02.499003"
+        },
+        {
+            "destino": [
+                "virgilio.ainocencio@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:17:12.402621"
+        },
+        {
+            "destino": [
+                "mariarosalinabal@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:17:24.040788"
+        },
+        {
+            "destino": [
+                "cristinagracalobo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:17:34.705682"
+        },
+        {
+            "destino": [
+                "fernando_oliveira48@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:17:46.662382"
+        },
+        {
+            "destino": [
+                "jomaguy@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:18:08.065117"
+        },
+        {
+            "destino": [
+                "virgilio.ainocencio@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:18:19.318940"
+        },
+        {
+            "destino": [
+                "jorgenunodeazevedo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:18:30.943969"
+        },
+        {
+            "destino": [
+                "saracamaral82@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:18:41.968076"
+        },
+        {
+            "destino": [
+                "fsmdimitri@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:18:52.740984"
+        },
+        {
+            "destino": [
+                "auroragsoares@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:19:03.305872"
+        },
+        {
+            "destino": [
+                "luisberrance@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:19:14.599655"
+        },
+        {
+            "destino": [
+                "frbarbosa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:19:24.845834"
+        },
+        {
+            "destino": [
+                "joao.am.queiroz@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:19:34.863333"
+        },
+        {
+            "destino": [
+                "mteteps@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:19:46.953950"
+        },
+        {
+            "destino": [
+                "j.cardoso.pinto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:32:57.938769"
+        },
+        {
+            "destino": [
+                "alberto.gomes@outlook.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:33:07.252297"
+        },
+        {
+            "destino": [
+                "adosindamargarida@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:33:15.367886"
+        },
+        {
+            "destino": [
+                "idorindorocha@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:33:26.270795"
+        },
+        {
+            "destino": [
+                "melonuno73@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:33:36.386583"
+        },
+        {
+            "destino": [
+                "fjandrade@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:33:43.534451"
+        },
+        {
+            "destino": [
+                "teresajacques22@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:33:53.315065"
+        },
+        {
+            "destino": [
+                "selma-m-loureiro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:34:03.038050"
+        },
+        {
+            "destino": [
+                "salette_coelho@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:34:12.790735"
+        },
+        {
+            "destino": [
+                "mjosja@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:34:23.312421"
+        },
+        {
+            "destino": [
+                "cristina.c.rodrigues.cr@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:34:37.207549"
+        },
+        {
+            "destino": [
+                "joserpdias@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:34:47.913797"
+        },
+        {
+            "destino": [
+                "brandariz.ana@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:34:59.141075"
+        },
+        {
+            "destino": [
+                "josepinho.pinho@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:35:10.311076"
+        },
+        {
+            "destino": [
+                "mhcmbc@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:35:21.988495"
+        },
+        {
+            "destino": [
+                "migueloliveira4891@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:35:33.395153"
+        },
+        {
+            "destino": [
+                "lazinha@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:35:45.489201"
+        },
+        {
+            "destino": [
+                "jose_fuentefria@clix.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:35:54.668727"
+        },
+        {
+            "destino": [
+                "manuel.macedo1955@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:36:04.778226"
+        },
+        {
+            "destino": [
+                "mluisaoneill@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:36:16.854920"
+        },
+        {
+            "destino": [
+                "sofiagomes40@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:36:28.236110"
+        },
+        {
+            "destino": [
+                "anacbavila@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:36:38.039072"
+        },
+        {
+            "destino": [
+                "antonio.m.ramoa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:36:49.739924"
+        },
+        {
+            "destino": [
+                "mlucarvalho2013@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:36:59.222442"
+        },
+        {
+            "destino": [
+                "vpimentel@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:37:08.762454"
+        },
+        {
+            "destino": [
+                "mhgop66@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:37:18.353862"
+        },
+        {
+            "destino": [
+                "np55pk@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:37:27.844776"
+        },
+        {
+            "destino": [
+                "rmc@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:37:38.192353"
+        },
+        {
+            "destino": [
+                "paparuca@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:37:48.323261"
+        },
+        {
+            "destino": [
+                "pinheiro.p.almeida@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:37:58.299201"
+        },
+        {
+            "destino": [
+                "antero.seguro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:38:10.046418"
+        },
+        {
+            "destino": [
+                "antonio.m.s.enes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:38:19.435920"
+        },
+        {
+            "destino": [
+                "lena.m.marques@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:38:26.522355"
+        },
+        {
+            "destino": [
+                "olgarod@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:38:39.211032"
+        },
+        {
+            "destino": [
+                "edite.c.vaz@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:38:49.563753"
+        },
+        {
+            "destino": [
+                "vieira.antonio.silva@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:38:59.523692"
+        },
+        {
+            "destino": [
+                "giordanomonteirocouto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:39:06.788218"
+        },
+        {
+            "destino": [
+                "henriquetadiz@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:39:17.555869"
+        },
+        {
+            "destino": [
+                "gloriapinheiro1947@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:39:26.708663"
+        },
+        {
+            "destino": [
+                "gloriapinheiro1947@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:39:36.004712"
+        },
+        {
+            "destino": [
+                "jose.sg.queiroz@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:40:52.808563"
+        },
+        {
+            "destino": [
+                "alexandraelisabete@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:41:15.148600"
+        },
+        {
+            "destino": [
+                "ruitelmobelo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:41:24.678103"
+        },
+        {
+            "destino": [
+                "gramajal@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:41:35.341907"
+        },
+        {
+            "destino": [
+                "antoniogoncalvesdias1958@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:41:44.560837"
+        },
+        {
+            "destino": [
+                "fsar1960@yahoo.com.br"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:41:56.745613"
+        },
+        {
+            "destino": [
+                "ramospaivaluis@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:42:06.815121"
+        },
+        {
+            "destino": [
+                "luis.s.cruz@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:42:17.571108"
+        },
+        {
+            "destino": [
+                "jaimemacedomatos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:42:26.760191"
+        },
+        {
+            "destino": [
+                "elisaalves.1957@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:42:37.220457"
+        },
+        {
+            "destino": [
+                "fatima.cs.alves@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:46:08.186919"
+        },
+        {
+            "destino": [
+                "margaridaofmaia@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:46:22.945646"
+        },
+        {
+            "destino": [
+                "mclementina.rocha@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:46:33.552182"
+        },
+        {
+            "destino": [
+                "mrosalinasantos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:46:44.735200"
+        },
+        {
+            "destino": [
+                "rogerio.tojeiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:46:55.482674"
+        },
+        {
+            "destino": [
+                "cpintoleite@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:47:06.729204"
+        },
+        {
+            "destino": [
+                "candidamor@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:47:19.035910"
+        },
+        {
+            "destino": [
+                "mmanuelacarneiro54@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:47:27.896108"
+        },
+        {
+            "destino": [
+                "antonio.costa.zita@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:47:39.450855"
+        },
+        {
+            "destino": [
+                "jaguarfna@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:47:50.143709"
+        },
+        {
+            "destino": [
+                "luissviseu@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:48:00.210000"
+        },
+        {
+            "destino": [
+                "arsousa.576@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:48:11.690448"
+        },
+        {
+            "destino": [
+                "inesmnallen@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:48:22.578844"
+        },
+        {
+            "destino": [
+                "vitorguedes.1961@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:48:32.004400"
+        },
+        {
+            "destino": [
+                "jose.pestana@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:48:41.518457"
+        },
+        {
+            "destino": [
+                "fimpsg@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:48:52.921095"
+        },
+        {
+            "destino": [
+                "fimpsg@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:49:03.569155"
+        },
+        {
+            "destino": [
+                "tizamachado23@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:49:13.921468"
+        },
+        {
+            "destino": [
+                "alexandrafelixafonso@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:49:24.736502"
+        },
+        {
+            "destino": [
+                "luisampgc@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:49:35.555562"
+        },
+        {
+            "destino": [
+                "margarida.m.rocha@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:49:43.944535"
+        },
+        {
+            "destino": [
+                "palmirapereira2011@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:49:55.115796"
+        },
+        {
+            "destino": [
+                "aida.m.ferro18@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:50:07.035092"
+        },
+        {
+            "destino": [
+                "j.br@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:50:19.000028"
+        },
+        {
+            "destino": [
+                "cdanielaf@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:50:28.974559"
+        },
+        {
+            "destino": [
+                "carla-guedes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:50:39.831763"
+        },
+        {
+            "destino": [
+                "josemoraissarmento@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:50:49.862810"
+        },
+        {
+            "destino": [
+                "ajmartinscorreia@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:50:58.712570"
+        },
+        {
+            "destino": [
+                "jrmilheiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:51:09.223558"
+        },
+        {
+            "destino": [
+                "lidia.tavares.coelho@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:51:19.132030"
+        },
+        {
+            "destino": [
+                "abilio.f.teixeira@meo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:51:31.758892"
+        },
+        {
+            "destino": [
+                "carlamapereira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:51:44.129718"
+        },
+        {
+            "destino": [
+                "elisabete.mcosta@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:51:54.523645"
+        },
+        {
+            "destino": [
+                "alfredolpinto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:52:06.227016"
+        },
+        {
+            "destino": [
+                "juliasantoscancela@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:52:17.973566"
+        },
+        {
+            "destino": [
+                "anabrisa@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:52:31.280235"
+        },
+        {
+            "destino": [
+                "mnazarerei@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:52:43.140433"
+        },
+        {
+            "destino": [
+                "esmeraldasantospaiva@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:52:51.836764"
+        },
+        {
+            "destino": [
+                "fernandopinto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:53:02.574131"
+        },
+        {
+            "destino": [
+                "ana.duarte@mail.telepac.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:53:12.283696"
+        },
+        {
+            "destino": [
+                "aurelinamonteiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:54:24.538714"
+        },
+        {
+            "destino": [
+                "anasousa4644@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:54:35.570079"
+        },
+        {
+            "destino": [
+                "joaquim.a.passos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:54:45.699491"
+        },
+        {
+            "destino": [
+                "josemusica@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:54:57.899656"
+        },
+        {
+            "destino": [
+                "joaquim.soares.oliveira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:55:06.776485"
+        },
+        {
+            "destino": [
+                "acsfxavier@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:55:16.844045"
+        },
+        {
+            "destino": [
+                "mariafernandasalvaterra@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:55:26.214435"
+        },
+        {
+            "destino": [
+                "hmgmont@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:55:38.009520"
+        },
+        {
+            "destino": [
+                "ruicastrosilvaacores@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:55:48.667504"
+        },
+        {
+            "destino": [
+                "carlasilvas@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:55:58.845634"
+        },
+        {
+            "destino": [
+                "candidamor@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:59:26.572745"
+        },
+        {
+            "destino": [
+                "luissviseu@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:59:37.051210"
+        },
+        {
+            "destino": [
+                "emanuela.ferraz@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:59:47.615592"
+        },
+        {
+            "destino": [
+                "mariac.s.b@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T07:59:58.907252"
+        },
+        {
+            "destino": [
+                "alicemoreira1520@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:00:10.209435"
+        },
+        {
+            "destino": [
+                "paula.g.caldeira@meo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:00:21.221385"
+        },
+        {
+            "destino": [
+                "belinhaconstante@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:00:32.518276"
+        },
+        {
+            "destino": [
+                "gborges50@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:00:40.701068"
+        },
+        {
+            "destino": [
+                "carvalhinho5914@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:00:51.811545"
+        },
+        {
+            "destino": [
+                "jfamaro333@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:01:02.974070"
+        },
+        {
+            "destino": [
+                "sergio.ribeiro909@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:01:14.343154"
+        },
+        {
+            "destino": [
+                "sergio.ribeiro909@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:01:26.566957"
+        },
+        {
+            "destino": [
+                "cbbbrandao@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:01:39.111445"
+        },
+        {
+            "destino": [
+                "lopes.paula.sofia@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:01:50.749854"
+        },
+        {
+            "destino": [
+                "lucianomoutinhotavares@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:02:02.388501"
+        },
+        {
+            "destino": [
+                "carla.monteiro71@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:02:12.179940"
+        },
+        {
+            "destino": [
+                "jorge.m.guedes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:02:25.411585"
+        },
+        {
+            "destino": [
+                "eugenia.m.c.cunha@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:02:35.840505"
+        },
+        {
+            "destino": [
+                "barbosagoncalves55@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:02:47.858605"
+        },
+        {
+            "destino": [
+                "salopes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:02:56.652356"
+        },
+        {
+            "destino": [
+                "cesar.m.correia@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:03:08.101967"
+        },
+        {
+            "destino": [
+                "cesar.m.correia@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:03:19.507609"
+        },
+        {
+            "destino": [
+                "mariacunha27@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:03:31.379993"
+        },
+        {
+            "destino": [
+                "mjoaocacosta@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:03:40.353056"
+        },
+        {
+            "destino": [
+                "manuelambrenhas@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:03:50.658384"
+        },
+        {
+            "destino": [
+                "helena.malheiro59@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:04:01.568803"
+        },
+        {
+            "destino": [
+                "fatima.barroso@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:04:10.667548"
+        },
+        {
+            "destino": [
+                "lurdespretogalego@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:04:20.525684"
+        },
+        {
+            "destino": [
+                "fernanda.mm.silva@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:04:32.928831"
+        },
+        {
+            "destino": [
+                "mario-c-sequeira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:04:44.597156"
+        },
+        {
+            "destino": [
+                "eduardoacmota@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:04:56.480721"
+        },
+        {
+            "destino": [
+                "vmm1971@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:05:06.592157"
+        },
+        {
+            "destino": [
+                "mmanuelagaio@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:05:16.234795"
+        },
+        {
+            "destino": [
+                "graca.p.nogueira@outlook.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:05:26.757236"
+        },
+        {
+            "destino": [
+                "apaulaleite59@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:05:36.817808"
+        },
+        {
+            "destino": [
+                "edviges.monteiro@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:05:46.978564"
+        },
+        {
+            "destino": [
+                "antonio.f.sousa@meo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:05:57.023194"
+        },
+        {
+            "destino": [
+                "valmor1@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:06:08.208815"
+        },
+        {
+            "destino": [
+                "belmor@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:06:17.275333"
+        },
+        {
+            "destino": [
+                "mapsneves@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:06:27.969115"
+        },
+        {
+            "destino": [
+                "lfcrodrigues28@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:07:50.762892"
+        },
+        {
+            "destino": [
+                "mrtfelix@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:08:00.331482"
+        },
+        {
+            "destino": [
+                "gininha121@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:08:11.217686"
+        },
+        {
+            "destino": [
+                "saoperfeito@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:08:22.280208"
+        },
+        {
+            "destino": [
+                "m.caldasmatos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:08:33.347149"
+        },
+        {
+            "destino": [
+                "mina.m.oliveira2018@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:08:44.293856"
+        },
+        {
+            "destino": [
+                "cristina.n.costa@meo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:08:53.717876"
+        },
+        {
+            "destino": [
+                "florindascosta@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:09:04.457631"
+        },
+        {
+            "destino": [
+                "florentino.a.pereira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:09:14.903277"
+        },
+        {
+            "destino": [
+                "f_loureiro@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:09:26.551879"
+        },
+        {
+            "destino": [
+                "familia.anjos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:14:01.699887"
+        },
+        {
+            "destino": [
+                "fabio.a.santos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:14:12.177397"
+        },
+        {
+            "destino": [
+                "valdemarantoniosoares@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62KqwOjVE04iI62KrweKed Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:14:56.476088"
+        },
+        {
+            "destino": [
+                "mariasousaneves@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62MMwL2f42rGz62MNwQhPL Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:16:31.664037"
+        },
+        {
+            "destino": [
+                "jlaguiarpinto@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:17:02.062403"
+        },
+        {
+            "destino": [
+                "cristina.helena.pereira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62Nsw6GLkroyV62Ntw1ldf Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:19:05.445231"
+        },
+        {
+            "destino": [
+                "m.branca.portela@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:19:52.103726"
+        },
+        {
+            "destino": [
+                "ana.mf.pereira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62QWwjb2CGKP162QXw6hiV Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:21:26.890208"
+        },
+        {
+            "destino": [
+                "oliveirafernandoasdrubal@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:21:56.247210"
+        },
+        {
+            "destino": [
+                "rita.m.braga@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:23:22.191805"
+        },
+        {
+            "destino": [
+                "joakim_coelho@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62TjwPicIgBXk62TkwOzx9 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:24:35.774678"
+        },
+        {
+            "destino": [
+                "mjosja@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62VhwLDm72rGz62ViwQld4 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:25:55.766320"
+        },
+        {
+            "destino": [
+                "mjosja@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:26:35.941752"
+        },
+        {
+            "destino": [
+                "teresaoliveira1231@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62X5wPmGIgBXk62X7wP1TH Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:27:42.796346"
+        },
+        {
+            "destino": [
+                "jose.l.fernandes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:28:41.528749"
+        },
+        {
+            "destino": [
+                "islau105@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62ZJwP0Su04iI62ZKweR1j Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:29:44.579105"
+        },
+        {
+            "destino": [
+                "mcgoncalves1955@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:30:16.729001"
+        },
+        {
+            "destino": [
+                "misabelcyrne@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62b4wP2YE04iI62b5weRmh Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:31:41.079863"
+        },
+        {
+            "destino": [
+                "jorge.v.carreira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:33:21.042818"
+        },
+        {
+            "destino": [
+                "iimatisoftii@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:35:34.402519"
+        },
+        {
+            "destino": [
+                "franclim.neto@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:37:36.179155"
+        },
+        {
+            "destino": [
+                "mariaalicedias@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62i6wLSlO2rGz62i7wQrOV Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:39:38.828870"
+        },
+        {
+            "destino": [
+                "jorge.cunha@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62kIwQ2GvgBXk62kJwP7d5 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:41:16.544210"
+        },
+        {
+            "destino": [
+                "prazeres60@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:41:39.127965"
+        },
+        {
+            "destino": [
+                "rosapupy1951@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62mSwk1PnGKP162mTw6rm9 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:43:30.290746"
+        },
+        {
+            "destino": [
+                "maestroferreiradasilva@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62nzwLZyw2rGz62o0wQu3G Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:45:02.178760"
+        },
+        {
+            "destino": [
+                "jkosta@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:45:55.915151"
+        },
+        {
+            "destino": [
+                "antonia.p.sousa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62qtwk6t0GKP162quw6tnl Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:47:55.503198"
+        },
+        {
+            "destino": [
+                "carlosomvieira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62sIw6qZVroyV62sJw1zij Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:49:11.702454"
+        },
+        {
+            "destino": [
+                "manuelavgoliveira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:49:45.245791"
+        },
+        {
+            "destino": [
+                "j.luisnunes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62tRw6s07royV62tSw20KV Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:50:33.421577"
+        },
+        {
+            "destino": [
+                "farialmeida@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:51:05.520687"
+        },
+        {
+            "destino": [
+                "rosa.d.sousa1968@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62uswQFWigBXk62utwPCjT Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:51:51.633975"
+        },
+        {
+            "destino": [
+                "gracavarzim@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:52:51.839935"
+        },
+        {
+            "destino": [
+                "fernando.araujo@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62wSwLke52rGz62wTwQyC0 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:53:56.477812"
+        },
+        {
+            "destino": [
+                "mlcruz@netcabo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:54:26.583758"
+        },
+        {
+            "destino": [
+                "juliaprima@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 62y2w6xFFroyV62y3w22OG Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:56:08.102427"
+        },
+        {
+            "destino": [
+                "juliaprima@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:56:40.618865"
+        },
+        {
+            "destino": [
+                "armindogomes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 630uwQNI4gBXk630wwPFrx Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T08:58:21.272700"
+        },
+        {
+            "destino": [
+                "m.carmo.s.cruz@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T08:58:39.636448"
+        },
+        {
+            "destino": [
+                "jorgedaom@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 632Lw72ZiroyV632Mw24WF Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:00:23.914421"
+        },
+        {
+            "destino": [
+                "mlmesquita@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:01:07.775196"
+        },
+        {
+            "destino": [
+                "mjorgeqsilva@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 634YwniEmvo9B634Zw489j Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:01:53.171911"
+        },
+        {
+            "destino": [
+                "m.fernanda.rodrig@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:02:41.885403"
+        },
+        {
+            "destino": [
+                "blackghostknife@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 6365wnkCtvo9B6366w48wJ Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:04:34.580533"
+        },
+        {
+            "destino": [
+                "manuelfontoura@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:04:59.397002"
+        },
+        {
+            "destino": [
+                "mgracaalmeida@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 6382wkTMoGKP16384w72ym Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:06:09.590627"
+        },
+        {
+            "destino": [
+                "ze.luis.araujo@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:07:35.121145"
+        },
+        {
+            "destino": [
+                "isabelcbalves1@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:09:24.844037"
+        },
+        {
+            "destino": [
+                "carlamribeiro2021@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63DNw7GyQroyV63DOw2AYm Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:11:23.650464"
+        },
+        {
+            "destino": [
+                "rui.f.morais@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:16:33.502831"
+        },
+        {
+            "destino": [
+                "bernardonalves@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:18:07.037205"
+        },
+        {
+            "destino": [
+                "bernardonalves@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:19:50.878531"
+        },
+        {
+            "destino": [
+                "canjinhaster@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:21:21.257567"
+        },
+        {
+            "destino": [
+                "laurentinacorreia1967@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63OWwknXeGKP163OXw7B7C Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:23:23.002488"
+        },
+        {
+            "destino": [
+                "foctavio@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:23:45.294271"
+        },
+        {
+            "destino": [
+                "carmarq@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:25:18.095814"
+        },
+        {
+            "destino": [
+                "magalhaes.elsa@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63RrwkrojGKP163Rsw7Cov Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:26:05.622178"
+        },
+        {
+            "destino": [
+                "mtazevedo44@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:27:24.931617"
+        },
+        {
+            "destino": [
+                "lauracqueiros@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63Uew7cQcroyV63Ufw2JDE Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:28:49.945413"
+        },
+        {
+            "destino": [
+                "armindocarvalho158@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:30:59.530731"
+        },
+        {
+            "destino": [
+                "maria49daluz@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63XKwkylsGKP163XLw7FiL Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:32:18.331373"
+        },
+        {
+            "destino": [
+                "adrianocbaptista@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:33:48.887862"
+        },
+        {
+            "destino": [
+                "m.arminda.c.barbosa@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63adwMYfJ2rGz63aewRIPU Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:35:46.048297"
+        },
+        {
+            "destino": [
+                "armando.m.campos@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:36:53.045109"
+        },
+        {
+            "destino": [
+                "dol@net.sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:38:25.405240"
+        },
+        {
+            "destino": [
+                "irenedomingues55@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63fNw7pSbroyV63fOw2OU0 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:40:47.184002"
+        },
+        {
+            "destino": [
+                "zenaif9@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:42:02.177943"
+        },
+        {
+            "destino": [
+                "arcddavid@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63iDwoVi6vo9B63iEw4S4S Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:43:08.417290"
+        },
+        {
+            "destino": [
+                "mapa.almeida@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:43:45.819609"
+        },
+        {
+            "destino": [
+                "isabel.alves77@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:45:14.906524"
+        },
+        {
+            "destino": [
+                "a.jose.oliveira@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63m6wlGLeGKP163m7w7MzE Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:46:57.771246"
+        },
+        {
+            "destino": [
+                "gloria.l.sousa@meo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:48:14.963095"
+        },
+        {
+            "destino": [
+                "jr1937@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63pKwlKDVGKP163pKw7OcU Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:50:24.734323"
+        },
+        {
+            "destino": [
+                "manuelantoniocosta1945@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:51:47.855931"
+        },
+        {
+            "destino": [
+                "prin.diana2009@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63rTwoggOvo9B63rUw4Wiv Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:52:51.218264"
+        },
+        {
+            "destino": [
+                "luisa.ramalhinho@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:53:47.872459"
+        },
+        {
+            "destino": [
+                "jasfaneco@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63tCwlPAVGKP163tDw7Qi9 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:54:18.351219"
+        },
+        {
+            "destino": [
+                "joseribeirolemos@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:55:40.250943"
+        },
+        {
+            "destino": [
+                "clara.magalhaes@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T09:57:08.495620"
+        },
+        {
+            "destino": [
+                "balinho1949@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63xXwRY9FgBXk63xYwPjd2 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T09:59:37.859546"
+        },
+        {
+            "destino": [
+                "dinisdeoliveira@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 63zhwQmHZ04iI63zjwf9pr Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:01:32.272708"
+        },
+        {
+            "destino": [
+                "fernandomonteiro70@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:03:04.071321"
+        },
+        {
+            "destino": [
+                "rogerio-f-azevedo@telecom.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:04:27.342168"
+        },
+        {
+            "destino": [
+                "gloriagomes@live.com.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 643zwowZrvo9B6440w4dOz Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:05:30.222817"
+        },
+        {
+            "destino": [
+                "horacio.p.silva@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:06:14.671086"
+        },
+        {
+            "destino": [
+                "jsousabessa@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 645twQuB604iI645uwfDFq Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:08:03.417522"
+        },
+        {
+            "destino": [
+                "pedro-s-guimaraes@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 647qw8OFDroyV647rw2d0h Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:09:36.626532"
+        },
+        {
+            "destino": [
+                "jose.f.n.costa@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 649Kwp3CXvo9B649Lw4gC1 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:12:18.734551"
+        },
+        {
+            "destino": [
+                "as2046921@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:13:21.575793"
+        },
+        {
+            "destino": [
+                "pedro.d.sampaio@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 64CJwRqIegBXk64CKwPr1c Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:14:56.651001"
+        },
+        {
+            "destino": [
+                "sfonseca1999@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:15:33.180464"
+        },
+        {
+            "destino": [
+                "rui-c-silva@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 64EVwR4wN04iI64EXwfHg6 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:16:08.963005"
+        },
+        {
+            "destino": [
+                "balbinacarvalho@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:17:29.766178"
+        },
+        {
+            "destino": [
+                "mariaemiliaribeiro1950@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 64GNwR7XB04iI64GOwfIl6 Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:18:30.533340"
+        },
+        {
+            "destino": [
+                "maelaurinda1946@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:19:10.558221"
+        },
+        {
+            "destino": [
+                "josesousacoutinho@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 64I5wpEB6vo9B64I6w4ksp Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:20:03.383604"
+        },
+        {
+            "destino": [
+                "fernando_oliveira48@hotmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:21:22.889223"
+        },
+        {
+            "destino": [
+                "maria.f.soares@sapo.pt"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "ERRO: (550, b'5.2.0 64KQw8djwroyV64KRw2jSr Sending Prohibited (Max RcptTo Daily limit)')",
+            "timestamp": "2026-03-27T10:22:28.167511"
+        },
+        {
+            "destino": [
+                "pedroveiga1983@gmail.com"
+            ],
+            "assunto": "Jornal ATRPT Março 2026",
+            "status": "OK",
+            "timestamp": "2026-03-27T10:22:56.601656"
+        }
+    ]
+}

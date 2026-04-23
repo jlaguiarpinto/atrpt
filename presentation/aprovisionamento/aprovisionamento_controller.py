@@ -1,0 +1,421 @@
+# atrpt/presentation/aprovisionamento/aprovisionamento_controller.py 
+
+import logging
+from core.logging_utils import audit
+
+logger = logging.getLogger(__name__)
+
+class AprovisionamentoController:
+
+    def __init__(
+        self,
+        gui,
+        user_context,
+        cfg,
+        audit_log,
+        create_uc,
+        add_proposta_uc,
+        select_proposta_uc,
+        autorizar_uc,
+        encomendar_uc,
+        enviar_uc,
+        list_pedidos_uc,
+        list_fornecedores_uc,
+        fornecedor_repo,
+        encomenda_repo,
+    ):
+        self.gui = gui
+        self.user = user_context
+        self.cfg = cfg
+        self.audit_log = audit_log
+
+        self.encomendar_uc = encomendar_uc
+        self.create_uc = create_uc
+        self.add_proposta_uc = add_proposta_uc
+        self.select_proposta_uc = select_proposta_uc
+        self.autorizar_uc = autorizar_uc
+        self.enviar_uc = enviar_uc
+        self.list_pedidos_uc = list_pedidos_uc
+        self.list_fornecedores_uc = list_fornecedores_uc
+
+        #self.pedido_repo=pedido_repo
+        self.fornecedor_repo=fornecedor_repo
+        self.encomenda_repo=encomenda_repo
+        #self.auth = AuthorizationService(self.user)
+
+    # -------------------------------------------------
+    # Fornecedores
+    # -------------------------------------------------
+
+    def importar_fornecedores(self, file_path: str):
+
+        try:
+            total = self.import_fornecedores_uc.execute(file_path)
+
+            self.gui.informuser(
+                "Importação concluída",
+                f"{total} fornecedores importados."
+            )
+
+        except Exception as e:
+            self.gui.informuser("Erro", str(e), tipo="error")
+
+    def importar_fornecedores_dialog(self):
+
+        from tkinter import filedialog
+
+        file_path = filedialog.askopenfilename(
+            filetypes=[("Excel files", "*.xlsx")]
+        )
+
+        if not file_path:
+            return
+
+        self.importar_fornecedores(file_path)
+
+    def importar_fornecedores_dialog(self):
+
+        file_path = self.gui.ask_file(
+            title="Selecionar ficheiro Excel",
+            filetypes=[("Excel files", "*.xlsx *.xls")]
+        )
+
+        if not file_path:
+            return
+
+        try:
+            total = self.import_fornecedores_uc.execute(file_path)
+
+            self.gui.informuser(
+                "Importação concluída",
+                f"{total} fornecedores processados."
+            )
+
+        except Exception as e:
+            self.gui.informuser("Erro", str(e), tipo="error")
+
+    def novo_fornecedor(self, dados: dict):
+        """Cria fornecedor a partir de dict {nome, nif, ...}. Devolve o fornecedor criado."""
+        try:
+            self.fornecedor_repo.save_from_dict(dados)
+            # devolver o fornecedor recém-criado para actualizar o combobox
+            return self.fornecedor_repo.get_by_nome(dados["nome"])
+        except Exception as e:
+            logger.exception("Erro ao criar fornecedor")
+            raise
+
+    def novo_fornecedor_dialog(self):
+
+        data = self.gui.form_fornecedor_dialog()
+
+        if not data:
+            return
+
+        self.fornecedor_repo.save_from_dict(data)
+
+        self.gui.informuser(
+            "Fornecedor",
+            "Fornecedor criado com sucesso.",
+            tipo="info"
+        )
+
+    def listar_fornecedores_dialog(self):
+        from presentation.aprovisionamento.fornecedores_gui import FornecedoresListGUI
+        fornecedores = self.list_fornecedores_uc.execute()
+        self.gui.show_view (FornecedoresListGUI,self,fornecedores)
+
+    # -------------------------------------------------
+    # Pedidos
+    # -------------------------------------------------        
+
+    def adicionar_proposta(self, numero, fornecedor_id, valor, documento):
+        logger.info(f"Chamando controller com: numero={numero}, fornecedor_id=fornecedor_id, valor={valor}, documento={documento}")
+        try:
+            # Chamar o usecase para adicionar proposta
+            self.add_proposta_uc.execute(
+                numero=numero,
+                fornecedor_id=fornecedor_id,
+                valor=valor,
+                documento=documento)
+            
+            self.gui.informuser("OK", "Proposta adicionada com sucesso.")
+            
+        except Exception as e:
+            import traceback
+            logger.error(f">>> EXCEPÇÃO em adicionar_proposta: {e}")
+            logger.error(traceback.format_exc())
+            raise  # re-lança para a GUI apanhar e mostrar
+
+    def adicionar_proposta_dialog(self):
+        """Abre diálogo para adicionar proposta a um pedido existente"""
+        from presentation.aprovisionamento.pedido_proposta_gui import JuntarPropostaGUI
+        
+        # Criar janela modal
+        win = tk.Toplevel()
+        win.title("Adicionar Proposta")
+        win.grab_set()
+        
+        JuntarPropostaGUI(win, self)
+        self.gui.root.wait_window(win)
+
+    def selecionar_proposta(self, numero, fornecedor_id):
+        try:
+            self.select_proposta_uc.execute(numero, fornecedor_id)
+            self.gui.informuser("OK", "Proposta selecionada.")
+
+        except Exception as e:
+            self.gui.informuser("Erro", str(e), tipo="error")
+
+    def criar_pedido_dialog(self):
+
+        # 1. dados
+        centros_custo = self.container.cfg.centros_custo
+        fornecedores = self.list_fornecedores_uc.execute()
+
+        # 2. form
+        data = self.gui.form_pedido_dialog(
+            centros_custo=centros_custo,
+            fornecedores=[f.nome for f in fornecedores]
+        )
+
+        if not data:
+            return
+
+        # 3. mapping nome → id
+        map_forn = {f.nome: f.id for f in fornecedores}
+
+        # 4. normalizar proposta
+        proposta = []
+        for p in data["proposta"]:
+            if not p:
+                continue
+
+            proposta.append({
+                "fornecedor_id": map_forn[p["fornecedor"]],
+                "valor": p["valor"],
+                "pdf_path": p["pdf_path"]
+            })
+
+        # 5. criar pedido
+        self.criar_pedido(
+            centro_custo=data["centro_custo"],
+            descricao=data["descricao"],
+            criado_por=self.user.username,
+            proposta=proposta
+        )
+
+    def criar_pedido(self, centro_custo, descricao, proposta):
+        from domain.aprovisionamento.entities import Proposta
+        """
+        propostas = [
+            Proposta(
+                fornecedor_id=p["fornecedor_id"],
+                valor=p["valor"],
+                pdf_path=p["documento"],
+            )
+            for p in proposta
+        ]   """
+
+        pedido = self.create_uc.execute(
+            centro_custo=centro_custo,
+            descricao=descricao,
+            criado_por=self.user.username,
+            propostas=proposta
+        )
+
+        self.gui.informuser(
+            "Pedido criado",
+            f"Pedido {pedido.numero} criado com sucesso."
+        )
+
+    # -------------------------------------------------
+
+    def autorizar_pedido(self, numero, proposta=None):
+        pedido = self.autorizar_uc.execute(numero, self.user.username, proposta)
+        audit(
+            self.audit_log,
+            utilizador=self.user.username,
+            accao="autorizar_pedido",
+            detalhe=f"pedido={numero} proposta_forn={getattr(proposta, 'fornecedor_id', '')}",
+        )
+        return pedido
+
+    def autorizar_pedido_dialog(self):
+
+        numero = self.gui.pedirInput("Autorizar Pedido", "Número do pedido:", "int")
+        if not numero:
+            return
+
+        self.autorizar_pedido(numero, self.user.username)
+
+    # -------------------------------------------------
+
+    def enviar_pedido(self, numero):
+
+        try:
+            pedido = self.enviar_uc.execute(numero)
+
+            self.gui.informuser(
+                "Enviado",
+                f"Pedido {pedido.numero} enviado com sucesso."
+            )
+
+        except Exception as e:
+            self.gui.informuser("Erro", str(e), tipo="error")
+
+    def enviar_pedido_dialog(self):
+
+        numero = self.gui.pedirInput("Enviar Pedido", "Número do pedido:", "int")
+        if not numero:
+            return
+
+        self.enviar_pedido(numero)
+
+    def autorizar_encomenda(self, numero):
+        return self.service.autorizar_encomenda(numero, self.user.username)
+
+    # -------------------------------------------------
+
+
+    def listar_pedidos_para_proposta(self):
+        """Pedidos elegíveis para receber proposta — exclui aprovado, cancelado, concluido."""
+        estados = ["criado", "pendente",]
+        try:
+            return self.list_pedidos_uc.execute(*estados)
+        except Exception as e:
+            logger.exception("Erro ao listar pedidos para proposta")
+            return []
+    
+    def listar_pedidos(self, *estados):
+        """Devolve pedidos filtrados pelos estados indicados. Sem estados devolve todos."""
+        try:
+            return self.list_pedidos_uc.execute(*estados)
+        except Exception as e:
+            logger.exception("Erro ao listar pedidos")
+            raise
+
+    def listar_pendentes_dialog(self):
+        self.listar_pendentes()
+
+    def encomendar(self, numero):
+        return self.encomendar_uc.execute(numero, encomendado_por=self.user.username)
+
+    def get_centros_custo(self):
+        return self.cfg.centros_custo
+
+    def pedir_aprovacao(self, numero: str, proposta, observacoes: str = "") -> None:
+        """Muda pedido de 'criado' para 'pendente' e envia email aos aprovadores."""
+        from domain.aprovisionamento.enums import PedidoEstado
+        pedido = self.pedido_repo.get_by_numero(numero)
+        if not pedido:
+            raise ValueError(f"Pedido {numero} não encontrado.")
+        if pedido.estado != PedidoEstado.criado:
+            raise ValueError(f"Pedido {numero} não está em estado 'criado'.")
+        pedido.estado = PedidoEstado.pendente
+        pedido.proposta_selecionada = proposta
+        self.pedido_repo.update(pedido)
+        audit(self.audit_log, self.user_context.username,
+              "pedir_aprovacao",
+              f"pedido={numero} fornecedor={proposta.fornecedor_id} valor={proposta.valor}")
+        destinatarios = self.cfg.get_lista_emails("emails_auth_pedidos")
+        if destinatarios and hasattr(self, 'enviar_email_uc'):
+            try:
+                self.enviar_email_uc.execute(pedido, destinatarios=destinatarios)
+            except Exception as e:
+                import logging
+                logging.getLogger(__name__).warning(f"Email não enviado: {e}")
+
+    def adicionar_anexo(self, pedido_numero: str, path: str) -> None:
+        self.pedido_repo.adicionar_anexo(pedido_numero, path)
+        audit(self.audit_log, self.user_context.username,
+              "adicionar_anexo", f"pedido={pedido_numero} path={path}")
+
+    def remover_anexo(self, anexo_id: int) -> None:
+        self.pedido_repo.remover_anexo(anexo_id)
+        audit(self.audit_log, self.user_context.username,
+              "remover_anexo", f"id={anexo_id}")
+
+    def listar_anexos(self, pedido_numero: str) -> list:
+        return self.pedido_repo.listar_anexos(pedido_numero)
+
+    def get_fornecedores(self):
+        try:
+            return self.list_fornecedores_uc.execute()
+        except Exception as e:
+            logger.exception("Erro ao listar fornecedores")
+            return []
+
+    def get_mapa_fornecedores(self) -> dict:
+        """Devolve dicionário {str(id): nome} para resolução de nomes na GUI."""
+        try:
+            return {str(f.id): f.nome for f in self.list_fornecedores_uc.execute()}
+        except Exception as e:
+            logger.exception("Erro ao construir mapa de fornecedores")
+            return {}
+
+    def editar_fornecedor(self, dados: dict):
+        try:
+            self.fornecedor_repo.update(dados)
+            audit(
+                self.audit_log,
+                utilizador=self.user.username,
+                accao="editar_fornecedor",
+                detalhe=f"id={dados['id']} nome={dados.get('nome','')} nif={dados.get('nif','')}",
+            )
+            self.gui.informuser("OK", "Fornecedor actualizado com sucesso.")
+        except Exception as e:
+            logger.exception("Erro ao editar fornecedor")
+            raise
+
+    # -------------------------------------------------
+    # Encomendas
+    # -------------------------------------------------
+
+    def listar_encomendas(self, *estados):
+        """Sem estados → todas. estados: 'colocada','recebida','pagar','paga'"""
+        try:
+            todas = self.encomenda_repo.list_all()
+            if not estados:
+                return todas
+            return [e for e in todas if self._estado_encomenda(e) in estados]
+        except Exception:
+            logger.exception("Erro ao listar encomendas")
+            return []
+
+    def _estado_encomenda(self, e) -> str:
+        if e.recebido == "pago":
+            return "paga"
+        if e.pode_pagar:
+            return "pagar"
+        if e.recebido == "ok":
+            return "recebida"
+        return "colocada"
+
+    def receber_encomenda(self, numero: str, resultado: str):
+        e = self.encomenda_repo.get_by_numero(numero)
+        if not e:
+            raise ValueError(f"Encomenda {numero} não encontrada.")
+        e.marcar_recebido(resultado == "ok", self.user.username)
+        self.encomenda_repo.update(e)
+        audit(self.audit_log, self.user.username, "receber_encomenda",
+              f"numero={numero} resultado={resultado}")
+
+    def pagar_encomenda(self, numero: str):
+        e = self.encomenda_repo.get_by_numero(numero)
+        if not e:
+            raise ValueError(f"Encomenda {numero} não encontrada.")
+        if not e.pode_pagar:
+            raise ValueError(f"Encomenda {numero} não está pronta a pagar.")
+        e.recebido = "pago"
+        from datetime import datetime
+        e.log_user = self.user.username
+        e.log_data = datetime.now()
+        self.encomenda_repo.update(e)
+        audit(self.audit_log, self.user.username, "pagar_encomenda", f"numero={numero}")
+
+    def get_faturacao_fornecedor(self, fornecedor_id: int) -> list:
+        try:
+            return self.fornecedor_repo.get_faturacao_anual(fornecedor_id)
+        except Exception as e:
+            logger.exception("Erro ao obter faturação")
+            return []

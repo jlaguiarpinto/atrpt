@@ -1,0 +1,225 @@
+{
+    "data_inicio": "2026-03-22T13:05:08.869772",
+    "data_fim": "2026-03-22T13:07:45.086305",
+    "total": 31,
+    "modo_teste": false,
+    "envios": [
+        {
+            "destino": [
+                "marta.meneses@sapo.pt"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:13.237412"
+        },
+        {
+            "destino": [
+                "isabelcarvalho.pessoal@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:17.220752"
+        },
+        {
+            "destino": [
+                "ze.luis.araujo@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:22.666281"
+        },
+        {
+            "destino": [
+                "luissviseu@sapo.pt"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:26.843323"
+        },
+        {
+            "destino": [
+                "luissviseu@sapo.pt"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:32.523008"
+        },
+        {
+            "destino": [
+                "larsgabriel@atrpt.pt"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:38.698687"
+        },
+        {
+            "destino": [
+                "madalena_henriques@hotmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:42.976938"
+        },
+        {
+            "destino": [
+                "lena__mag@hotmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:47.318135"
+        },
+        {
+            "destino": [
+                "luisfrsilva@icloud.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:51.478688"
+        },
+        {
+            "destino": [
+                "luisfrsilva@icloud.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:05:56.655784"
+        },
+        {
+            "destino": [
+                "fernandoseabraalmeida@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:01.676330"
+        },
+        {
+            "destino": [
+                "jmppacheco@sapo.pt"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:07.819589"
+        },
+        {
+            "destino": [
+                "paixao.vitor@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:13.247268"
+        },
+        {
+            "destino": [
+                "lilianamaldonadoribeiro@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:19.384481"
+        },
+        {
+            "destino": [
+                "dmrvasconcelos@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:24.643877"
+        },
+        {
+            "destino": [
+                "mfsnca9191@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:29.143008"
+        },
+        {
+            "destino": [
+                "ajmribeiro2@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:33.940341"
+        },
+        {
+            "destino": [
+                "j-carlos-rocha@sapo.pt"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:38.333998"
+        },
+        {
+            "destino": [
+                "matosivone82@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:43.244004"
+        },
+        {
+            "destino": [
+                "paulampmoura@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:49.080118"
+        },
+        {
+            "destino": [
+                "aluisbeb@hotmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:06:55.122042"
+        },
+        {
+            "destino": [
+                "margaridaofmaia@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:00.742323"
+        },
+        {
+            "destino": [
+                "la-moutinho@hotmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:05.847279"
+        },
+        {
+            "destino": [
+                "moliveiranunes@sapo.pt"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:10.683987"
+        },
+        {
+            "destino": [
+                "mrcpinheiro71@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:16.881267"
+        },
+        {
+            "destino": [
+                "rjrtavares@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:21.415738"
+        },
+        {
+            "destino": [
+                "rjrtavares@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:27.067209"
+        },
+        {
+            "destino": [
+                "flopes000@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:32.836866"
+        },
+        {
+            "destino": [
+                "joao.am.queiroz@sapo.pt"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:36.230199"
+        },
+        {
+            "destino": [
+                "antoniocarv@live.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:39.252069"
+        },
+        {
+            "destino": [
+                "fernandoapinto@gmail.com"
+            ],
+            "status": "OK",
+            "timestamp": "2026-03-22T13:07:45.086305"
+        }
+    ]
+}
