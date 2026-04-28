@@ -6,7 +6,7 @@ import logging
 from domain.secretaria.pim_context import PimContext
 from domain.shared.strings import limpar_string, simplificar_nome
 from infrastructure.file_system.io import guardar_df, ler_excel
-from infrastructure.persistence.pim_repository import PimRepository as PimRepo
+from infrastructure.persistence.secretaria.pim_repository import PimRepository as PimRepo
 from infrastructure.persistence.residentes_repository import ResidentesRepository as ResidentesRepo
 from infrastructure.persistence.contacorrente_repository import ContaCorrenteRepository as CCRepo
 

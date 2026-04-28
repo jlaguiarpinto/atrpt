@@ -5,6 +5,7 @@ from tkinter import ttk, messagebox
 from presentation.shared.base_gui import BaseGui as BG
 from presentation.aprovisionamento.proposta_form_widget import PropostaFormWidget
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -103,7 +104,6 @@ class PedidoFormGUI(BG):
 
     def _confirmar_proposta_extra(self, widget, frame):
         """Confirma proposta adicional e adiciona à listbox."""
-        import os
         valido, fornecedor_id, valor, pdf_path = widget.validar(show_errors=True, parent=self.root)
         if not valido:
             return
@@ -140,7 +140,6 @@ class PedidoFormGUI(BG):
         if not valido:
             return
 
-        import os
         forn_nome = next(
             (n for n, fid in self._proposta_widget_principal.fornecedores_obj.items()
              if fid == forn_id), forn_id

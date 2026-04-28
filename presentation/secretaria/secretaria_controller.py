@@ -19,7 +19,8 @@ _MESES = [
 
 
 class SecretariaController:
-    def __init__(self, root, user_context, cfg, emailer, pim_repo, residentes_repo, contacorrente_repo, inflow_repo, template_builder):
+    def __init__(self, root, user_context, cfg, emailer, pim_repo, residentes_repo, contacorrente_repo, inflow_repo, template_builder,
+                 pessoas_repo=None, fornecedor_repo=None, mapa_repo=None):
         self.root = root
         self.user = user_context
         self.cfg = cfg
@@ -31,6 +32,9 @@ class SecretariaController:
         self.cc_repo = contacorrente_repo
         self.inflow_repo = inflow_repo
         self.template_builder = template_builder
+        self.pessoas_repo    = pessoas_repo      # EmpregadoRepository — opcional
+        self.fornecedor_repo = fornecedor_repo   # FornecedorRepositorySQL — opcional
+        self.mapa_repo       = mapa_repo         # PontoMapaRepository — opcional
         self.tesouraria = self._build_tesouraria()
    
 
@@ -88,8 +92,14 @@ class SecretariaController:
         from domain.secretaria.ponto_processor import PontoProcessor
         from application.secretaria.processar_ponto_usecase import ProcessarPontoUseCase
         
-        usecase = ProcessarPontoUseCase()   #(processor=PontoProcessor())
-        controller = PontoController(self.root, self.cfg, usecase)
+        usecase = ProcessarPontoUseCase()
+        controller = PontoController(
+            self.root, self.cfg, usecase,
+            user_context    = self.user,
+            pessoas_repo    = self.pessoas_repo,
+            fornecedor_repo = self.fornecedor_repo,
+            mapa_repo       = getattr(self, "mapa_repo", None),
+        )
         self._limpar_area_trabalho()
         controller.start(self.gui)
 

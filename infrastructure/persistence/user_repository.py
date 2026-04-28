@@ -5,7 +5,7 @@ from datetime import datetime
 from domain.users.users import user
 
 
-class UserRepositorySQL:
+class UserRepository:
 
     def __init__(self, db_path: Path):
         self.db_path = db_path

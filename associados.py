@@ -11,7 +11,7 @@ from infrastructure.email.smtp_client import SmtpClient
 from infrastructure.email.emailer import Emailer
 
 from infrastructure.persistence.envio_repository import EnvioRepository
-from infrastructure.persistence.user_repository import UserRepositorySQL
+from infrastructure.persistence.user_repository import UserRepository
 from application.auth.login_usecase import LoginUseCase
 from application.email.email_sender import EmailSender
 
@@ -47,7 +47,7 @@ def main():
     repo = AssociadosRepo(associados_file, saldos_file)
     envio_repo = EnvioRepository(envio_email_dir)
 
-    user_repo = UserRepositorySQL(cfg.paths_app["atrpt_db"])
+    user_repo = UserRepository(cfg.paths_app["atrpt_db"])
 
     # -------------------------
     # LOGIN

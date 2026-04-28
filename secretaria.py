@@ -10,11 +10,14 @@ from infrastructure.email.smtp_client import SmtpClient
 from infrastructure.email.emailer import Emailer
 
 # repos
-from infrastructure.persistence.residentes_repository import ResidentesRepository
-from infrastructure.persistence.contacorrente_repository import ContaCorrenteRepository
-from infrastructure.persistence.inflow_repository import InflowRepository
-from infrastructure.persistence.pim_repository import PimRepository
-from infrastructure.persistence.user_repository import UserRepositorySQL
+from infrastructure.persistence.secretaria.residentes_repository import ResidentesRepository
+from infrastructure.persistence.pessoas.empregado_repository import EmpregadoRepository
+from infrastructure.persistence.aprovisionamento.fornecedor_repository import FornecedorRepository
+from infrastructure.persistence.ponto.ponto_mapa_repository import PontoMapaRepository
+from infrastructure.persistence.secretaria.contacorrente_repository import ContaCorrenteRepository
+from infrastructure.persistence.secretaria.inflow_repository import InflowRepository
+from infrastructure.persistence.secretaria.pim_repository import PimRepository
+from infrastructure.persistence.user_repository import UserRepository
 
 # usecases / services
 from application.auth.login_usecase import LoginUseCase
@@ -42,7 +45,7 @@ def main():
         message="Conditional Formatting extension is not supported")
 
     db_path = cfg.paths["atrpt_db"]
-    user_repo      = UserRepositorySQL(db_path)
+    user_repo      = UserRepository(db_path)
 
     login_uc = LoginUseCase(user_repo)
 
@@ -68,6 +71,19 @@ def main():
     InflowRepository(cfg.paths["comprovativo_file"], cfg.paths["inflow_file"], cfg.paths["comprovativodd_file"])
 
     # -------------------------
+    # REPOS TRANSVERSAIS
+    # -------------------------
+    pessoas_repo = EmpregadoRepository(
+        accdb_path=cfg.paths["rh_accdb"]
+    )
+    fornecedor_repo = FornecedorRepository(
+        db_path=cfg.paths["atrpt_db"]
+    )
+    mapa_repo = PontoMapaRepository(
+        db_path=cfg.paths["atrpt_db"]
+    )
+
+    # -------------------------
     # CONTROLLER
     # -------------------------
     controller = SecretariaController(
@@ -79,7 +95,11 @@ def main():
         residentes_repo=ResidentesRepository(cfg.paths["residentes_file"]),
         contacorrente_repo=ContaCorrenteRepository(cfg.paths["residentes_cc_file"]),
         inflow_repo=InflowRepository(cfg.paths["comprovativo_file"], cfg.paths["inflow_file"], cfg.paths["comprovativodd_file"]),
-        template_builder=EmailTemplateBuilder(cfg.paths["template_enviofat"]))
+        template_builder=EmailTemplateBuilder(cfg.paths["template_enviofat"]),
+        pessoas_repo=pessoas_repo,
+        fornecedor_repo=fornecedor_repo,
+        mapa_repo=mapa_repo,
+    )
 
     controller.start()
     root.mainloop()

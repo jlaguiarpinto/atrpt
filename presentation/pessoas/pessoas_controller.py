@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Optional, List
 
 from domain.pessoas.empregado import Empregado
-from infrastructure.persistence.empregado_repository import EmpregadoRepository
+from infrastructure.persistence.pessoas.empregado_repository import EmpregadoRepository
 
 logger = logging.getLogger(__name__)
 
@@ -60,3 +60,15 @@ class PessoasController:
             return sorted({e.sector for e in todos if e.sector})
         except Exception:
             return []
+
+    def guardar_empregado(self, dados: dict) -> Optional[Empregado]:
+        """
+        Grava alterações editáveis de um empregado (contactos, morada, notas, ativo).
+        Devolve o empregado actualizado.
+        """
+        try:
+            self.repo.update(dados)
+            return self.repo.get_by_numero(dados["numero"])
+        except Exception as e:
+            logger.error(f"Erro ao guardar empregado {dados.get('numero')}: {e}", exc_info=True)
+            raise

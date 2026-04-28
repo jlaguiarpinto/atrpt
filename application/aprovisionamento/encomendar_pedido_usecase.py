@@ -29,7 +29,7 @@ class EncomendarPedidoUseCase:
 
     def __init__(self, pedido_repo, encomenda_repo=None, fornecedor_repo=None, email_sender=None, template_builder=None):
         self.pedido_repo      = pedido_repo
-        self.encomenda_repo   = encomenda_repo      # EncomendaRepositorySQL
+        self.encomenda_repo   = encomenda_repo      # EncomendaRepository
         self.fornecedor_repo  = fornecedor_repo
         self.email_sender     = email_sender
         self.template_builder = template_builder

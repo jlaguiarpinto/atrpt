@@ -1,4 +1,5 @@
-#atrpt/infrastructure/persistence/ponto_repository.py
+# atrpt/infrastructure/persistence/ponto/ponto_repository.py
+
 from pathlib import Path
 import re
 import pandas as pd
@@ -7,7 +8,7 @@ import pandas as pd
 class PontoRepository:
 
     def __init__(self, pasta_mes, ficheiro_resumo):
-        self.pasta_mes = pasta_mes
+        self.pasta_mes       = pasta_mes
         self.ficheiro_resumo = ficheiro_resumo
 
     def listar_ficheiros_diarios(self):
@@ -25,12 +26,11 @@ class PontoRepository:
         """
         nome_pasta = self.pasta_mes.name  # ex: "202603"
         try:
-            ano  = int(nome_pasta[:4])
-            mes  = int(nome_pasta[4:])
+            ano = int(nome_pasta[:4])
+            mes = int(nome_pasta[4:])
         except ValueError:
             return None
 
-        # calcular mês anterior
         if mes == 1:
             ano_ant, mes_ant = ano - 1, 12
         else:
@@ -40,7 +40,6 @@ class PontoRepository:
         if not pasta_ant.exists():
             return None
 
-        # último ficheiro DDMM.xlsx da pasta anterior
         pattern = re.compile(r"^\d{4}\.xlsx$")
         ficheiros = sorted([
             f for f in pasta_ant.glob("*.xlsx")

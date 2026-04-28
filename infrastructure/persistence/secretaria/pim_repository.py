@@ -1,4 +1,4 @@
-# infrastructure/persistence/pim_repository.py
+# infrastructure/persistence.secretaria.pim_repository.py
 
 import pandas as pd
 from pathlib import Path

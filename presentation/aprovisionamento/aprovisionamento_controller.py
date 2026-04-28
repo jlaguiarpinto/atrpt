@@ -414,8 +414,27 @@ class AprovisionamentoController:
         audit(self.audit_log, self.user.username, "pagar_encomenda", f"numero={numero}")
 
     def get_faturacao_fornecedor(self, fornecedor_id: int) -> list:
+        """
+        Agrega faturação anual do fornecedor a partir dos pedidos encomendados/concluídos.
+        Devolve lista de {ano, n_pedidos, total}.
+        As duas bases de dados são separadas — o join é feito em Python.
+        """
+        from collections import defaultdict
         try:
-            return self.fornecedor_repo.get_faturacao_anual(fornecedor_id)
-        except Exception as e:
+            pedidos = self.encomenda_repo.list_by_estado("encomendado", "concluido", "concluído")
+            por_ano = defaultdict(lambda: {"n_pedidos": 0, "total": 0.0})
+            forn_str = str(fornecedor_id)
+            for pedido in pedidos:
+                for proposta in (pedido.propostas or []):
+                    if str(proposta.fornecedor_id) == forn_str:
+                        ano = pedido.data_criacao.year if pedido.data_criacao else 0
+                        por_ano[ano]["n_pedidos"] += 1
+                        por_ano[ano]["total"]     += float(proposta.valor or 0)
+                        break  # cada pedido conta uma vez por fornecedor
+            return [
+                {"ano": ano, "n_pedidos": d["n_pedidos"], "total": round(d["total"], 2)}
+                for ano, d in sorted(por_ano.items(), reverse=True)
+            ]
+        except Exception:
             logger.exception("Erro ao obter faturação")
             return []

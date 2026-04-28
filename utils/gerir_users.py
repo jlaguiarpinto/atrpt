@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.config import load_config
-from infrastructure.persistence.user_repository import UserRepositorySQL
+from infrastructure.persistence.user_repository import UserRepository
 from core.security import PERFIS
 
 _APP_INI = Path(r"G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\app.ini")
@@ -21,7 +21,7 @@ PERFIS_OPCOES = [""] + [f"{cod} — {desc}" for cod, desc in PERFIS.items()]
 
 class GerirUsersApp:
 
-    def __init__(self, root: tk.Tk, repo: UserRepositorySQL):
+    def __init__(self, root: tk.Tk, repo: UserRepository):
         self.root = root
         self.repo = repo
         root.title("Gestão de Utilizadores")
@@ -207,7 +207,7 @@ class GerirUsersApp:
 
 def main():
     cfg  = load_config(_APP_INI)
-    repo = UserRepositorySQL(cfg.paths["atrpt_db"])
+    repo = UserRepository(cfg.paths["atrpt_db"])
 
     root = tk.Tk()
     GerirUsersApp(root, repo)

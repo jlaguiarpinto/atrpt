@@ -42,12 +42,9 @@ class FornecedoresGUI(BG):
 
 
     def _novo_fornecedor(self):
-        win = tk.Toplevel(self.root)
-        BG.make_modal(win, self.root)
-        from presentation.aprovisionamento.pedido_form_gui import form_fornecedor_dialog
-        dados = form_fornecedor_dialog(win)
-        if dados:
-            self.controller.novo_fornecedor(dados)
+            dados = FornecedorDetalheGUI.form_dialog(self.root)
+            if dados:
+                self.controller.novo_fornecedor(dados)
 
     def _importar_fornecedores(self):
         path = self.ask_file(

@@ -1,9 +1,9 @@
 #atrpt/application/aprovisionamento/list_fornecedores_usecase.py
-from infrastructure.persistence.fornecedor_repository import FornecedorRepositorySQL
+from infrastructure.persistence.aprovisionamento.fornecedor_repository import FornecedorRepository
 from domain.aprovisionamento.fornecedor import Fornecedor
 class ListFornecedoresUseCase:
 
-    def __init__(self, repo: FornecedorRepositorySQL):
+    def __init__(self, repo: FornecedorRepository):
         self.repo = repo
 
     def execute(self) -> list[Fornecedor]:

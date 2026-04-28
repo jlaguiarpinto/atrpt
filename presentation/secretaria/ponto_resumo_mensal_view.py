@@ -46,21 +46,25 @@ FONT_NAV    = "Verdana 10 bold"
 COLUNAS = [
     ("data",              "Data",          82,  False),
     ("dia_semana",        "Dia",           68,  False),
-    ("feriado_desc",      "Feriado",      118,  False),
     ("e1",                "E1",            70,  False),
     ("s1",                "S1",            70,  False),
     ("e2",                "E2",            70,  False),
     ("s2",                "S2",            70,  False),
     ("presenca",          "Presenca",      68,  True),
     ("falta",             "Falta",         46,  True),
-    ("feriado",           "Fer.",          46,  True),
+    ("feriado",           "Fer.h",         46,  True),
     ("ferias",            "Ferias",        46,  True),
     ("noturno",           "Noturno",       64,  True),
     ("baixa",             "Baixa",         46,  True),
     ("subsidio_refeicao", "S.Ref.",        52,  True),
     ("erros_picagem",     "Erros",        148,  False),
-    ("observacoes_sc",    "Obs.SC",       118,  True),
-    ("observacoes_js",    "Obs.JS",       118,  True),
+    ("observacoes_dl",    "Obs.DL",       118,  True),
+    ("observacoes_cs",    "Obs.CS",       118,  True),
+    ("ativo_rh",          "Ativo",         48,  False),
+    ("feriado_desc",      "Feriado",       60,  False),
+    ("edit_dt",           "Alterado em",  120,  False),
+    ("edit_user",         "Por",           80,  False),
+    ("edit_detalhe",      "Alteração",     260,  False),
 ]
 COL_NUM    = {"presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao"}
 TOTAIS_NUM = ["presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao"]
@@ -113,8 +117,8 @@ class _EditDialog(tk.Toplevel):
             ("subsidio_refeicao", "Sub. Refeicao (0/1)"),
         ]
         campos_txt = [
-            ("observacoes_sc", "Observacoes SC"),
-            ("observacoes_js", "Observacoes JS"),
+            ("observacoes_dl", "Observacoes DL"),
+            ("observacoes_cs", "Observacoes CS"),
         ]
         for col, lbl in campos_num:
             self._add_field(body, lbl, col, rd, numeric=True, **pad)
@@ -138,17 +142,24 @@ class _EditDialog(tk.Toplevel):
         row.pack(fill="x", **kw)
         tk.Label(row, text=label, width=22, anchor="w",
                  font=FONT_UI, bg=BG, fg=FG).pack(side="left")
-        var = tk.StringVar(value=str(rd.get(col, "") or ""))
+        valor_original = str(rd.get(col, "") or "")
+        var = tk.StringVar(value=valor_original)
         tk.Entry(row, textvariable=var, font=FONT_MONO,
                  bg=BG_ENTRY, fg="black", relief="solid", bd=1,
                  width=10 if numeric else 32).pack(side="left")
-        self._vars[col] = (var, numeric)
+        self._vars[col] = (var, numeric, valor_original)
 
     def _save(self):
         result = {}
-        for col, (var, numeric) in self._vars.items():
+        for col, (var, numeric, original) in self._vars.items():
             raw = var.get().strip()
+            # só processar se o valor foi alterado
+            if raw == original:
+                continue
             if numeric:
+                if raw == "":
+                    # campo numérico apagado — manter original, ignorar
+                    continue
                 try:
                     result[col] = float(raw) if "." in raw else int(raw)
                 except ValueError:
@@ -158,13 +169,17 @@ class _EditDialog(tk.Toplevel):
                     return
             else:
                 result[col] = raw
+        if not result:
+            self.destroy()
+            return
         self.callback(result)
         self.destroy()
 
 
 class ResumoMensalView(tk.Toplevel):
 
-    def __init__(self, parent, df: pd.DataFrame, on_save=None, mes_label: str = ""):
+    def __init__(self, parent, df: pd.DataFrame, on_save=None,
+                 mes_label: str = "", username: str = ""):
         super().__init__(parent)
         self.title(f"Revisao Mensal de Ponto - {mes_label}")
         self.configure(bg=BG)
@@ -173,11 +188,17 @@ class ResumoMensalView(tk.Toplevel):
 
         self._on_save   = on_save
         self._mes_label = mes_label
+        self._username  = username or "?"
         self._df        = df.copy()
         self._modified  = False
 
-        self._empregados = self._listar_empregados()
-        self._emp_idx    = 0
+        # garantir coluna de log de edições
+        if "log_edicao" not in self._df.columns:
+            self._df["log_edicao"] = ""
+
+        self._filtro_ativo = "Todos"   # inicializar antes de _build e _listar
+        self._empregados   = self._listar_empregados()
+        self._emp_idx      = 0
 
         self._build()
         self._mostrar_empregado()
@@ -185,10 +206,45 @@ class ResumoMensalView(tk.Toplevel):
 
     # ── dados ─────────────────────────────────────────────────────────────────
     def _listar_empregados(self):
-        df = self._df[self._df["data"] != "TOTAL"]
+        """Lista empregados activos filtrados pelo grupo activo (AAD/Enfermeiro/Todos)."""
+        df = self._df[self._df["data"] != "TOTAL"].copy()
+        if df.empty:
+            return []
+
+        # ── apenas ativos ─────────────────────────────────────────────────────
+        if "ativo_rh" in df.columns:
+            df = df[df["ativo_rh"].astype(str) != "Nao"]
+
+        # ── filtro de grupo ───────────────────────────────────────────────────
+        filtro = getattr(self, "_filtro_ativo", "Todos")
+        if filtro != "Todos":
+            # se coluna grupo não existir, inferir pelo número (>=500 = Enfermeiro)
+            if "grupo" not in df.columns:
+                def _grp(n):
+                    try:
+                        return "Enfermeiro" if int(str(n).strip()) >= 500 else "AAD"
+                    except (ValueError, TypeError):
+                        return "AAD"
+                df = df.copy()
+                df["grupo"] = df["numero"].apply(_grp)
+            df = df[df["grupo"].astype(str) == filtro]
+
         if df.empty:
             return []
         return list(df.groupby(["numero", "nome"], sort=True).groups.keys())
+
+    def _aplicar_filtro(self, filtro: str):
+        """Muda o filtro AAD/Enfermeiro/Todos e reinicia a navegação."""
+        self._filtro_ativo = filtro
+        for nome, btn in self._filtro_btns.items():
+            btn.config(relief="sunken" if nome == filtro else "raised")
+        self._empregados = self._listar_empregados()
+        self._emp_idx    = 0
+        n = len(self._empregados)
+        self._lbl_cont.config(
+            text=f"{n} {'empregado' if n == 1 else 'empregados'}"
+        )
+        self._mostrar_empregado()
 
     def _linhas_empregado(self, numero, nome):
         df = self._df
@@ -229,31 +285,47 @@ class ResumoMensalView(tk.Toplevel):
 
     # ── UI ────────────────────────────────────────────────────────────────────
     def _build(self):
+        # ── cabeçalho ─────────────────────────────────────────────────────────
         topo = tk.Frame(self, bg=BG_HEADER, pady=6)
         topo.pack(fill="x")
-
-        tk.Label(topo, text="REVISAO MENSAL DE PONTO",
+        tk.Label(topo, text=f"Revisão do ponto de {self._mes_label}",
                  font=FONT_TITLE, bg=BG_HEADER, fg=FG).pack(side="left", padx=16)
-        tk.Label(topo, text=self._mes_label,
-                 font=FONT_TITLE, bg=BG_HEADER, fg=FG).pack(side="left")
 
-        nav = tk.Frame(topo, bg=BG_HEADER)
-        nav.pack(side="right", padx=16)
+        # ── filtro AAD / Enfermeiro ────────────────────────────────────────────
+        fbar = tk.Frame(self, bg=BG_HEADER, pady=4, relief="groove", bd=1)
+        fbar.pack(fill="x")
+        tk.Label(fbar, text="Mostrar:", font=FONT_UI, bg=BG_HEADER, fg=FG
+                 ).pack(side="left", padx=(14, 8))
+        # _filtro_ativo já inicializado no __init__ — não redefinir aqui
+        self._filtro_btns  = {}
+        _cores = {"Todos": "#c8dedd", "AAD": "#c8e8c8", "Enfermeiro": "#c8d0e8"}
+        for f in ("Todos", "AAD", "Enfermeiro"):
+            btn = tk.Button(
+                fbar, text=f, font=FONT_UI,
+                bg=_cores[f], fg=FG,
+                relief="sunken" if f == "Todos" else "raised",
+                padx=14, pady=2,
+                command=lambda ff=f: self._aplicar_filtro(ff),
+            )
+            btn.pack(side="left", padx=3)
+            self._filtro_btns[f] = btn
+        self._lbl_cont = tk.Label(fbar, text="", font=FONT_UI, bg=BG_HEADER, fg=FG)
+        self._lbl_cont.pack(side="left", padx=12)
 
-        self._btn_prev = tk.Button(nav, text="<  Anterior", command=self._prev_emp,
+        # ── barra de navegação empregado ──────────────────────────────────────
+        nav = tk.Frame(self, bg=BG_HEADER, pady=4, relief="groove", bd=1)
+        nav.pack(fill="x")
+        self._btn_prev = tk.Button(nav, text="◀  Anterior", command=self._prev_emp,
                                    font=FONT_NAV, bg=BTN_BG, fg=FG,
                                    relief="raised", padx=8, pady=2)
-        self._btn_prev.pack(side="left")
-
+        self._btn_prev.pack(side="left", padx=(12, 6))
         self._lbl_emp = tk.Label(nav, text="", font=FONT_NAV,
-                                  bg=BG_HEADER, fg=FG, width=32, anchor="center")
+                                  bg=BG_HEADER, fg=FG, width=36, anchor="center")
         self._lbl_emp.pack(side="left", padx=10)
-
-        self._btn_next = tk.Button(nav, text="Seguinte  >", command=self._next_emp,
+        self._btn_next = tk.Button(nav, text="Seguinte  ▶", command=self._next_emp,
                                    font=FONT_NAV, bg=BTN_BG, fg=FG,
                                    relief="raised", padx=8, pady=2)
         self._btn_next.pack(side="left")
-
         self._lbl_emp_n = tk.Label(nav, text="", font=FONT_UI,
                                     bg=BG_HEADER, fg=FG, width=10)
         self._lbl_emp_n.pack(side="left", padx=(12, 0))
@@ -305,7 +377,7 @@ class ResumoMensalView(tk.Toplevel):
         self._tree.tag_configure("sabado",  background=SAB_BG)
         self._tree.tag_configure("domingo", background=DOM_BG)
         self._tree.tag_configure("feriado", foreground=FER_FG)
-        self._tree.tag_configure("erro",    foreground=ERR_FG)
+        self._tree.tag_configure("erro",    foreground=ERR_FG, background="#fff0e8")
         self._tree.tag_configure("editado", foreground=EDIT_FG)
 
     def _build_footer(self):
@@ -341,6 +413,11 @@ class ResumoMensalView(tk.Toplevel):
         tk.Label(bar, text="  Duplo-clique numa linha para editar os valores",
                  font=FONT_UI, bg=BG, fg=FG).pack(side="left")
 
+        tk.Button(bar, text="Menu Principal", command=self._fechar,
+                  bg=BTN_BG, fg=FG, font=FONT_UI,
+                  relief="raised", padx=10, pady=3
+                  ).pack(side="left", padx=(16, 0))
+
         tk.Button(bar, text="Guardar Alteracoes", command=self._guardar,
                   bg=BTN_BG, fg=FG, font=FONT_BUTTON,
                   relief="raised", padx=16, pady=3
@@ -362,12 +439,20 @@ class ResumoMensalView(tk.Toplevel):
             self._mostrar_empregado()
 
     def _mostrar_empregado(self):
+        n = len(self._empregados)
+        if hasattr(self, "_lbl_cont"):
+            self._lbl_cont.config(
+                text=f"{n} {'empregado' if n == 1 else 'empregados'}"
+            )
         if not self._empregados:
             self._lbl_emp.config(text="(sem empregados)")
+            self._lbl_emp_n.config(text="")
+            self._btn_prev.config(state="disabled")
+            self._btn_next.config(state="disabled")
+            self._tree.delete(*self._tree.get_children())
             return
         numero, nome = self._empregados[self._emp_idx]
-        n = len(self._empregados)
-        self._lbl_emp.config(text=f"{numero} - {nome}")
+        self._lbl_emp.config(text=f"{numero}  —  {nome}")
         self._lbl_emp_n.config(text=f"{self._emp_idx+1} / {n}")
         self._btn_prev.config(state="normal" if self._emp_idx > 0     else "disabled")
         self._btn_next.config(state="normal" if self._emp_idx < n - 1 else "disabled")
@@ -379,23 +464,56 @@ class ResumoMensalView(tk.Toplevel):
         self._tree.delete(*self._tree.get_children())
         linhas = self._linhas_empregado(numero, nome)
 
+        import re as _re
+
+        def _parse_log(log_str):
+            """Extrai data_hora, user e detalhe da última entrada do log_edicao.
+            Formato: "[2025-01-15 14:32 utilizador] campo: antes->depois; ..."
+            """
+            s = str(log_str or "").strip()
+            if not s:
+                return "", "", ""
+            # separar entradas por " | "
+            entradas = [e.strip() for e in s.split(" | ") if e.strip()]
+            ultima = entradas[-1]
+            # extrair cabeçalho [...] e detalhe
+            m = _re.match(r"\[([^\]]+)\]\s*(.*)", ultima)
+            if not m:
+                return "", "", ultima
+            cabecalho = m.group(1).strip()   # "2025-01-15 14:32 utilizador"
+            detalhe   = m.group(2).strip()   # "campo: antes->depois; ..."
+            parts = cabecalho.split()
+            if len(parts) >= 3:
+                return f"{parts[0]} {parts[1]}", parts[2], detalhe
+            elif len(parts) == 2:
+                return parts[0], parts[1], detalhe
+            return cabecalho, "", detalhe
+
         for _, row in linhas.iterrows():
+            edit_dt, edit_user, edit_detalhe = _parse_log(row.get("log_edicao", ""))
             valores = []
             for col_id, *_ in COLUNAS:
-                val = row.get(col_id, "")
-                if pd.isna(val) or val is None:
-                    val = ""
-                elif col_id in COL_NUM:
-                    try:
-                        f = float(val)
-                        if col_id in {"presenca", "noturno", "feriado"}:
-                            val = f"{f:.2f}"
-                        else:
-                            val = str(int(f)) if f == int(f) else str(f)
-                    except (ValueError, TypeError):
-                        val = str(val)
+                if col_id == "edit_dt":
+                    val = edit_dt
+                elif col_id == "edit_user":
+                    val = edit_user
+                elif col_id == "edit_detalhe":
+                    val = edit_detalhe
                 else:
-                    val = str(val)
+                    val = row.get(col_id, "")
+                    if pd.isna(val) or val is None:
+                        val = ""
+                    elif col_id in COL_NUM:
+                        try:
+                            f = float(val)
+                            if col_id in {"presenca", "noturno", "feriado"}:
+                                val = f"{f:.2f}"
+                            else:
+                                val = str(int(f)) if f == int(f) else str(f)
+                        except (ValueError, TypeError):
+                            val = str(val)
+                    else:
+                        val = str(val)
                 valores.append(val)
 
             self._tree.insert("", "end", iid=str(row.name),
@@ -404,14 +522,18 @@ class ResumoMensalView(tk.Toplevel):
     def _tags_linha(self, row):
         tags = []
         dia = str(row.get("dia_semana", ""))
-        if dia == "Sabado":
+        if dia in ("Sabado", "Sábado"):
             tags.append("sabado")
         elif dia == "Domingo":
             tags.append("domingo")
         if row.get("feriado_desc", ""):
             tags.append("feriado")
-        if row.get("erros_picagem", ""):
+        erro = row.get("erros_picagem", "")
+        import pandas as _pd
+        if erro and not (_pd.isna(erro) if not isinstance(erro, str) else False) and str(erro).strip():
             tags.append("erro")
+        if str(row.get("log_edicao", "") or "").strip():
+            tags.append("editado")
         return tuple(tags)
 
     def _atualizar_totais_footer(self, numero, nome):
@@ -441,8 +563,24 @@ class ResumoMensalView(tk.Toplevel):
         row_data = {c: row.get(c, "") for c in self._df.columns}
 
         def _on_edit(result: dict):
+            from datetime import datetime as _dt
+            # registar o que mudou antes de aplicar
+            alteracoes = []
+            for col, val_novo in result.items():
+                val_antigo = row_data.get(col, "")
+                if str(val_antigo) != str(val_novo):
+                    alteracoes.append(f"{col}: {val_antigo!r}->{val_novo!r}")
+            # aplicar valores
             for col, val in result.items():
                 self._df.at[idx, col] = val
+            # registar log na coluna log_edicao
+            if alteracoes:
+                ts  = _dt.now().strftime("%Y-%m-%d %H:%M")
+                entrada = f"[{ts} {self._username}] {'; '.join(alteracoes)}"
+                atual = str(self._df.at[idx, "log_edicao"] or "").strip()
+                self._df.at[idx, "log_edicao"] = (
+                    f"{atual} | {entrada}" if atual else entrada
+                )
             self._modified = True
             numero, nome = self._empregados[self._emp_idx]
             self._preencher_tree(numero, nome)

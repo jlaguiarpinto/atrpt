@@ -12,9 +12,9 @@ from infrastructure.email.smtp_client import SmtpClient
 from infrastructure.email.emailer import Emailer
 
 # repos
-from infrastructure.persistence.fornecedor_repository import FornecedorRepositorySQL
-from infrastructure.persistence.pedido_repository import PedidoRepositorySQL
-from infrastructure.persistence.user_repository import UserRepositorySQL
+from infrastructure.persistence.aprovisionamento.fornecedor_repository import FornecedorRepository
+from infrastructure.persistence.aprovisionamento.pedido_repository import PedidoRepositorySQL
+from infrastructure.persistence.user_repository import UserRepository
 
 # usecases / services
 from application.auth.login_usecase import LoginUseCase
@@ -25,7 +25,7 @@ from application.aprovisionamento.list_pedidos_usecase import ListPedidosUseCase
 from application.aprovisionamento.enviar_pedido_usecase import EnviarPedidoUseCase
 from application.aprovisionamento.add_proposta_usecase import AddPropostaUseCase
 from application.aprovisionamento.encomendar_pedido_usecase import EncomendarPedidoUseCase
-from infrastructure.persistence.encomenda_repository import EncomendaRepositorySQL
+from infrastructure.persistence.aprovisionamento.encomenda_repository import EncomendaRepository
 from application.aprovisionamento.enviar_pedido_email_usecase import EnviarEmailPedidoUseCase
 from application.email.email_template_builder import EmailTemplateBuilder
 from application.email.email_sender import EmailSender
@@ -48,8 +48,8 @@ def main():
 
     db_path = cfg.paths["atrpt_db"]
 
-    user_repo      = UserRepositorySQL(db_path)
-    fornecedor_repo = FornecedorRepositorySQL(db_path)
+    user_repo      = UserRepository(db_path)
+    fornecedor_repo = FornecedorRepository(db_path)
     pedido_repo    = PedidoRepositorySQL(db_path)
 
     login_uc     = LoginUseCase(user_repo)
@@ -88,7 +88,7 @@ def main():
 
     create_uc = CreatePedidoUseCase(pedido_repo, enviar_email_uc=enviar_email_pedido_uc)
 
-    encomenda_repo = EncomendaRepositorySQL(db_path)
+    encomenda_repo = EncomendaRepository(db_path)
 
     encomendar_uc = EncomendarPedidoUseCase(
         pedido_repo      = pedido_repo,

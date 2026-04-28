@@ -5,15 +5,15 @@
 #   python build.py                  → compila aprovisionamento (default)
 #   python build.py aprovisionamento → compila aprovisionamento
 #   python build.py pessoas          → compila pessoas
+#   python build.py ponto            → compila ponto
 
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).parent.parent  # build.py está em utils\ — subir para raiz do projecto
 
-# ── configuração por módulo ───────────────────────────────────────────
 MODULOS = {
     "aprovisionamento": {
         "spec":   "aprovisionamento.spec",
@@ -23,13 +23,24 @@ MODULOS = {
         "spec":   "pessoas.spec",
         "deploy": Path(r"G:\.shortcut-targets-by-id\1XXDmRuZ3m1vKgqTTG3fUEClqMUFK3jgX\Direcao"),
     },
+    "ponto": {
+        "spec":   "ponto.spec",
+        "deploy": Path(r"G:\.shortcut-targets-by-id\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\CSAG\Ponto"),
+    },
 }
 
 
 def run_pyinstaller(spec: str):
+    modulo = Path(spec).stem
     print(f"▶ A compilar {spec}...")
+
+    # limpar build anterior para forçar re-análise completa do spec
+    for d in (ROOT / "build" / modulo, ROOT / "dist" / modulo):
+        if d.exists():
+            shutil.rmtree(d)
+
     result = subprocess.run(
-        [sys.executable, "-m", "PyInstaller", spec],
+        [sys.executable, "-m", "PyInstaller", "--noconfirm", spec],
         cwd=ROOT,
     )
     if result.returncode != 0:

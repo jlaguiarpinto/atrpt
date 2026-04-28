@@ -56,34 +56,49 @@ class ProcessarPontoUseCase:
             log("Sem dados validos.")
             return total, None
 
-        for col in ["observacoes_sc", "observacoes_js"]:
+        # observações — string vazia (nunca NaN)
+        for col in ["observacoes_dl", "observacoes_cs"]:
             if col not in mensal.columns:
                 mensal[col] = ""
+            else:
+                mensal[col] = mensal[col].fillna("")
 
-        for col in ["presenca", "falta", "feriado", "ferias", "noturno",
-                    "baixa", "e1", "s1", "e2", "s2", "data", "nome"]:
+        # numéricos — inicializar a 0 / 0.0 conforme tipo
+        for col in ["falta", "feriado", "ferias", "baixa", "subsidio_refeicao"]:
+            if col not in mensal.columns:
+                mensal[col] = 0
+        for col in ["presenca", "noturno"]:
+            if col not in mensal.columns:
+                mensal[col] = 0.0
+
+        for col in ["e1", "s1", "e2", "s2", "data", "nome"]:
             if col not in mensal.columns:
                 mensal[col] = None
 
         mensal = self._calcular_presenca(mensal)
         mensal = self._aplicar_regras_negocio(mensal, df_dia_anterior)
-        mensal = mensal.sort_values(["nome", "data"])
+        mensal = self._split_numero_nome(mensal)
+        mensal = mensal.sort_values(["numero", "nome", "data"])
         mensal = self._adicionar_dia_semana_feriado(mensal)
-
-        # ── JUNTAR ERROS antes de _transformar_colunas ──────────────────────
-        # Neste ponto "nome" ainda tem o formato original "NUM - Nome",
-        # igual ao que está nos erros → comparação por número funciona.
         mensal = self._juntar_erros(mensal, erros_total)
-
+        mensal = self._split_numero_nome(mensal)           # número disponível antes de classificar
+        mensal = self._classificar_grupo(mensal)           # AAD / Enfermeiro por numero >= 500
+        # calcular feriados do mês para os enfermeiros
+        _anos_enf = pd.to_datetime(mensal["data"], errors="coerce").dt.year.dropna().unique()
+        _feriados_enf = {}
+        for _ano in _anos_enf:
+            _feriados_enf.update(self._feriados_ano(int(_ano)))
+        mensal = self._calcular_horas_enfermeiro(mensal, _feriados_enf)
         mensal = self._transformar_colunas(mensal)
 
         colunas_finais = [
             "data", "dia_semana", "feriado_desc",
-            "numero", "nome", "e1", "s1", "e2", "s2",
+            "numero", "nome", "grupo", "e1", "s1", "e2", "s2",
             "presenca", "falta", "feriado", "ferias",
             "noturno", "baixa", "subsidio_refeicao",
+            "diurno_h", "noturno_h", "domingo_h",
             "erros_picagem",
-            "observacoes_sc", "observacoes_js",
+            "observacoes_dl", "observacoes_cs",
         ]
         mensal = mensal[[c for c in colunas_finais if c in mensal.columns]]
         mensal = self._adicionar_totais(mensal)
@@ -333,13 +348,60 @@ class ProcessarPontoUseCase:
                 return pd.Series([0.0] * len(df), index=df.index)
             return pd.to_numeric(df[col], errors="coerce").fillna(0)
 
-        presenca = _f("presenca").apply(lambda x: round(float(x), 2))
-        presenca = presenca.where(presenca >= 0.1, 0.0)
+        # ── determinar fim-de-semana e feriado ────────────────────────────────
+        datas = pd.to_datetime(df["data"], errors="coerce")
+        eh_fds = datas.dt.weekday >= 5   # 5=Sábado, 6=Domingo
+
+        # feriado_desc já existe se _adicionar_dia_semana_feriado foi chamado antes
+        if "feriado_desc" in df.columns:
+            eh_feriado = df["feriado_desc"].astype(str).str.strip() != ""
+        else:
+            # fallback: calcular inline
+            anos = datas.dt.year.dropna().unique()
+            feriados_map = {}
+            for ano in anos:
+                feriados_map.update(self._feriados_ano(int(ano)))
+            eh_feriado = datas.apply(
+                lambda d: (d.date() in feriados_map) if not pd.isna(d) else False
+            )
+
+        # ── mover horas trabalhadas em feriado de presenca → feriado ─────────
+        presenca_raw = _f("presenca").apply(lambda x: round(float(x), 2))
+        presenca_raw = presenca_raw.where(presenca_raw >= 0.1, 0.0)
+
+        feriado_col = _f("feriado").apply(lambda x: round(float(x), 2))
+
+        # quando é feriado E há horas em presença, transfere para feriado
+        horas_em_feriado = presenca_raw.where(eh_feriado, 0.0)
+        feriado_col = (feriado_col + horas_em_feriado).apply(lambda x: round(float(x), 2))
+        presenca = presenca_raw.where(~eh_feriado, 0.0)
+
         df["presenca"] = presenca
+        if "feriado" in df.columns:
+            df["feriado"] = feriado_col
+
         noturno_col = pd.to_numeric(
             df.get("noturno", pd.Series([0]*len(df), index=df.index)),
             errors="coerce").fillna(0)
-        df["falta"] = ((presenca == 0) & (noturno_col == 0)).astype(int)
+
+        # falta=0 ao fim-de-semana (sem picagens não é falta)
+        # falta=0 em feriado (ausência em feriado não é falta)
+        dia_util_sem_trabalho = (presenca == 0) & (noturno_col == 0) & ~eh_fds & ~eh_feriado
+        df["falta"] = dia_util_sem_trabalho.astype(int)
+
+        # fds por dia_semana (garantia defensiva)
+        if "dia_semana" in df.columns:
+            df.loc[df["dia_semana"].isin(["Sabado", "Domingo"]), "falta"] = 0
+
+        # ── Enfermeiros: forçar zeros nas colunas não aplicáveis ─────────────
+        # (presenca, diurno_h, noturno_h, domingo_h já calculados por
+        #  _calcular_horas_enfermeiro antes deste método)
+        if "grupo" in df.columns:
+            enf = df["grupo"] == "Enfermeiro"
+            df.loc[enf, "falta"]             = 0
+            df.loc[enf, "subsidio_refeicao"] = 0
+            df.loc[enf, "baixa"]             = 0
+            df.loc[enf, "ferias"]            = 0
 
         if "feriado" in df.columns:
             f = _f("feriado").apply(lambda x: round(float(x), 2))
@@ -352,15 +414,26 @@ class ProcessarPontoUseCase:
         if "baixa" in df.columns:
             df["baixa"] = _f("baixa").astype(int).clip(0, 1)
 
-        # split nome → numero + nome (só se numero ainda não existe)
-        if "nome" in df.columns and "numero" not in df.columns:
-            split = df["nome"].astype(str).str.split(r" - ", n=1, expand=True)
-            if split.shape[1] == 2:
-                df.insert(df.columns.get_loc("nome"), "numero", split[0].str.strip())
-                df["nome"] = split[1].str.strip()
-            else:
-                df.insert(df.columns.get_loc("nome"), "numero", "")
+        return df
 
+    def _split_numero_nome(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Separa o campo 'nome' no formato 'NUM - Nome Completo'
+        em duas colunas: 'numero' e 'nome'.
+        Chamado logo após _aplicar_regras_negocio, antes de qualquer outro passo.
+        """
+        df = df.copy()
+        if "numero" in df.columns:
+            return df  # já separado
+        if "nome" not in df.columns:
+            df["numero"] = ""
+            return df
+        split = df["nome"].astype(str).str.split(r" - ", n=1, expand=True)
+        if split.shape[1] == 2:
+            df.insert(df.columns.get_loc("nome"), "numero", split[0].str.strip())
+            df["nome"] = split[1].str.strip()
+        else:
+            df.insert(df.columns.get_loc("nome"), "numero", "")
         return df
 
     def _juntar_erros(self, mensal: pd.DataFrame, erros_total: list) -> pd.DataFrame:
@@ -380,24 +453,21 @@ class ProcessarPontoUseCase:
             if df_erros.empty:
                 return mensal
 
-            # pré-calcular número a partir do campo nome do mensal
-            # formato: "NUM - Nome Completo"  → numero = "NUM"
+            # numero já é coluna separada após _split_numero_nome
             def _extrair_numero(nome_completo: str) -> str:
                 partes = str(nome_completo).split(" - ", 1)
                 return partes[0].strip()
 
-            mensal["_numero_temp"] = mensal["nome"].apply(_extrair_numero)
-
             for _, err in df_erros.iterrows():
-                data_e  = str(err.get("data", "")).strip()
-                nome_e  = str(err.get("nome", "")).strip()
+                data_e   = str(err.get("data", "")).strip()
+                nome_e   = str(err.get("nome", "")).strip()
                 numero_e = _extrair_numero(nome_e)
-                msg     = str(err.get("erro", "")).strip()
+                msg      = str(err.get("erro", "")).strip()
 
                 mask = (
                     mensal["data"].astype(str).str.strip() == data_e
                 ) & (
-                    mensal["_numero_temp"] == numero_e
+                    mensal["numero"].astype(str).str.strip() == numero_e
                 )
                 if mask.any():
                     idx = mensal[mask].index[0]
@@ -410,11 +480,133 @@ class ProcessarPontoUseCase:
                         f"Erro nao associado: data={data_e} numero={numero_e} msg={msg}"
                     )
 
-            mensal.drop(columns=["_numero_temp"], inplace=True)
+            pass  # numero ja e coluna propria
 
         except Exception as e:
             logger.warning(f"Erro ao juntar erros: {e}", exc_info=True)
         return mensal
+
+
+    @staticmethod
+    def _classificar_grupo(df: pd.DataFrame) -> pd.DataFrame:
+        """Marca cada linha como 'AAD' ou 'Enfermeiro' pelo número (>=500 = Enfermeiro)."""
+        df = df.copy()
+        def _grupo(num_str):
+            try:
+                return "Enfermeiro" if int(str(num_str).strip()) >= 500 else "AAD"
+            except (ValueError, TypeError):
+                return "AAD"
+        df["grupo"] = df["numero"].apply(_grupo)
+        return df
+
+
+    def _calcular_horas_enfermeiro(self, df: pd.DataFrame, feriados: dict) -> pd.DataFrame:
+        """
+        Para enfermeiros (grupo == 'Enfermeiro') calcula:
+          presenca   — horas totais entre picagens (diurno 08-21 + noturno 21-08)
+          diurno_h   — horas entre 08:00 e 21:00
+          noturno_h  — horas entre 21:00 e 08:00 (dia seguinte)
+          domingo_h  — horas em domingo ou feriado (sobrepõe-se ao diurno/noturno)
+        Regras:
+          - sem falta, sem subsidio_refeicao, sem baixa, sem ferias
+          - janela diurna:  08h–21h
+          - janela noturna: 21h–08h
+          - domingo/feriado: todas as horas desse dia, independente do turno
+        """
+        import datetime
+        df = df.copy()
+        p  = self._parse_hora
+
+        # garantir colunas
+        for col in ("diurno_h", "noturno_h", "domingo_h"):
+            if col not in df.columns:
+                df[col] = 0.0
+
+        enf_mask = df["grupo"] == "Enfermeiro"
+        if not enf_mask.any():
+            return df
+
+        DIURNO_INI = datetime.time(8,  0)
+        DIURNO_FIM = datetime.time(21, 0)
+
+        def _minutos_em_janela(dt_e: "pd.Timestamp", dt_s: "pd.Timestamp",
+                               ini: datetime.time, fim: datetime.time) -> float:
+            """Minutos do intervalo [dt_e, dt_s[ que caem dentro de [ini, fim[ de cada dia."""
+            total = 0.0
+            d = dt_e.date()
+            while d <= dt_s.date():
+                j_ini = pd.Timestamp.combine(d, ini)
+                j_fim = pd.Timestamp.combine(d, fim)
+                overlap_ini = max(dt_e, j_ini)
+                overlap_fim = min(dt_s, j_fim)
+                if overlap_fim > overlap_ini:
+                    total += (overlap_fim - overlap_ini).total_seconds() / 60
+                d += datetime.timedelta(days=1)
+            return total
+
+        datas_ser = pd.to_datetime(df["data"], errors="coerce")
+
+        for idx in df.index[enf_mask]:
+            row    = df.loc[idx]
+            data_p = datas_ser.loc[idx]
+            if pd.isna(data_p):
+                continue
+
+            # recolher picagens válidas do dia
+            dt_e = dt_s = None
+            for ce, cs in [("e1","s1"), ("e2","s2")]:
+                ev = str(row.get(ce, "")).strip().upper()
+                sv = str(row.get(cs, "")).strip().upper()
+                if ev.startswith("S") or sv.startswith("E"):
+                    continue
+                e_h = p(row.get(ce))
+                s_h = p(row.get(cs))
+                if e_h is None or s_h is None:
+                    continue
+                # construir timestamps — saída pode ser dia seguinte
+                candidate_e = pd.Timestamp.combine(data_p.date(), e_h.time())
+                candidate_s = pd.Timestamp.combine(data_p.date(), s_h.time())
+                if candidate_s <= candidate_e:
+                    candidate_s += datetime.timedelta(days=1)
+                if dt_e is None or candidate_e < dt_e:
+                    dt_e = candidate_e
+                if dt_s is None or candidate_s > dt_s:
+                    dt_s = candidate_s
+
+            if dt_e is None or dt_s is None or dt_s <= dt_e:
+                # sem picagens — zeros, sem falta
+                df.at[idx, "presenca"]         = 0.0
+                df.at[idx, "falta"]            = 0
+                df.at[idx, "subsidio_refeicao"]= 0
+                df.at[idx, "baixa"]            = 0
+                df.at[idx, "ferias"]           = 0
+                df.at[idx, "diurno_h"]         = 0.0
+                df.at[idx, "noturno_h"]        = 0.0
+                df.at[idx, "domingo_h"]        = 0.0
+                continue
+
+            total_h = round((dt_s - dt_e).total_seconds() / 3600, 2)
+
+            # diurno: 08-21
+            min_diurno  = _minutos_em_janela(dt_e, dt_s, DIURNO_INI, DIURNO_FIM)
+            h_diurno    = round(min_diurno / 60, 2)
+            h_noturno   = round(total_h - h_diurno, 2)
+
+            # domingo/feriado: horas do dia de entrada que é dom/feriado
+            eh_dom_fer  = (data_p.weekday() == 6 or
+                           data_p.date() in feriados)
+            h_domfer    = round(total_h, 2) if eh_dom_fer else 0.0
+
+            df.at[idx, "presenca"]          = total_h
+            df.at[idx, "diurno_h"]          = h_diurno
+            df.at[idx, "noturno_h"]         = h_noturno
+            df.at[idx, "domingo_h"]         = h_domfer
+            df.at[idx, "falta"]             = 0
+            df.at[idx, "subsidio_refeicao"] = 0
+            df.at[idx, "baixa"]             = 0
+            df.at[idx, "ferias"]            = 0
+
+        return df
 
     def _adicionar_totais(self, df):
         if df is None or df.empty:
@@ -426,7 +618,7 @@ class ProcessarPontoUseCase:
             partes.append(grupo)
             linha = {"data": "TOTAL", "numero": numero, "nome": nome,
                      "e1": "", "s1": "", "e2": "", "s2": "",
-                     "observacoes_sc": "", "observacoes_js": ""}
+                     "observacoes_dl": "", "observacoes_cs": ""}
             for col in cols_num:
                 if col in grupo.columns:
                     linha[col] = round(float(

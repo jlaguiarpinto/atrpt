@@ -15,7 +15,7 @@ CAMPOS_VALIDOS = {
 }
 
 
-class FornecedorRepositorySQL:
+class FornecedorRepository:
 
     def __init__(self, db_path: str):
         self.db_path = db_path
@@ -113,7 +113,8 @@ class FornecedorRepositorySQL:
             "comercial_nome", "comercial_email", "comercial_telemovel",
             "administrativo_nome", "administrativo_email", "administrativo_telemovel",
         ]
-        valores = [getattr(fornecedor, c) for c in campos]
+        # string vazia → None para evitar colisão em colunas UNIQUE (ex: nif)
+        valores = [v if v != "" else None for v in (getattr(fornecedor, c) for c in campos)]
 
         with self._conn() as conn:
             if fornecedor.id is None:
@@ -137,3 +138,57 @@ class FornecedorRepositorySQL:
             conn.execute(
                 "DELETE FROM fornecedores WHERE id = ?", (fornecedor_id,)
             )
+    def update(self, dados) -> Fornecedor:
+        """
+        Actualiza um fornecedor existente.
+        Aceita um Fornecedor ou um dict com pelo menos 'id'.
+        """
+        if isinstance(dados, dict):
+            fornecedor = self.get_by_id(dados["id"])
+            if fornecedor is None:
+                raise ValueError(f"Fornecedor id={dados['id']} não encontrado")
+            for campo, valor in dados.items():
+                if campo != "id" and hasattr(fornecedor, campo):
+                    setattr(fornecedor, campo, valor)
+        else:
+            fornecedor = dados
+
+        if fornecedor.id is None:
+            raise ValueError("update requer fornecedor com id definido")
+
+        return self.save(fornecedor)
+
+    def get_by_nome(self, nome: str) -> Optional[Fornecedor]:
+        """Devolve o primeiro fornecedor com nome exacto (case-insensitive)."""
+        with self._conn() as conn:
+            conn.row_factory = sqlite3.Row
+            row = conn.execute(
+                "SELECT * FROM fornecedores WHERE LOWER(nome) = LOWER(?) LIMIT 1",
+                (nome,)
+            ).fetchone()
+        return self._row_to_fornecedor(row) if row else None
+
+    def save_from_dict(self, dados: dict) -> Fornecedor:
+        """Cria ou actualiza um fornecedor a partir de um dicionário."""
+        def _v(key, default=None):
+            """Devolve None se o valor for string vazia."""
+            val = dados.get(key, default)
+            return None if val == "" else val
+        fornecedor = Fornecedor(
+            id               = dados.get("id"),
+            nome             = dados.get("nome", ""),
+            email            = _v("email"),
+            nif              = _v("nif"),
+            iban             = _v("iban"),
+            tipo_fornecedor  = _v("tipo_fornecedor"),
+            tipo_relacao     = _v("tipo_relacao"),
+            setor            = _v("setor"),
+            metodo_pagamento = _v("metodo_pagamento"),
+            comercial_nome           = _v("comercial_nome"),
+            comercial_email          = _v("comercial_email"),
+            comercial_telemovel      = _v("comercial_telemovel"),
+            administrativo_nome      = _v("administrativo_nome"),
+            administrativo_email     = _v("administrativo_email"),
+            administrativo_telemovel = _v("administrativo_telemovel"),
+        )
+        return self.save(fornecedor)

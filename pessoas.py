@@ -24,12 +24,12 @@ def main():
     audit_log = setup_audit_logger(cfg, "pessoas")
 
     from application.auth.login_usecase import LoginUseCase
-    from infrastructure.persistence.user_repository import UserRepositorySQL
+    from infrastructure.persistence.user_repository import UserRepository
     from presentation.pessoas.pessoas_controller import PessoasController
     from presentation.pessoas.pessoas_gui import PessoasGUI
 
     db_path      = cfg.paths["atrpt_db"]
-    user_repo    = UserRepositorySQL(db_path)
+    user_repo    = UserRepository(db_path)
     user_context = LoginUseCase(user_repo).execute(root)
 
     controller     = PessoasController(cfg, user_context, audit_log)

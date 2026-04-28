@@ -310,3 +310,25 @@ Traceback (most recent call last):
   File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
   File "infrastructure\persistence\fornecedor_repository.py", line 84, in save_from_dict
 sqlite3.OperationalError: ON CONFLICT clause does not match any PRIMARY KEY or UNIQUE constraint
+2026-04-23 17:46:38,996 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao editar fornecedor
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 358, in editar_fornecedor
+    self.fornecedor_repo.update(dados)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FornecedorRepositorySQL' object has no attribute 'update'
+2026-04-23 18:49:03,784 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+    self.fornecedor_repo.save_from_dict(dados)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 189, in save_from_dict
+    return self.save(fornecedor)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 122, in save
+    cur = conn.execute(
+          ^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: fornecedores.nif
+2026-04-24 12:34:25,580 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\fornecedor_repository.py", line 84, in save_from_dict
+sqlite3.OperationalError: ON CONFLICT clause does not match any PRIMARY KEY or UNIQUE constraint

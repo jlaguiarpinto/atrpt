@@ -142,7 +142,6 @@ class EmpregadoRepository:
                 v = vr[1]
                 vencimentos[num] = float(v) if v is not None else None
 
-        print(f"DEBUG _query_todos: {len(rows)} linhas")
         return [self._row_to_empregado(r, vencimentos) for r in rows]
 
     def _row_to_empregado(self, r, vencimentos: dict = None) -> Empregado:
@@ -183,3 +182,47 @@ class EmpregadoRepository:
             diuturnidades      = r[29],
             valor_diuturnidades= float(r[30]) if r[30] is not None else None,
         )
+
+    def update(self, dados: dict) -> None:
+        """
+        Grava os campos editáveis de um empregado na tabela [Dados Pessoais].
+        Recebe dict com: numero, telemovel, telefone, email,
+                         morada, cp, localidade, nib, notas, ativo
+        """
+        numero = dados.get("numero")
+        if not numero:
+            raise ValueError("numero é obrigatório para update")
+
+        # mapeamento campo Python → nome da coluna Access
+        mapa = {
+            "telemovel":  "Telemóvel",
+            "telefone":   "Telefone",
+            "email":      "Endereço eletrónico",
+            "morada":     "Morada",
+            "cp":         "CP",
+            "localidade": "Localidade CP",
+            "nib":        "NIB",
+            "notas":      "Notas",
+            "ativo":      "ativo",
+        }
+
+        sets   = []
+        params = []
+        for campo, coluna in mapa.items():
+            if campo in dados:
+                sets.append(f"[{coluna}] = ?")
+                params.append(dados[campo])
+
+        if not sets:
+            return  # nada a actualizar
+
+        params.append(numero)
+        sql = (
+            "UPDATE [Dados Pessoais] SET "
+            + ", ".join(sets)
+            + " WHERE [Numero do trabalhador] = ?"
+        )
+
+        with self._connect() as conn:
+            conn.execute(sql, params)
+            conn.commit()

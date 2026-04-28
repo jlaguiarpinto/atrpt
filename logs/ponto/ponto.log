@@ -1,0 +1,132 @@
+2026-04-27 10:07:35,723 [WARNING] presentation.secretaria.ponto_controller - Ponto — nao resolvido: '142 - LUCIA MARIA MOURA DUARTE'
+2026-04-27 10:07:35,739 [WARNING] presentation.secretaria.ponto_controller - Ponto — nao resolvido: '144 - MANUELA CRISTINA COSTA OLIVEIRA'
+2026-04-27 10:07:35,823 [WARNING] presentation.secretaria.ponto_controller - Ponto — nao resolvido: '516 - SORAIA ALVES'
+2026-04-27 10:07:35,838 [WARNING] presentation.secretaria.ponto_controller - Ponto — nao resolvido: '518 - MARIA TERESA ARANHA MAGALHÃES M. PIRES'
+2026-04-27 10:27:09,794 [INFO] presentation.secretaria.ponto_controller - Resumo 4 gravado apos edicao manual.
+2026-04-27 11:45:52,650 [INFO] presentation.secretaria.ponto_controller - Resumo 4 gravado apos edicao manual.
+2026-04-27 11:52:06,494 [INFO] presentation.secretaria.ponto_controller - Processar ponto — mes 4, pasta: G:\.shortcut-targets-by-id\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\CSAG\Ponto\202604
+2026-04-27 11:52:06,512 [INFO] application.secretaria.processar_ponto_usecase - 📂 26 ficheiros encontrados
+2026-04-27 11:52:06,515 [INFO] presentation.secretaria.ponto_controller - 📂 26 ficheiros encontrados
+2026-04-27 11:52:06,874 [INFO] application.secretaria.processar_ponto_usecase - 📅 Ultimo dia do mes anterior carregado
+2026-04-27 11:52:06,874 [INFO] presentation.secretaria.ponto_controller - 📅 Ultimo dia do mes anterior carregado
+2026-04-27 11:52:06,879 [INFO] application.secretaria.processar_ponto_usecase - 📄 0104.xlsx
+2026-04-27 11:52:06,879 [INFO] presentation.secretaria.ponto_controller - 📄 0104.xlsx
+2026-04-27 11:52:06,964 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 5 com erros
+2026-04-27 11:52:06,964 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 5 com erros
+2026-04-27 11:52:06,971 [INFO] application.secretaria.processar_ponto_usecase - 📄 0204.xlsx
+2026-04-27 11:52:06,971 [INFO] presentation.secretaria.ponto_controller - 📄 0204.xlsx
+2026-04-27 11:52:07,040 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 4 com erros
+2026-04-27 11:52:07,040 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 4 com erros
+2026-04-27 11:52:07,044 [INFO] application.secretaria.processar_ponto_usecase - 📄 0304.xlsx
+2026-04-27 11:52:07,044 [INFO] presentation.secretaria.ponto_controller - 📄 0304.xlsx
+2026-04-27 11:52:07,106 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 6 com erros
+2026-04-27 11:52:07,106 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 6 com erros
+2026-04-27 11:52:07,106 [INFO] application.secretaria.processar_ponto_usecase - 📄 0404.xlsx
+2026-04-27 11:52:07,106 [INFO] presentation.secretaria.ponto_controller - 📄 0404.xlsx
+2026-04-27 11:52:07,235 [INFO] application.secretaria.processar_ponto_usecase -    - 112 registos validos, 6 com erros
+2026-04-27 11:52:07,235 [INFO] presentation.secretaria.ponto_controller -    - 112 registos validos, 6 com erros
+2026-04-27 11:52:07,235 [INFO] application.secretaria.processar_ponto_usecase - 📄 0504.xlsx
+2026-04-27 11:52:07,235 [INFO] presentation.secretaria.ponto_controller - 📄 0504.xlsx
+2026-04-27 11:52:07,316 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 7 com erros
+2026-04-27 11:52:07,316 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 7 com erros
+2026-04-27 11:52:07,322 [INFO] application.secretaria.processar_ponto_usecase - 📄 0604.xlsx
+2026-04-27 11:52:07,322 [INFO] presentation.secretaria.ponto_controller - 📄 0604.xlsx
+2026-04-27 11:52:07,418 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 2 com erros
+2026-04-27 11:52:07,418 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 2 com erros
+2026-04-27 11:52:07,424 [INFO] application.secretaria.processar_ponto_usecase - 📄 0704.xlsx
+2026-04-27 11:52:07,424 [INFO] presentation.secretaria.ponto_controller - 📄 0704.xlsx
+2026-04-27 11:52:07,509 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 6 com erros
+2026-04-27 11:52:07,509 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 6 com erros
+2026-04-27 11:52:07,509 [INFO] application.secretaria.processar_ponto_usecase - 📄 0804.xlsx
+2026-04-27 11:52:07,509 [INFO] presentation.secretaria.ponto_controller - 📄 0804.xlsx
+2026-04-27 11:52:07,602 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 4 com erros
+2026-04-27 11:52:07,602 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 4 com erros
+2026-04-27 11:52:07,609 [INFO] application.secretaria.processar_ponto_usecase - 📄 0904.xlsx
+2026-04-27 11:52:07,609 [INFO] presentation.secretaria.ponto_controller - 📄 0904.xlsx
+2026-04-27 11:52:07,693 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 1 com erros
+2026-04-27 11:52:07,693 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 1 com erros
+2026-04-27 11:52:07,693 [INFO] application.secretaria.processar_ponto_usecase - 📄 1004.xlsx
+2026-04-27 11:52:07,693 [INFO] presentation.secretaria.ponto_controller - 📄 1004.xlsx
+2026-04-27 11:52:07,791 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 8 com erros
+2026-04-27 11:52:07,791 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 8 com erros
+2026-04-27 11:52:07,795 [INFO] application.secretaria.processar_ponto_usecase - 📄 1104.xlsx
+2026-04-27 11:52:07,795 [INFO] presentation.secretaria.ponto_controller - 📄 1104.xlsx
+2026-04-27 11:52:07,869 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 5 com erros
+2026-04-27 11:52:07,869 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 5 com erros
+2026-04-27 11:52:07,869 [INFO] application.secretaria.processar_ponto_usecase - 📄 1204.xlsx
+2026-04-27 11:52:07,869 [INFO] presentation.secretaria.ponto_controller - 📄 1204.xlsx
+2026-04-27 11:52:07,964 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 11 com erros
+2026-04-27 11:52:07,964 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 11 com erros
+2026-04-27 11:52:07,975 [INFO] application.secretaria.processar_ponto_usecase - 📄 1304.xlsx
+2026-04-27 11:52:07,975 [INFO] presentation.secretaria.ponto_controller - 📄 1304.xlsx
+2026-04-27 11:52:08,043 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 7 com erros
+2026-04-27 11:52:08,043 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 7 com erros
+2026-04-27 11:52:08,043 [INFO] application.secretaria.processar_ponto_usecase - 📄 1404.xlsx
+2026-04-27 11:52:08,043 [INFO] presentation.secretaria.ponto_controller - 📄 1404.xlsx
+2026-04-27 11:52:08,123 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 6 com erros
+2026-04-27 11:52:08,123 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 6 com erros
+2026-04-27 11:52:08,123 [INFO] application.secretaria.processar_ponto_usecase - 📄 1504.xlsx
+2026-04-27 11:52:08,123 [INFO] presentation.secretaria.ponto_controller - 📄 1504.xlsx
+2026-04-27 11:52:08,201 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 3 com erros
+2026-04-27 11:52:08,201 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 3 com erros
+2026-04-27 11:52:08,201 [INFO] application.secretaria.processar_ponto_usecase - 📄 1604.xlsx
+2026-04-27 11:52:08,201 [INFO] presentation.secretaria.ponto_controller - 📄 1604.xlsx
+2026-04-27 11:52:08,283 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 8 com erros
+2026-04-27 11:52:08,283 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 8 com erros
+2026-04-27 11:52:08,283 [INFO] application.secretaria.processar_ponto_usecase - 📄 1704.xlsx
+2026-04-27 11:52:08,283 [INFO] presentation.secretaria.ponto_controller - 📄 1704.xlsx
+2026-04-27 11:52:08,375 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 2 com erros
+2026-04-27 11:52:08,376 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 2 com erros
+2026-04-27 11:52:08,376 [INFO] application.secretaria.processar_ponto_usecase - 📄 1804.xlsx
+2026-04-27 11:52:08,376 [INFO] presentation.secretaria.ponto_controller - 📄 1804.xlsx
+2026-04-27 11:52:08,438 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 4 com erros
+2026-04-27 11:52:08,438 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 4 com erros
+2026-04-27 11:52:08,438 [INFO] application.secretaria.processar_ponto_usecase - 📄 1904.xlsx
+2026-04-27 11:52:08,438 [INFO] presentation.secretaria.ponto_controller - 📄 1904.xlsx
+2026-04-27 11:52:08,517 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 6 com erros
+2026-04-27 11:52:08,517 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 6 com erros
+2026-04-27 11:52:08,525 [INFO] application.secretaria.processar_ponto_usecase - 📄 2004.xlsx
+2026-04-27 11:52:08,525 [INFO] presentation.secretaria.ponto_controller - 📄 2004.xlsx
+2026-04-27 11:52:08,581 [INFO] application.secretaria.processar_ponto_usecase -    - 68 registos validos, 3 com erros
+2026-04-27 11:52:08,581 [INFO] presentation.secretaria.ponto_controller -    - 68 registos validos, 3 com erros
+2026-04-27 11:52:08,584 [INFO] application.secretaria.processar_ponto_usecase - 📄 2104.xlsx
+2026-04-27 11:52:08,584 [INFO] presentation.secretaria.ponto_controller - 📄 2104.xlsx
+2026-04-27 11:52:08,662 [INFO] application.secretaria.processar_ponto_usecase -    - 69 registos validos, 9 com erros
+2026-04-27 11:52:08,662 [INFO] presentation.secretaria.ponto_controller -    - 69 registos validos, 9 com erros
+2026-04-27 11:52:08,669 [INFO] application.secretaria.processar_ponto_usecase - 📄 2204.xlsx
+2026-04-27 11:52:08,676 [INFO] presentation.secretaria.ponto_controller - 📄 2204.xlsx
+2026-04-27 11:52:08,739 [INFO] application.secretaria.processar_ponto_usecase -    - 69 registos validos, 5 com erros
+2026-04-27 11:52:08,739 [INFO] presentation.secretaria.ponto_controller -    - 69 registos validos, 5 com erros
+2026-04-27 11:52:08,755 [INFO] application.secretaria.processar_ponto_usecase - 📄 2304.xlsx
+2026-04-27 11:52:08,755 [INFO] presentation.secretaria.ponto_controller - 📄 2304.xlsx
+2026-04-27 11:52:08,815 [INFO] application.secretaria.processar_ponto_usecase -    - 69 registos validos, 2 com erros
+2026-04-27 11:52:08,815 [INFO] presentation.secretaria.ponto_controller -    - 69 registos validos, 2 com erros
+2026-04-27 11:52:08,819 [INFO] application.secretaria.processar_ponto_usecase - 📄 2404.xlsx
+2026-04-27 11:52:08,819 [INFO] presentation.secretaria.ponto_controller - 📄 2404.xlsx
+2026-04-27 11:52:09,564 [INFO] application.secretaria.processar_ponto_usecase -    - 69 registos validos, 8 com erros
+2026-04-27 11:52:09,564 [INFO] presentation.secretaria.ponto_controller -    - 69 registos validos, 8 com erros
+2026-04-27 11:52:09,571 [INFO] application.secretaria.processar_ponto_usecase - 📄 2504.xlsx
+2026-04-27 11:52:09,572 [INFO] presentation.secretaria.ponto_controller - 📄 2504.xlsx
+2026-04-27 11:52:10,244 [INFO] application.secretaria.processar_ponto_usecase -    - 54 registos validos, 4 com erros
+2026-04-27 11:52:10,244 [INFO] presentation.secretaria.ponto_controller -    - 54 registos validos, 4 com erros
+2026-04-27 11:52:10,253 [INFO] application.secretaria.processar_ponto_usecase - 📄 2604.xlsx
+2026-04-27 11:52:10,253 [INFO] presentation.secretaria.ponto_controller - 📄 2604.xlsx
+2026-04-27 11:52:10,849 [INFO] application.secretaria.processar_ponto_usecase -    - 54 registos validos, 4 com erros
+2026-04-27 11:52:10,851 [INFO] presentation.secretaria.ponto_controller -    - 54 registos validos, 4 com erros
+2026-04-27 11:52:13,606 [INFO] application.secretaria.processar_ponto_usecase - Resumo gravado em: G:\.shortcut-targets-by-id\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\CSAG\Ponto\202604\202604_Resumo.xlsx
+2026-04-27 11:52:13,606 [INFO] presentation.secretaria.ponto_controller - Resumo gravado em: G:\.shortcut-targets-by-id\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\CSAG\Ponto\202604\202604_Resumo.xlsx
+2026-04-27 11:52:13,689 [INFO] application.secretaria.processar_ponto_usecase - Resumo por empregado gravado
+2026-04-27 11:52:13,689 [INFO] presentation.secretaria.ponto_controller - Resumo por empregado gravado
+2026-04-27 11:52:13,689 [INFO] application.secretaria.processar_ponto_usecase - ⚠️ 68 linhas com erros de picagem (ver coluna erros_picagem)
+2026-04-27 11:52:13,689 [INFO] presentation.secretaria.ponto_controller - ⚠️ 68 linhas com erros de picagem (ver coluna erros_picagem)
+2026-04-27 11:52:13,707 [INFO] application.secretaria.processar_ponto_usecase - 
+✔ 26 ficheiros processados
+2026-04-27 11:52:13,718 [INFO] presentation.secretaria.ponto_controller - 
+✔ 26 ficheiros processados
+2026-04-27 11:52:13,722 [INFO] presentation.secretaria.ponto_controller - 
+✔ 26 ficheiros processados
+2026-04-27 11:52:13,722 [INFO] presentation.secretaria.ponto_controller - Output: G:\.shortcut-targets-by-id\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\CSAG\Ponto\202604\202604_Resumo.xlsx
+2026-04-27 15:52:37,690 [WARNING] presentation.secretaria.ponto_controller - Ponto — nao resolvido: '142 - LUCIA MARIA MOURA DUARTE'
+2026-04-27 15:52:37,724 [WARNING] presentation.secretaria.ponto_controller - Ponto — nao resolvido: '144 - MANUELA CRISTINA COSTA OLIVEIRA'
+2026-04-27 15:52:37,906 [WARNING] presentation.secretaria.ponto_controller - Ponto — nao resolvido: '516 - SORAIA ALVES'
+2026-04-27 15:52:37,907 [WARNING] presentation.secretaria.ponto_controller - Ponto — nao resolvido: '518 - MARIA TERESA ARANHA MAGALHÃES M. PIRES'

@@ -8,7 +8,7 @@ import logging
 
 from application.email.email_message import EmailMessage
 from application.email.email_sender import EmailSender
-from infrastructure.persistence.pim_repository import PimRepository
+from infrastructure.persistence.secretaria.pim_repository import PimRepository
 
 from domain.shared.strings import remover_acentos, normalizar_nome, simplificar_nome
 

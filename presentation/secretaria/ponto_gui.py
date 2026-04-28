@@ -34,12 +34,32 @@ class PontoGUI(BG):
 
         tk.Button(
             btn_frame,
-            text="📋  Rever / Editar Resumo",
+            text="Rever / Editar Resumo",
             command=self._on_rever,
             font=self.FONT_BUTTON,
-            bg="#2a4a3a",   # verde escuro — acção secundária
+            bg=self.BTN_BG,
             fg=self.FG,
-        ).pack(side="left")
+        ).pack(side="left", padx=(0, 8))
+
+        tk.Button(
+            btn_frame,
+            text="Resumo por Empregado",
+            command=self._on_resumo_empregado,
+            font=self.FONT_BUTTON,
+            bg=self.BTN_BG,
+            fg=self.FG,
+        ).pack(side="left", padx=(0, 8))
+
+        tk.Button(
+            btn_frame,
+            text="Exportar Inativos",
+            command=self._on_exportar_inativos,
+            font=self.FONT_BUTTON,
+            bg=self.BTN_BG,
+            fg=self.FG,
+        ).pack(side="left", padx=(0, 8))
+
+
 
         # ── área de log ───────────────────────────────────────────────────────
         log_frame = tk.Frame(frame, bg=self.BG)
@@ -60,6 +80,13 @@ class PontoGUI(BG):
 
     def _on_rever(self):
         self.controller.rever_resumo()
+
+    def _on_resumo_empregado(self):
+        self.controller.resumo_empregado()
+
+    def _on_exportar_inativos(self):
+        self.controller.exportar_inativos()
+
 
     def log(self, msg):
         self.txt.configure(state="normal")

@@ -391,3 +391,72 @@ class FornecedorDetalheGUI(BG):
         self.cb_tipo_rel.set("")
         self.cb_pagamento.set("")
         self.lbl_setor.config(text="")
+
+    # ── diálogo de criação de novo fornecedor ─────────────────────────
+    @staticmethod
+    def form_dialog(parent) -> dict | None:
+        """
+        Abre janela modal simples para criar um novo fornecedor.
+        Devolve dict com os dados ou None se cancelado.
+        """
+        result = {"dados": None}
+
+        win = tk.Toplevel(parent)
+        win.title("Novo Fornecedor")
+        win.resizable(False, False)
+        win.grab_set()
+
+        frame = ttk.Frame(win, padding=12)
+        frame.pack(fill="both", expand=True)
+
+        campos = [
+            ("nome",             "Nome *",              38),
+            ("nif",              "NIF",                 14),
+            ("email",            "Email",               34),
+            ("iban",             "IBAN",                28),
+        ]
+        entries = {}
+        for i, (key, label, width) in enumerate(campos):
+            ttk.Label(frame, text=label + ":").grid(row=i, column=0, sticky="w", pady=3, padx=(0,8))
+            e = ttk.Entry(frame, width=width)
+            e.grid(row=i, column=1, sticky="w", pady=3)
+            entries[key] = e
+
+        row = len(campos)
+        ttk.Label(frame, text="Tipo:").grid(row=row, column=0, sticky="w", pady=3, padx=(0,8))
+        cb_tipo = ttk.Combobox(frame, values=TIPOS_FORNECEDOR, state="readonly", width=20)
+        cb_tipo.grid(row=row, column=1, sticky="w", pady=3)
+
+        ttk.Label(frame, text="Relação:").grid(row=row+1, column=0, sticky="w", pady=3, padx=(0,8))
+        cb_rel = ttk.Combobox(frame, values=TIPOS_RELACAO, state="readonly", width=14)
+        cb_rel.grid(row=row+1, column=1, sticky="w", pady=3)
+
+        ttk.Label(frame, text="Pagamento:").grid(row=row+2, column=0, sticky="w", pady=3, padx=(0,8))
+        cb_pag = ttk.Combobox(frame, values=["TB", "DD", "MB", "OU"], state="readonly", width=6)
+        cb_pag.grid(row=row+2, column=1, sticky="w", pady=3)
+
+        def _confirmar():
+            nome = entries["nome"].get().strip()
+            if not nome:
+                messagebox.showerror("Erro", "O nome é obrigatório.", parent=win)
+                return
+            result["dados"] = {
+                "nome":             nome,
+                "nif":              entries["nif"].get().strip()   or None,
+                "email":            entries["email"].get().strip() or None,
+                "iban":             entries["iban"].get().strip()  or None,
+                "tipo_fornecedor":  cb_tipo.get() or None,
+                "tipo_relacao":     cb_rel.get()  or None,
+                "metodo_pagamento": cb_pag.get()  or None,
+            }
+            win.destroy()
+
+        bf = ttk.Frame(frame)
+        bf.grid(row=row+3, column=0, columnspan=2, pady=10)
+        ttk.Button(bf, text="Criar",    command=_confirmar).pack(side="left", padx=5)
+        ttk.Button(bf, text="Cancelar", command=win.destroy).pack(side="left", padx=5)
+
+        entries["nome"].focus_set()
+        win.bind("<Return>", lambda e: _confirmar())
+        win.wait_window()
+        return result["dados"]
