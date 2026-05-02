@@ -384,9 +384,24 @@ class ProcessarPontoUseCase:
             df.get("noturno", pd.Series([0]*len(df), index=df.index)),
             errors="coerce").fillna(0)
 
+        # dia de saída de noturno: e1 vazio/inválido mas s1 preenchido
+        # (empregado saiu de turno da noite anterior — não é falta)
+        if "e1" in df.columns and "s1" in df.columns:
+            e1_str = df["e1"].astype(str).str.strip().str.upper()
+            s1_str = df["s1"].astype(str).str.strip()
+            e1_invalido   = e1_str.isin(["", "NAN", "NONE"]) | e1_str.str.startswith("S")
+            s1_valido     = ~s1_str.isin(["", "NAN", "NONE"]) & ~s1_str.str.startswith("E")
+            saida_noturno = e1_invalido & s1_valido
+        else:
+            saida_noturno = pd.Series(False, index=df.index)
+
         # falta=0 ao fim-de-semana (sem picagens não é falta)
         # falta=0 em feriado (ausência em feriado não é falta)
-        dia_util_sem_trabalho = (presenca == 0) & (noturno_col == 0) & ~eh_fds & ~eh_feriado
+        # falta=0 no dia de saída de turno noturno (não há presença mas não é falta)
+        dia_util_sem_trabalho = (
+            (presenca == 0) & (noturno_col == 0)
+            & ~eh_fds & ~eh_feriado & ~saida_noturno
+        )
         df["falta"] = dia_util_sem_trabalho.astype(int)
 
         # fds por dia_semana (garantia defensiva)
