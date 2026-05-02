@@ -88,8 +88,14 @@ class PontoController:
         meses_pt = ["", "Janeiro","Fevereiro","Marco","Abril","Maio","Junho",
                     "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
         try:
-            ano = int(str(mes)[:4])
-            m   = int(str(mes)[4:])
+            from datetime import date as _date
+            mes_str = str(mes).strip()
+            if len(mes_str) <= 2:
+                m   = int(mes_str)
+                ano = _date.today().year
+            else:
+                ano = int(mes_str[:4])
+                m   = int(mes_str[4:])
             mes_label = f"{meses_pt[m]} {ano}"
         except Exception:
             mes_label = str(mes)

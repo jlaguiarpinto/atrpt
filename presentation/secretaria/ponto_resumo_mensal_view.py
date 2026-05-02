@@ -406,6 +406,15 @@ class ResumoMensalView(tk.Toplevel):
                      bg=BG_FOOTER, fg="black").pack()
             self._total_vars[col] = var
 
+        # separador e média diária
+        ttk.Separator(foot, orient="vertical").pack(side="left", fill="y", padx=8, pady=4)
+        grp_media = tk.Frame(foot, bg=BG_FOOTER, padx=10)
+        grp_media.pack(side="left")
+        tk.Label(grp_media, text="Media/dia", font="Verdana 7", bg=BG_FOOTER, fg=FG).pack()
+        self._var_media_diaria = tk.StringVar(value="--")
+        tk.Label(grp_media, textvariable=self._var_media_diaria, font=FONT_TOTAL,
+                 bg=BG_FOOTER, fg="#1a3c8a").pack()
+
     def _build_toolbar(self):
         bar = tk.Frame(self, bg=BG, pady=5)
         bar.pack(fill="x", padx=6, pady=(0, 4))
@@ -536,6 +545,21 @@ class ResumoMensalView(tk.Toplevel):
             tags.append("editado")
         return tuple(tags)
 
+    def _calcular_media_diaria(self, numero, nome) -> str:
+        linhas = self._linhas_empregado(numero, nome)
+        if linhas.empty:
+            return "--"
+        presenca = pd.to_numeric(linhas["presenca"] if "presenca" in linhas.columns else 0,
+                                 errors="coerce").fillna(0)
+        noturno  = pd.to_numeric(linhas["noturno"]  if "noturno"  in linhas.columns else 0,
+                                 errors="coerce").fillna(0)
+        horas_dia = presenca + noturno
+        dias_trabalhados = int((horas_dia > 0).sum())
+        if dias_trabalhados == 0:
+            return "--"
+        media = round(float(horas_dia.sum()) / dias_trabalhados, 2)
+        return f"{media:.2f} h"
+
     def _atualizar_totais_footer(self, numero, nome):
         totais = self._calcular_totais(numero, nome)
         for col, var in self._total_vars.items():
@@ -544,6 +568,8 @@ class ResumoMensalView(tk.Toplevel):
                 var.set(f"{val:.2f} h")
             else:
                 var.set(str(int(val)))
+        if hasattr(self, "_var_media_diaria"):
+            self._var_media_diaria.set(self._calcular_media_diaria(numero, nome))
 
     # ── edição ────────────────────────────────────────────────────────────────
     def _on_double_click(self, event):
