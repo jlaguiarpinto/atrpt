@@ -438,15 +438,15 @@ class TesourariaService:
             log_dir = self.cfg.email_logs,
             on_progress=None,
         )
-        timestamp = datetime.now().strftime("%Y-%m-%d")
-
-        df.loc[df_envio.index, "data_envio_recibo"] = timestamp
-        ids_enviados = df_envio["numero_residente"].astype(str)
-        pim_df["numero_residente"] = pim_df["numero_residente"].astype(str)
-        mask = pim_df["numero_residente"].isin(ids_enviados)
-        pim_df.loc[mask, "data_envio_recibo"] = timestamp
-        self.pim_repo.salvar_pim(pim_df)
-        self.pim_repo.guardar_recibos_pendentes(df_recibos)
+        if not self.modo_teste:
+            timestamp = datetime.now().strftime("%Y-%m-%d")
+            df.loc[df_envio.index, "data_envio_recibo"] = timestamp
+            ids_enviados = df_envio["numero_residente"].astype(str)
+            pim_df["numero_residente"] = pim_df["numero_residente"].astype(str)
+            mask = pim_df["numero_residente"].isin(ids_enviados)
+            pim_df.loc[mask, "data_envio_recibo"] = timestamp
+            self.pim_repo.salvar_pim(pim_df)
+            self.pim_repo.guardar_recibos_pendentes(df_recibos)
         return len(mensagens)
             
     def produzir_dd(self):
