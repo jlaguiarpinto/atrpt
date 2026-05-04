@@ -389,7 +389,6 @@ class TesourariaService:
         saldo = (pim_df.loc[mascara, "total"] - pim_df.loc[mascara, "recebido"]).round(2)
         pim_df.loc[mascara, "saldo"] = saldo.where(saldo.abs() >= 0.01, 0)    
         recibos_pendentes = pim_df.loc[mascara]
-        breakpoint()
         recibos_pendentes = recibos_pendentes[["numero_residente","nome","anterior","recebido","saldo","data","data_envio_recibo"]]
         pim_df['numero_residente'] = pim_df['numero_residente'].astype("Int64")
         return pim_df,recibos_pendentes
@@ -435,7 +434,6 @@ class TesourariaService:
             modo_teste=self.modo_teste,)
         sender.send_batch(
             mensagens=mensagens,
-            log_dir = self.cfg.email_logs,
             on_progress=None,
         )
         if not self.modo_teste:
