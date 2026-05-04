@@ -42,7 +42,7 @@ class TesourariaService:
         comprovativo_repo,
         inflow_repo,
         pim_repo,
-        template_builder,
+        recibo_template_path,
         cfg,
         email_secretaria,
         modo_teste=False,
@@ -54,7 +54,7 @@ class TesourariaService:
         self.comprovativo_repo = comprovativo_repo
         self.inflow_repo = inflow_repo
         self.pim_repo = pim_repo
-        self.template_builder=template_builder
+        self.recibo_template_path=recibo_template_path
         self.email_secretaria=email_secretaria
         self.modo_teste = modo_teste
         self.cfg=cfg
@@ -389,14 +389,14 @@ class TesourariaService:
         saldo = (pim_df.loc[mascara, "total"] - pim_df.loc[mascara, "recebido"]).round(2)
         pim_df.loc[mascara, "saldo"] = saldo.where(saldo.abs() >= 0.01, 0)    
         recibos_pendentes = pim_df.loc[mascara]
-        breakpoint()
         recibos_pendentes = recibos_pendentes[["numero_residente","nome","anterior","recebido","saldo","data","data_envio_recibo"]]
         pim_df['numero_residente'] = pim_df['numero_residente'].astype("Int64")
         return pim_df,recibos_pendentes
 
     def _enviar_recibos(self, df_recibos=None):
-        pim_df = self.pim_repo.ler_pim()        
-        builder =self.template_builder
+        from application.email.email_template_builder import EmailTemplateBuilder
+        pim_df = self.pim_repo.ler_pim()
+        builder = EmailTemplateBuilder(self.recibo_template_path.parent)
         df_recibos = self.pim_repo.ler_recibos_pendentes()
         residentes_list= self.residentes_repo.get_all()
         residentes_df =pd.DataFrame(residentes_list)
@@ -409,18 +409,15 @@ class TesourariaService:
         if df_envio.empty:     return df
         mensagens = []
         for row in df_envio.itertuples():
-            if row.saldo != 0:
-                bloco_saldo = f"A conta de medicação fica com um saldo de {row.saldo:.2f} €."
-            else:
-                bloco_saldo = ""
+            tipo_texto = "COM_SALDO" if row.saldo != 0 else "SEM_SALDO"
             subject, html = builder.build(
-                "recibo_PIM.docx",
+                self.recibo_template_path.name,
                 {
+                    "tipo_texto": tipo_texto,
                     "nome": row.nome,
                     "data": row.data,
                     "recebido": f"{row.recebido:.2f}",
                     "saldo": f"{row.saldo:.2f}",
-                    "bloco_saldo": bloco_saldo
                 }
             )
             mensagens.append(
@@ -432,21 +429,21 @@ class TesourariaService:
             )
         sender = EmailSender(
             self.emailer,
-            modo_teste=self.modo_teste,)
+            modo_teste=self.modo_teste,
+            email_teste=self.cfg.email_teste,)
         sender.send_batch(
             mensagens=mensagens,
-            log_dir = self.cfg.email_logs,
             on_progress=None,
         )
-        timestamp = datetime.now().strftime("%Y-%m-%d")
-
-        df.loc[df_envio.index, "data_envio_recibo"] = timestamp
-        ids_enviados = df_envio["numero_residente"].astype(str)
-        pim_df["numero_residente"] = pim_df["numero_residente"].astype(str)
-        mask = pim_df["numero_residente"].isin(ids_enviados)
-        pim_df.loc[mask, "data_envio_recibo"] = timestamp
-        self.pim_repo.salvar_pim(pim_df)
-        self.pim_repo.guardar_recibos_pendentes(df_recibos)
+        if not self.modo_teste:
+            timestamp = datetime.now().strftime("%Y-%m-%d")
+            df.loc[df_envio.index, "data_envio_recibo"] = timestamp
+            ids_enviados = df_envio["numero_residente"].astype(str)
+            pim_df["numero_residente"] = pim_df["numero_residente"].astype(str)
+            mask = pim_df["numero_residente"].isin(ids_enviados)
+            pim_df.loc[mask, "data_envio_recibo"] = timestamp
+            self.pim_repo.salvar_pim(pim_df)
+            self.pim_repo.guardar_recibos_pendentes(df_recibos)
         return len(mensagens)
             
     def produzir_dd(self):
@@ -455,7 +452,6 @@ class TesourariaService:
         df_cc = self.conta_corrente_repo.get_all()
         #df_cc = pd.DataFrame(cc)
         df_cc = df_cc[df_cc["excepcao"].isin(["DD","SemPIM"])].copy()
-        breakpoint()
         df_cc=df_cc[["numero_residente","excepcao","nome","pim","atual"]]
         df_cc["pim"] = df_cc["pim"].fillna(0.0)
         df_cc["excepcao"] = df_cc["excepcao"].str.strip().str.lower()

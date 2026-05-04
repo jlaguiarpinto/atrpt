@@ -21,7 +21,6 @@ from infrastructure.persistence.user_repository import UserRepository
 
 # usecases / services
 from application.auth.login_usecase import LoginUseCase
-from application.email.email_template_builder import EmailTemplateBuilder
 
 # controller
 from presentation.secretaria.secretaria_controller import SecretariaController
@@ -95,7 +94,7 @@ def main():
         residentes_repo=ResidentesRepository(cfg.paths["residentes_file"]),
         contacorrente_repo=ContaCorrenteRepository(cfg.paths["residentes_cc_file"]),
         inflow_repo=InflowRepository(cfg.paths["comprovativo_file"], cfg.paths["inflow_file"], cfg.paths["comprovativodd_file"]),
-        template_builder=EmailTemplateBuilder(cfg.paths["template_enviofat"]),
+        recibo_template_path=cfg.paths["template_enviorecibo"],
         pessoas_repo=pessoas_repo,
         fornecedor_repo=fornecedor_repo,
         mapa_repo=mapa_repo,

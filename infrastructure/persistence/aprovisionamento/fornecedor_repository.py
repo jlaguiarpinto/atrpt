@@ -1,4 +1,4 @@
-# atrpt/infrastructure/persistence/fornecedor_repository.py
+# atrpt/infrastructure/persistence/aprovisionamento/fornecedor_repository.py
 
 import sqlite3
 import logging
@@ -43,6 +43,60 @@ class FornecedorRepository:
                     administrativo_telemovel  TEXT
                 )
             """)
+            # Migration: remove índice UNIQUE no nif se criado por versão anterior
+            self._migration_remover_unique_nif(conn)
+
+    @staticmethod
+    def _migration_remover_unique_nif(conn: sqlite3.Connection) -> None:
+        """
+        Versões antigas criavam UNIQUE(nif). Como o NIF pode ser desconhecido
+        (NULL), esse constraint impede guardar mais de um fornecedor sem NIF.
+        Esta migration recria a tabela sem esse índice, preservando os dados.
+        """
+        indices = conn.execute(
+            "SELECT name FROM sqlite_master "
+            "WHERE type='index' AND tbl_name='fornecedores' AND sql LIKE '%nif%'"
+        ).fetchall()
+        nomes_unicos = [
+            row[0] for row in indices
+            if conn.execute(
+                "SELECT sql FROM sqlite_master WHERE name=?", (row[0],)
+            ).fetchone()[0].upper().startswith("CREATE UNIQUE")
+        ]
+        if not nomes_unicos:
+            return
+
+        logger.info("Migration: a remover UNIQUE constraint do campo 'nif'…")
+        conn.execute("ALTER TABLE fornecedores RENAME TO _fornecedores_bak")
+        conn.execute("""
+            CREATE TABLE fornecedores (
+                id                        INTEGER PRIMARY KEY AUTOINCREMENT,
+                nome                      TEXT    NOT NULL,
+                email                     TEXT,
+                nif                       TEXT,
+                iban                      TEXT,
+                tipo_fornecedor           TEXT,
+                tipo_relacao              TEXT,
+                setor                     TEXT,
+                metodo_pagamento          TEXT,
+                comercial_nome            TEXT,
+                comercial_email           TEXT,
+                comercial_telemovel       TEXT,
+                administrativo_nome       TEXT,
+                administrativo_email      TEXT,
+                administrativo_telemovel  TEXT
+            )
+        """)
+        conn.execute("""
+            INSERT INTO fornecedores
+            SELECT id, nome, email, nif, iban, tipo_fornecedor, tipo_relacao,
+                   setor, metodo_pagamento, comercial_nome, comercial_email,
+                   comercial_telemovel, administrativo_nome, administrativo_email,
+                   administrativo_telemovel
+            FROM _fornecedores_bak
+        """)
+        conn.execute("DROP TABLE _fornecedores_bak")
+        logger.info("Migration concluída — UNIQUE(nif) removido.")
 
     def _conn(self):
         return sqlite3.connect(self.db_path)
@@ -113,8 +167,15 @@ class FornecedorRepository:
             "comercial_nome", "comercial_email", "comercial_telemovel",
             "administrativo_nome", "administrativo_email", "administrativo_telemovel",
         ]
-        # string vazia → None para evitar colisão em colunas UNIQUE (ex: nif)
-        valores = [v if v != "" else None for v in (getattr(fornecedor, c) for c in campos)]
+        # string vazia ou só espaços → None (evita colisão em nif e outros campos)
+        def _normalizar(v):
+            if v is None:
+                return None
+            if isinstance(v, str) and v.strip() == "":
+                return None
+            return v
+
+        valores = [_normalizar(getattr(fornecedor, c)) for c in campos]
 
         with self._conn() as conn:
             if fornecedor.id is None:

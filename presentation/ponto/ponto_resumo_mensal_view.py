@@ -1,4 +1,4 @@
-# presentation/secretaria/ponto_resumo_mensal_view.py
+# presentation/ponto/ponto_resumo_mensal_view.py
 """
 View de revisão e edição do Resumo Mensal de Ponto.
 
@@ -46,10 +46,10 @@ FONT_NAV    = "Verdana 10 bold"
 COLUNAS = [
     ("data",              "Data",          82,  False),
     ("dia_semana",        "Dia",           68,  False),
-    ("e1",                "E1",            70,  False),
-    ("s1",                "S1",            70,  False),
-    ("e2",                "E2",            70,  False),
-    ("s2",                "S2",            70,  False),
+    ("e1",                "E1",            52,  False),
+    ("s1",                "S1",            52,  False),
+    ("e2",                "E2",            52,  False),
+    ("s2",                "S2",            52,  False),
     ("presenca",          "Presenca",      68,  True),
     ("falta",             "Falta",         46,  True),
     ("feriado",           "Fer.h",         46,  True),
@@ -57,17 +57,37 @@ COLUNAS = [
     ("noturno",           "Noturno",       64,  True),
     ("baixa",             "Baixa",         46,  True),
     ("subsidio_refeicao", "S.Ref.",        52,  True),
+    ("hext50",            "HExt50",        58,  True),
+    ("hext75",            "HExt75",        58,  True),
+    ("hext100",           "HExt100",       62,  True),
     ("erros_picagem",     "Erros",        148,  False),
-    ("observacoes_dl",    "Obs.DL",       118,  True),
-    ("observacoes_cs",    "Obs.CS",       118,  True),
-    ("ativo_rh",          "Ativo",         48,  False),
-    ("feriado_desc",      "Feriado",       60,  False),
+    ("observ",            "Observ.",       160,  True),
     ("edit_dt",           "Alterado em",  120,  False),
     ("edit_user",         "Por",           80,  False),
     ("edit_detalhe",      "Alteração",     260,  False),
 ]
-COL_NUM    = {"presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao"}
-TOTAIS_NUM = ["presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao"]
+COL_NUM    = {"presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao",
+              "hext50","hext75","hext100"}
+TOTAIS_NUM = ["presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao",
+              "hext50","hext75","hext100"]
+
+# colunas apresentadas em hh:mm em vez de decimal
+COL_HHMM = {"presenca", "feriado", "noturno", "hext50", "hext75", "hext100"}
+
+def _dec_para_hhmm(val) -> str:
+    """Converte horas decimais (float) para string 'HH:MM'. Ex: 8.5 → '08:30'."""
+    try:
+        h_total = float(val)
+        if h_total < 0:
+            h_total = 0.0
+        horas   = int(h_total)
+        minutos = round((h_total - horas) * 60)
+        if minutos == 60:
+            horas  += 1
+            minutos = 0
+        return f"{horas:02d}:{minutos:02d}"
+    except (ValueError, TypeError):
+        return ""
 
 
 class _EditDialog(tk.Toplevel):
@@ -93,11 +113,11 @@ class _EditDialog(tk.Toplevel):
 
         hdr = tk.Frame(self, bg=BG_HEADER, pady=6, padx=12)
         hdr.pack(fill="x")
-        info = (f"{rd.get('dia_semana','')}  |  "
+        _dia = (str(rd.get("feriado_desc") or "").strip()
+                or str(rd.get("dia_semana") or "").strip())
+        info = (f"{_dia}  |  "
                 f"E1: {rd.get('e1','')}  S1: {rd.get('s1','')}  "
                 f"E2: {rd.get('e2','')}  S2: {rd.get('s2','')}")
-        if rd.get("feriado_desc"):
-            info += f"  |  {rd['feriado_desc']}"
         tk.Label(hdr, text=info, font=FONT_MONO, bg=BG_HEADER, fg=FG).pack(anchor="w")
         erros = rd.get("erros_picagem", "")
         if erros:
@@ -107,18 +127,37 @@ class _EditDialog(tk.Toplevel):
         body = tk.Frame(self, bg=BG, padx=14, pady=8)
         body.pack(fill="both")
 
-        campos_num = [
-            ("presenca",          "Presenca (h)"),
-            ("falta",             "Falta  (0/1)"),
-            ("feriado",           "Feriado (h)"),
-            ("ferias",            "Ferias  (0/1)"),
-            ("noturno",           "Noturno (h)"),
-            ("baixa",             "Baixa   (0/1)"),
-            ("subsidio_refeicao", "Sub. Refeicao (0/1)"),
-        ]
+        # campos consoante grupo (Enfermeiro não tem falta/sub.ref/baixa/férias)
+        def _eh_enf(n):
+            try:
+                return int(str(n).strip()) >= 500
+            except (ValueError, TypeError):
+                return False
+
+        grupo = str(rd.get("grupo", "") or "")
+        eh_enf = grupo == "Enfermeiro" or _eh_enf(rd.get("numero", ""))
+
+        if eh_enf:
+            campos_num = [
+                ("presenca",  "Presenca (h)"),
+                ("feriado",   "Feriado (h)"),
+                ("noturno",   "Noturno (h)"),
+            ]
+        else:
+            campos_num = [
+                ("presenca",          "Presenca (h)"),
+                ("falta",             "Falta  (0/1)"),
+                ("feriado",           "Feriado (h)"),
+                ("ferias",            "Ferias  (0/1)"),
+                ("noturno",           "Noturno (h)"),
+                ("baixa",             "Baixa   (0/1)"),
+                ("subsidio_refeicao", "Sub. Refeicao (0/1)"),
+                ("hext50",            "HExt 50%  (h)"),
+                ("hext75",            "HExt 75%  (h)"),
+                ("hext100",           "HExt 100% (h)"),
+            ]
         campos_txt = [
-            ("observacoes_dl", "Observacoes DL"),
-            ("observacoes_cs", "Observacoes CS"),
+            ("observ", "Observacoes"),
         ]
         for col, lbl in campos_num:
             self._add_field(body, lbl, col, rd, numeric=True, **pad)
@@ -142,16 +181,38 @@ class _EditDialog(tk.Toplevel):
         row.pack(fill="x", **kw)
         tk.Label(row, text=label, width=22, anchor="w",
                  font=FONT_UI, bg=BG, fg=FG).pack(side="left")
-        valor_original = str(rd.get(col, "") or "")
+        _v = rd.get(col, "")
+        if _v is None or (isinstance(_v, float) and __import__('math').isnan(_v)):
+            valor_original = ""
+        elif col in COL_HHMM and numeric:
+            # mostrar em hh:mm para colunas de horas
+            valor_original = _dec_para_hhmm(_v) if _v != "" else ""
+        else:
+            valor_original = str(_v)
         var = tk.StringVar(value=valor_original)
+        # hint para colunas hh:mm
+        hint = "  (hh:mm)" if col in COL_HHMM and numeric else ""
         tk.Entry(row, textvariable=var, font=FONT_MONO,
                  bg=BG_ENTRY, fg="black", relief="solid", bd=1,
                  width=10 if numeric else 32).pack(side="left")
-        self._vars[col] = (var, numeric, valor_original)
+        if hint:
+            tk.Label(row, text=hint, font=("Segoe UI", 7), bg=BG, fg="gray").pack(side="left")
+        self._vars[col] = (var, numeric, valor_original, col in COL_HHMM)
+
+    @staticmethod
+    def _hhmm_para_dec(s: str) -> float:
+        """Converte 'HH:MM' ou decimal string para float de horas."""
+        s = s.strip()
+        if ":" in s:
+            partes = s.split(":", 1)
+            h = int(partes[0])
+            m = int(partes[1]) if len(partes) > 1 and partes[1] else 0
+            return round(h + m / 60, 4)
+        return float(s)
 
     def _save(self):
         result = {}
-        for col, (var, numeric, original) in self._vars.items():
+        for col, (var, numeric, original, is_hhmm) in self._vars.items():
             raw = var.get().strip()
             # só processar se o valor foi alterado
             if raw == original:
@@ -161,7 +222,9 @@ class _EditDialog(tk.Toplevel):
                     # campo numérico apagado — manter original, ignorar
                     continue
                 try:
-                    result[col] = float(raw) if "." in raw else int(raw)
+                    result[col] = self._hhmm_para_dec(raw) if is_hhmm else (
+                        float(raw) if "." in raw else int(raw)
+                    )
                 except ValueError:
                     messagebox.showerror("Valor invalido",
                                          f"'{raw}' nao e um numero valido para '{col}'.",
@@ -181,7 +244,7 @@ class ResumoMensalView(tk.Toplevel):
     def __init__(self, parent, df: pd.DataFrame, on_save=None,
                  mes_label: str = "", username: str = ""):
         super().__init__(parent)
-        self.title(f"Revisao Mensal de Ponto - {mes_label}")
+        self.title(f"Ponto de {mes_label}")
         self.configure(bg=BG)
         self.state("zoomed")
         self.resizable(True, True)
@@ -192,9 +255,25 @@ class ResumoMensalView(tk.Toplevel):
         self._df        = df.copy()
         self._modified  = False
 
-        # garantir coluna de log de edições
-        if "log_edicao" not in self._df.columns:
-            self._df["log_edicao"] = ""
+        # garantir colunas novas (compatibilidade com resumos antigos)
+        for _col in ("log_edicao", "hext50", "hext75", "hext100", "observ"):
+            if _col not in self._df.columns:
+                self._df[_col] = "" if _col in ("log_edicao", "observ") else 0
+
+        # garantir coluna grupo — sempre inferida pelo número, independentemente
+        # do controller ter ou não chamado _enriquecer_com_pessoas
+        def _infer(n):
+            try:
+                return "Enfermeiro" if int(str(n).strip()) >= 500 else "AAD"
+            except (ValueError, TypeError):
+                return "AAD"
+
+        if "grupo" not in self._df.columns:
+            self._df["grupo"] = self._df["numero"].astype(str).apply(_infer)
+        else:
+            # preencher valores em branco
+            _vazio = self._df["grupo"].astype(str).str.strip().isin(["", "nan", "None"])
+            self._df.loc[_vazio, "grupo"] = self._df.loc[_vazio, "numero"].astype(str).apply(_infer)
 
         self._filtro_ativo = "Todos"   # inicializar antes de _build e _listar
         self._empregados   = self._listar_empregados()
@@ -205,33 +284,54 @@ class ResumoMensalView(tk.Toplevel):
         self.grab_set()
 
     # ── dados ─────────────────────────────────────────────────────────────────
+    @staticmethod
+    def _inferir_grupo(numero_str: str) -> str:
+        try:
+            return "Enfermeiro" if int(str(numero_str).strip()) >= 500 else "AAD"
+        except (ValueError, TypeError):
+            return "AAD"
+
     def _listar_empregados(self):
-        """Lista empregados activos filtrados pelo grupo activo (AAD/Enfermeiro/Todos)."""
+        """Lista empregados filtrados pelo grupo activo (AAD/Enfermeiro/Todos),
+        ordenados por número (inteiro).
+        Apenas ativos — só exclui quem tem ativo_rh explicitamente = 'Nao'.
+        """
         df = self._df[self._df["data"] != "TOTAL"].copy()
         if df.empty:
             return []
 
-        # ── apenas ativos ─────────────────────────────────────────────────────
+        # ── normalizar grupo pelo número (fonte de verdade) ───────────────────
+        # O grupo do controller pode ter valores variados ("Médico", "Desconhecido"…)
+        # — normalizar sempre: >= 500 → Enfermeiro, resto → AAD
+        df["grupo"] = df["numero"].astype(str).apply(self._inferir_grupo)
+
+        # ── apenas ativos (só exclui ativo_rh == "Nao" explícito) ────────────
         if "ativo_rh" in df.columns:
-            df = df[df["ativo_rh"].astype(str) != "Nao"]
+            df = df[df["ativo_rh"].astype(str).str.strip() != "Nao"]
 
         # ── filtro de grupo ───────────────────────────────────────────────────
         filtro = getattr(self, "_filtro_ativo", "Todos")
         if filtro != "Todos":
-            # se coluna grupo não existir, inferir pelo número (>=500 = Enfermeiro)
-            if "grupo" not in df.columns:
-                def _grp(n):
-                    try:
-                        return "Enfermeiro" if int(str(n).strip()) >= 500 else "AAD"
-                    except (ValueError, TypeError):
-                        return "AAD"
-                df = df.copy()
-                df["grupo"] = df["numero"].apply(_grp)
             df = df[df["grupo"].astype(str) == filtro]
 
         if df.empty:
             return []
-        return list(df.groupby(["numero", "nome"], sort=True).groups.keys())
+
+        # ── ordenar por número (inteiro) — um nome por número ────────────────
+        def _num_int(n):
+            try:
+                return int(str(n).strip())
+            except (ValueError, TypeError):
+                return 9999
+
+        mapa = (
+            df[["numero", "nome"]]
+            .drop_duplicates(subset=["nome"])
+            .copy()
+        )
+        mapa["_ord"] = mapa["numero"].apply(_num_int)
+        mapa = mapa.sort_values("_ord")
+        return mapa["nome"].astype(str).str.strip().tolist()
 
     def _aplicar_filtro(self, filtro: str):
         """Muda o filtro AAD/Enfermeiro/Todos e reinicia a navegação."""
@@ -246,17 +346,16 @@ class ResumoMensalView(tk.Toplevel):
         )
         self._mostrar_empregado()
 
-    def _linhas_empregado(self, numero, nome):
+    def _linhas_empregado(self, nome):
         df = self._df
         mask = (
             (df["data"] != "TOTAL") &
-            (df["numero"].astype(str) == str(numero)) &
-            (df["nome"].astype(str)   == str(nome))
+            (df["nome"].astype(str).str.strip() == str(nome).strip())
         )
         return df[mask].copy()
 
-    def _calcular_totais(self, numero, nome):
-        linhas = self._linhas_empregado(numero, nome)
+    def _calcular_totais(self, nome):
+        linhas = self._linhas_empregado(nome)
         totais = {}
         for col in TOTAIS_NUM:
             if col in linhas.columns:
@@ -266,19 +365,18 @@ class ResumoMensalView(tk.Toplevel):
                 totais[col] = 0.0
         return totais
 
-    def _atualizar_linha_total_df(self, numero, nome):
-        totais = self._calcular_totais(numero, nome)
+    def _atualizar_linha_total_df(self, nome):
+        totais = self._calcular_totais(nome)
         mask = (
             (self._df["data"] == "TOTAL") &
-            (self._df["numero"].astype(str) == str(numero)) &
-            (self._df["nome"].astype(str)   == str(nome))
+            (self._df["nome"].astype(str).str.strip() == str(nome).strip())
         )
         if mask.any():
             idx = self._df[mask].index[0]
             for col, val in totais.items():
                 self._df.at[idx, col] = val
         else:
-            nova = {"data": "TOTAL", "numero": numero, "nome": nome}
+            nova = {"data": "TOTAL", "nome": nome}
             nova.update(totais)
             self._df = pd.concat([self._df, pd.DataFrame([nova])], ignore_index=True)
         return totais
@@ -288,7 +386,7 @@ class ResumoMensalView(tk.Toplevel):
         # ── cabeçalho ─────────────────────────────────────────────────────────
         topo = tk.Frame(self, bg=BG_HEADER, pady=6)
         topo.pack(fill="x")
-        tk.Label(topo, text=f"Revisão do ponto de {self._mes_label}",
+        tk.Label(topo, text=f"Ponto de {self._mes_label}",
                  font=FONT_TITLE, bg=BG_HEADER, fg=FG).pack(side="left", padx=16)
 
         # ── filtro AAD / Enfermeiro ────────────────────────────────────────────
@@ -376,7 +474,7 @@ class ResumoMensalView(tk.Toplevel):
 
         self._tree.tag_configure("sabado",  background=SAB_BG)
         self._tree.tag_configure("domingo", background=DOM_BG)
-        self._tree.tag_configure("feriado", foreground=FER_FG)
+        self._tree.tag_configure("feriado", foreground=FER_FG, background="#fff3cd")
         self._tree.tag_configure("erro",    foreground=ERR_FG, background="#fff0e8")
         self._tree.tag_configure("editado", foreground=EDIT_FG)
 
@@ -397,6 +495,9 @@ class ResumoMensalView(tk.Toplevel):
             ("noturno",           "Noturno"),
             ("baixa",             "Baixas"),
             ("subsidio_refeicao", "Sub.Ref."),
+            ("hext50",            "HExt50"),
+            ("hext75",            "HExt75"),
+            ("hext100",           "HExt100"),
         ]:
             grp = tk.Frame(foot, bg=BG_FOOTER, padx=10)
             grp.pack(side="left")
@@ -411,7 +512,7 @@ class ResumoMensalView(tk.Toplevel):
         grp_media = tk.Frame(foot, bg=BG_FOOTER, padx=10)
         grp_media.pack(side="left")
         tk.Label(grp_media, text="Media/dia", font="Verdana 7", bg=BG_FOOTER, fg=FG).pack()
-        self._var_media_diaria = tk.StringVar(value="--")
+        self._var_media_diaria = tk.StringVar(value="--:--")
         tk.Label(grp_media, textvariable=self._var_media_diaria, font=FONT_TOTAL,
                  bg=BG_FOOTER, fg="#1a3c8a").pack()
 
@@ -460,18 +561,18 @@ class ResumoMensalView(tk.Toplevel):
             self._btn_next.config(state="disabled")
             self._tree.delete(*self._tree.get_children())
             return
-        numero, nome = self._empregados[self._emp_idx]
-        self._lbl_emp.config(text=f"{numero}  —  {nome}")
+        nome = self._empregados[self._emp_idx]
+        self._lbl_emp.config(text=nome)
         self._lbl_emp_n.config(text=f"{self._emp_idx+1} / {n}")
         self._btn_prev.config(state="normal" if self._emp_idx > 0     else "disabled")
         self._btn_next.config(state="normal" if self._emp_idx < n - 1 else "disabled")
-        self._preencher_tree(numero, nome)
-        self._atualizar_totais_footer(numero, nome)
+        self._preencher_tree(nome)
+        self._atualizar_totais_footer(nome)
 
     # ── Treeview ──────────────────────────────────────────────────────────────
-    def _preencher_tree(self, numero, nome):
+    def _preencher_tree(self, nome):
         self._tree.delete(*self._tree.get_children())
-        linhas = self._linhas_empregado(numero, nome)
+        linhas = self._linhas_empregado(nome)
 
         import re as _re
 
@@ -510,13 +611,22 @@ class ResumoMensalView(tk.Toplevel):
                     val = edit_detalhe
                 else:
                     val = row.get(col_id, "")
-                    if pd.isna(val) or val is None:
+                    if col_id == "dia_semana":
+                        # feriado tem prioridade; fallback para dia da semana
+                        fer = row.get("feriado_desc", "")
+                        fer = "" if (fer is None or (isinstance(fer, float) and pd.isna(fer)) or str(fer).strip().lower() in ("", "nan", "none")) else str(fer).strip()
+                        if fer:
+                            val = fer
+                        else:
+                            ds = row.get("dia_semana", "")
+                            val = "" if (ds is None or (isinstance(ds, float) and pd.isna(ds)) or str(ds).strip().lower() in ("", "nan", "none")) else str(ds).strip()
+                    elif pd.isna(val) or val is None:
                         val = ""
                     elif col_id in COL_NUM:
                         try:
                             f = float(val)
-                            if col_id in {"presenca", "noturno", "feriado"}:
-                                val = f"{f:.2f}"
+                            if col_id in COL_HHMM:
+                                val = _dec_para_hhmm(f) if f else ""
                             else:
                                 val = str(int(f)) if f == int(f) else str(f)
                         except (ValueError, TypeError):
@@ -525,7 +635,7 @@ class ResumoMensalView(tk.Toplevel):
                         val = str(val)
                 valores.append(val)
 
-            self._tree.insert("", "end", iid=str(row.name),
+            self._tree.insert("", "end", iid=f"{nome}::{row.name}",
                                values=valores, tags=self._tags_linha(row))
 
     def _tags_linha(self, row):
@@ -535,7 +645,8 @@ class ResumoMensalView(tk.Toplevel):
             tags.append("sabado")
         elif dia == "Domingo":
             tags.append("domingo")
-        if row.get("feriado_desc", ""):
+        _fer_desc = row.get("feriado_desc", "")
+        if _fer_desc and not (isinstance(_fer_desc, float) and __import__('math').isnan(_fer_desc)) and str(_fer_desc).strip().lower() not in ("", "nan", "none"):
             tags.append("feriado")
         erro = row.get("erros_picagem", "")
         import pandas as _pd
@@ -545,31 +656,29 @@ class ResumoMensalView(tk.Toplevel):
             tags.append("editado")
         return tuple(tags)
 
-    def _calcular_media_diaria(self, numero, nome) -> str:
-        linhas = self._linhas_empregado(numero, nome)
+    def _calcular_media_diaria(self, nome) -> str:
+        linhas = self._linhas_empregado(nome)
         if linhas.empty:
-            return "--"
-        presenca = pd.to_numeric(linhas["presenca"] if "presenca" in linhas.columns else 0,
-                                 errors="coerce").fillna(0)
-        noturno  = pd.to_numeric(linhas["noturno"]  if "noturno"  in linhas.columns else 0,
-                                 errors="coerce").fillna(0)
+            return "--:--"
+        presenca = pd.to_numeric(linhas.get("presenca", 0), errors="coerce").fillna(0)
+        noturno  = pd.to_numeric(linhas.get("noturno",  0), errors="coerce").fillna(0)
         horas_dia = presenca + noturno
-        dias_trabalhados = int((horas_dia > 0).sum())
+        dias_trabalhados = (horas_dia > 0).sum()
         if dias_trabalhados == 0:
-            return "--"
-        media = round(float(horas_dia.sum()) / dias_trabalhados, 2)
-        return f"{media:.2f} h"
+            return "--:--"
+        media = round(float(horas_dia.sum()) / dias_trabalhados, 4)
+        return _dec_para_hhmm(media)
 
-    def _atualizar_totais_footer(self, numero, nome):
-        totais = self._calcular_totais(numero, nome)
+    def _atualizar_totais_footer(self, nome):
+        totais = self._calcular_totais(nome)
         for col, var in self._total_vars.items():
             val = totais.get(col, 0.0)
-            if col in {"presenca", "noturno", "feriado"}:
-                var.set(f"{val:.2f} h")
+            if col in COL_HHMM:
+                var.set(_dec_para_hhmm(val))
             else:
                 var.set(str(int(val)))
         if hasattr(self, "_var_media_diaria"):
-            self._var_media_diaria.set(self._calcular_media_diaria(numero, nome))
+            self._var_media_diaria.set(self._calcular_media_diaria(nome))
 
     # ── edição ────────────────────────────────────────────────────────────────
     def _on_double_click(self, event):
@@ -578,8 +687,9 @@ class ResumoMensalView(tk.Toplevel):
             return
         iid = sel[0]
         try:
-            idx = int(iid)
-        except ValueError:
+            # iid format: "nome::df_index"
+            idx = int(iid.split("::")[-1])
+        except (ValueError, IndexError):
             return
         if idx not in self._df.index:
             return
@@ -599,6 +709,19 @@ class ResumoMensalView(tk.Toplevel):
             # aplicar valores
             for col, val in result.items():
                 self._df.at[idx, col] = val
+
+            # regra de negócio: enfermeiros não têm falta/sub.ref/baixa/ferias
+            def _eh_enf_num(n):
+                try:
+                    return int(str(n).strip()) >= 500
+                except (ValueError, TypeError):
+                    return False
+            _grupo = str(self._df.at[idx, "grupo"] if "grupo" in self._df.columns else "")
+            _num   = str(self._df.at[idx, "numero"] if "numero" in self._df.columns else "")
+            if _grupo == "Enfermeiro" or _eh_enf_num(_num):
+                for _c in ("falta", "subsidio_refeicao", "baixa", "ferias"):
+                    if _c in self._df.columns:
+                        self._df.at[idx, _c] = 0
             # registar log na coluna log_edicao
             if alteracoes:
                 ts  = _dt.now().strftime("%Y-%m-%d %H:%M")
@@ -608,15 +731,15 @@ class ResumoMensalView(tk.Toplevel):
                     f"{atual} | {entrada}" if atual else entrada
                 )
             self._modified = True
-            numero, nome = self._empregados[self._emp_idx]
-            self._preencher_tree(numero, nome)
+            nome = self._empregados[self._emp_idx]
+            self._preencher_tree(nome)
             try:
                 self._tree.selection_set(iid)
                 self._tree.see(iid)
             except Exception:
                 pass
-            self._atualizar_linha_total_df(numero, nome)
-            self._atualizar_totais_footer(numero, nome)
+            self._atualizar_linha_total_df(nome)
+            self._atualizar_totais_footer(nome)
 
         _EditDialog(self, row_data, _on_edit)
 
@@ -624,7 +747,14 @@ class ResumoMensalView(tk.Toplevel):
     def _guardar(self):
         if self._on_save:
             try:
-                self._on_save(self._df.copy())
+                df_para_gravar = self._df.copy()
+                for col in ("hext50", "hext75", "hext100"):
+                    if col in df_para_gravar.columns:
+                        df_para_gravar[col] = pd.to_numeric(
+                            df_para_gravar[col], errors="coerce").fillna(0)
+                if "observ" in df_para_gravar.columns:
+                    df_para_gravar["observ"] = df_para_gravar["observ"].fillna("").astype(str)
+                self._on_save(df_para_gravar)
                 self._modified = False
                 messagebox.showinfo("Guardado",
                                      "Resumo mensal actualizado com sucesso.",

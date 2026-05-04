@@ -1,0 +1,147 @@
+2026-04-29 19:40:00,584 [ERROR] application.ponto.processar_ponto_usecase - Erro ao gravar resumo: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202604\\202604_Resumo.xlsx'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 120, in executar
+    repo.guardar_mensal(mensal)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\ponto\ponto_repository.py", line 62, in guardar_mensal
+    df.to_excel(self.ficheiro_resumo, index=False)
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202604\\202604_Resumo.xlsx'
+2026-04-29 19:44:16,318 [ERROR] application.ponto.processar_ponto_usecase - Erro ao gravar resumo: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202604\\202604_Resumo.xlsx'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 120, in executar
+    repo.guardar_mensal(mensal)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\ponto\ponto_repository.py", line 62, in guardar_mensal
+    df.to_excel(self.ficheiro_resumo, index=False)
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202604\\202604_Resumo.xlsx'
+2026-04-29 19:55:42,987 [ERROR] application.ponto.processar_ponto_usecase - Erro ao gravar resumo: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202604\\202604_Resumo.xlsx'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 124, in executar
+    repo.guardar_mensal(mensal)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\ponto\ponto_repository.py", line 62, in guardar_mensal
+    df.to_excel(self.ficheiro_resumo, index=False)
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202604\\202604_Resumo.xlsx'
+2026-04-29 20:05:20,017 [ERROR] application.ponto.processar_ponto_usecase - Erro ao gravar resumo: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202604\\202604_Resumo.xlsx'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 124, in executar
+    repo.guardar_mensal(mensal)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\ponto\ponto_repository.py", line 62, in guardar_mensal
+    df.to_excel(self.ficheiro_resumo, index=False)
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
+    super().__init__(
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
+    self._handles = get_handle(
+                    ^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202604\\202604_Resumo.xlsx'
+2026-04-30 12:22:56,288 [ERROR] presentation.ponto.ponto_controller - Erro no processamento de ponto: 'ProcessarPontoUseCase' object has no attribute '_FERIADOS_FIXOS'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\ponto\ponto_controller.py", line 46, in job
+    total, output = self.usecase.executar(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 148, in executar
+    mensal = self._adicionar_dia_semana_feriado(mensal)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 587, in _adicionar_dia_semana_feriado
+    feriados.update(self._feriados_ano(int(ano)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 570, in _feriados_ano
+    for (m, d), desc in self._FERIADOS_FIXOS.items():
+                        ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ProcessarPontoUseCase' object has no attribute '_FERIADOS_FIXOS'
+2026-04-30 12:25:52,407 [ERROR] presentation.ponto.ponto_controller - Erro no processamento de ponto: ProcessarPontoUseCase._pascoa() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\ponto\ponto_controller.py", line 46, in job
+    total, output = self.usecase.executar(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 162, in executar
+    mensal = self._adicionar_dia_semana_feriado(mensal)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 601, in _adicionar_dia_semana_feriado
+    feriados.update(self._feriados_ano(int(ano)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 589, in _feriados_ano
+    pascoa = self._pascoa(ano)
+             ^^^^^^^^^^^^^^^^^
+TypeError: ProcessarPontoUseCase._pascoa() takes 1 positional argument but 2 were given
+2026-04-30 12:28:57,827 [ERROR] presentation.ponto.ponto_controller - Erro no processamento de ponto: 'ProcessarPontoUseCase' object has no attribute '_DIAS_PT'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\ponto\ponto_controller.py", line 46, in job
+    total, output = self.usecase.executar(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 162, in executar
+    mensal = self._adicionar_dia_semana_feriado(mensal)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 602, in _adicionar_dia_semana_feriado
+    df["dia_semana"]   = datas.apply(
+                         ^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\series.py", line 4764, in apply
+    ).apply()
+      ^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\apply.py", line 1209, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\apply.py", line 1289, in apply_standard
+    mapped = obj._map_values(
+             ^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\base.py", line 919, in _map_values
+    return arr.map(mapper, na_action=na_action)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\arrays\_mixins.py", line 80, in method
+    return meth(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\arrays\datetimelike.py", line 723, in map
+    result = map_array(self, mapper, na_action=na_action)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\algorithms.py", line 1814, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "lib.pyx", line 2926, in pandas._libs.lib.map_infer
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\ponto\processar_ponto_usecase.py", line 603, in <lambda>
+    lambda d: self._DIAS_PT[d.weekday()] if not pd.isna(d) else "")
+              ^^^^^^^^^^^^^
+AttributeError: 'ProcessarPontoUseCase' object has no attribute '_DIAS_PT'

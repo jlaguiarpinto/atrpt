@@ -7,5 +7,5 @@ class PedidoEstado(Enum):
     pendente = "pendente"
     autorizado = "autorizado"
     encomendado = "encomendado"
-    concluido = "concluído"
+    concluido = "concluido"
     cancelado = "cancelado"

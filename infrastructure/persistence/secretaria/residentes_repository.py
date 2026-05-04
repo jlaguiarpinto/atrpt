@@ -9,6 +9,7 @@ class ResidentesRepository():
     def __init__(self, residentes_path: Path):
         self.residentes = pd.read_excel(residentes_path,dtype="string")
         self.residentes = normalizar_colunas(self.residentes)
+        self.residentes = self.residentes.loc[:, ~self.residentes.columns.duplicated()]
         self.residentes["nome"] = self.residentes["nome"].apply(simplificar_nome)
         self.path = residentes_path
 

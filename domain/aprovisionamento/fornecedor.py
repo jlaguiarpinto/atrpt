@@ -1,4 +1,4 @@
-# atrpt/domain/fornecedores/fornecedor.py
+# atrpt/domain/aprovisionamento/fornecedor.py
 
 from dataclasses import dataclass, field
 from typing import Optional

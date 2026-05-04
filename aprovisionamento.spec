@@ -5,7 +5,6 @@ a = Analysis(
     pathex=['.'],
     binaries=[],
     datas=[
-        ('templates/email/*.docx',                      'templates/email'),
         ('templates/email/aprovisionamento/*.docx',     'templates/email/aprovisionamento'),
     ],
     hiddenimports=[

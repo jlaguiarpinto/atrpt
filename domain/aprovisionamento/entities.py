@@ -1,6 +1,6 @@
 # atrpt/domain/aprovisionamento/entities.py
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional
 
@@ -33,11 +33,7 @@ class Pedido:
 
     encomendado_por: Optional[str] = None
     encomendado_em: Optional[datetime] = None
-    anexos: List[str] = None  # lista de paths
-
-    def __post_init__(self):
-        if self.anexos is None:
-            object.__setattr__(self, "anexos", [])
+    anexos: List[str] = field(default_factory=list)  # lista de paths
 
     # --------------------------------------------------
 

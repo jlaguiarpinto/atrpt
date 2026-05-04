@@ -17,144 +17,165 @@ class PedidoFormGUI(BG):
         super().__init__(root, controller)
         self.root.title("Novo Pedido")
         self.centros_custo = self.controller.get_centros_custo()
-        self._propostas = []
-        self._propostas_extra = []
-        self.proposta_widgets = []
+        self._propostas_confirmadas = []   # lista de dicts já confirmados
+        self._widget_ativo = None          # PropostaFormWidget em edição (ou None)
+        self._frame_ativo  = None          # frame do widget em edição
         self._build()
+
+    # ── construção da interface ───────────────────────────────────────────────
 
     def _build(self):
         frame = ttk.Frame(self.root, padding=10)
         frame.pack(fill="both", expand=True)
 
-        # --- Centro de Custo ---
+        # Centro de Custo
         ttk.Label(frame, text="Centro de Custo:").grid(row=0, column=0, sticky="w")
         self.cb_cc = ttk.Combobox(
-            frame,
-            values=self.centros_custo,
-            state="readonly",
-            width=30,
+            frame, values=self.centros_custo, state="readonly", width=30,
         )
         self.cb_cc.grid(row=0, column=1, columnspan=2, pady=5, sticky="w")
 
-        # --- Descrição ---
+        # Descrição
         ttk.Label(frame, text="Descrição:").grid(row=1, column=0, sticky="nw")
         self.txt_desc = tk.Text(frame, width=40, height=4)
         self.txt_desc.grid(row=1, column=1, columnspan=2, pady=5)
 
-        # --- Secção de Propostas ---
-        propostas_label = ttk.LabelFrame(frame, text="Proposta (obrigatória)", padding=5)
-        propostas_label.grid(row=2, column=0, columnspan=3, pady=10, sticky="ew")
-        propostas_label.columnconfigure(0, weight=1)
+        # Secção de propostas
+        self._lf_propostas = ttk.LabelFrame(frame, text="Propostas", padding=5)
+        self._lf_propostas.grid(row=2, column=0, columnspan=3, pady=10, sticky="ew")
+        self._lf_propostas.columnconfigure(0, weight=1)
 
-        # formulário da proposta principal — sempre visível
-        self.proposta_form_frame = ttk.Frame(propostas_label)
-        self.proposta_form_frame.pack(fill="x")
+        # listbox de propostas confirmadas
+        ttk.Label(self._lf_propostas, text="Propostas confirmadas:",
+                  foreground="gray").pack(anchor="w")
+        self.lista_propostas = tk.Listbox(self._lf_propostas, height=4, width=70)
+        self.lista_propostas.pack(fill="x", pady=(2, 6))
 
-        self._proposta_widget_principal = PropostaFormWidget(
-            self.proposta_form_frame, self.controller, gui=self
+        # frame onde o widget de edição activo aparece
+        self._frame_edicao = ttk.Frame(self._lf_propostas)
+        self._frame_edicao.pack(fill="x")
+
+        # botão "+ Adicionar proposta" — sempre visível, desactivado durante edição
+        self.btn_adicionar = ttk.Button(
+            self._lf_propostas,
+            text="+ Adicionar proposta",
+            command=self._abrir_nova_proposta,
         )
-        self._proposta_widget_principal.build(
-            parent_frame=self.proposta_form_frame, show_label_frame=False
-        )
-
-        # propostas adicionais
-        ttk.Button(
-            propostas_label,
-            text="+ Adicionar outra proposta",
-            command=self._adicionar_proposta,
-        ).pack(anchor="w", pady=(4, 0))
-
-        self.frame_extras = ttk.Frame(propostas_label)
-        self.frame_extras.pack(fill="x")
-
-        ttk.Label(propostas_label, text="Propostas adicionais confirmadas:",
-                  foreground="gray").pack(anchor="w", pady=(6, 0))
-        self.lista_propostas = tk.Listbox(propostas_label, height=3, width=60)
-        self.lista_propostas.pack(fill="x", pady=2)
+        self.btn_adicionar.pack(anchor="w", pady=(4, 0))
 
         # Botões principais
         btn_frame = ttk.Frame(frame)
         btn_frame.grid(row=3, column=0, columnspan=3, pady=10)
+        ttk.Button(btn_frame, text="Gravar Pedido", command=self._gravar).pack(side="left", padx=5)
+        ttk.Button(btn_frame, text="Fechar",        command=self.root.destroy).pack(side="left", padx=5)
 
-        ttk.Button(
-            btn_frame, text="Gravar Pedido",
-            command=self._gravar,
-        ).pack(side="left", padx=5)
+        # Abrir logo o primeiro formulário de proposta
+        self._abrir_nova_proposta()
 
-        ttk.Button(
-            btn_frame, text="Fechar",
-            command=self.root.destroy,
-        ).pack(side="left", padx=5)
+    # ── gestão de propostas ───────────────────────────────────────────────────
 
-    def _adicionar_proposta(self):
-        """Abre formulário para proposta adicional (opcional)."""
-        extra_frame = ttk.Frame(self.frame_extras)
-        extra_frame.pack(fill="x", pady=4)
-        widget = PropostaFormWidget(extra_frame, self.controller, gui=self)
-        widget.build(parent_frame=extra_frame, show_label_frame=False)
-        btn_f = ttk.Frame(extra_frame)
-        btn_f.pack(pady=4)
-        ttk.Button(btn_f, text="Confirmar",
-            command=lambda: self._confirmar_proposta_extra(widget, extra_frame)
-        ).pack(side="left", padx=4)
-        ttk.Button(btn_f, text="Cancelar",
-            command=extra_frame.destroy
-        ).pack(side="left", padx=4)
-        self.proposta_widgets.append(widget)
+    def _abrir_nova_proposta(self):
+        """Cria um novo PropostaFormWidget em edição, com botões Confirmar/Descartar."""
+        if self._widget_ativo is not None:
+            return  # já há um widget em edição
 
-    def _confirmar_proposta_extra(self, widget, frame):
-        """Confirma proposta adicional e adiciona à listbox."""
-        valido, fornecedor_id, valor, pdf_path = widget.validar(show_errors=True, parent=self.root)
-        if not valido:
-            return
-        fornecedor_nome = next(
-            (n for n, fid in widget.fornecedores_obj.items() if fid == fornecedor_id), fornecedor_id
+        self.btn_adicionar.config(state="disabled")
+
+        self._frame_ativo = ttk.LabelFrame(
+            self._frame_edicao, text="Nova proposta", padding=4
         )
-        self._propostas_extra.append({
-            "fornecedor_id": fornecedor_id,
-            "fornecedor_nome": fornecedor_nome,
-            "valor": valor,
-            "documento": pdf_path,
-        })
-        self.lista_propostas.insert(
-            tk.END,
-            f"{fornecedor_nome}  |  {valor:.2f} €  |  {os.path.basename(pdf_path) if pdf_path else 'Sem PDF'}"
+        self._frame_ativo.pack(fill="x", pady=4)
+
+        self._widget_ativo = PropostaFormWidget(
+            self._frame_ativo, self.controller, gui=self
         )
-        frame.destroy()
+        self._widget_ativo.build(parent_frame=self._frame_ativo, show_label_frame=False)
 
-    def _gravar(self):
-        cc = self.cb_cc.get().strip()
-        desc = self.txt_desc.get("1.0", "end").strip()
+        # botões Confirmar / Descartar dentro do frame da proposta
+        btn_f = ttk.Frame(self._frame_ativo)
+        btn_f.pack(pady=(4, 0))
+        ttk.Button(
+            btn_f, text="✔ Confirmar",
+            command=self._confirmar_proposta,
+        ).pack(side="left", padx=4)
+        ttk.Button(
+            btn_f, text="✖ Descartar",
+            command=self._descartar_proposta,
+        ).pack(side="left", padx=4)
 
-        if not cc or not desc:
-            messagebox.showerror(
-                "Erro", "Centro de Custo e Descrição são obrigatórios.",
-                parent=self.root
-            )
+    def _confirmar_proposta(self):
+        """Valida e move a proposta activa para a lista de confirmadas."""
+        if self._widget_ativo is None:
             return
-
-        # validar proposta principal (obrigatória)
-        valido, forn_id, valor, pdf = self._proposta_widget_principal.validar(
+        valido, fornecedor_id, valor, pdf_path = self._widget_ativo.validar(
             show_errors=True, parent=self.root
         )
         if not valido:
             return
 
-        forn_nome = next(
-            (n for n, fid in self._proposta_widget_principal.fornecedores_obj.items()
-             if fid == forn_id), forn_id
+        fornecedor_nome = next(
+            (n for n, fid in self._widget_ativo.fornecedores_obj.items()
+             if fid == fornecedor_id),
+            fornecedor_id,
         )
-        propostas = [{
-            "fornecedor_id": forn_id,
-            "fornecedor_nome": forn_nome,
-            "valor": valor,
-            "documento": pdf,
-        }] + self._propostas_extra
+        self._propostas_confirmadas.append({
+            "fornecedor_id":   fornecedor_id,
+            "fornecedor_nome": fornecedor_nome,
+            "valor":           valor,
+            "documento":       pdf_path,
+        })
+        self.lista_propostas.insert(
+            tk.END,
+            f"{fornecedor_nome}  |  {valor:.2f} €"
+            f"  |  {os.path.basename(pdf_path) if pdf_path else 'Sem PDF'}",
+        )
+        self._fechar_widget_ativo()
+
+    def _descartar_proposta(self):
+        """Descarta a proposta em edição sem gravar."""
+        self._fechar_widget_ativo()
+
+    def _fechar_widget_ativo(self):
+        """Destrói o frame de edição e reactiva o botão Adicionar."""
+        if self._frame_ativo:
+            self._frame_ativo.destroy()
+        self._frame_ativo  = None
+        self._widget_ativo = None
+        self.btn_adicionar.config(state="normal")
+
+    # ── gravar pedido ─────────────────────────────────────────────────────────
+
+    def _gravar(self):
+        # se há proposta em edição, obrigar a confirmar ou descartar primeiro
+        if self._widget_ativo is not None:
+            messagebox.showwarning(
+                "Proposta em edição",
+                "Confirme ou descarte a proposta em edição antes de gravar o pedido.",
+                parent=self.root,
+            )
+            return
+
+        cc   = self.cb_cc.get().strip()
+        desc = self.txt_desc.get("1.0", "end").strip()
+
+        if not cc or not desc:
+            messagebox.showerror(
+                "Erro", "Centro de Custo e Descrição são obrigatórios.",
+                parent=self.root,
+            )
+            return
+
+        if not self._propostas_confirmadas:
+            messagebox.showerror(
+                "Erro", "É necessário confirmar pelo menos uma proposta.",
+                parent=self.root,
+            )
+            return
 
         self.controller.criar_pedido(
             centro_custo=cc,
             descricao=desc,
-            proposta=propostas,
+            proposta=self._propostas_confirmadas,
         )
 
         messagebox.showinfo("OK", "Pedido criado com sucesso!", parent=self.root)

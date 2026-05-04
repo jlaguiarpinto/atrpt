@@ -306,12 +306,11 @@ class PropostaFormWidget:
 
         ttk.Label(frame, text="NIF:").grid(row=1, column=0, sticky="w", pady=4)
         ent_nif = ttk.Entry(frame, width=36)
-        ent_nif.insert(0, "999999999")   # placeholder editável
         ent_nif.grid(row=1, column=1, pady=4)
 
         ttk.Label(
             frame,
-            text="(NIF 999999999 aceite — actualizar posteriormente)",
+            text="(opcional — pode ser preenchido posteriormente)",
             foreground="gray",
         ).grid(row=2, column=0, columnspan=2, sticky="w")
 
@@ -319,12 +318,9 @@ class PropostaFormWidget:
 
         def _gravar():
             nome = ent_nome.get().strip()
-            nif  = ent_nif.get().strip()
+            nif  = ent_nif.get().strip() or None   # NIF opcional → None se vazio
             if not nome:
                 messagebox.showerror("Erro", "O nome é obrigatório.", parent=win)
-                return
-            if not nif:
-                messagebox.showerror("Erro", "O NIF é obrigatório.", parent=win)
                 return
             try:
                 novo = self.controller.novo_fornecedor({"nome": nome, "nif": nif})

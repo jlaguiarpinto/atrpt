@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import ttk
 from presentation.shared.base_gui import BaseGui as BG
 from presentation.aprovisionamento.fornecedor_detalhe_gui import FornecedorDetalheGUI
+from presentation.aprovisionamento.fornecedor_classificar_gui import FornecedorClassificarGUI
 
 
 TIPOS_FORNECEDOR = [
@@ -33,10 +34,11 @@ class FornecedoresGUI(BG):
     def _build(self):
         frame = self.abrir_work_area()
         opcoes = [
-            ("Novo Fornecedor",       self._novo_fornecedor),
-            ("Importar Fornecedores", self._importar_fornecedores),
-            ("Procurar Fornecedor", self._procurar_fornecedor),
-            ("Listar Todos",          self._listar_todos),
+            ("Novo Fornecedor",          self._novo_fornecedor),
+            ("Importar Fornecedores",    self._importar_fornecedores),
+            ("Procurar Fornecedor",      self._procurar_fornecedor),
+            ("Classificar Fornecedores", self._classificar_fornecedores),
+            ("Listar Todos",             self._listar_todos),
         ]
         self.build_menu_buttons(opcoes)
 
@@ -60,6 +62,9 @@ class FornecedoresGUI(BG):
 
     def _procurar_fornecedor(self):
         self.show_view(FornecedorDetalheGUI, self.controller)
+
+    def _classificar_fornecedores(self):
+        self.show_view(FornecedorClassificarGUI, self.controller)
 
     def _pesquisar_fornecedor(self):
         nome = self.pedirInput("Pesquisar", "Nome do fornecedor:")

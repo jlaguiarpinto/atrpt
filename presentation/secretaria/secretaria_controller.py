@@ -19,7 +19,7 @@ _MESES = [
 
 
 class SecretariaController:
-    def __init__(self, root, user_context, cfg, emailer, pim_repo, residentes_repo, contacorrente_repo, inflow_repo, template_builder,
+    def __init__(self, root, user_context, cfg, emailer, pim_repo, residentes_repo, contacorrente_repo, inflow_repo, recibo_template_path,
                  pessoas_repo=None, fornecedor_repo=None, mapa_repo=None):
         self.root = root
         self.user = user_context
@@ -31,7 +31,7 @@ class SecretariaController:
         self.residentes_repo = residentes_repo
         self.cc_repo = contacorrente_repo
         self.inflow_repo = inflow_repo
-        self.template_builder = template_builder
+        self.recibo_template_path = recibo_template_path
         self.pessoas_repo    = pessoas_repo      # EmpregadoRepository — opcional
         self.fornecedor_repo = fornecedor_repo   # FornecedorRepositorySQL — opcional
         self.mapa_repo       = mapa_repo         # PontoMapaRepository — opcional
@@ -79,12 +79,14 @@ class SecretariaController:
     def _build_pim(self, ctx):
 
         from domain.secretaria.pim_service import Pim
+        from infrastructure.persistence.secretaria.csag_repository import CsagRepository
 
         return Pim(
             ctx=ctx,
             residentes_repo=self.residentes_repo,
             conta_corrente_repo=self.cc_repo,
             pim_repo=self.pim_repo,
+            csag_repo=CsagRepository(ctx.csag_file),
         )
 
     def abrir_ponto(self):
@@ -133,7 +135,7 @@ class SecretariaController:
             comprovativo_repo=None,  # se não estiveres a usar ainda
             inflow_repo=self.inflow_repo,
             pim_repo=self.pim_repo,
-            template_builder=self.template_builder,
+            recibo_template_path=self.recibo_template_path,
             cfg=self.cfg,
             email_secretaria=self.cfg.email_secretaria,
             modo_teste=self.cfg.modo_teste,
@@ -463,7 +465,7 @@ class SecretariaController:
                         # outputs
                         diferencas_file=resolver_path_template(self.cfg, "diferencas_file", **params),
                         envio_faturas_file = pim_mensal_dir / "envio_faturas.xlsx",
-                        template_email=str(self.cfg.paths_app["template_enviofat"]) 
+                        template_email=str(self.cfg.paths["template_enviofat"])
                         )
 
     def _build_main_menu(self):

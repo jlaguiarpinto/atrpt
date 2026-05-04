@@ -21,10 +21,10 @@ from infrastructure.persistence.user_repository import UserRepository
 from application.auth.login_usecase import LoginUseCase
 
 # usecase de ponto
-from application.secretaria.processar_ponto_usecase import ProcessarPontoUseCase
+from application.ponto.processar_ponto_usecase import ProcessarPontoUseCase
 
 # controller e base gui
-from presentation.secretaria.ponto_controller import PontoController
+from presentation.ponto.ponto_controller import PontoController
 from presentation.shared.base_gui import BaseGui
 
 _APP_INI = Path(r"G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\app.ini")

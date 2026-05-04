@@ -332,3 +332,50 @@ Traceback (most recent call last):
   File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
   File "infrastructure\persistence\fornecedor_repository.py", line 84, in save_from_dict
 sqlite3.OperationalError: ON CONFLICT clause does not match any PRIMARY KEY or UNIQUE constraint
+2026-04-28 15:16:31,268 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 194, in save_from_dict
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 123, in save
+sqlite3.IntegrityError: UNIQUE constraint failed: fornecedores.nif
+2026-04-28 15:17:27,352 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 194, in save_from_dict
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 123, in save
+sqlite3.IntegrityError: UNIQUE constraint failed: fornecedores.nif
+2026-04-28 15:17:36,067 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 194, in save_from_dict
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 123, in save
+sqlite3.IntegrityError: UNIQUE constraint failed: fornecedores.nif
+2026-04-28 15:17:46,577 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 194, in save_from_dict
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 123, in save
+sqlite3.IntegrityError: UNIQUE constraint failed: fornecedores.nif
+2026-04-29 09:23:40,695 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+    self.fornecedor_repo.save_from_dict(dados)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 194, in save_from_dict
+    return self.save(fornecedor)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 123, in save
+    cur = conn.execute(
+          ^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: fornecedores.nif
+2026-04-29 12:54:39,265 [ERROR] application.aprovisionamento.create_pedido_usecase - Erro ao enviar email para pedido 2026/02
+Traceback (most recent call last):
+  File "application\aprovisionamento\create_pedido_usecase.py", line 66, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
+AttributeError: 'Config' object has no attribute 'get_lista_emails'
+2026-04-29 13:33:43,181 [ERROR] application.aprovisionamento.create_pedido_usecase - Erro ao enviar email para pedido 2026/03
+Traceback (most recent call last):
+  File "application\aprovisionamento\create_pedido_usecase.py", line 66, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
+AttributeError: 'Config' object has no attribute 'get_lista_emails'

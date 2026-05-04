@@ -6,6 +6,8 @@
 #   python build.py aprovisionamento → compila aprovisionamento
 #   python build.py pessoas          → compila pessoas
 #   python build.py ponto            → compila ponto
+#   python build.py secretaria       → compila secretaria
+
 
 import shutil
 import subprocess
@@ -27,6 +29,10 @@ MODULOS = {
         "spec":   "ponto.spec",
         "deploy": Path(r"G:\.shortcut-targets-by-id\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\CSAG\Ponto"),
     },
+    "secretaria": {
+        "spec":   "secretaria.spec",
+        "deploy": Path(r"G:\.shortcut-targets-by-id\1Qr9fyP5j561vVIXw8b6mKJvgTyhTQF14\Secretaria\Automatica"),
+    }
 }
 
 

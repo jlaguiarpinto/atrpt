@@ -17,7 +17,7 @@ class ContaCorrenteRepository():
                                           "CodigoUtente": "string" },
                                    sheet_name="F3M",engine='openpyxl')
         self._df3m = normalizar_colunas(self._df3m)
-        self._df3m = self._df3m.rename(columns={"contribuinte": "NIF", "codigo_utente": "numero_residente"})
+        self._df3m = self._df3m.rename(columns={"contribuinte": "NIF", "codigoutente": "numero_residente"})
         self._df3m["nome"] = self._df3m["nome"].apply(simplificar_nome)
 
     def get_by_numero(self, numero: int):

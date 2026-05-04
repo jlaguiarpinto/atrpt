@@ -1,4 +1,4 @@
-# presentation/secretaria/ponto_resumo_mensal_view.py
+# presentation/ponto/ponto_resumo_mensal_view.py
 """
 View de revisão e edição do Resumo Mensal de Ponto.
 
@@ -46,10 +46,10 @@ FONT_NAV    = "Verdana 10 bold"
 COLUNAS = [
     ("data",              "Data",          82,  False),
     ("dia_semana",        "Dia",           68,  False),
-    ("e1",                "E1",            70,  False),
-    ("s1",                "S1",            70,  False),
-    ("e2",                "E2",            70,  False),
-    ("s2",                "S2",            70,  False),
+    ("e1",                "E1",            52,  False),
+    ("s1",                "S1",            52,  False),
+    ("e2",                "E2",            52,  False),
+    ("s2",                "S2",            52,  False),
     ("presenca",          "Presenca",      68,  True),
     ("falta",             "Falta",         46,  True),
     ("feriado",           "Fer.h",         46,  True),
@@ -57,17 +57,20 @@ COLUNAS = [
     ("noturno",           "Noturno",       64,  True),
     ("baixa",             "Baixa",         46,  True),
     ("subsidio_refeicao", "S.Ref.",        52,  True),
+    ("hext50",            "HExt50",        58,  True),
+    ("hext75",            "HExt75",        58,  True),
+    ("hext100",           "HExt100",       62,  True),
     ("erros_picagem",     "Erros",        148,  False),
-    ("observacoes_dl",    "Obs.DL",       118,  True),
-    ("observacoes_cs",    "Obs.CS",       118,  True),
-    ("ativo_rh",          "Ativo",         48,  False),
+    ("observ",            "Observ.",       160,  True),
     ("feriado_desc",      "Feriado",       60,  False),
     ("edit_dt",           "Alterado em",  120,  False),
     ("edit_user",         "Por",           80,  False),
     ("edit_detalhe",      "Alteração",     260,  False),
 ]
-COL_NUM    = {"presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao"}
-TOTAIS_NUM = ["presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao"]
+COL_NUM    = {"presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao",
+              "hext50","hext75","hext100"}
+TOTAIS_NUM = ["presenca","falta","feriado","ferias","noturno","baixa","subsidio_refeicao",
+              "hext50","hext75","hext100"]
 
 
 class _EditDialog(tk.Toplevel):
@@ -115,10 +118,12 @@ class _EditDialog(tk.Toplevel):
             ("noturno",           "Noturno (h)"),
             ("baixa",             "Baixa   (0/1)"),
             ("subsidio_refeicao", "Sub. Refeicao (0/1)"),
+            ("hext50",            "HExt 50%  (h)"),
+            ("hext75",            "HExt 75%  (h)"),
+            ("hext100",           "HExt 100% (h)"),
         ]
         campos_txt = [
-            ("observacoes_dl", "Observacoes DL"),
-            ("observacoes_cs", "Observacoes CS"),
+            ("observ", "Observacoes"),
         ]
         for col, lbl in campos_num:
             self._add_field(body, lbl, col, rd, numeric=True, **pad)
@@ -181,7 +186,7 @@ class ResumoMensalView(tk.Toplevel):
     def __init__(self, parent, df: pd.DataFrame, on_save=None,
                  mes_label: str = "", username: str = ""):
         super().__init__(parent)
-        self.title(f"Revisao Mensal de Ponto - {mes_label}")
+        self.title(f"Ponto de {mes_label}")
         self.configure(bg=BG)
         self.state("zoomed")
         self.resizable(True, True)
@@ -192,9 +197,10 @@ class ResumoMensalView(tk.Toplevel):
         self._df        = df.copy()
         self._modified  = False
 
-        # garantir coluna de log de edições
-        if "log_edicao" not in self._df.columns:
-            self._df["log_edicao"] = ""
+        # garantir colunas novas (compatibilidade com resumos antigos)
+        for _col in ("log_edicao", "hext50", "hext75", "hext100", "observ"):
+            if _col not in self._df.columns:
+                self._df[_col] = "" if _col in ("log_edicao", "observ") else 0
 
         self._filtro_ativo = "Todos"   # inicializar antes de _build e _listar
         self._empregados   = self._listar_empregados()
@@ -205,28 +211,38 @@ class ResumoMensalView(tk.Toplevel):
         self.grab_set()
 
     # ── dados ─────────────────────────────────────────────────────────────────
+    @staticmethod
+    def _inferir_grupo(numero_str: str) -> str:
+        try:
+            return "Enfermeiro" if int(str(numero_str).strip()) >= 500 else "AAD"
+        except (ValueError, TypeError):
+            return "AAD"
+
     def _listar_empregados(self):
-        """Lista empregados activos filtrados pelo grupo activo (AAD/Enfermeiro/Todos)."""
+        """Lista empregados filtrados pelo grupo activo (AAD/Enfermeiro/Todos).
+        Apenas ativos — mas só exclui quem tem ativo_rh explicitamente = 'Nao'.
+        Enfermeiros sem ativo_rh preenchido (vazio/"") são considerados ativos.
+        """
         df = self._df[self._df["data"] != "TOTAL"].copy()
         if df.empty:
             return []
 
-        # ── apenas ativos ─────────────────────────────────────────────────────
+        # ── inferir grupo sempre (por número) ────────────────────────────────
+        if "grupo" not in df.columns:
+            df["grupo"] = df["numero"].astype(str).apply(self._inferir_grupo)
+        else:
+            # preencher grupo em branco por inferência
+            vazio = df["grupo"].astype(str).str.strip() == ""
+            df.loc[vazio, "grupo"] = df.loc[vazio, "numero"].astype(str).apply(
+                self._inferir_grupo)
+
+        # ── apenas ativos (só exclui ativo_rh == "Nao" explícito) ────────────
         if "ativo_rh" in df.columns:
-            df = df[df["ativo_rh"].astype(str) != "Nao"]
+            df = df[df["ativo_rh"].astype(str).str.strip() != "Nao"]
 
         # ── filtro de grupo ───────────────────────────────────────────────────
         filtro = getattr(self, "_filtro_ativo", "Todos")
         if filtro != "Todos":
-            # se coluna grupo não existir, inferir pelo número (>=500 = Enfermeiro)
-            if "grupo" not in df.columns:
-                def _grp(n):
-                    try:
-                        return "Enfermeiro" if int(str(n).strip()) >= 500 else "AAD"
-                    except (ValueError, TypeError):
-                        return "AAD"
-                df = df.copy()
-                df["grupo"] = df["numero"].apply(_grp)
             df = df[df["grupo"].astype(str) == filtro]
 
         if df.empty:
@@ -288,7 +304,7 @@ class ResumoMensalView(tk.Toplevel):
         # ── cabeçalho ─────────────────────────────────────────────────────────
         topo = tk.Frame(self, bg=BG_HEADER, pady=6)
         topo.pack(fill="x")
-        tk.Label(topo, text=f"Revisão do ponto de {self._mes_label}",
+        tk.Label(topo, text=f"Ponto de {self._mes_label}",
                  font=FONT_TITLE, bg=BG_HEADER, fg=FG).pack(side="left", padx=16)
 
         # ── filtro AAD / Enfermeiro ────────────────────────────────────────────
@@ -397,6 +413,9 @@ class ResumoMensalView(tk.Toplevel):
             ("noturno",           "Noturno"),
             ("baixa",             "Baixas"),
             ("subsidio_refeicao", "Sub.Ref."),
+            ("hext50",            "HExt50"),
+            ("hext75",            "HExt75"),
+            ("hext100",           "HExt100"),
         ]:
             grp = tk.Frame(foot, bg=BG_FOOTER, padx=10)
             grp.pack(side="left")
@@ -405,15 +424,6 @@ class ResumoMensalView(tk.Toplevel):
             tk.Label(grp, textvariable=var, font=FONT_TOTAL,
                      bg=BG_FOOTER, fg="black").pack()
             self._total_vars[col] = var
-
-        # separador e média diária
-        ttk.Separator(foot, orient="vertical").pack(side="left", fill="y", padx=8, pady=4)
-        grp_media = tk.Frame(foot, bg=BG_FOOTER, padx=10)
-        grp_media.pack(side="left")
-        tk.Label(grp_media, text="Media/dia", font="Verdana 7", bg=BG_FOOTER, fg=FG).pack()
-        self._var_media_diaria = tk.StringVar(value="--")
-        tk.Label(grp_media, textvariable=self._var_media_diaria, font=FONT_TOTAL,
-                 bg=BG_FOOTER, fg="#1a3c8a").pack()
 
     def _build_toolbar(self):
         bar = tk.Frame(self, bg=BG, pady=5)
@@ -545,31 +555,14 @@ class ResumoMensalView(tk.Toplevel):
             tags.append("editado")
         return tuple(tags)
 
-    def _calcular_media_diaria(self, numero, nome) -> str:
-        linhas = self._linhas_empregado(numero, nome)
-        if linhas.empty:
-            return "--"
-        presenca = pd.to_numeric(linhas["presenca"] if "presenca" in linhas.columns else 0,
-                                 errors="coerce").fillna(0)
-        noturno  = pd.to_numeric(linhas["noturno"]  if "noturno"  in linhas.columns else 0,
-                                 errors="coerce").fillna(0)
-        horas_dia = presenca + noturno
-        dias_trabalhados = int((horas_dia > 0).sum())
-        if dias_trabalhados == 0:
-            return "--"
-        media = round(float(horas_dia.sum()) / dias_trabalhados, 2)
-        return f"{media:.2f} h"
-
     def _atualizar_totais_footer(self, numero, nome):
         totais = self._calcular_totais(numero, nome)
         for col, var in self._total_vars.items():
             val = totais.get(col, 0.0)
-            if col in {"presenca", "noturno", "feriado"}:
+            if col in {"presenca", "noturno", "feriado", "hext50", "hext75", "hext100"}:
                 var.set(f"{val:.2f} h")
             else:
                 var.set(str(int(val)))
-        if hasattr(self, "_var_media_diaria"):
-            self._var_media_diaria.set(self._calcular_media_diaria(numero, nome))
 
     # ── edição ────────────────────────────────────────────────────────────────
     def _on_double_click(self, event):

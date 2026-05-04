@@ -1,4 +1,4 @@
-# atrpt/infrastructure/persistence/pedido_repository.py
+# atrpt/infrastructure/persistence/aprovisionamento/pedido_repository.py
 
 import sqlite3
 from pathlib import Path
@@ -44,6 +44,15 @@ class PedidoRepositorySQL(PedidoRepository):
                     fornecedor_id   TEXT NOT NULL,
                     valor           REAL NOT NULL,
                     pdf_path        TEXT,
+                    FOREIGN KEY (pedido_numero) REFERENCES pedidos(numero)
+                );
+            """)
+            # tabela de anexos — referenciada por adicionar_anexo / listar_anexos
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS pedido_anexos (
+                    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+                    pedido_numero   TEXT NOT NULL,
+                    path            TEXT NOT NULL,
                     FOREIGN KEY (pedido_numero) REFERENCES pedidos(numero)
                 );
             """)

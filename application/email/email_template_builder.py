@@ -15,28 +15,16 @@ class EmailTemplateBuilder:
         template_path = self.template_dir / template_name
 
         subject, blocos = carregar_template_word(template_path)
-       
+
         tipo = data.get("tipo_texto")
-
         corpo = blocos.get(tipo, "")
-        subject = subject.format_map(SafeDict(data))
-        body = corpo.format_map(SafeDict(data))
 
-        html = f"<html><body>{body.replace(chr(10), '<br>')}</body></html>"
+        subject = subject.format_map(SafeDict(data))
+        corpo_formatado = corpo.format_map(SafeDict(data))
+
+        html = f"<html><body>{corpo_formatado}</body></html>"
 
         return subject, html
-    
-    def _apply_conditionals(self, data: dict) -> dict:
-        data = data.copy()
-
-        saldo = float(data.get("saldo", 0) or 0)
-
-        if saldo != 0:
-            data["bloco_saldo"] = f"A conta de medicação fica com um saldo de {saldo:.2f} €."
-        else:
-            data["bloco_saldo"] = ""
-
-        return data
     
     def prepara_corpo_email(row, mes_pagamento, mes_faturacao):
 

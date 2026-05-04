@@ -21,7 +21,6 @@ class TesourariaView:
             ("Processar Extrato", controller.processar_extrato),
             ("Registar Movimentos", controller.registar_movimentos),
             ("Débitos Diretos", controller.abrir_dd),
-            ("Produzir DD", controller.produzir_dd),
             ("Enviar Recibos", controller.enviar_recibos),
             ("Menu Inicial", lambda: controller.start()),
         ]

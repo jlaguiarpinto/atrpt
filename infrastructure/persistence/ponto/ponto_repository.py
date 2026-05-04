@@ -19,12 +19,7 @@ class PontoRepository:
         ])
 
     def ler_ultimo_dia_mes_anterior(self) -> pd.DataFrame | None:
-        """
-        Lê o ficheiro do último dia do mês anterior.
-        A pasta do mês anterior é AAAAMM-1 — calculada a partir de pasta_mes.
-        Devolve DataFrame ou None se não existir.
-        """
-        nome_pasta = self.pasta_mes.name  # ex: "202603"
+        nome_pasta = self.pasta_mes.name
         try:
             ano = int(nome_pasta[:4])
             mes = int(nome_pasta[4:])
@@ -48,9 +43,8 @@ class PontoRepository:
         if not ficheiros:
             return None
 
-        ultimo = ficheiros[-1]
         try:
-            return pd.read_excel(ultimo)
+            return pd.read_excel(ficheiros[-1])
         except Exception:
             return None
 
@@ -59,10 +53,12 @@ class PontoRepository:
 
     def ler_mensal(self):
         if self.ficheiro_resumo.exists():
-            return pd.read_excel(self.ficheiro_resumo)
+            df = pd.read_excel(self.ficheiro_resumo)
+            return self._normalizar_colunas(df)
         return None
 
-    def guardar_mensal(self, df):
+    def guardar_mensal(self, df: pd.DataFrame):
+        df = self._normalizar_colunas(df.copy())
         df.to_excel(self.ficheiro_resumo, index=False)
 
     def guardar_resumo_empregado(self, df: pd.DataFrame):
@@ -78,3 +74,34 @@ class PontoRepository:
         path = self.pasta_mes / "erros_picagem.xlsx"
         df_erros.to_excel(path, index=False)
         return path
+
+    # ── normalização de colunas ───────────────────────────────────────────────
+    @staticmethod
+    def _normalizar_colunas(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Garante tipos e nomes correctos após leitura/antes de gravação:
+        - hext50/75/100 : numérico (float), NaN → 0
+        - observ        : texto, NaN → ""
+        - observacoes_dl / observacoes_cs : migrados para observ se ainda existirem
+        """
+        # migração de campos antigos → observ (campo único, sem separador)
+        if "observ" not in df.columns:
+            # preferir observacoes_dl; se vazio usar observacoes_cs
+            obs_dl = df.get("observacoes_dl", pd.Series("", index=df.index)).fillna("").astype(str).str.strip()
+            obs_cs = df.get("observacoes_cs", pd.Series("", index=df.index)).fillna("").astype(str).str.strip()
+            df["observ"] = obs_dl.where(obs_dl != "", obs_cs)
+            # remover colunas antigas se existirem
+            df = df.drop(columns=[c for c in ("observacoes_dl", "observacoes_cs")
+                                   if c in df.columns], errors="ignore")
+
+        # horas extra — numérico
+        for col in ("hext50", "hext75", "hext100"):
+            if col not in df.columns:
+                df[col] = 0.0
+            else:
+                df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0.0)
+
+        # observ — texto limpo
+        df["observ"] = df["observ"].fillna("").astype(str).str.strip()
+
+        return df

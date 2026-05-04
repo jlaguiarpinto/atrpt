@@ -2,13 +2,12 @@
 import fitz
 import re
 import pandas as pd
-import logging
 from domain.secretaria.pim_context import PimContext
-from domain.shared.strings import limpar_string, simplificar_nome
+from domain.shared.strings import limpar_string, simplificar_nome, normalizar_colunas
 from infrastructure.file_system.io import guardar_df, ler_excel
 from infrastructure.persistence.secretaria.pim_repository import PimRepository as PimRepo
-from infrastructure.persistence.residentes_repository import ResidentesRepository as ResidentesRepo
-from infrastructure.persistence.contacorrente_repository import ContaCorrenteRepository as CCRepo
+from infrastructure.persistence.secretaria.residentes_repository import ResidentesRepository as ResidentesRepo
+from infrastructure.persistence.secretaria.contacorrente_repository import ContaCorrenteRepository as CCRepo
 
 class Pim:
 
@@ -17,13 +16,15 @@ class Pim:
         ctx: PimContext,
         residentes_repo,
         conta_corrente_repo,
-        pim_repo
+        pim_repo,
+        csag_repo=None,
     ):
         self.ctx = ctx
 
         self.residentes_repo = residentes_repo
         self.conta_corrente_repo = conta_corrente_repo
         self.pim_repo = pim_repo
+        self.csag_repo = csag_repo
 
         self.residentes = pd.DataFrame(residentes_repo.get_all())
         self.cc = pd.DataFrame(conta_corrente_repo.get_all())
@@ -235,16 +236,24 @@ class Pim:
         self.tabela_nif_residente = tabela
 
     def ler_resumo_csag(self,ctx):
-        csag = pd.read_excel(ctx.csag_file,skiprows=1)
+        import logging
+        csag = self.csag_repo.ler()
         csag = csag.dropna(axis=1, how="all")
-        csag=self.normalizar_colunas(csag)
+        csag = normalizar_colunas(csag)
         idx_total = csag[csag.iloc[:,0].astype(str).str.contains("TOTAL", na=False)].index
         if len(idx_total):
             csag = csag.loc[:idx_total[0]-1]
-        csag["total"] = (
-            csag["faturas_s_protocolo_desconto"].fillna(0)
-            + csag["faturas_c_protocolo_desconto"].fillna(0)
-        )
+
+        col_s = next((c for c in csag.columns if "s_protocolo" in c), None)
+        col_c = next((c for c in csag.columns if "c_protocolo" in c), None)
+        if col_s is None:
+            logging.warning(f"Coluna S/Protocolo não encontrada. Colunas: {list(csag.columns)}")
+        if col_c is None:
+            logging.warning(f"Coluna C/Protocolo não encontrada. Colunas: {list(csag.columns)}")
+
+        zeros = pd.Series(0.0, index=csag.index)
+        def to_num(col): return pd.to_numeric(csag[col], errors="coerce").fillna(0)
+        csag["total"] = (to_num(col_s) if col_s else zeros) + (to_num(col_c) if col_c else zeros)
         self.csag=csag[["no_cliente","no_fatura","nome_utente","total"]]
         self.csag_clientes = (
             csag.groupby("no_cliente")
@@ -253,35 +262,40 @@ class Pim:
                 .rename(columns={"no_cliente":"ncli"})
         )
       
-    def _split_nfat(self,valor):
-        if pd.isna(valor):
-            return None, None
-        s = str(valor).strip()
-        # separar prefixo e número final
-        m = re.match(r"(.*?)(\d+)$", s)
-        if m:
-            prefixo = m.group(1).strip()
-            numero = m.group(2).strip()
-            return prefixo if prefixo else None, numero
+    def _split_nfat(self, val):
+        s = str(val).strip()
+        if s.upper().startswith("NC"):
+            return "NC", s[2:].strip().lstrip("/").strip()
+        return "", s
 
-        return None, s  # fallback
-    
     def comparar_csag(self):
-        self.faturas["ncli"] = self.faturas["ncli"].astype(str)
-        self.faturas["nfat"] = self.faturas["nfat"].astype(str)
-        self.csag = self.csag.rename(columns={"no_cliente": "ncli","no_fatura":"nfat"})
-        self.csag["ncli"] = self.csag["ncli"].astype(str).str.strip()
-        self.csag["nfat"] = self.csag["nfat"].astype(str).str.strip()
-        self.csag[["nfat_doc", "nfat"]] = self.csag["nfat"].apply(self._split_nfat).apply(pd.Series)
-        comp = self.faturas.merge(
-            self.csag,
-            on=["nfat"],
-            how="outer", suffixes=("_pdf", "_csag"))
+        fat = self.faturas.copy()
+        fat["ncli"] = fat["ncli"].astype(str).str.strip()
+        fat["nfat"] = fat["nfat"].astype(str).str.strip()
 
-        diferencas = comp[comp["total_pdf"].round(2) != comp["total_csag"].round(2)]
+        csag = self.csag.rename(columns={"no_cliente": "ncli", "no_fatura": "nfat"}).copy()
+        csag["ncli"] = csag["ncli"].astype(str).str.strip()
+        csag["nfat"] = csag["nfat"].astype(str).str.strip()
+        csag[["tipo_doc", "nfat"]] = csag["nfat"].apply(self._split_nfat).apply(pd.Series)
+
+        comp = fat.merge(csag, on="nfat", how="outer", suffixes=("_pdf", "_csag"))
+
+        def _classificar(row):
+            if pd.isna(row.get("total_pdf")) or row.get("total_pdf") == "":
+                return "so_csag"
+            if pd.isna(row.get("total_csag")) or row.get("total_csag") == "":
+                return "so_pdf"
+            difs = []
+            if str(row.get("ncli_pdf", "")).strip() != str(row.get("ncli_csag", "")).strip():
+                difs.append("ncli")
+            if round(float(row["total_pdf"]), 2) != round(float(row["total_csag"]), 2):
+                difs.append("total")
+            return "+".join(difs) if difs else "ok"
+
+        comp["diferenca"] = comp.apply(_classificar, axis=1)
+        diferencas = comp[comp["diferenca"] != "ok"]
         guardar_df(diferencas, self.ctx.diferencas_file)
-
-        return (diferencas)
+        return diferencas
           
     def construir_novo_pim(self):
 
@@ -322,7 +336,6 @@ class Pim:
             "data_envio_recibo",
         ]
         pim_final = df[pim_final_cols].copy()
-        breakpoint()
         # guardar
         self.pim_repo.salvar_pim(pim_final)     
         guardar_df(df,self.ctx.faturacao_residentes_file)

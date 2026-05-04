@@ -74,11 +74,6 @@ class Config:
             if not value.exists():
                 raise FileNotFoundError(f"[CONFIG] Path não existe: {field} -> {value}")
             
-    
-    @property
-    def email_logs(self):
-        return self.paths_app["email_logs"]
-
 # -------------------------
 # LOAD CONFIG
 # -------------------------

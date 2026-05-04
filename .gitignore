@@ -1,18 +1,42 @@
-# Windows
+# Configuração
+app.ini
+__init__.py
 desktop.ini
-Desktop.ini
-Thumbs.db
-
-# PyInstaller
-build/
-dist/
-*.spec.bak
 
 # Python
-__pycache__/
 *.pyc
 *.pyo
+*.pyd
+__pycache__/
+*.so
+
+*.exe
+*.spec
+
+# Temporários
+temp/
+tmp/
+*.tmp
+*.temp
+
+# Caches
+.cache/
+cache/
+*.cache
+.pytest_cache/
+.mypy_cache/
+
+# Ambiente virtual
+venv/
+env/
 .env
 
-# Logs
-*.log
+# IDE
+.vscode/
+.idea/
+*.swp
+
+.claude/
+.build/
+.dist/
+.templates/

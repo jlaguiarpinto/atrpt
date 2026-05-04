@@ -1,4 +1,4 @@
-# presentation/secretaria/ponto_controller.py
+# presentation/ponto/ponto_controller.py
 
 import logging
 import threading
@@ -24,7 +24,7 @@ class PontoController:
         self.repo    = None
 
     def start(self, gui_host):
-        from presentation.secretaria.ponto_gui import PontoGUI
+        from presentation.ponto.ponto_gui import PontoGUI
         self.gui = gui_host
         gui_host.show_view(PontoGUI, self)
 
@@ -88,23 +88,26 @@ class PontoController:
         meses_pt = ["", "Janeiro","Fevereiro","Marco","Abril","Maio","Junho",
                     "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
         try:
-            from datetime import date as _date
-            mes_str = str(mes).strip()
-            if len(mes_str) <= 2:
-                m   = int(mes_str)
-                ano = _date.today().year
-            else:
-                ano = int(mes_str[:4])
-                m   = int(mes_str[4:])
+            ano = int(str(mes)[:4])
+            m   = int(str(mes)[4:])
             mes_label = f"{meses_pt[m]} {ano}"
         except Exception:
             mes_label = str(mes)
 
+        # enriquecer com ativo_rh e grupo para filtro AAD/Enfermeiro funcionar
+        df = self._enriquecer_com_pessoas(df)
+
+        # capturar repo no closure para evitar que seja substituído por outra operação
+        _repo_closure = self.repo
+
         def _on_save(df_editado):
-            self.repo.guardar_mensal(df_editado)
+            # remover colunas de enriquecimento antes de gravar
+            cols_extra = [c for c in ("ativo_rh", "tipo", "categoria", "grupo")
+                          if c in df_editado.columns]
+            _repo_closure.guardar_mensal(df_editado.drop(columns=cols_extra, errors="ignore"))
             self._log(f"Resumo {mes_label} gravado apos edicao manual.")
 
-        from presentation.secretaria.ponto_resumo_mensal_view import ResumoMensalView
+        from presentation.ponto.ponto_resumo_mensal_view import ResumoMensalView
         ResumoMensalView(
             parent    = self.root,
             df        = df,
@@ -139,21 +142,15 @@ class PontoController:
         meses_pt = ["","Janeiro","Fevereiro","Marco","Abril","Maio","Junho",
                     "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
         try:
-            from datetime import date as _date
-            mes_str = str(mes).strip()
-            if len(mes_str) <= 2:
-                m   = int(mes_str)
-                ano = _date.today().year
-            else:
-                ano = int(mes_str[:4])
-                m   = int(mes_str[4:])
+            ano = int(str(mes)[:4])
+            m   = int(str(mes)[4:])
             mes_label = f"{meses_pt[m]} {ano}"
         except Exception:
             mes_label = str(mes)
 
         df_enriquecido = self._enriquecer_com_pessoas(df)
 
-        from presentation.secretaria.ponto_resumo_empregado_view import ResumoEmpregadoView
+        from presentation.ponto.ponto_resumo_empregado_view import ResumoEmpregadoView
         ResumoEmpregadoView(parent=self.root, df=df_enriquecido, mes_label=mes_label)
 
     # ── exportar inativos / não resolvidos ───────────────────────────────────
@@ -321,37 +318,13 @@ class PontoController:
             verdadeiramente_nao_resolvidos.append((num, nome))
             logger.warning(f"Ponto — nao resolvido: '{num} - {nome}'")
 
-        # -- diálogo de emparelhamento manual para os restantes -------
-        if verdadeiramente_nao_resolvidos and self.fornecedor_repo is not None:
-            try:
-                enfermeiros = self.fornecedor_repo.list_by("tipo_fornecedor", "Enfermeiro")
-            except Exception:
-                enfermeiros = []
-
-            if enfermeiros:
-                def _on_save_mapa(numero, nome, fornecedor_id):
-                    if self.mapa_repo:
-                        self.mapa_repo.save(numero, nome, fornecedor_id)
-                    f = next((x for x in enfermeiros if x.id == fornecedor_id), None)
-                    if f:
-                        tipo_f  = str(getattr(f, "tipo_fornecedor", "") or "").strip() or "Enfermeiro"
-                        ativo_f = str(getattr(f, "tipo_relacao",    "") or "").lower()
-                        mask = (
-                            df["numero"].astype(str).str.strip() == numero
-                        ) & (
-                            df["nome"].astype(str).str.strip().str.upper() == nome
-                        )
-                        df.loc[mask, "ativo_rh"]  = "Nao" if ativo_f == "suspenso" else "Sim"
-                        df.loc[mask, "tipo"]      = tipo_f
-                        df.loc[mask, "categoria"] = tipo_f
-
-                from presentation.secretaria.ponto_emparelhamento_dialog import EmparelhamentoDialog
-                EmparelhamentoDialog(
-                    parent          = self.root,
-                    nao_resolvidos  = verdadeiramente_nao_resolvidos,
-                    enfermeiros     = enfermeiros,
-                    on_save         = _on_save_mapa,
-                )
+        # pessoas não resolvidas — só logging, sem diálogo
+        if verdadeiramente_nao_resolvidos:
+            logger.info(
+                f"Ponto — {len(verdadeiramente_nao_resolvidos)} pessoa(s) "
+                f"nao resolvidas (nao encontradas em pessoas nem em fornecedores): "
+                + ", ".join(f"{n} - {nm}" for n, nm in verdadeiramente_nao_resolvidos)
+            )
 
         return df
 

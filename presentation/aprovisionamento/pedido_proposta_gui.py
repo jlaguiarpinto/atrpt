@@ -225,12 +225,20 @@ class JuntarPropostaGUI(BG):
                 len(p.propostas) if hasattr(p, 'propostas') else 0,
             ))
 
+    # relações excluídas da lista de fornecedores em propostas
+    _RELACOES_EXCLUIDAS = {"avençado", "prestador", "pontual"}
+
     def _carregar_fornecedores(self) -> list[str]:
         try:
-            fornecedores = self.controller.get_fornecedor()
+            todos = self.controller.get_fornecedor()
+            fornecedores = [
+                f for f in todos
+                if (f.tipo_relacao or "").strip().lower()
+                   not in self._RELACOES_EXCLUIDAS
+            ]
             self.fornecedores_obj = {f.nome: str(f.id) for f in fornecedores}
             return list(self.fornecedores_obj.keys())
-        except Exception as e:
+        except Exception:
             return []
 
     def _on_pedido_select(self, event):
