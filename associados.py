@@ -3,7 +3,7 @@
 import tkinter as tk
 from pathlib import Path
 
-from core.config import load_config
+from core.config import load_config, load_paths
 from core.logging_utils import setup_logging
 
 from infrastructure.email import emailer
@@ -16,7 +16,7 @@ from application.auth.login_usecase import LoginUseCase
 from application.email.email_sender import EmailSender
 
 # repos
-from infrastructure.persistence.associados_repository import AssociadosRepo
+from infrastructure.persistence.associados.associados_repository import AssociadosRepo
 
 # usecases
 from application.associados.enviar_emails_usecase import EnviarEmailsAssociadosUseCase
@@ -31,9 +31,11 @@ _APP_INI = Path(r"G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\A
 def main():
 
     root = tk.Tk()
+    root.withdraw()
     root.title("ATRPT - Associados")
 
-    cfg = load_config(_APP_INI))
+    cfg = load_config(_APP_INI)
+    cfg.paths = load_paths(_APP_INI, "paths_comum", "paths_associados")
     setup_logging(cfg, "associados")
 
     # -------------------------
@@ -47,13 +49,14 @@ def main():
     repo = AssociadosRepo(associados_file, saldos_file)
     envio_repo = EnvioRepository(envio_email_dir)
 
-    user_repo = UserRepository(cfg.paths_app["atrpt_db"])
+    user_repo = UserRepository(cfg.paths["atrpt_db"])
 
     # -------------------------
     # LOGIN
     # -------------------------
     login_uc = LoginUseCase(user_repo)
     user_context = login_uc.execute(root)
+    root.deiconify()
 
     # -------------------------
     # EMAIL
@@ -68,11 +71,7 @@ def main():
         use_ssl=perfil.smtp_ssl,
     )
 
-    emailer = Emailer(
-        smtp,
-        modo_teste=cfg.modo_teste,
-        email_teste=cfg.email_teste,
-    )
+    emailer = Emailer(smtp)
 
     # -------------------------
     # CONTAINER

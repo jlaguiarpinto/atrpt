@@ -2,7 +2,7 @@
 
 import openpyxl
 
-from infrastructure.persistence.fornecedor_repository import FornecedorRepository
+from infrastructure.persistence.aprovisionamento.fornecedor_repository import FornecedorRepository
 
 
 class ImportFornecedoresFromExcelUseCase:

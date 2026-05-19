@@ -1,0 +1,893 @@
+2026-05-12 11:38:21,914 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Resolvidos'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1056, in _command_complete
+    typ, data = self._get_tagged_response(tag, expect_bye=logout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1182, in _get_tagged_response
+    self._get_response()
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1084, in _get_response
+    resp = self._get_line()
+           ^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1194, in _get_line
+    raise self.abort('socket error: EOF')
+imaplib.IMAP4.abort: socket error: EOF
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 104, in listar_mensagens
+    _, fetch_data = self._conn.uid("fetch", uid_str, "(UID FLAGS RFC822.HEADER)")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 899, in uid
+    typ, dat = self._simple_command(name, command, *args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1058, in _command_complete
+    raise self.abort('command: %s => %s' % (name, val))
+imaplib.IMAP4.abort: command: UID => socket error: EOF
+2026-05-12 11:38:22,027 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.kkbhxidxirnvqlpftgpvdfqcuaubbnqa'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2026-05-12 11:38:22,071 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Resolvidos'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:22,094 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.FatRec_anteriores'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:30,482 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Banco Finantia'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:34,280 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Banco Finantia'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:41,252 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Encaminhados'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:45,633 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Trash'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:49,862 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Sent'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:51,542 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Spam'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:53,054 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.yhqafdxctfpcoigppjveofxgtshvjqaw'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: EOF occurred in violation of protocol (_ssl.c:2427)
+2026-05-12 11:38:56,403 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Faturas recebidas'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:38:58,182 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.FatRec_anteriores'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:39:02,027 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Resolvidos'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:39:04,542 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Resolvidos'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:39:05,183 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Resolvidos'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:39:06,277 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 11:39:06,965 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 12:02:35,477 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.FatRec_anteriores'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2026-05-12 12:02:43,377 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Encaminhados'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-12 12:02:45,838 [ERROR] presentation.correio.correio_controller - Erro ao listar mensagens de 'INBOX.Encaminhados'
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLError: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 43, in listar_mensagens
+    return self._imap.listar_mensagens(pasta, limite)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 95, in listar_mensagens
+    self._conn.select(f'"{pasta}"', readonly=True)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 765, in select
+    typ, dat = self._simple_command(name, mailbox)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [SSL: BAD_LENGTH] bad length (_ssl.c:2427)
+2026-05-17 08:44:18,677 [ERROR] presentation.correio.correio_controller - Erro ao listar pastas
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 99, in listar_pastas
+    return self._imap.listar_pastas()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 117, in listar_pastas
+    _, data = self._conn.list()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 608, in list
+    typ, dat = self._simple_command(name, directory, pattern)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2026-05-17 08:44:33,594 [ERROR] presentation.correio.correio_controller - Erro ao listar pastas
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 99, in listar_pastas
+    return self._imap.listar_pastas()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 117, in listar_pastas
+    _, data = self._conn.list()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 608, in list
+    typ, dat = self._simple_command(name, directory, pattern)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2026-05-17 08:44:38,221 [ERROR] presentation.correio.correio_controller - Erro ao obter contagem de pastas
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 106, in listar_pastas_com_contagem
+    return self._imap.status_pastas()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 135, in status_pastas
+    pastas = self.listar_pastas()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 117, in listar_pastas
+    _, data = self._conn.list()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 608, in list
+    typ, dat = self._simple_command(name, directory, pattern)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2026-05-17 19:22:38,814 [ERROR] presentation.correio.correio_controller - Erro no diálogo para 'fat_ALTER_20251028.pdf'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 601, in ler_faturas_directorio
+    correcao = on_dados_incompletos(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\faturas_gui.py", line 294, in _pedir_dados_em_falta
+    dlg.grab_set()
+  File "C:\envs\atrpt\Lib\tkinter\__init__.py", line 964, in grab_set
+    self.tk.call('grab', 'set', self._w)
+_tkinter.TclError: bad window path name ".!toplevel24"
+2026-05-17 20:13:52,120 [ERROR] presentation.correio.correio_controller - Erro ao obter contagem de pastas
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 119, in listar_pastas_com_contagem
+    return self._imap.status_pastas()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 135, in status_pastas
+    pastas = self.listar_pastas()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 117, in listar_pastas
+    _, data = self._conn.list()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 608, in list
+    typ, dat = self._simple_command(name, directory, pattern)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2026-05-17 20:14:09,287 [ERROR] presentation.correio.correio_controller - Erro ao obter contagem de pastas
+Traceback (most recent call last):
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1015, in _command
+    self.send(data + CRLF)
+  File "C:\envs\atrpt\Lib\imaplib.py", line 341, in send
+    self.sock.sendall(data)
+  File "C:\envs\atrpt\Lib\ssl.py", line 1210, in sendall
+    v = self.send(byte_view[count:])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\ssl.py", line 1179, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 119, in listar_pastas_com_contagem
+    return self._imap.status_pastas()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 135, in status_pastas
+    pastas = self.listar_pastas()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\imap_client.py", line 117, in listar_pastas
+    _, data = self._conn.list()
+              ^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 608, in list
+    typ, dat = self._simple_command(name, directory, pattern)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1239, in _simple_command
+    return self._command_complete(name, self._command(name, *args))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\imaplib.py", line 1017, in _command
+    raise self.abort('socket error: %s' % val)
+imaplib.IMAP4.abort: socket error: [Errno 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2026-05-17 22:17:08,446 [ERROR] presentation.correio.correio_controller - Erro ao processar 'fat_AIRLI_20250630_2.pdf'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 590, in ler_faturas_directorio
+    texto  = caminho.read_bytes()
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "C:\envs\atrpt\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'G:\\.shortcut-targets-by-id\\1Qr9fyP5j561vVIXw8b6mKJvgTyhTQF14\\Secretaria\\Faturas\\fat_AIRLI_20250630_2.pdf'
+2026-05-17 23:46:04,890 [ERROR] presentation.correio.correio_controller - Erro no diálogo para 'fat_LIKEG_20260429.pdf'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 634, in ler_faturas_directorio
+    correcao = on_dados_incompletos(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\faturas_gui.py", line 294, in _pedir_dados_em_falta
+    dlg.grab_set()
+  File "C:\envs\atrpt\Lib\tkinter\__init__.py", line 964, in grab_set
+    self.tk.call('grab', 'set', self._w)
+_tkinter.TclError: bad window path name ".!toplevel61"
+2026-05-17 23:46:06,716 [ERROR] presentation.correio.correio_controller - Erro no diálogo para 'fat_MEOSE_20221231_2.pdf'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 634, in ler_faturas_directorio
+    correcao = on_dados_incompletos(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\faturas_gui.py", line 294, in _pedir_dados_em_falta
+    dlg.grab_set()
+  File "C:\envs\atrpt\Lib\tkinter\__init__.py", line 964, in grab_set
+    self.tk.call('grab', 'set', self._w)
+_tkinter.TclError: bad window path name ".!toplevel65"
+2026-05-17 23:46:32,825 [ERROR] presentation.correio.correio_controller - Erro no diálogo para 'fat_MEOSE_20260128_2.pdf'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 634, in ler_faturas_directorio
+    correcao = on_dados_incompletos(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\faturas_gui.py", line 294, in _pedir_dados_em_falta
+    dlg.grab_set()
+  File "C:\envs\atrpt\Lib\tkinter\__init__.py", line 964, in grab_set
+    self.tk.call('grab', 'set', self._w)
+_tkinter.TclError: bad window path name ".!toplevel89"
+2026-05-17 23:46:33,861 [ERROR] presentation.correio.correio_controller - Erro no diálogo para 'fat_MEOSE_20260226_1_1.pdf'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 634, in ler_faturas_directorio
+    correcao = on_dados_incompletos(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\faturas_gui.py", line 294, in _pedir_dados_em_falta
+    dlg.grab_set()
+  File "C:\envs\atrpt\Lib\tkinter\__init__.py", line 964, in grab_set
+    self.tk.call('grab', 'set', self._w)
+_tkinter.TclError: bad window path name ".!toplevel91"
+2026-05-17 23:46:41,589 [ERROR] presentation.correio.correio_controller - Erro no diálogo para 'fat_MEOSE_20260426_1_1.pdf'
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\correio_controller.py", line 634, in ler_faturas_directorio
+    correcao = on_dados_incompletos(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\correio\faturas_gui.py", line 294, in _pedir_dados_em_falta
+    dlg.grab_set()
+  File "C:\envs\atrpt\Lib\tkinter\__init__.py", line 964, in grab_set
+    self.tk.call('grab', 'set', self._w)
+_tkinter.TclError: bad window path name ".!toplevel101"

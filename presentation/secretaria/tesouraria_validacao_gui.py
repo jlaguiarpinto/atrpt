@@ -1,6 +1,7 @@
 #atrpt/presentation/tesouraria_validacao_gui.py
 import tkinter as tk
 from tkinter import ttk, messagebox
+from application.secretaria.tesouraria_service import TesourariaService
 
 
 class TesourariaValidacaoGUI(tk.Toplevel):
@@ -115,16 +116,7 @@ class TesourariaValidacaoGUI(tk.Toplevel):
 
 class EditarMovimentoGUI(tk.Toplevel):
 
-    TIPOS = [
-        "Mensalidade",
-        "PIM",
-        "Mensalidade + PIM",
-        "Caução",
-        "Almoço",
-        "Quota",
-        "Financeiro",
-        "P/ averiguar"
-    ]
+    TIPOS = list(TesourariaService.OPCOES_TIPO_MOVIMENTO.values())
 
     def __init__(self, parent, row_data, residentes_lookup, callback):
         super().__init__(parent)

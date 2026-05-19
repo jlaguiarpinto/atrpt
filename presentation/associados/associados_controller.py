@@ -5,7 +5,6 @@ import logging
 import tkinter as tk
 from tkinter import filedialog, messagebox as mb
 from presentation.associados.associados_menu_gui import AssociadosMenuGUI
-from presentation.associados.associados_email_gui import AssociadosEmailGUI
 from application.shared.aplicar_filtros import aplicar_filtros
 from application.associados.enviar_emails_usecase import EnviarEmailsAssociadosUseCase  # NOVO use case
 
@@ -29,6 +28,7 @@ class AssociadosController:
         self.usecase = container.usecase       
         self.ficheiro_envio = None
         self.gui = None
+        self._mensagens_preparadas = None
 
     def start(self):
         self.gui = AssociadosMenuGUI(self.root, self)
@@ -53,14 +53,18 @@ class AssociadosController:
         # ------------------------------------------
 
         # ------------------------------------------
-        anexos = filedialog.askopenfilenames(title="Selecione os anexos")                    # ANEXOS    
-
-        if anexos:
-            self.anexos = list(anexos)
-            nomes = [Path(a).name for a in anexos]
-            logger.info(f"✅ Anexos: {', '.join(nomes)}")
+        self.anexos = []
+        while True:
+            anexo = filedialog.askopenfilename(title="Selecione um anexo (cancelar para terminar)")
+            if not anexo:
+                break
+            self.anexos.append(anexo)
+            logger.info(f"✅ Anexo: {Path(anexo).name}")
+            if not mb.askyesno("Anexos", "Anexar mais um ficheiro?"):
+                break
+        if self.anexos:
+            logger.info(f"✅ Anexos: {', '.join(Path(a).name for a in self.anexos)}")
         else:
-            self.anexos = []
             logger.info("ℹ️ Sem anexos")
 
         ficheiro_associados = filedialog.askopenfilename(                                   # FICHEIRO DE ASSOCIADOS
@@ -83,49 +87,159 @@ class AssociadosController:
 
         resultado = self.usecase.preparar(
             template_path=str(self.template),
-            anexos = self.anexos)            
+            anexos = self.anexos)
         self.ficheiro_envio = Path(resultado["ficheiro_envio"])
         logger.info(f"✅ Ficheiro criado: {self.ficheiro_envio.name}")
         total = resultado.get("total")
         logger.info(f"✅ {total} mensagens preparadas")
 
+        total = self._excluir_duplicados(total)
 
-        # ------------------------------------------
-        # IR PARA GUI DE ENVIO
-        # ------------------------------------------
-        self.gui.show_view(AssociadosEmailGUI, self)
-    
+        if mb.askyesno("Destinatários", f"{total} destinatários preparados.\nDeseja excluir algum manualmente?"):
+            total = self._dialogo_excluir_destinatarios(total)
+
+        # logs passam pelo txt_output do BaseGui (gui raiz)
+        self.email_gui = self.gui
+
+        resumo = (
+            f"Ficheiro: {self.ficheiro_envio.name}\n"
+            f"Destinatários prontos para envio: {total}"
+        )
+        self.gui.mostrar_resumo_envio(resumo)
+        self.root.after(300, self.analisar_mensagens)
+
+    # ==========================================
+    # EXCLUSÃO DE DESTINATÁRIOS
+    # ==========================================
+
+    def _excluir_duplicados(self, total_atual: int) -> int:
+        import pandas as pd
+
+        df = pd.read_excel(self.ficheiro_envio)
+        duplicados = df[df.duplicated(subset=["email"], keep=False)]
+
+        if duplicados.empty:
+            return total_atual
+
+        n_dup = df.duplicated(subset=["email"], keep="first").sum()
+        resposta = mb.askyesno(
+            "Emails repetidos",
+            f"Existem {n_dup} registo(s) com email duplicado.\nExcluir duplicados?"
+        )
+        if resposta:
+            df = df.drop_duplicates(subset=["email"], keep="first")
+            df.to_excel(self.ficheiro_envio, index=False)
+            logger.info(f"✅ {n_dup} duplicado(s) removido(s). Restam {len(df)} destinatários.")
+            return len(df)
+
+        return total_atual
+
+    def _dialogo_excluir_destinatarios(self, total_atual: int) -> int:
+        import tkinter as tk
+        import pandas as pd
+
+        df = pd.read_excel(self.ficheiro_envio)
+        if "email" not in df.columns or "nome" not in df.columns:
+            mb.showwarning("Aviso", "Ficheiro sem colunas 'email'/'nome'.")
+            return total_atual
+
+        win = tk.Toplevel(self.root)
+        win.title("Excluir destinatários")
+        win.geometry("540x520")
+        win.transient(self.root)
+        win.grab_set()
+        win.focus_force()
+
+        tk.Label(win, text="Pesquisar:", font="Verdana 10").pack(anchor="w", padx=12, pady=(10, 0))
+        pesquisa_var = tk.StringVar()
+        entry = tk.Entry(win, textvariable=pesquisa_var, font="Verdana 10", width=50)
+        entry.pack(padx=12, pady=(2, 6))
+        entry.focus_set()
+
+        frame_lista = tk.Frame(win)
+        frame_lista.pack(fill="both", expand=True, padx=12)
+
+        scrollbar = tk.Scrollbar(frame_lista)
+        scrollbar.pack(side="right", fill="y")
+
+        listbox = tk.Listbox(
+            frame_lista, selectmode="multiple",
+            yscrollcommand=scrollbar.set,
+            font="Courier 9", width=70, height=22,
+        )
+        listbox.pack(side="left", fill="both", expand=True)
+        scrollbar.config(command=listbox.yview)
+
+        registos = list(zip(df["nome"].fillna(""), df["email"].fillna("")))
+
+        def _preencher(filtro=""):
+            listbox.delete(0, tk.END)
+            filtro = filtro.lower()
+            for nome, email in registos:
+                if filtro in nome.lower() or filtro in email.lower():
+                    listbox.insert(tk.END, f"{nome:<30}  {email}")
+
+        _preencher()
+        pesquisa_var.trace_add("write", lambda *_: _preencher(pesquisa_var.get()))
+
+        resultado = {"excluidos": []}
+
+        def _confirmar():
+            selecionados = listbox.curselection()
+            filtro = pesquisa_var.get().lower()
+            visiveis = [
+                (n, e) for n, e in registos
+                if filtro in n.lower() or filtro in e.lower()
+            ]
+            resultado["excluidos"] = [visiveis[i][1] for i in selecionados]
+            win.destroy()
+
+        frame_btns = tk.Frame(win)
+        frame_btns.pack(pady=8)
+        tk.Button(frame_btns, text="Excluir selecionados", command=_confirmar,
+                  bg="#F1E2CF", font="Verdana 10 bold").pack(side="left", padx=10)
+        tk.Button(frame_btns, text="Não excluir nenhum", command=win.destroy,
+                  font="Verdana 10").pack(side="left", padx=10)
+
+        win.protocol("WM_DELETE_WINDOW", win.destroy)
+        win.wait_window()
+
+        emails_excluir = resultado["excluidos"]
+        if emails_excluir:
+            df_filtrado = df[~df["email"].isin(emails_excluir)]
+            df_filtrado.to_excel(self.ficheiro_envio, index=False)
+            restantes = len(df_filtrado)
+            logger.info(f"✅ {len(emails_excluir)} excluído(s). Restam {restantes} destinatários.")
+            return restantes
+        else:
+            logger.info("ℹ️ Nenhum destinatário excluído.")
+            return total_atual
+
     # ==========================================
     # FASE 2: ANÁLISE (opcional, pode ser chamada da UI)
     # ==========================================
     
     def analisar_mensagens(self):
         """Analisa as mensagens preparadas e mostra preview"""
-        if self._mensagens_preparadas is None:
-            logger.error("Nenhuma mensagem preparada. Execute preparar_envio primeiro.")
+        if not self.ficheiro_envio or not Path(self.ficheiro_envio).exists():
+            logger.error("Nenhum ficheiro preparado. Execute 'Preparar' primeiro.")
+            mb.showerror("Erro", "Nenhum ficheiro preparado.\nExecute 'Preparar' primeiro.")
             return
-        
+
         def worker():
             try:
                 self._thread_safe_log("🔍 Analisando mensagens...")
-                
+
                 analise = self.usecase.analisar(
+                    ficheiro_envio=str(self.ficheiro_envio),
                     preview_n=5,
-                    on_progress=self._thread_safe_log
                 )
                 
-                # Mostrar recomendações
-                if analise.recomendacoes:
-                    self.root.after(0, lambda: mb.showwarning(
-                        "Recomendações",
-                        "\n".join(analise.recomendacoes)
-                    ))
-                
-                # Mostrar estatísticas
                 self._thread_safe_log(f"\n📊 Estatísticas:")
-                self._thread_safe_log(f"   total: {analise.total_mensagens}")
-                self._thread_safe_log(f"   Emails únicos: {analise.estatisticas['total_unicos']}")
-                self._thread_safe_log(f"   Tamanho médio HTML: {analise.estatisticas['tamanho_medio_html']:.0f} chars")
+                self._thread_safe_log(f"   Total: {analise.get('total', 0)}")
+                self._thread_safe_log(f"   Válidos: {analise.get('validos', 0)}")
+                self._thread_safe_log(f"   Inválidos: {analise.get('invalidos', 0)}")
+                self._thread_safe_log(f"   A enviar: {analise.get('a_enviar', analise.get('validos', 0))}")
                 
             except Exception as e:
                 logger.exception("Erro na análise")
@@ -133,16 +247,14 @@ class AssociadosController:
         threading.Thread(target=worker, daemon=True).start()
       
     def enviar(self, callback=None):
-        """Envia os emails - lê do ficheiro selecionado e envia apenas pendentes"""
-        ficheiro = filedialog.askopenfilename(                                             # TEMPLATE     
-            title="Template do email",
-            filetypes=[("Arquivos Excel", "*.xlsx *.xls")])
-
-        if not ficheiro:
-            logger.info("Envio cancelado:  ficheiro não selecionado")
+        """Envia os emails a partir do ficheiro preparado em preparar_envio."""
+        if not self.ficheiro_envio or not Path(self.ficheiro_envio).exists():
+            logger.error("Nenhum ficheiro de envio preparado. Execute 'Preparar' primeiro.")
+            mb.showerror("Erro", "Nenhum ficheiro de envio preparado.\nExecute 'Preparar' primeiro.")
             return
 
-        logger.info("📧 Iniciando envio de emails...")               
+        ficheiro = str(self.ficheiro_envio)
+        logger.info("📧 Iniciando envio de emails...")
 
         resultado = self.usecase.enviar(ficheiro, on_progress=self._thread_safe_log)
         
@@ -157,6 +269,105 @@ class AssociadosController:
             callback(resultado)
         
         return resultado
+
+    def retomar_envio(self):
+        """Retoma um envio anterior, enviando apenas os registos ainda por enviar."""
+        import pandas as pd
+
+        pasta_padrao = self.usecase.envio_repository.base_dir
+        ficheiro = filedialog.askopenfilename(
+            title="Selecionar ficheiro de envio para retomar",
+            initialdir=str(pasta_padrao) if pasta_padrao.exists() else ".",
+            filetypes=[("Excel", "*.xlsx *.xls")],
+        )
+        if not ficheiro:
+            return
+
+        try:
+            df = pd.read_excel(ficheiro)
+        except Exception as e:
+            mb.showerror("Erro", f"Não foi possível abrir o ficheiro:\n{e}")
+            return
+
+        if "data_envio" not in df.columns:
+            mb.showerror(
+                "Ficheiro inválido",
+                "O ficheiro selecionado não contém a coluna 'data_envio'.\n"
+                "Selecione um ficheiro de envio gerado por esta aplicação.",
+            )
+            return
+
+        total = len(df)
+        enviados = df["data_envio"].notna().sum()
+        por_enviar = total - enviados
+
+        if por_enviar == 0:
+            mb.showinfo(
+                "Envio já completo",
+                f"Todos os {total} registos já foram enviados.\nNão há nada a retomar.",
+            )
+            return
+
+        erros = 0
+        if "status_envio" in df.columns:
+            erros = (df["status_envio"].str.upper() == "ERRO").sum()
+
+        resumo_stats = (
+            f"Total de registos: {total}\n"
+            f"Já enviados (OK):  {enviados}\n"
+            f"Com erro:          {erros}\n"
+            f"Por enviar:        {por_enviar}"
+        )
+
+        if not mb.askyesno(
+            "Retomar envio",
+            f"Ficheiro: {Path(ficheiro).name}\n\n{resumo_stats}\n\n"
+            "Deseja retomar o envio dos registos em falta?",
+        ):
+            return
+
+        self.ficheiro_envio = Path(ficheiro)
+        self.email_gui = self.gui
+
+        resumo_ui = (
+            f"Ficheiro: {Path(ficheiro).name}\n"
+            f"Destinatários por enviar: {por_enviar} (de {total})"
+        )
+        self.gui.mostrar_resumo_envio(resumo_ui)
+
+        self._thread_safe_log(f"Ficheiro: {Path(ficheiro).name}")
+        self._thread_safe_log(resumo_stats.replace("\n", " | "))
+        self._thread_safe_log("A iniciar envio...")
+
+        def worker():
+            try:
+                resultado = self.usecase.enviar(
+                    str(self.ficheiro_envio),
+                    on_progress=self._thread_safe_log,
+                )
+                if resultado is None:
+                    resultado = {"status": "erro", "mensagem": "Resultado vazio do usecase"}
+
+                if resultado.get("status") == "concluido":
+                    logger.info(
+                        "✅ Enviados: %s | Erros: %s",
+                        resultado.get("enviados", 0),
+                        resultado.get("erros", 0),
+                    )
+                    self.root.after(0, lambda: mb.showinfo(
+                        "Envio concluído",
+                        f"Enviados: {resultado.get('enviados', 0)}\n"
+                        f"Erros:    {resultado.get('erros', 0)}",
+                    ))
+                else:
+                    msg = resultado.get("mensagem", "Erro desconhecido")
+                    self.root.after(0, lambda: mb.showerror("Erro no envio", msg))
+
+            except Exception as e:
+                logger.exception("Erro ao retomar envio")
+                self.root.after(0, lambda: mb.showerror("Erro no envio", str(e)))
+
+        threading.Thread(target=worker, daemon=True).start()
 
             # ==========================================
             # MÉTODOS DE SUPORTE (mantidos da sua versão)
@@ -188,7 +399,6 @@ class AssociadosController:
     def _thread_safe_log(self, msg: str):
         from datetime import datetime
         timestamp = datetime.now().strftime("%H:%M:%S")
-        logger.info(msg)
         def update_ui():
             if hasattr(self, 'email_gui') and self.email_gui:
                 if hasattr(self.email_gui, 'log'):

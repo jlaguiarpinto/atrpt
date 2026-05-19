@@ -2,7 +2,7 @@
 
 import tkinter as tk
 from pathlib import Path
-from core.config import load_config
+from core.config import load_config, load_paths
 from core.logging_utils import setup_logging, setup_audit_logger
 
 
@@ -11,6 +11,7 @@ _APP_INI = Path(r"G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\A
 
 def main():
     root = tk.Tk()
+    root.withdraw()
     root.title("ATRPT - Pessoas")
 
     try:
@@ -19,7 +20,8 @@ def main():
     except Exception:
         pass
 
-    cfg       = load_config(_APP_INI)
+    cfg = load_config(_APP_INI)
+    cfg.paths = load_paths(_APP_INI, "paths_comum", "paths_pessoas")
     setup_logging(cfg, "pessoas")
     audit_log = setup_audit_logger(cfg, "pessoas")
 
@@ -31,6 +33,7 @@ def main():
     db_path      = cfg.paths["atrpt_db"]
     user_repo    = UserRepository(db_path)
     user_context = LoginUseCase(user_repo).execute(root)
+    root.deiconify()
 
     controller     = PessoasController(cfg, user_context, audit_log)
     gui            = PessoasGUI(root, controller)

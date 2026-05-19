@@ -86,3 +86,84 @@
 2026-04-30 15:41:20 | virginia | editar_fornecedor | id=117 nome=Gaiurb - Urbanismo e Habitação e M nif=506064433
 2026-04-30 15:50:57 | virginia | editar_fornecedor | id=101 nome=Exactusensu Consultores Associados Lda nif=504667831
 2026-04-30 15:59:11 | virginia | editar_fornecedor | id=220 nome=Rentokil Initial Portugal - Serviços de Protecção Ambiental, Unipessoal, Lda nif=501351167
+2026-05-04 13:55:53 | virginia | editar_fornecedor | id=15 nome=Alcino Pereira - Electronica Lda nif=509483640
+2026-05-04 14:03:15 | virginia | editar_fornecedor | id=16 nome=Alfredo Ribeiro - Consultoria de Negócios e Gestão Lda nif=507688856
+2026-05-05 11:23:39 | virginia | editar_fornecedor | id=55 nome=Caixa Economica Montepio Geral nif=500792615
+2026-05-05 11:44:39 | virginia | editar_fornecedor | id=65 nome=Chaves das Antas Cofres e Fechaduras Lda nif=505036371
+2026-05-05 11:50:19 | virginia | editar_fornecedor | id=198 nome=Onlybattery Pilhas e Baterias S A nif=506317994
+2026-05-05 12:16:05 | virginia | editar_fornecedor | id=258 nome=Traçado Constante Lda "Canon" nif=513575014
+2026-05-05 12:26:18 | virginia | editar_fornecedor | id=258 nome=Traçado Constante Lda nif=513575014
+2026-05-05 12:27:01 | virginia | editar_fornecedor | id=258 nome=Traçado Constante Lda "Canon" nif=513575014
+2026-05-05 14:16:15 | virginia | editar_fornecedor | id=9 nome=Adricarnes Adriana M. de S. C. Lopes nif=202091376
+2026-05-06 11:45:28 | utilizador | editar_fornecedor | id=13 nome=Alberto Floriano Lopes Vila Pouca nif=146980662
+2026-05-06 11:47:14 | utilizador | editar_fornecedor | id=24 nome=Angela Malheiro Unipessoal Lda nif=515571504
+2026-05-08 09:31:25 | virginia | editar_fornecedor | id=272 nome=Watercare Tratamento de Aguas Lda nif=506550672
+2026-05-08 11:08:48 | virginia | editar_fornecedor | id=104 nome=F3m - Information Systems Sa nif=501854371
+2026-05-10 19:21:15 | utilizador | pedir_aprovacao | pedido=2026/01 fornecedor=114 valor=7439.23 dir_fin=utilizador dir2=utilizador
+2026-05-10 19:31:04 | utilizador | pedir_aprovacao | pedido=2026/02 fornecedor=854 valor=2035.35 dir_fin=utilizador dir2=hp
+2026-05-10 19:32:52 | utilizador | autorizar_pedido | pedido=2026/02 proposta_forn=854
+2026-05-11 16:25:40 | utilizador | adicionar_anexo | pedido=2026/01 path=G:/.shortcut-targets-by-id/1U63DGZ6urrQl6543DNHJZQR93oRmv-G2/Associados/Comunicação/envio_emails/JornalMarço26.docx_20260404_1105.xlsx
+2026-05-11 17:17:09 | utilizador | adicionar_anexo | pedido=2026/01 path=G:/.shortcut-targets-by-id/1wt9AXRO3Hk4wBQv-tjY_Z8oHn1nR7ful/Servicos_Gerais/Encomendas/Manutenção de extintores e carreteis/EXTINDOURO/032026037_ATRPT_Op.2.pdf
+2026-05-11 17:17:10 | utilizador | pedir_aprovacao | pedido=2026/01 fornecedor=102 valor=469.0 dir_fin=utilizador dir2=utilizador
+2026-05-11 17:39:44 | utilizador | pedir_aprovacao | pedido=2026/01 fornecedor=102 valor=670.0 dir_fin=utilizador dir2=utilizador
+2026-05-11 17:40:35 | utilizador | autorizar_pedido | pedido=2026/01 proposta_forn=102
+2026-05-12 11:17:14 | virginia | editar_fornecedor | id=854 nome=Astrolimpa nif=None
+2026-05-12 11:21:58 | virginia | editar_fornecedor | id=854 nome=Astrolimpa nif=None
+2026-05-12 12:02:44 | virginia | editar_fornecedor | id=147 nome=Kone Portugal Elevadores Lda nif=506682048
+2026-05-12 14:17:10 | virginia | editar_fornecedor | id=856 nome=Adriana Aluai nif=248061232
+2026-05-12 14:21:13 | virginia | editar_fornecedor | id=857 nome=Beatriz Saraiva nif=252341902
+2026-05-12 14:22:32 | virginia | editar_fornecedor | id=10 nome=Aguas de Carvalhelhos S A nif=500012032
+2026-05-12 14:22:54 | virginia | editar_fornecedor | id=15 nome=Alcino Pereira - Electronica Lda nif=509483640
+2026-05-12 14:29:10 | virginia | editar_fornecedor | id=833 nome=Melhor Conteudo Lda nif=508639867
+2026-05-12 14:30:05 | virginia | editar_fornecedor | id=846 nome=Mundo Note - Papelaria, Livraria e Serviços, S.A. nif=517309505
+2026-05-12 14:30:58 | virginia | editar_fornecedor | id=836 nome=Papelaria Poparte Lda nif=502971789
+2026-05-12 14:37:25 | virginia | editar_fornecedor | id=193 nome=O Gaiense Comunicação e Eventos Unipessoal Lda nif=507223411
+2026-05-12 14:38:49 | virginia | editar_fornecedor | id=193 nome=O Gaiense Comunicação e Eventos Unipessoal Lda nif=507223411
+2026-05-12 14:39:36 | virginia | editar_fornecedor | id=223 nome=Rocha e Leitao Lda nif=501270396
+2026-05-12 14:43:59 | virginia | editar_fornecedor | id=238 nome=SSPR - Sociedade de Serviços, Lda nif=513417095
+2026-05-12 14:46:32 | virginia | editar_fornecedor | id=241 nome=Stilc Serviços Tecnicos de Informatica Logistica e Comunicação Lda nif=503082520
+2026-05-12 14:52:37 | virginia | editar_fornecedor | id=239 nome=Stapls Portugal - Equipamento de Escritorio S A nif=503789372
+2026-05-12 14:54:00 | virginia | editar_fornecedor | id=255 nome=Tipografia Formosa Lda nif=500284873
+2026-05-13 11:23:08 | virginia | editar_fornecedor | id=4 nome=A M Pereira Lda nif=502615079
+2026-05-13 11:27:04 | virginia | editar_fornecedor | id=2 nome=A a Ferreira e Pinheiro Lda nif=500680302
+2026-05-13 11:27:29 | virginia | editar_fornecedor | id=6 nome=A. Cunha Têxteis Lar , Lda nif=509726534
+2026-05-13 11:29:43 | virginia | editar_fornecedor | id=834 nome=Acin-Icloud Solutions, Lda nif=511135610
+2026-05-13 11:32:46 | virginia | editar_fornecedor | id=7 nome=Acontecimax Unipessoal Lda nif=508749247
+2026-05-13 11:34:38 | virginia | editar_fornecedor | id=8 nome=Action Storeops Portugal Lda nif=517247739
+2026-05-13 11:40:29 | virginia | editar_fornecedor | id=844 nome=Ajanta Investimentos Imobiliarios Sa nif=501528300
+2026-05-13 11:42:10 | virginia | editar_fornecedor | id=18 nome=Allmai Lda nif=515002852
+2026-05-13 11:44:39 | virginia | editar_fornecedor | id=20 nome=Amenworld Serviços Internet Sociedade Unipessoal Lda nif=507207629
+2026-05-13 11:45:51 | virginia | editar_fornecedor | id=32 nome=Aquário-Comércio de Electrónica, S.A. nif=501918515
+2026-05-13 11:47:32 | virginia | editar_fornecedor | id=36 nome=Artifofo - Equipamentos Hospitalares e Farmaceuticos Lda nif=506226352
+2026-05-13 11:48:10 | virginia | editar_fornecedor | id=38 nome=Auchan Energy S A nif=516527835
+2026-05-13 11:48:25 | virginia | editar_fornecedor | id=315 nome=Auchan Retail Portugal, S.A. nif=503003808
+2026-05-13 12:10:45 | virginia | editar_fornecedor | id=17 nome=Alfredo Santos da Costa nif=132180731
+2026-05-13 12:12:45 | virginia | editar_fornecedor | id=31 nome=Antonio Santos e Cia Lda nif=500026335
+2026-05-13 12:13:03 | virginia | editar_fornecedor | id=32 nome=Aquário-Comércio de Electrónica, S.A. nif=501918515
+2026-05-13 12:14:21 | virginia | editar_fornecedor | id=38 nome=Auchan Energy S A nif=516527835
+2026-05-13 12:15:03 | virginia | editar_fornecedor | id=41 nome=Avedol - Expositores Estantaria e Artigos Em Arame Lda nif=500590362
+2026-05-13 12:16:48 | virginia | editar_fornecedor | id=43 nome=Azul Inalteravel - Unipessoal Lda nif=516790765
+2026-05-13 12:18:13 | virginia | editar_fornecedor | id=44 nome=Bcm Bricolage S A nif=506848558
+2026-05-13 12:20:12 | virginia | editar_fornecedor | id=45 nome=Bcr - Brisa Concessão Rodoviária, S.A. nif=502790024
+2026-05-13 12:27:15 | virginia | editar_fornecedor | id=47 nome=Bestofgifts, Lda nif=504807854
+2026-05-13 12:29:14 | virginia | editar_fornecedor | id=47 nome=Bestofgifts, Lda nif=504807854
+2026-05-13 12:30:29 | virginia | editar_fornecedor | id=50 nome=Bizay, S.A. nif=509980422
+2026-05-13 13:44:52 | virginia | editar_fornecedor | id=72 nome=Controsol Controlo Solar e Decoracao Lda nif=502715995
+2026-05-13 13:46:31 | virginia | editar_fornecedor | id=67 nome=Cmpeae - Empresa de Aguas e Energia do Municipio do Porto Em nif=507718666
+2026-05-13 13:49:00 | virginia | editar_fornecedor | id=72 nome=Controsol Controlo Solar e Decoracao Lda nif=502715995
+2026-05-13 13:50:25 | virginia | editar_fornecedor | id=73 nome=Coordenada Perfeita - Unipessoal Lda nif=510665659
+2026-05-13 13:51:02 | virginia | editar_fornecedor | id=74 nome=Cor Digital - Unipessoal Lda nif=510747884
+2026-05-13 13:52:27 | virginia | editar_fornecedor | id=849 nome=Corrente Rosa Lda nif=508271290
+2026-05-13 13:53:24 | virginia | editar_fornecedor | id=76 nome=Cosofang Lda nif=507784707
+2026-05-13 13:54:44 | virginia | editar_fornecedor | id=77 nome=Costa Veiga e Simoes Lda nif=500902321
+2026-05-13 13:58:22 | virginia | editar_fornecedor | id=83 nome=Deolinda Martins Lda nif=501869417
+2026-05-13 14:06:13 | virginia | editar_fornecedor | id=86 nome=Distridema Unipessoal Lda nif=515743372
+2026-05-13 14:07:22 | virginia | editar_fornecedor | id=87 nome=Dstore Retail, S.A. nif=506452581
+2026-05-13 14:20:10 | virginia | editar_fornecedor | id=843 nome=E-Goi Lda nif=514727420
+2026-05-13 14:20:27 | virginia | editar_fornecedor | id=88 nome=Easyphoto Fotografia e Video Unipessoal Lda nif=506857417
+2026-05-13 14:22:43 | virginia | editar_fornecedor | id=93 nome=Elementar Pt - Design Lda nif=506965872
+2026-05-13 14:25:20 | virginia | editar_fornecedor | id=94 nome=Emanuel & Joel Lda nif=510963951
+2026-05-13 14:26:49 | virginia | editar_fornecedor | id=96 nome=Enoteca, Lda nif=501532919
+2026-05-13 14:28:31 | virginia | editar_fornecedor | id=97 nome=Ernesto Pinto Tavares Herdeiros nif=901192570
+2026-05-13 14:29:33 | virginia | editar_fornecedor | id=98 nome=Esfera Generosa - Lda nif=516168185
+2026-05-13 14:30:56 | virginia | editar_fornecedor | id=99 nome=Estrategor Consultores de Gestão Lda nif=503332992

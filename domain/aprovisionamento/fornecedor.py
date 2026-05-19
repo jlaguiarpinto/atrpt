@@ -3,6 +3,24 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
+TIPOS_FORNECEDOR = [
+    "Alimentação e Bebidas",
+    "Higiene e Conforto",
+    "Saúde e Bem Estar",
+    "Lazer e Cultura",
+    "Manutenção Imóveis",
+    "Manutenção Equipamentos",
+    "Deslocação e Transportes",
+    "Comunicações",
+    "Energia",
+    "Outros",
+]
+
+TIPOS_RELACAO = [
+    "Pontual", "Contrato", "Preferencial",
+    "Avençado", "Prestador", "Suspenso",
+]
+
 
 @dataclass
 class Fornecedor:
@@ -15,6 +33,7 @@ class Fornecedor:
     tipo_relacao: Optional[str] = None
     setor: Optional[str] = None
     metodo_pagamento: Optional[str] = None   # TB | DD | MB | OU
+    atividade: Optional[str] = None
 
     # contacto comercial
     comercial_nome: Optional[str] = None

@@ -12,12 +12,14 @@ from application.email.email_sender import EmailSender
 
 class EnviarFaturasPimUseCase:
 
-    def __init__(self, emailer, ctx, faturacao_repo, envio_faturas_repo, logger=None):
+    def __init__(self, emailer, ctx, faturacao_repo, envio_faturas_repo, logger=None,
+                 email_secretaria: str | None = None):
         self.email_sender        = EmailSender(emailer)
         self.ctx                 = ctx
         self.faturacao_repo      = faturacao_repo
         self.envio_faturas_repo  = envio_faturas_repo
         self.logger              = logger
+        self.email_secretaria    = email_secretaria
 
     # --------------------------------------------------
     # FASE 1 — Preparar ficheiro de envio
@@ -116,7 +118,7 @@ class EnviarFaturasPimUseCase:
                     subject=row["subject"],
                     html_body=row["html_body"],
                     attachments=attachments,
-                    bcc=[],
+                    bcc=[self.email_secretaria] if self.email_secretaria else [],
                 )
             )
 

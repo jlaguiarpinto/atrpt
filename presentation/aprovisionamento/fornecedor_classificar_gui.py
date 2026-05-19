@@ -13,18 +13,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from presentation.shared.base_gui import BaseGui as BG
 
-TIPOS_FORNECEDOR = [
-    "Serviços", "Material", "Equipamento", "Obras",
-    "Médico", "Enfermeiro", "Psicólogo", "Fisioterapeuta",
-    "Professor de Ginástica", "Maestro", "Consumíveis",
-    "Talho", "Peixaria", "Mercearia",
-    "Energia", "Manutenção", "Outro",
-]
-
-TIPOS_RELACAO = [
-    "Pontual", "Contrato", "Preferencial",
-    "Avençado", "Prestador", "Suspenso",
-]
+from domain.aprovisionamento.fornecedor import TIPOS_FORNECEDOR, TIPOS_RELACAO
 
 # Categorias destino com cor de etiqueta na treeview
 CATEGORIAS = {
@@ -343,6 +332,9 @@ class FornecedorClassificarGUI(BG):
         cb_pag.set(f.metodo_pagamento or "")
         cb_pag.grid(row=r, column=1, sticky="w", pady=3);              r += 1
 
+        _lbl(r, "Atividade:")
+        ent_ativ = _ent(r, getattr(f, "atividade", "") or "");         r += 1
+
         r = _sep(r, "Contacto Comercial")
         _lbl(r, "Nome:");   ent_c1n = _ent(r, f.comercial_nome);       r += 1
         _lbl(r, "Email:");  ent_c1e = _ent(r, f.comercial_email);      r += 1
@@ -370,6 +362,7 @@ class FornecedorClassificarGUI(BG):
                 "tipo_fornecedor":         cb_tipo.get() or None,
                 "tipo_relacao":            cb_rel.get()  or None,
                 "metodo_pagamento":        cb_pag.get()  or None,
+                "atividade":              ent_ativ.get().strip() or None,
                 "setor":                   f.setor,
                 "comercial_nome":          ent_c1n.get().strip() or None,
                 "comercial_email":         ent_c1e.get().strip() or None,

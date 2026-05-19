@@ -11,18 +11,14 @@ class FarmaciaView:
 
         frame = self.gui.abrir_work_area()
 
-        self.gui.build_header(
-            frame,
-            "Módulo Farmácia",
-            "Processamento PIM"
-        )
-
         opcoes = [
-            ("Ler Faturas", controller.processar_faturacao),
+            ("Ler Faturas",    controller.processar_faturacao),
             ("Gerar novo PIM", controller.produzir_pim),
+            ("Ver PIM",        controller.abrir_pim_em_curso),
             ("Preparar Faturas", controller.preparar_faturas),
             ("Enviar Faturas", controller.enviar_faturas),
-            ("Menu Inicial", lambda: controller.start()),
+            ("Arquivar PIM",   controller.arquivar_pim),
+            ("Menu Inicial",   lambda: controller.start()),
         ]
 
         self.gui.build_button_row(frame, opcoes)

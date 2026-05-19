@@ -14,9 +14,7 @@ from infrastructure.persistence.associados_repository import AssociadosRepo
 from infrastructure.persistence.user_repository import UserRepository
 from infrastructure.persistence.pedido_repository import PedidoRepositorySQL
 from infrastructure.persistence.fornecedor_repository import FornecedorRepository
-from infrastructure.persistence.residentes_repository import ResidentesRepository
 from infrastructure.persistence.inflow_repository import InflowRepository
-from infrastructure.persistence.secretaria.pim_repository import PimRepository
 
 
 from infrastructure.email.smtp_client import SmtpClient

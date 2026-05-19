@@ -1,331 +1,61 @@
-2026-03-24 10:08:29,951 [ERROR] root - Erro no processamento do Ponto
-NoneType: None
-2026-03-24 10:25:06,438 [ERROR] root - Erro no processamento do Ponto
-NoneType: None
-2026-03-24 10:28:46,615 [ERROR] root - Erro no processamento do Ponto
-NoneType: None
-2026-03-24 10:43:44,460 [ERROR] root - Erro no processamento do Ponto
-NoneType: None
-2026-03-24 10:54:16,281 [ERROR] root - Erro no processamento do Ponto
-NoneType: None
-2026-03-24 10:54:57,733 [ERROR] root - Erro no processamento do Ponto
-NoneType: None
-2026-03-24 10:56:31,550 [ERROR] root - Erro no processamento do Ponto
-NoneType: None
-2026-03-24 11:20:47,110 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 11:24:17,822 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 11:29:13,287 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 11:37:39,739 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:00:45,971 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:03:56,989 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:12:10,809 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:17:06,622 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:18:48,373 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:35:23,681 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:39:20,801 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:44:12,053 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 12:49:04,120 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 15:07:22,251 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 15:30:03,241 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 15:31:12,284 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 15:35:38,344 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 15:41:37,473 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 15:48:36,014 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 15:59:06,683 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:01:37,799 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:05:32,371 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:13:05,018 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:17:31,776 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:20:39,230 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:24:56,209 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:27:19,830 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:29:49,279 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:36:31,044 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:43:12,101 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-03-24 16:45:35,202 [ERROR] presentation.ponto.ponto_controller - Erro
-NoneType: None
-2026-04-12 20:08:34,254 [ERROR] application.email.email_sender - [1/62] ERRO → victor-miller@hotmail.com
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\email_sender.py", line 189, in send_batch
-    status, _ = self.send(msg,recipients)
-                ^^^^^^^^^
-AttributeError: 'EmailSender' object has no attribute 'send'
-2026-04-21 17:53:31,668 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: 'presenca'
-Traceback (most recent call last):
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
-    return self._engine.get_loc(casted_key)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
-  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'presenca'
 
-The above exception was the direct cause of the following exception:
-
+2026-05-10 13:40:18,908 [ERROR] application.email.email_sender - [1/25] ERRO → victor-miller@hotmail.com
 Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 57, in executar
-    mensal = self._aplicar_regras_negocio(mensal)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 92, in _aplicar_regras_negocio
-    df["presente_flag"] = (pd.to_numeric(df["presenca"], errors="coerce") > 0).astype(int)
-                                         ~~^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
-    indexer = self.columns.get_loc(key)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
-    raise KeyError(key) from err
-KeyError: 'presenca'
-2026-04-21 17:59:56,488 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: 'presenca'
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\email_sender.py", line 322, in send_batch
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 108, in send
+    self._smtp.send_message(mime, to_addrs=recipients)
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (550, b'5.2.0 M3SBwgKlFmakW Spam Rejected')
+2026-05-10 13:40:23,610 [ERROR] application.email.email_sender - [2/25] ERRO → dfb_diana@hotmail.com
 Traceback (most recent call last):
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
-    return self._engine.get_loc(casted_key)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
-  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'presenca'
-
-The above exception was the direct cause of the following exception:
-
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\email_sender.py", line 322, in send_batch
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 108, in send
+    self._smtp.send_message(mime, to_addrs=recipients)
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (550, b'5.2.0 M3SGwpPkmSMHl Spam Rejected')
+2026-05-10 13:40:29,954 [ERROR] application.email.email_sender - [3/25] ERRO → paul0.mendes@hotmail.com
 Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 57, in executar
-    mensal = self._aplicar_regras_negocio(mensal)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 92, in _aplicar_regras_negocio
-    df["presente_flag"] = (pd.to_numeric(df["presenca"], errors="coerce") > 0).astype(int)
-                                         ~~^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
-    indexer = self.columns.get_loc(key)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
-    raise KeyError(key) from err
-KeyError: 'presenca'
-2026-04-21 18:03:22,197 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: 'presenca'
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\email_sender.py", line 322, in send_batch
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 108, in send
+    self._smtp.send_message(mime, to_addrs=recipients)
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (550, b'5.2.0 M3SMwgmuhdK1E Spam Rejected')
+2026-05-10 13:40:36,432 [ERROR] application.email.email_sender - [4/25] ERRO → jaime_paula@hotmail.com
 Traceback (most recent call last):
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
-    return self._engine.get_loc(casted_key)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
-  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'presenca'
-
-The above exception was the direct cause of the following exception:
-
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\email_sender.py", line 322, in send_batch
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 108, in send
+    self._smtp.send_message(mime, to_addrs=recipients)
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (550, b'5.2.0 M3SSwgL2cmakW Spam Rejected')
+2026-05-10 13:40:45,978 [ERROR] application.email.email_sender - [6/25] ERRO → Jose.a.leocadio@hotmail.com
 Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 57, in executar
-    mensal = self._aplicar_regras_negocio(mensal)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 92, in _aplicar_regras_negocio
-    df["presente_flag"] = (pd.to_numeric(df["presenca"], errors="coerce") > 0).astype(int)
-                                         ~~^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
-    indexer = self.columns.get_loc(key)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
-    raise KeyError(key) from err
-KeyError: 'presenca'
-2026-04-21 18:05:32,593 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: 'presenca'
-Traceback (most recent call last):
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
-    return self._engine.get_loc(casted_key)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
-  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'presenca'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 57, in executar
-    mensal = self._aplicar_regras_negocio(mensal)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 92, in _aplicar_regras_negocio
-    df["presente_flag"] = (pd.to_numeric(df["presenca"], errors="coerce") > 0).astype(int)
-                                         ~~^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
-    indexer = self.columns.get_loc(key)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
-    raise KeyError(key) from err
-KeyError: 'presenca'
-2026-04-21 18:13:25,495 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: 'presenca'
-Traceback (most recent call last):
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3791, in get_loc
-    return self._engine.get_loc(casted_key)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "index.pyx", line 152, in pandas._libs.index.IndexEngine.get_loc
-  File "index.pyx", line 181, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas\_libs\hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'presenca'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 57, in executar
-    mensal = self._aplicar_regras_negocio(mensal)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 92, in _aplicar_regras_negocio
-    df["presente_flag"] = (pd.to_numeric(df["presenca"], errors="coerce") > 0).astype(int)
-                                         ~~^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 3893, in __getitem__
-    indexer = self.columns.get_loc(key)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexes\base.py", line 3798, in get_loc
-    raise KeyError(key) from err
-KeyError: 'presenca'
-2026-04-21 18:55:07,164 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: 'tuple' object has no attribute 'sort_values'
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 58, in executar
-    mensal = mensal.sort_values(["nome", "data"])
-             ^^^^^^^^^^^^^^^^^^
-AttributeError: 'tuple' object has no attribute 'sort_values'
-2026-04-21 19:00:49,869 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 56, in executar
-    df_mensal = pd.DataFrame(mensal)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 822, in __init__
-    mgr = ndarray_to_mgr(
-          ^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\internals\construction.py", line 319, in ndarray_to_mgr
-    values = _prep_ndarraylike(values, copy=copy_on_sanitize)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\internals\construction.py", line 575, in _prep_ndarraylike
-    values = np.array([convert(v) for v in values])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
-2026-04-21 19:08:10,904 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 55, in executar
-    df_mensal = pd.DataFrame(mensal)
-                ^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 822, in __init__
-    mgr = ndarray_to_mgr(
-          ^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\internals\construction.py", line 319, in ndarray_to_mgr
-    values = _prep_ndarraylike(values, copy=copy_on_sanitize)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\internals\construction.py", line 575, in _prep_ndarraylike
-    values = np.array([convert(v) for v in values])
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
-2026-04-21 19:23:10,122 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: 'tuple' object has no attribute 'sort_values'
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 54, in executar
-    mensal = mensal.sort_values(["nome", "data"])
-             ^^^^^^^^^^^^^^^^^^
-AttributeError: 'tuple' object has no attribute 'sort_values'
-2026-04-22 18:29:15,745 [ERROR] application.secretaria.processar_ponto_usecase - Erro ao gravar resumo: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202603\\202603_Resumo.xlsx'
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 89, in executar
-    repo.guardar_mensal(mensal)
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\persistence.secretaria.ponto_repository.py", line 67, in guardar_mensal
-    df.to_excel(self.ficheiro_resumo, index=False)
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
-    formatter.write(
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\formats\excel.py", line 946, in write
-    writer = ExcelWriter(  # type: ignore[abstract]
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_xlsxwriter.py", line 205, in __init__
-    super().__init__(
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\excel\_base.py", line 1263, in __init__
-    self._handles = get_handle(
-                    ^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\io\common.py", line 872, in get_handle
-    handle = open(handle, ioargs.mode)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^
-PermissionError: [Errno 13] Permission denied: 'G:\\.shortcut-targets-by-id\\1YUU7cpAVBqQ-XmuiuqVAzKPjw-UZdVg8\\CSAG\\Ponto\\202603\\202603_Resumo.xlsx'
-2026-04-22 19:49:03,373 [ERROR] application.secretaria.processar_ponto_usecase - Erro ao gravar erros: Unalignable boolean Series provided as indexer (index of the boolean Series and of the indexed object do not match).
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 106, in executar
-    df_erros_final = self._filtrar_erros_noturno(df_erros_final, mensal)
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 300, in _filtrar_erros_noturno
-    mensal_1dia[noite_col > 0]["nome"].astype(str).str.strip().str.upper()
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 3884, in __getitem__
-    return self._getitem_bool_array(key)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 3940, in _getitem_bool_array
-    key = check_bool_indexer(self.index, key)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\indexing.py", line 2575, in check_bool_indexer
-    raise IndexingError(
-pandas.errors.IndexingError: Unalignable boolean Series provided as indexer (index of the boolean Series and of the indexed object do not match).
-2026-04-22 20:52:34,105 [ERROR] presentation.secretaria.ponto_controller - Erro no processamento de ponto: cannot insert numero, already exists
-Traceback (most recent call last):
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\secretaria\ponto_controller.py", line 41, in job
-    total, output = self.usecase.executar(
-                    ^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 82, in executar
-    mensal = self._transformar_colunas(mensal)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\secretaria\processar_ponto_usecase.py", line 266, in _transformar_colunas
-    df.insert(df.columns.get_loc("nome"), "numero", split[0].str.strip())
-  File "C:\Users\Utilizador\miniconda3\envs\atrpt\Lib\site-packages\pandas\core\frame.py", line 4931, in insert
-    raise ValueError(f"cannot insert {column}, already exists")
-ValueError: cannot insert numero, already exists
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\email\email_sender.py", line 322, in send_batch
+    self.smtp.send(mime, recipients)
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\infrastructure\email\smtp_client.py", line 108, in send
+    self._smtp.send_message(mime, to_addrs=recipients)
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 986, in send_message
+    return self.sendmail(from_addr, to_addrs, flatmsg, mail_options,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Utilizador\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 908, in sendmail
+    raise SMTPDataError(code, resp)
+smtplib.SMTPDataError: (550, b'5.2.0 M3SYw8jL1UbIP Spam Rejected')

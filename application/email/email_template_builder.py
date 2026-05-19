@@ -1,5 +1,6 @@
 #atrpt/application/email/email_template_builder.py
 
+import re
 from pathlib import Path
 
 from application.email.word_template_loader import carregar_template_word
@@ -12,12 +13,22 @@ class EmailTemplateBuilder:
         self.template_dir = Path(template_dir)
 
     def build(self, template_name, data):
-        template_path = self.template_dir / template_name
+        name = Path(template_name)
+        if not name.suffix:
+            name = name.with_suffix('.docx')
+        template_path = self.template_dir / name
 
-        subject, blocos = carregar_template_word(template_path)
+        subject, body = carregar_template_word(template_path)
 
+        # Se o template tiver blocos [TAG]...[/TAG] e os dados tiverem tipo_texto,
+        # usa o bloco correspondente; caso contrário usa o corpo completo
         tipo = data.get("tipo_texto")
-        corpo = blocos.get(tipo, "")
+        if tipo:
+            matches = re.findall(r"\[([A-Za-z_]+)\](.*?)\[/\1\]", body, re.DOTALL)
+            blocos = {nome: conteudo.strip() for nome, conteudo in matches}
+            corpo = blocos.get(tipo, body)
+        else:
+            corpo = body
 
         subject = subject.format_map(SafeDict(data))
         corpo_formatado = corpo.format_map(SafeDict(data))

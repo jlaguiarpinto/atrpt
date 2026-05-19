@@ -349,3 +349,30 @@ Traceback (most recent call last):
   File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
   File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
 AttributeError: 'Config' object has no attribute 'get_lista_emails'
+2026-05-06 11:59:17,622 [ERROR] application.aprovisionamento.create_pedido_usecase - Erro ao enviar email para pedido 2026/04
+Traceback (most recent call last):
+  File "application\aprovisionamento\create_pedido_usecase.py", line 66, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 42, in execute
+  File "application\aprovisionamento\enviar_pedido_email_usecase.py", line 96, in _lista
+AttributeError: 'Config' object has no attribute 'get_lista_emails'
+2026-05-06 12:00:55,857 [ERROR] presentation.aprovisionamento.pedido_pedir_aprovacao_gui - Erro ao pedir aprovação: 'AprovisionamentoController' object has no attribute 'pedido_repo'
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\pedido_pedir_aprovacao_gui.py", line 291, in _submeter
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 309, in pedir_aprovacao
+AttributeError: 'AprovisionamentoController' object has no attribute 'pedido_repo'
+2026-05-08 09:26:40,384 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao criar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 100, in novo_fornecedor
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 255, in save_from_dict
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 184, in save
+sqlite3.IntegrityError: UNIQUE constraint failed: fornecedores.nif
+2026-05-12 12:44:37,004 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao editar fornecedor
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 358, in editar_fornecedor
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 220, in update
+  File "infrastructure\persistence\aprovisionamento\fornecedor_repository.py", line 191, in save
+sqlite3.IntegrityError: UNIQUE constraint failed: fornecedores.nif
+2026-05-19 09:42:10,602 [ERROR] presentation.aprovisionamento.aprovisionamento_controller - Erro ao listar encomendas
+Traceback (most recent call last):
+  File "presentation\aprovisionamento\aprovisionamento_controller.py", line 461, in listar_encomendas
+AttributeError: 'EncomendaRepository' object has no attribute 'list_all'

@@ -1,0 +1,38 @@
+2026-05-12 08:23:55,699 [ERROR] presentation.fornecedores.fornecedores_controller - Erro ao importar E-Fatura
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\fornecedores\importar_efatura_usecase.py", line 140, in _ler_xls
+    import xlrd
+ModuleNotFoundError: No module named 'xlrd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\fornecedores\fornecedores_controller.py", line 119, in importar_efatura
+    r = self.importar_efatura_uc.execute(file_path)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\fornecedores\importar_efatura_usecase.py", line 62, in execute
+    linhas = self._ler_xls(xls_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\fornecedores\importar_efatura_usecase.py", line 142, in _ler_xls
+    raise ImportError(
+ImportError: A biblioteca 'xlrd' é necessária para ler ficheiros .xls.
+Instale com:  pip install xlrd
+2026-05-12 09:00:54,051 [ERROR] presentation.fornecedores.fornecedores_controller - Erro ao importar E-Fatura
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\fornecedores\importar_efatura_usecase.py", line 172, in _ler_xls
+    import xlrd
+ModuleNotFoundError: No module named 'xlrd'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\presentation\fornecedores\fornecedores_controller.py", line 119, in importar_efatura
+    r = self.importar_efatura_uc.execute(file_path)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\fornecedores\importar_efatura_usecase.py", line 98, in execute
+    documentos = self._ler_xls(xls_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\APPs\atrpt\application\fornecedores\importar_efatura_usecase.py", line 174, in _ler_xls
+    raise ImportError(
+ImportError: A biblioteca 'xlrd' é necessária para ler ficheiros .xls.
+Instale com:  pip install xlrd

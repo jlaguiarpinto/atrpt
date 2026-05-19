@@ -15,7 +15,7 @@ class GuiLogHandler(logging.Handler):
         msg = self.format(record)
 
         try:
-            # garantir execução no thread Tkinter
-            self.root.after(0, lambda: self.gui.log(msg))
+            self.gui.escreveOutput(msg)
+            self.root.update_idletasks()
         except Exception:
             pass

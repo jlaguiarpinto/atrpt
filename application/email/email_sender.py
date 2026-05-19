@@ -17,6 +17,7 @@
 
 import json
 import random
+import smtplib
 import time
 from datetime import datetime
 from pathlib import Path
@@ -258,6 +259,9 @@ class EmailSender:
             for col in [coluna_data_envio, coluna_status, coluna_erro]:
                 if col not in df.columns:
                     df[col] = None if col == coluna_data_envio else ""
+            for col in [coluna_status, coluna_erro]:
+                if df[col].dtype != object:
+                    df[col] = df[col].astype(object).fillna("")
 
         indices_df = df_indices if df_indices is not None else list(range(total))
 
@@ -317,19 +321,26 @@ class EmailSender:
                             mime, recipients = self.emailer.build_mime(msg_pronto)
                             self.smtp.send(mime, recipients)
                             status    = "OK"
-                            data_hora = datetime.now()
+                            data_hora = datetime.now().replace(microsecond=0)
                             stats["ok"] += 1
                             self.logger.info(f"[{idx_lista + 1}/{total}] OK → {dest_str}")
                             if on_progress:
                                 on_progress(f"[{idx_lista + 1}/{total}] OK → {dest_str}")
 
                         except Exception as exc:
-                            status = "ERRO"
-                            erro   = str(exc)
+                            status    = "ERRO"
+                            data_hora = datetime.now().replace(microsecond=0)
+                            erro      = str(exc)
                             stats["erro"] += 1
                             self.logger.exception(f"[{idx_lista + 1}/{total}] ERRO → {dest_str}")
                             if on_progress:
                                 on_progress(f"❌ [{idx_lista + 1}/{total}] ERRO: {erro} → {dest_str}")
+                            if isinstance(exc, smtplib.SMTPDataError) and exc.smtp_code < 500:
+                                pausa = random.uniform(30, 60)
+                                self.logger.info(f"Erro temporário ({exc.smtp_code}) — pausa extra de {int(pausa)}s")
+                                if on_progress:
+                                    on_progress(f"⏸️ Erro temporário ({exc.smtp_code}) — pausa extra de {int(pausa)}s")
+                                time.sleep(pausa)
 
                         entrada = {
                             "indice_lista":  idx_lista,
@@ -345,7 +356,7 @@ class EmailSender:
 
                         # Actualizar df pelo índice real
                         if df is not None:
-                            if data_hora:
+                            if status == "OK":
                                 df.at[idx_df, coluna_data_envio] = data_hora
                             df.at[idx_df, coluna_status] = status
                             df.at[idx_df, coluna_erro]   = erro[:500] if erro else ""

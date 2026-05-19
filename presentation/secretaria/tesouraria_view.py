@@ -11,12 +11,6 @@ class TesourariaView:
 
         frame = self.gui.abrir_work_area()
 
-        self.gui.build_header(
-            frame,
-            "Módulo Tesouraria",
-            "Gestão financeira"
-        )
-
         opcoes = [
             ("Processar Extrato", controller.processar_extrato),
             ("Registar Movimentos", controller.registar_movimentos),

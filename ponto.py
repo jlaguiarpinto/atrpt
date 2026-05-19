@@ -8,13 +8,14 @@ import tkinter as tk
 from pathlib import Path
 import warnings
 
-from core.config import load_config
+from core.config import load_config, load_paths, load_paths_templates
 from core.logging_utils import setup_logging
 
 # repos necessários ao módulo de ponto
-from infrastructure.persistence.pessoas.empregado_repository import EmpregadoRepository
+from infrastructure.persistence.pessoas.empregado_sqlite_repository import EmpregadoSQLiteRepository
 from infrastructure.persistence.aprovisionamento.fornecedor_repository import FornecedorRepository
 from infrastructure.persistence.ponto.ponto_mapa_repository import PontoMapaRepository
+from infrastructure.persistence.ponto.ausencia_ponto_repository import AusenciaPontoRepository
 from infrastructure.persistence.user_repository import UserRepository
 
 # autenticação
@@ -37,20 +38,25 @@ def main():
     )
 
     root = tk.Tk()
+    root.withdraw()
     root.title("ATRPT - Ponto")
 
     cfg = load_config(_APP_INI)
+    cfg.paths = load_paths(_APP_INI, "paths_comum", "paths_ponto")
+    cfg.paths_templates = load_paths_templates(_APP_INI, cfg.paths)
     setup_logging(cfg, "ponto")
 
     # ── autenticação ──────────────────────────────────────────────────────────
     user_repo    = UserRepository(cfg.paths["atrpt_db"])
     login_uc     = LoginUseCase(user_repo)
     user_context = login_uc.execute(root)
+    root.deiconify()
 
     # ── repositórios ─────────────────────────────────────────────────────────
-    pessoas_repo    = EmpregadoRepository(accdb_path=cfg.paths["rh_accdb"])
+    pessoas_repo    = EmpregadoSQLiteRepository(db_path=cfg.paths["atrpt_db"])
     fornecedor_repo = FornecedorRepository(db_path=cfg.paths["atrpt_db"])
     mapa_repo       = PontoMapaRepository(db_path=cfg.paths["atrpt_db"])
+    ausencia_repo   = AusenciaPontoRepository(db_path=cfg.paths["atrpt_db"])
 
     # ── usecase ───────────────────────────────────────────────────────────────
     usecase = ProcessarPontoUseCase()
@@ -64,6 +70,7 @@ def main():
         pessoas_repo    = pessoas_repo,
         fornecedor_repo = fornecedor_repo,
         mapa_repo       = mapa_repo,
+        ausencia_repo   = ausencia_repo,
     )
 
     # ── GUI raiz ─────────────────────────────────────────────────────────────

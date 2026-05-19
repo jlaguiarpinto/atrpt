@@ -71,10 +71,4 @@ def carregar_template_word(path):
 
     body = "\n".join(linhas_html)
 
-    # ── extrair blocos [TAG]...[/TAG] ──────────────────────────────────────
-    blocos = {}
-    matches = re.findall(r"\[([A-Za-z_]+)\](.*?)\[/\1\]", body, re.DOTALL)
-    for nome, conteudo in matches:
-        blocos[nome] = conteudo.strip()
-
-    return subject, blocos
+    return subject, body

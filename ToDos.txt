@@ -1,0 +1,8 @@
+2026-05-07 - Utilizador -Aprovisionamento - corrigir a tabela de fornecedores na introdução de proposta
+2026-05-07 - Utilizador -Aprovisionamento - repor obrigatoriedade de NIF no registo de novo fornecedor
+2026-05-07 - Utilizador -Aprovisionamento - autorização obrigatoriamente pelo DF e...
+2026-05-08 - Utilizador - PIM - Farmácia - Saldo de 5,91 agregado a residente saido e várias linhas finais
+2026-05-08 - Utilizador - Associados - ao anexar ficheiros perguntar se quer mais
+2026-05-08 - Utilizador - Débitos Diretos - multiplos ecrans em Farmácia
+2026-05-09 - Utilizador - Associados - o ficheiro de acompanhamento e registo de log de envio tem colunas em excesso
+2026-05-11 - Utilizador - Ponto - o ficheiro resumo quando já existe incompleto deve acrescentar os noxos dias de registp

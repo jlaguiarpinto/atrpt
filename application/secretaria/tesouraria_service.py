@@ -8,7 +8,6 @@ import logging
 
 from application.email.email_message import EmailMessage
 from application.email.email_sender import EmailSender
-from infrastructure.persistence.secretaria.pim_repository import PimRepository
 
 from domain.shared.strings import remover_acentos, normalizar_nome, simplificar_nome
 
@@ -42,7 +41,7 @@ class TesourariaService:
         comprovativo_repo,
         inflow_repo,
         pim_repo,
-        recibo_template_path,
+        template_builder,
         cfg,
         email_secretaria,
         modo_teste=False,
@@ -54,7 +53,7 @@ class TesourariaService:
         self.comprovativo_repo = comprovativo_repo
         self.inflow_repo = inflow_repo
         self.pim_repo = pim_repo
-        self.recibo_template_path=recibo_template_path
+        self.template_builder=template_builder
         self.email_secretaria=email_secretaria
         self.modo_teste = modo_teste
         self.cfg=cfg
@@ -394,9 +393,8 @@ class TesourariaService:
         return pim_df,recibos_pendentes
 
     def _enviar_recibos(self, df_recibos=None):
-        from application.email.email_template_builder import EmailTemplateBuilder
-        pim_df = self.pim_repo.ler_pim()
-        builder = EmailTemplateBuilder(self.recibo_template_path.parent)
+        pim_df = self.pim_repo.ler_pim()        
+        builder =self.template_builder
         df_recibos = self.pim_repo.ler_recibos_pendentes()
         residentes_list= self.residentes_repo.get_all()
         residentes_df =pd.DataFrame(residentes_list)
@@ -409,15 +407,18 @@ class TesourariaService:
         if df_envio.empty:     return df
         mensagens = []
         for row in df_envio.itertuples():
-            tipo_texto = "COM_SALDO" if row.saldo != 0 else "SEM_SALDO"
+            if row.saldo != 0:
+                bloco_saldo = f"A conta de medicação fica com um saldo de {row.saldo:.2f} €."
+            else:
+                bloco_saldo = ""
             subject, html = builder.build(
-                self.recibo_template_path.name,
+                "recibo_PIM.docx",
                 {
-                    "tipo_texto": tipo_texto,
                     "nome": row.nome,
                     "data": row.data,
                     "recebido": f"{row.recebido:.2f}",
                     "saldo": f"{row.saldo:.2f}",
+                    "bloco_saldo": bloco_saldo
                 }
             )
             mensagens.append(
@@ -425,26 +426,30 @@ class TesourariaService:
                     to=[row._asdict()["email"]],
                     subject=subject,
                     html_body=html,
+                    bcc=[self.email_secretaria] if self.email_secretaria else [],
                 )
             )
         sender = EmailSender(
             self.emailer,
-            modo_teste=self.modo_teste,
-            email_teste=self.cfg.email_teste,)
-        sender.send_batch(
+            modo_teste=self.modo_teste,)
+        result = sender.send_batch(
             mensagens=mensagens,
             on_progress=None,
         )
         if not self.modo_teste:
             timestamp = datetime.now().strftime("%Y-%m-%d")
-            df.loc[df_envio.index, "data_envio_recibo"] = timestamp
-            ids_enviados = df_envio["numero_residente"].astype(str)
+            ok_positions = [r["indice_lista"] for r in result["resultados"] if r["status"] == "OK"]
+            ok_idx = df_envio.index.take(ok_positions)
+            df["data_envio_recibo"] = df["data_envio_recibo"].astype(object)
+            df.loc[ok_idx, "data_envio_recibo"] = timestamp
+            ids_enviados = df_envio.iloc[ok_positions]["numero_residente"].astype(str)
             pim_df["numero_residente"] = pim_df["numero_residente"].astype(str)
             mask = pim_df["numero_residente"].isin(ids_enviados)
+            pim_df["data_envio_recibo"] = pim_df["data_envio_recibo"].astype(object)
             pim_df.loc[mask, "data_envio_recibo"] = timestamp
             self.pim_repo.salvar_pim(pim_df)
             self.pim_repo.guardar_recibos_pendentes(df_recibos)
-        return len(mensagens)
+        return result["stats"]["ok"]
             
     def produzir_dd(self):
         residentes = self.residentes_repo.get_all()

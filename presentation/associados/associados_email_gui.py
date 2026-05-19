@@ -23,9 +23,12 @@ class AssociadosEmailGUI(BG):
 
         self.build()
 
-    def build(self):
+    def _post_init(self):
+        root_gui = getattr(self, '_root_gui', self)
+        root_gui.set_title("Associados", "Enviar Emails")
+        self.root.after(200, self.controller.analisar_mensagens)
 
-        self.set_title("Associados", "Enviar Emails")
+    def build(self):
 
         frame = self.parent
 

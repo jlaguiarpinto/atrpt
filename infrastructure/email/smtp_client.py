@@ -117,6 +117,8 @@ class SmtpClient:
 
             except smtplib.SMTPDataError as exc:
                 self._log(f"SMTPDataError: {exc} (tentativa {tentativa + 1}/{self.retries})")
+                if exc.smtp_code >= 500:  # permanent failure — retrying won't help
+                    raise
                 if tentativa == self.retries - 1:
                     raise
                 time.sleep(random.uniform(5, 12))

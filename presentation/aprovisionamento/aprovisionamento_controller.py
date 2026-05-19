@@ -1,4 +1,4 @@
-# atrpt/presentation/aprovisionamento/aprovisionamento_controller.py 
+# atrpt/presentation/aprovisionamento/aprovisionamento_controller.py
 
 import logging
 from core.logging_utils import audit
@@ -23,6 +23,9 @@ class AprovisionamentoController:
         list_fornecedores_uc,
         fornecedor_repo,
         encomenda_repo,
+        pedido_repo=None,
+        user_repo=None,
+        submeter_uc=None,
     ):
         self.gui = gui
         self.user = user_context
@@ -38,10 +41,11 @@ class AprovisionamentoController:
         self.list_pedidos_uc = list_pedidos_uc
         self.list_fornecedores_uc = list_fornecedores_uc
 
-        #self.pedido_repo=pedido_repo
-        self.fornecedor_repo=fornecedor_repo
-        self.encomenda_repo=encomenda_repo
-        #self.auth = AuthorizationService(self.user)
+        self.pedido_repo = pedido_repo
+        self.fornecedor_repo = fornecedor_repo
+        self.encomenda_repo = encomenda_repo
+        self.user_repo = user_repo
+        self.submeter_uc = submeter_uc
 
     # -------------------------------------------------
     # Fornecedores
@@ -126,7 +130,7 @@ class AprovisionamentoController:
 
     # -------------------------------------------------
     # Pedidos
-    # -------------------------------------------------        
+    # -------------------------------------------------
 
     def adicionar_proposta(self, numero, fornecedor_id, valor, documento):
         logger.info(f"Chamando controller com: numero={numero}, fornecedor_id=fornecedor_id, valor={valor}, documento={documento}")
@@ -137,9 +141,9 @@ class AprovisionamentoController:
                 fornecedor_id=fornecedor_id,
                 valor=valor,
                 documento=documento)
-            
+
             self.gui.informuser("OK", "Proposta adicionada com sucesso.")
-            
+
         except Exception as e:
             import traceback
             logger.error(f">>> EXCEPÇÃO em adicionar_proposta: {e}")
@@ -149,12 +153,12 @@ class AprovisionamentoController:
     def adicionar_proposta_dialog(self):
         """Abre diálogo para adicionar proposta a um pedido existente"""
         from presentation.aprovisionamento.pedido_proposta_gui import JuntarPropostaGUI
-        
+
         # Criar janela modal
         win = tk.Toplevel()
         win.title("Adicionar Proposta")
         win.grab_set()
-        
+
         JuntarPropostaGUI(win, self)
         self.gui.root.wait_window(win)
 
@@ -248,6 +252,43 @@ class AprovisionamentoController:
 
         self.autorizar_pedido(numero, self.user.username)
 
+    def recusar_pedido(self, numero: str) -> None:
+        from domain.aprovisionamento.enums import PedidoEstado
+        if not self.pedido_repo:
+            raise ValueError("Repositório de pedidos não configurado.")
+        pedido = self.pedido_repo.get_by_numero(numero)
+        if not pedido:
+            raise ValueError(f"Pedido {numero} não encontrado.")
+        if pedido.estado != PedidoEstado.pendente:
+            raise ValueError(f"Só é possível recusar pedidos em estado 'pendente' (estado actual: '{pedido.estado.value}').")
+        pedido.estado = PedidoEstado.cancelado
+        self.pedido_repo.save(pedido)
+        audit(
+            self.audit_log,
+            utilizador=self.user.username,
+            accao="recusar_pedido",
+            detalhe=f"pedido={numero}",
+        )
+
+    def nao_autorizar_pedido(self, numero: str) -> None:
+        """Devolve o pedido ao estado 'criado' para revisão pelo requerente."""
+        from domain.aprovisionamento.enums import PedidoEstado
+        if not self.pedido_repo:
+            raise ValueError("Repositório de pedidos não configurado.")
+        pedido = self.pedido_repo.get_by_numero(numero)
+        if not pedido:
+            raise ValueError(f"Pedido {numero} não encontrado.")
+        if pedido.estado != PedidoEstado.pendente:
+            raise ValueError(f"Só é possível devolver pedidos em estado 'pendente' (estado actual: '{pedido.estado.value}').")
+        pedido.estado = PedidoEstado.criado
+        self.pedido_repo.save(pedido)
+        audit(
+            self.audit_log,
+            utilizador=self.user.username,
+            accao="nao_autorizar_pedido",
+            detalhe=f"pedido={numero}",
+        )
+
     # -------------------------------------------------
 
     def enviar_pedido(self, numero):
@@ -285,7 +326,7 @@ class AprovisionamentoController:
         except Exception as e:
             logger.exception("Erro ao listar pedidos para proposta")
             return []
-    
+
     def listar_pedidos(self, *estados):
         """Devolve pedidos filtrados pelos estados indicados. Sem estados devolve todos."""
         try:
@@ -303,39 +344,82 @@ class AprovisionamentoController:
     def get_centros_custo(self):
         return self.cfg.centros_custo
 
-    def pedir_aprovacao(self, numero: str, proposta, observacoes: str = "") -> None:
-        """Muda pedido de 'criado' para 'pendente' e envia email aos aprovadores."""
-        from domain.aprovisionamento.enums import PedidoEstado
-        pedido = self.pedido_repo.get_by_numero(numero)
-        if not pedido:
-            raise ValueError(f"Pedido {numero} não encontrado.")
-        if pedido.estado != PedidoEstado.criado:
-            raise ValueError(f"Pedido {numero} não está em estado 'criado'.")
-        pedido.estado = PedidoEstado.pendente
-        pedido.proposta_selecionada = proposta
-        self.pedido_repo.update(pedido)
-        audit(self.audit_log, self.user_context.username,
-              "pedir_aprovacao",
-              f"pedido={numero} fornecedor={proposta.fornecedor_id} valor={proposta.valor}")
-        destinatarios = self.cfg.get_lista_emails("emails_auth_pedidos")
-        if destinatarios and hasattr(self, 'enviar_email_uc'):
+    def pedir_aprovacao(self, numero: str, proposta, diretor_financeiro, diretor2,
+                        observacoes: str = "") -> None:
+        """Muda pedido de 'criado' para 'pendente' e envia email aos dois diretores."""
+        pedido = self.submeter_uc.execute(
+            numero             = numero,
+            proposta           = proposta,
+            diretor_financeiro = diretor_financeiro,
+            diretor2           = diretor2,
+            observacoes        = observacoes,
+        )
+        audit(
+            self.audit_log,
+            utilizador = self.user.username,
+            accao      = "pedir_aprovacao",
+            detalhe    = (
+                f"pedido={numero} "
+                f"fornecedor={proposta.fornecedor_id} valor={proposta.valor} "
+                f"dir_fin={diretor_financeiro.username} dir2={diretor2.username}"
+            ),
+        )
+
+    # ── helpers de diretores ──────────────────────────────────────────
+
+    def get_diretor_financeiro(self):
+        """Devolve o utilizador com perfil=DirFin.
+        Fallback: utilizador actual (self.user), para não bloquear o fluxo."""
+        if self.user_repo:
             try:
-                self.enviar_email_uc.execute(pedido, destinatarios=destinatarios)
-            except Exception as e:
-                import logging
-                logging.getLogger(__name__).warning(f"Email não enviado: {e}")
+                resultado = self.user_repo.get_by_perfil("DirFin")
+                if resultado:
+                    return resultado[0]
+            except Exception:
+                logger.exception("Erro ao obter diretor financeiro")
+        # fallback: utilizador actual
+        return self.user
+
+    def get_diretores_para_segundo(self) -> list:
+        """Devolve diretores (Dir/DirFin) activos, excluindo o DirFin (reservado para o 1.º slot)."""
+        if not self.user_repo:
+            return []
+        try:
+            from core.security import PERFIS_DIRECAO
+            todos = []
+            for perfil in PERFIS_DIRECAO:
+                todos.extend(self.user_repo.get_by_perfil(perfil))
+            # excluir quem já está no slot financeiro
+            dir_fin = self.get_diretor_financeiro()
+            excluir = {dir_fin.username} if dir_fin else set()
+            return [u for u in todos if u.username not in excluir]
+        except Exception:
+            logger.exception("Erro ao obter lista de diretores")
+            return []
+
+    def get_user_info(self, username: str):
+        """Devolve o objeto user para o username dado, ou None."""
+        if not self.user_repo or not username:
+            return None
+        try:
+            return self.user_repo.get_by_username(username)
+        except Exception:
+            logger.exception(f"Erro ao obter info de utilizador: {username}")
+            return None
 
     def adicionar_anexo(self, pedido_numero: str, path: str) -> None:
         self.pedido_repo.adicionar_anexo(pedido_numero, path)
-        audit(self.audit_log, self.user_context.username,
+        audit(self.audit_log, self.user.username,
               "adicionar_anexo", f"pedido={pedido_numero} path={path}")
 
     def remover_anexo(self, anexo_id: int) -> None:
         self.pedido_repo.remover_anexo(anexo_id)
-        audit(self.audit_log, self.user_context.username,
+        audit(self.audit_log, self.user.username,
               "remover_anexo", f"id={anexo_id}")
 
     def listar_anexos(self, pedido_numero: str) -> list:
+        if not self.pedido_repo:
+            return []
         return self.pedido_repo.listar_anexos(pedido_numero)
 
     def get_fornecedores(self):

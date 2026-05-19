@@ -5,9 +5,6 @@ import pandas as pd
 from domain.secretaria.pim_context import PimContext
 from domain.shared.strings import limpar_string, simplificar_nome, normalizar_colunas
 from infrastructure.file_system.io import guardar_df, ler_excel
-from infrastructure.persistence.secretaria.pim_repository import PimRepository as PimRepo
-from infrastructure.persistence.secretaria.residentes_repository import ResidentesRepository as ResidentesRepo
-from infrastructure.persistence.secretaria.contacorrente_repository import ContaCorrenteRepository as CCRepo
 
 class Pim:
 
@@ -30,6 +27,7 @@ class Pim:
         self.cc = pd.DataFrame(conta_corrente_repo.get_all())
 
     def ler_faturas_pdf(self):
+        import logging
 
         pasta = self.ctx.pim_mensal_dir
 
@@ -39,13 +37,20 @@ class Pim:
         pdfs = sorted(pasta.glob("*.pdf"))
         if not pdfs:
             raise RuntimeError("Nenhum PDF encontrado no diretório PIM mensal.")
+
+        logging.info(f"Encontrados {len(pdfs)} PDF(s) em '{pasta.name}'.")
         registos = []
-        for pdf_path in pdfs:
+        for i, pdf_path in enumerate(pdfs, 1):
+            logging.info(f"[{i}/{len(pdfs)}] A processar: {pdf_path.name}")
             faturas_pdf = self._extrair_inf_de_pdf(pdf_path)
-            if not faturas_pdf:                                     continue
+            if not faturas_pdf:
+                logging.info(f"  → sem faturas.")
+                continue
             registos.extend(faturas_pdf)
+
         self.faturas = pd.DataFrame.from_records(registos)
-        guardar_df(self.faturas,self.ctx.pdf_faturas)   
+        logging.info(f"Total extraído: {len(self.faturas)} fatura(s).")
+        guardar_df(self.faturas, self.ctx.pdf_faturas)
         return self.faturas
 
     def _obter_linhas_pdf(self,doc):
@@ -155,7 +160,6 @@ class Pim:
             if fatura["ncli"] and not fatura["NIF"]:
 
                 candidatos = re.findall(r'N[ºo.]*\s*CONT[.:]*\s*(\d{9})', linha, re.IGNORECASE)
-
                 candidatos = [n for n in candidatos if n != '506254496']
 
                 if candidatos:
@@ -168,17 +172,12 @@ class Pim:
             # ------------------------------------------------
             if not fatura["total"] and "Total a pagar" in linha:
                 m = re.search(r'Total a pagar[^\d\-]{0,10}(-?\d+[.,]\d{2})', linha)
-
                 if m:
-                    fatura["total"] = round(
-                        float(m.group(1).replace('.', '').replace(',', '.')),
-                        2
-                    )
-        logging.info(f"✅ Faturas extraídas do PDF '{pdf.name}': {len(faturas)}")
-
+                    fatura["total"] = round(float(m.group(1).replace('.', '').replace(',', '.')),2)
         # guardar última
         if fatura and fatura.get("total") is not None:
             faturas.append(fatura)
+        logging.info(f"✅ Faturas extraídas do PDF '{pdf.name}': {len(faturas)}")
 
         return faturas
 
@@ -261,6 +260,7 @@ class Pim:
                 .reset_index()
                 .rename(columns={"no_cliente":"ncli"})
         )
+        return self.csag
       
     def _split_nfat(self, val):
         s = str(val).strip()
@@ -269,49 +269,184 @@ class Pim:
         return "", s
 
     def comparar_csag(self):
-        fat = self.faturas.copy()
-        fat["ncli"] = fat["ncli"].astype(str).str.strip()
-        fat["nfat"] = fat["nfat"].astype(str).str.strip()
-
-        csag = self.csag.rename(columns={"no_cliente": "ncli", "no_fatura": "nfat"}).copy()
-        csag["ncli"] = csag["ncli"].astype(str).str.strip()
-        csag["nfat"] = csag["nfat"].astype(str).str.strip()
-        csag[["tipo_doc", "nfat"]] = csag["nfat"].apply(self._split_nfat).apply(pd.Series)
-
-        comp = fat.merge(csag, on="nfat", how="outer", suffixes=("_pdf", "_csag"))
-
-        def _classificar(row):
-            if pd.isna(row.get("total_pdf")) or row.get("total_pdf") == "":
-                return "so_csag"
-            if pd.isna(row.get("total_csag")) or row.get("total_csag") == "":
-                return "so_pdf"
-            difs = []
-            if str(row.get("ncli_pdf", "")).strip() != str(row.get("ncli_csag", "")).strip():
-                difs.append("ncli")
-            if round(float(row["total_pdf"]), 2) != round(float(row["total_csag"]), 2):
-                difs.append("total")
-            return "+".join(difs) if difs else "ok"
-
-        comp["diferenca"] = comp.apply(_classificar, axis=1)
-        diferencas = comp[comp["diferenca"] != "ok"]
+        # Prepara os dados
+        self.faturas["ncli"] = self.faturas["ncli"].astype(str).str.strip()
+        self.faturas["nfat"] = self.faturas["nfat"].astype(str).str.strip()
+        self.faturas["total"] = self.faturas["total"].round(2)
+        
+        self.csag = self.csag.rename(columns={"no_cliente": "ncli", "no_fatura": "nfat"})
+        self.csag["ncli"] = self.csag["ncli"].astype(str).str.strip()
+        self.csag["nfat"] = self.csag["nfat"].astype(str).str.strip()
+        self.csag[["nfat_doc", "nfat"]] = self.csag["nfat"].apply(self._split_nfat).apply(pd.Series)
+        self.csag["total"] = self.csag["total"].round(2)
+        
+        lista_diferencas = []
+        
+        # 1. Divergência de total (mesmo nfat e ncli) - apenas linha do FAT
+        diff_total = self.faturas.merge(
+            self.csag,
+            on=["nfat", "ncli"],
+            how="inner",
+            suffixes=("", "_csag")
+        )
+        diff_total = diff_total[diff_total["total"] != diff_total["total_csag"]].copy()
+        if not diff_total.empty:
+            diff_total["diferenca"] = "total"
+            diff_total["nfat_doc"] = ""
+            diff_total["ncli_csag"] = diff_total["ncli"]
+            lista_diferencas.append(diff_total)
+        
+        # 2. Divergência de ncli (mesmo nfat e total) - apenas linha do FAT
+        diff_ncli = self.faturas.merge(
+            self.csag,
+            on=["nfat", "total"],
+            how="inner",
+            suffixes=("", "_csag")
+        )
+        diff_ncli = diff_ncli[diff_ncli["ncli"] != diff_ncli["ncli_csag"]].copy()
+        if not diff_ncli.empty:
+            diff_ncli["diferenca"] = "ncli"
+            diff_ncli["nfat_doc"] = diff_ncli["nfat"]
+            diff_ncli["total_csag"] = diff_ncli["total"]
+            lista_diferencas.append(diff_ncli)
+        
+        # 3. Divergência de nfat (mesmo ncli e total) - apenas linha do FAT
+        diff_nfat = self.faturas.merge(
+            self.csag,
+            on=["ncli", "total"],
+            how="inner",
+            suffixes=("", "_csag")
+        )
+        diff_nfat = diff_nfat[diff_nfat["nfat"] != diff_nfat["nfat_csag"]].copy()
+        if not diff_nfat.empty:
+            diff_nfat["diferenca"] = "nfat"
+            diff_nfat["nfat_doc"] = diff_nfat["nfat_csag"]
+            diff_nfat["total_csag"] = diff_nfat["total"]
+            diff_nfat["ncli_csag"] = diff_nfat["ncli"]
+            lista_diferencas.append(diff_nfat)
+        
+        # 4. Registros apenas no FAT (não existe correspondência em nenhum campo)
+        # Precisa excluir os que já foram capturados nas divergências acima
+        chaves_com_divergencia = set()
+        for df in lista_diferencas:
+            chaves_com_divergencia.update(df["nfat"].astype(str) + "|" + df["ncli"].astype(str))
+        
+        apenas_fat = self.faturas.merge(
+            self.csag,
+            on=["nfat", "ncli", "total"],
+            how="left",
+            indicator=True
+        )
+        apenas_fat = apenas_fat[apenas_fat["_merge"] == "left_only"].copy()
+        
+        # Remove os que já estão nas divergências
+        chave_fat = apenas_fat["nfat"].astype(str) + "|" + apenas_fat["ncli"].astype(str)
+        apenas_fat = apenas_fat[~chave_fat.isin(chaves_com_divergencia)]
+        
+        if not apenas_fat.empty:
+            apenas_fat["diferenca"] = "fat"
+            apenas_fat["total_csag"] = ""
+            apenas_fat["ncli_csag"] = ""
+            apenas_fat["nfat_doc"] = ""
+            lista_diferencas.append(apenas_fat)
+        
+        # 5. Registros apenas no CSAG (não existe no FAT)
+        apenas_csag = self.csag.merge(
+            self.faturas,
+            on=["nfat", "ncli", "total"],
+            how="left",
+            indicator=True
+        )
+        apenas_csag = apenas_csag[apenas_csag["_merge"] == "left_only"].copy()
+        
+        if not apenas_csag.empty:
+            apenas_csag["diferenca"] = "csag"
+            apenas_csag = apenas_csag.rename(columns={
+                "total": "total_csag",
+                "ncli": "ncli_csag"
+            })
+            # Adiciona colunas vazias para compatibilidade
+            for col in ["nfat", "ncli", "NIF", "total", "filename", "nome_utente"]:
+                if col not in apenas_csag.columns:
+                    apenas_csag[col] = ""
+            lista_diferencas.append(apenas_csag)
+        
+        # Combina todas as diferenças
+        if lista_diferencas:
+            diferencas = pd.concat(lista_diferencas, ignore_index=True, sort=False)
+            
+            # Remove colunas auxiliares
+            if "_merge" in diferencas.columns:
+                diferencas = diferencas.drop(columns=["_merge"])
+            
+            # Define a ordem das colunas
+            colunas_ordenadas = [
+                "nfat", "ncli", "NIF", "total", "filename", "nome_utente", 
+                "nfat_doc", "diferenca", "total_csag", "ncli_csag"
+            ]
+            
+            # Mantém apenas colunas que existem no dataframe
+            colunas_finais = [col for col in colunas_ordenadas if col in diferencas.columns]
+            diferencas = diferencas[colunas_finais]
+            
+            # Ordena por tipo de diferença
+            ordem_diferenca = {"fat": 0, "total": 1, "ncli": 2, "nfat": 3, "csag": 4}
+            diferencas["ordem"] = diferencas["diferenca"].map(ordem_diferenca)
+            diferencas = diferencas.sort_values("ordem").drop(columns=["ordem"])
+        else:
+            diferencas = pd.DataFrame()
+        
         guardar_df(diferencas, self.ctx.diferencas_file)
+        
         return diferencas
           
+    _CONTACT_COLS = ["NIF", "email", "genero", "relacao", "petit_nom"]
+
     def construir_novo_pim(self):
+        import logging
 
         pim = self.pim_repo.ler_pim()
         pim[["numero_residente", "ncli"]] = pim[["numero_residente", "ncli"]].astype("Int64").astype("string")
         fat = ler_excel(self.ctx.faturacao_residentes_file)
         fat["numero_residente"] = fat["numero_residente"].astype("Int64").astype("string")
         pim["anterior"] = pim["saldo"]                                                  # saldo anterior
-        df = pim.merge(fat,on="numero_residente",how="outer",suffixes=("", "_fat"))     # merge financeiro
+        # remover colunas que causariam duplicados no merge com suffixes=("", "_fat"):
+        # 1) de pim: colunas cujo nome coincidiria com um sufixo gerado por fat
+        # 2) de fat: colunas _fat acumuladas de corridas anteriores (o ficheiro é reutilizado)
+        fat_cols_orig = list(fat.columns)
+        fat_sufixadas = {f"{c}_fat" for c in fat_cols_orig if c != "numero_residente"}
+        pim = pim.drop(columns=[c for c in fat_sufixadas if c in pim.columns])
+        fat = fat.drop(columns=[c for c in fat_sufixadas if c in fat_cols_orig])
+        df = pim.merge(fat, on="numero_residente", how="outer", suffixes=("", "_fat"))  # merge financeiro
         df["nome"] = df["nome_fat"].combine_first(df["nome"])
-        df = df.drop(columns="nome_fat")
+        df = df.drop(columns="nome_fat", errors="ignore")
         df["especial"] = df["especial"].combine_first(df["excepcao"])
         df["atual"] = df["total_fat"].fillna(0)                                         # faturação do mês
         df["anterior"] = df["anterior"].fillna(0)                                       # saldo anterior
         df["total"] = df["anterior"] + df["atual"]                                      # total e saldo
         df["saldo"] = df["total"]
+
+        # preencher dados de contacto nos saldos transitados sem fatura do mês
+        precisa_contacto = any(
+            col not in df.columns or df[col].isna().any()
+            for col in self._CONTACT_COLS
+        )
+        if precisa_contacto:
+            if not hasattr(self, "tabela_nif_residente"):
+                self.construir_tabela_residentes()
+            ref = self.tabela_nif_residente[
+                ["numero_residente"] + [c for c in self._CONTACT_COLS if c in self.tabela_nif_residente.columns]
+            ].copy()
+            ref["numero_residente"] = ref["numero_residente"].astype("Int64").astype("string")
+            df = df.merge(ref, on="numero_residente", how="left", suffixes=("", "_ref"))
+            for col in self._CONTACT_COLS:
+                ref_col = f"{col}_ref"
+                if ref_col in df.columns:
+                    df[col] = df[col].combine_first(df[ref_col]) if col in df.columns else df[ref_col]
+                    df = df.drop(columns=ref_col)
+            n_transitados = (df["atual"] == 0).sum()
+            logging.info(f"{n_transitados} residente(s) com saldo transitado — dados de contacto preenchidos.")
+
         # campos operacionais
         df["recebido"] = 0
         df["data"] = ""
@@ -319,6 +454,8 @@ class Pim:
         df["data_envio_recibo"] = ""
         # remover residentes sem saldo
         df = df[df["saldo"] != 0]
+        # guardar faturacao_residentes com dados de contacto completos
+        guardar_df(df, self.ctx.faturacao_residentes_file)
         # colunas finais do PIM
         pim_final_cols = [
             "numero_residente",
@@ -336,9 +473,6 @@ class Pim:
             "data_envio_recibo",
         ]
         pim_final = df[pim_final_cols].copy()
-        # guardar
-        self.pim_repo.salvar_pim(pim_final)     
-        guardar_df(df,self.ctx.faturacao_residentes_file)
-
+        self.pim_repo.salvar_pim(pim_final)
         return pim_final
 

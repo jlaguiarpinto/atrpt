@@ -1,0 +1,6 @@
+[DONE 2026-05-07] 2026-05-06 - Utilizador -Acesso a DB RH (marta) - resolvido. desligada a db access 6/5
+[DONE 2026-05-09] 2026-05-07 - Utilizador - PIM - Farmácia - erro na geração de novo PIM
+[DONE 2026-05-11] 2026-05-08 - Jose LUIS - Secretaria - selecionado PIM nada acontece
+[DONE 2026-05-10] 2026-05-07 - Utilizador -PIM - mes sem movimento mas saldo anterior: garantir dados de contacto e texto adequado
+[DONE 2026-05-12] 2026-05-11 - Utilizador - Ponto - view para registar férias, baixas, ausências previamente conhecidas. Feito
+[DONE 2026-05-19] 2026-05-12 - Utilizador - Correio — Secretaria - enviar BBC no envio de reciboPIM e no envio de fatura

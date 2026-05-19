@@ -15,7 +15,7 @@ import logging
 from application.email.email_template_builder import EmailTemplateBuilder
 from application.email.email_message import EmailMessage
 from application.email.email_sender import EmailSender
-from infrastructure.persistence.associados_repository import AssociadosRepo
+from infrastructure.persistence.associados.associados_repository import AssociadosRepo
 from infrastructure.persistence.envio_repository import EnvioRepository
 from domain.shared.strings import simplificar_nome
 
@@ -99,8 +99,9 @@ class EnviarEmailsAssociadosUseCase:
 
         df["attachments"] = ";".join(anexos) if anexos else ""
 
-        print(df[["email", "subject", "html_body"]].head())
-        print(template_name)
+        exemplo = df[["email", "subject", "attachments"]].head(3).copy()
+        exemplo["html_body"] = df["html_body"].head(3).str[:120] + "…"
+        self.logger.info(f"Primeiros registos:\n{exemplo.to_string()}")
         ficheiro = self.envio_repository.guardar(df, template_name)
 
         return {
@@ -115,43 +116,61 @@ class EnviarEmailsAssociadosUseCase:
         total = len(df)
         validos = df["email"].notna().sum()
 
+        if "data_envio" in df.columns:
+            a_enviar = int(df["data_envio"].isna().sum())
+        else:
+            a_enviar = int(validos)
+
         preview = df.head(preview_n)
 
         return {
             "total": total,
             "validos": validos,
             "invalidos": total - validos,
+            "a_enviar": a_enviar,
             "preview": preview
         }
 
     def enviar(self, ficheiro_envio: str, on_progress=None):
 
-        df = pd.read_excel(ficheiro_envio)
+        df_total = pd.read_excel(ficheiro_envio)
 
-        df = df[df["dataenvio"].isna()]
+        if "data_envio" not in df_total.columns:
+            df_total["data_envio"] = None
+
+        # Pendentes = sem data_envio (nunca enviados + erros anteriores)
+        df_pendentes = df_total[df_total["data_envio"].isna()]
+        indices_pendentes = list(df_pendentes.index)
 
         mensagens = []
-
-        for _, row in df.iterrows():
-
+        for _, row in df_pendentes.iterrows():
             msg = EmailMessage(
                 to=[row["email"]],
                 subject=row["subject"],
                 html_body=row["html_body"],
                 attachments=self._parse_attachments(row.get("attachments"))
             )
-
             mensagens.append(msg)
+
+        path_envio = Path(ficheiro_envio)
+
+        class _Repo:
+            def guardar(self_, df):
+                df.to_excel(path_envio, index=False)
 
         resultado = self.email_sender.send_batch(
             mensagens=mensagens,
-            df=df,
-            ficheiro_envio=Path(ficheiro_envio),
-            on_progress=on_progress
+            df=df_total,                  # df completo — preserva linhas já enviadas
+            df_indices=indices_pendentes,  # índices reais das linhas a actualizar
+            repo=_Repo(),
+            on_progress=on_progress,
+            tamanho_lote=50,
+            delay_envio=(2, 5),           # 2-5 seg entre emails
+            pausa_entre_lotes=(30, 60),   # 30-60 seg entre lotes
         )
 
         return {
-            "status": "ok",
+            "status": "concluido",
             "enviados": resultado["stats"]["ok"],
             "erros": resultado["stats"]["erro"]
         }

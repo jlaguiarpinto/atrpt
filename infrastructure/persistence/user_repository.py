@@ -90,3 +90,40 @@ class UserRepository:
                 "UPDATE users SET perfil = ? WHERE username = ?",
                 (perfil, username)
             )
+
+    def list_all(self) -> list[user]:
+        with self._connect() as conn:
+            rows = conn.execute(
+                "SELECT username, nome, email, nif, ativo, perfil FROM users ORDER BY nome"
+            ).fetchall()
+            result = []
+            for r in rows:
+                perms = [p[0] for p in conn.execute(
+                    "SELECT recurso FROM permissions WHERE username=?", (r[0],)
+                ).fetchall()]
+                result.append(user(
+                    username=r[0], nome=r[1], email=r[2],
+                    nif=r[3], ativo=bool(r[4]),
+                    permissions=perms,
+                    perfil=r[5] if len(r) > 5 else None,
+                ))
+        return result
+
+    def get_by_perfil(self, perfil: str) -> list[user]:
+        with self._connect() as conn:
+            rows = conn.execute(
+                "SELECT username, nome, email, nif, ativo, perfil FROM users WHERE perfil = ? AND ativo = 1 ORDER BY nome",
+                (perfil,)
+            ).fetchall()
+            result = []
+            for r in rows:
+                perms = [p[0] for p in conn.execute(
+                    "SELECT recurso FROM permissions WHERE username=?", (r[0],)
+                ).fetchall()]
+                result.append(user(
+                    username=r[0], nome=r[1], email=r[2],
+                    nif=r[3], ativo=bool(r[4]),
+                    permissions=perms,
+                    perfil=r[5] if len(r) > 5 else None,
+                ))
+        return result

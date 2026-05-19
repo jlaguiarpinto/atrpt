@@ -5,7 +5,6 @@ from PIL import Image
 import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
-import xlwings as xw
 from datetime import datetime
 import shutil
 import xlsxwriter

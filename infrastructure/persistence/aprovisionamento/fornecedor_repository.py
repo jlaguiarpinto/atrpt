@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 CAMPOS_VALIDOS = {
     "nome", "email", "nif", "iban",
-    "tipo_fornecedor", "tipo_relacao", "setor", "metodo_pagamento",
+    "tipo_fornecedor", "tipo_relacao", "setor", "metodo_pagamento", "atividade",
     "comercial_nome", "comercial_email", "comercial_telemovel",
     "administrativo_nome", "administrativo_email", "administrativo_telemovel",
 }
@@ -40,11 +40,16 @@ class FornecedorRepository:
                     comercial_telemovel       TEXT,
                     administrativo_nome       TEXT,
                     administrativo_email      TEXT,
-                    administrativo_telemovel  TEXT
+                    administrativo_telemovel  TEXT,
+                    atividade                 TEXT
                 )
             """)
-            # Migration: remove índice UNIQUE no nif se criado por versão anterior
+            # Migrations
             self._migration_remover_unique_nif(conn)
+            try:
+                conn.execute("ALTER TABLE fornecedores ADD COLUMN atividade TEXT")
+            except Exception:
+                pass
 
     @staticmethod
     def _migration_remover_unique_nif(conn: sqlite3.Connection) -> None:
@@ -120,6 +125,7 @@ class FornecedorRepository:
             administrativo_nome      = row["administrativo_nome"],
             administrativo_email     = row["administrativo_email"],
             administrativo_telemovel = row["administrativo_telemovel"],
+            atividade                = row["atividade"] if "atividade" in row.keys() else None,
         )
 
     # ── queries ───────────────────────────────────────────────────────────────
@@ -138,7 +144,7 @@ class FornecedorRepository:
 
         Exemplo:
             repo.list_by("setor", "saude")
-            repo.list_by("tipo_fornecedor", "servicos")
+            repo.list_by("atividade", "Enfermeiro")
         """
         if caracteristica not in CAMPOS_VALIDOS:
             raise ValueError(
@@ -163,7 +169,7 @@ class FornecedorRepository:
         """INSERT se id é None, UPDATE caso contrário. Devolve o fornecedor com id."""
         campos = [
             "nome", "email", "nif", "iban",
-            "tipo_fornecedor", "tipo_relacao", "setor", "metodo_pagamento",
+            "tipo_fornecedor", "tipo_relacao", "setor", "metodo_pagamento", "atividade",
             "comercial_nome", "comercial_email", "comercial_telemovel",
             "administrativo_nome", "administrativo_email", "administrativo_telemovel",
         ]
@@ -218,6 +224,15 @@ class FornecedorRepository:
             raise ValueError("update requer fornecedor com id definido")
 
         return self.save(fornecedor)
+
+    def find_by_nif(self, nif: str) -> Optional[Fornecedor]:
+        """Devolve o primeiro fornecedor com o NIF indicado."""
+        with self._conn() as conn:
+            conn.row_factory = sqlite3.Row
+            row = conn.execute(
+                "SELECT * FROM fornecedores WHERE nif = ? LIMIT 1", (nif,)
+            ).fetchone()
+        return self._row_to_fornecedor(row) if row else None
 
     def get_by_nome(self, nome: str) -> Optional[Fornecedor]:
         """Devolve o primeiro fornecedor com nome exacto (case-insensitive)."""

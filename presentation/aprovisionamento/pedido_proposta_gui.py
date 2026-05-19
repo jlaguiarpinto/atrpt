@@ -230,7 +230,7 @@ class JuntarPropostaGUI(BG):
 
     def _carregar_fornecedores(self) -> list[str]:
         try:
-            todos = self.controller.get_fornecedor()
+            todos = self.controller.get_fornecedores()
             fornecedores = [
                 f for f in todos
                 if (f.tipo_relacao or "").strip().lower()

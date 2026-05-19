@@ -3,14 +3,22 @@
 from dataclasses import dataclass
 
 PERFIS = {
-    "Dir":  "Direcção",
-    "DL":   "Direcção Lar",
-    "DCD":  "Direcção Centro de Dia",
-    "SG":   "Serviços Gerais",
-    "RH":   "Recursos Humanos",
-    "CS":   "Chefe de Secretaria",
-    "Sec":  "Secretaria",
+    "Dir":    "Direcção",
+    "DirFin": "Direcção — Financeiro",
+    "DL":     "Direcção Lar",
+    "DCD":    "Direcção Centro de Dia",
+    "SG":     "Serviços Gerais",
+    "RH":     "Recursos Humanos",
+    "CS":     "Chefe de Secretaria",
+    "Sec":    "Secretaria",
 }
+
+# Permissões funcionais (tabela permissions) — ortogonais ao perfil
+PERMISSOES = {
+    "dev": "Acesso de desenvolvimento/administração",
+}
+
+PERFIS_DIRECAO = {"Dir", "DirFin"}
 
 @dataclass
 class userContext:

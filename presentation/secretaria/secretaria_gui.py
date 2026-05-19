@@ -9,10 +9,10 @@ from presentation.shared.base_gui import BaseGui as BG
 class SecretariaGUI(BG):
 
     OPCOES = {
-        "Tesouraria": "abrir_tesouraria",
-        "PIM": "abrir_pim",
-        "Ponto": "abrir_ponto",
-        "Saldos": "abrir_saldos",
+        "Tesouraria":  "abrir_tesouraria",
+        "PIM":         "abrir_menu_pim",
+        "Ponto":       "abrir_ponto",
+        "Residentes":  "abrir_residentes",
     }
 
     def __init__(self, root, controller):
@@ -24,25 +24,18 @@ class SecretariaGUI(BG):
         self._build_ui()
 
     def _build_ui(self):
-
-        # topo
         self.set_title("Secretaria")
+        self._restore_root_menu = self._show_home
+        self._show_home()
 
-        # área de trabalho
+    def _show_home(self):
         frame = self.abrir_work_area()
-
-        self.build_header(
-            frame,
-            "Módulo Secretaria",
-            "Menu principal"
-        )
-
         opcoes = [
             (texto, getattr(self.controller, metodo))
             for texto, metodo in self.OPCOES.items()
         ]
-
         self.build_menu_buttons(opcoes)
+        return frame
 
         # --------------------------------------------------
     def show_welcome(self, nome):

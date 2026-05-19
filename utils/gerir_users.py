@@ -10,7 +10,7 @@ from pathlib import Path
 # garantir que o projecto está no path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from core.config import load_config
+from core.config import load_config, load_paths
 from infrastructure.persistence.user_repository import UserRepository
 from core.security import PERFIS
 
@@ -206,8 +206,10 @@ class GerirUsersApp:
 
 
 def main():
-    cfg  = load_config(_APP_INI)
-    repo = UserRepository(cfg.paths["atrpt_db"])
+    cfg = load_config(_APP_INI)
+    cfg.paths = load_paths(_APP_INI, "paths_comum")
+    db_path = cfg.paths["atrpt_db"]
+    repo = UserRepository(db_path)
 
     root = tk.Tk()
     GerirUsersApp(root, repo)

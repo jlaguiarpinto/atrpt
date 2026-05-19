@@ -1,0 +1,11 @@
+Resolvidos
+6/5 Acesso a DB RH (marta) - resolvido? desligada a db access 6/5
+
+To Do's
+
+6/5 PIM - mes sem movimento mas saldo anterior: garantir dados de contacto e texto adequado
+6/5 Aprovisionamento - corrigir a tabela de fornecedores na introdução de proposta
+6/5 Aprovisionamento - repor obrigatoriedade de NIF no registo de novo fornecedor
+6/5 Aprovisionamento - autorização obrigatoriamente pelo DF e...
+
+

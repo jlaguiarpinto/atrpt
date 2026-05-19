@@ -37,6 +37,8 @@ env/
 *.swp
 
 .claude/
+build/
 .build/
+dist/
 .dist/
 .templates/

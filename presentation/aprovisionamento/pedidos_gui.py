@@ -17,12 +17,6 @@ class EncomendasGUI(BG):
         """Constrói a interface do sub-menu de aprovisionamento"""
         frame = self.abrir_work_area()
 
-        self.build_header(
-            frame,
-            "Encomendas Realizadas",
-            "Consulta e acompanhamento de aprovisionamento"
-        )
-
         # Botões no menu superior
         opcoes = [
             ("Listar Pendentes", self.controller.listar_aprovisionamento_pendentes),

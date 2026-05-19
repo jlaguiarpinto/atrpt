@@ -22,10 +22,10 @@ class EnviarRecibosPimUseCase:
         if recibos_df.empty:
             return
 
-        pim_df = pd.read_excel(
-            self.paths["pim_file"],
-            dtype={"numero_residente": "string"},
-        )
+        from infrastructure.persistence.secretaria.pim_sqlite_repository import PimSQLiteRepository
+        pim_repo = PimSQLiteRepository(self.paths["atrpt_db"])
+        pim_df = pim_repo.ler_pim()
+        pim_df["numero_residente"] = pim_df["numero_residente"].astype(str)
 
         mensagens = []
 
@@ -83,4 +83,4 @@ class EnviarRecibosPimUseCase:
                 "data_envio_recibo"
             ] = timestamp
 
-        pim_df.to_excel(self.paths["pim_file"], index=False)
+        pim_repo.salvar_pim(pim_df)

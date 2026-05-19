@@ -3,7 +3,7 @@
 import tkinter as tk
 from pathlib import Path
 import warnings
-from core.config import load_config
+from core.config import load_config, load_paths
 from core.logging_utils import setup_logging, setup_audit_logger
 from presentation.aprovisionamento.aprovisionamento_controller import AprovisionamentoController
 from presentation.aprovisionamento.aprovisionamento_gui import AprovisionamentoGUI
@@ -27,6 +27,7 @@ from application.aprovisionamento.add_proposta_usecase import AddPropostaUseCase
 from application.aprovisionamento.encomendar_pedido_usecase import EncomendarPedidoUseCase
 from infrastructure.persistence.aprovisionamento.encomenda_repository import EncomendaRepository
 from application.aprovisionamento.enviar_pedido_email_usecase import EnviarEmailPedidoUseCase
+from application.aprovisionamento.submeter_pedido_usecase import SubmeterPedidoUseCase
 from application.email.email_template_builder import EmailTemplateBuilder
 from application.email.email_sender import EmailSender
 
@@ -36,9 +37,11 @@ _APP_INI = Path(r"G:\.shortcut-targets-by-id\1NsBCziGNFjlQ-f8QRcezPsKVP9QzGdp0\A
 
 def main():
     root = tk.Tk()
+    root.withdraw()
     root.title("ATRPT - Aprovisionamentos")
 
     cfg = load_config(_APP_INI)
+    cfg.paths = load_paths(_APP_INI, "paths_comum", "paths_aprovisionamento")
 
     setup_logging(cfg, "aprovisionamento")
     audit_log = setup_audit_logger(cfg, "aprovisionamento")
@@ -54,6 +57,7 @@ def main():
 
     login_uc     = LoginUseCase(user_repo)
     user_context = login_uc.execute(root)
+    root.deiconify()
 
     perfil = cfg.emails["aprovisionamento"]
 
@@ -104,6 +108,13 @@ def main():
     enviar_uc = EnviarPedidoUseCase(pedido_repo, fornecedor_repo, emailer)
     list_fornecedores_uc = ListFornecedoresUseCase(fornecedor_repo)
 
+    submeter_uc = SubmeterPedidoUseCase(
+        pedido_repo      = pedido_repo,
+        user_repo        = user_repo,
+        email_sender     = email_sender,
+        template_builder = template_builder,
+    )
+
     # -------------------------
     # CONTROLLER
     # -------------------------
@@ -122,6 +133,9 @@ def main():
         list_pedidos_uc=list_pedidos_uc,
         list_fornecedores_uc=list_fornecedores_uc,
         fornecedor_repo=fornecedor_repo,
+        pedido_repo=pedido_repo,
+        user_repo=user_repo,
+        submeter_uc=submeter_uc,
     )
 
     # -------------------------

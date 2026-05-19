@@ -13,242 +13,257 @@ logger = logging.getLogger(__name__)
 
 class PedirAprovacaoGUI(BG):
     """
-    Permite ao utilizador:
-      - Seleccionar um pedido em estado 'criado'
-      - Ver e seleccionar a proposta a adjudicar
-      - Juntar anexos
-      - Submeter para aprovação (estado → pendente) e enviar email
+    Vista embebida — submete pedido de 'criado' para 'pendente'.
+    Fluxo:
+      1. Escolher pedido em estado 'criado'
+      2. Seleccionar proposta (auto se única)
+      3. Anexar documento opcional
+      4. Submeter → muda estado + envia email aos diretores
     """
 
-    def __init__(self, root, controller):
-        super().__init__(root, controller)
-        self.root.title("Pedir Aprovação")
-        self._pedido_actual = None
-        self._proposta_selecionada = None
-        self._anexos = []          # lista de {"id": int|None, "path": str}
+    def __init__(self, parent, controller):
+        super().__init__(parent, controller)
+        self._pedido           = None
+        self._proposta         = None
+        self._proposta_validas = []
+        self._anexo_path       = None
+
+    def _post_init(self):
         self._build()
 
-    def _build(self):
-        frame = ttk.Frame(self.root, padding=10)
-        frame.pack(fill="both", expand=True)
-        frame.columnconfigure(1, weight=1)
+    # ── construção ────────────────────────────────────────────────────
 
-        # ── selecção do pedido ────────────────────────────────────────
-        ttk.Label(frame, text="Pedido:").grid(row=0, column=0, sticky="w", pady=4)
+    def _build(self):
+        f = tk.Frame(self.frame, bg=BG.BG, padx=24, pady=16)
+        f.pack(fill="both", expand=True)
+        f.columnconfigure(1, weight=1)
+
+        # título
+        tk.Label(f, text="Pedir Aprovação", font=BG.FONT_TITLE,
+                 fg=BG.FG, bg=BG.BG).grid(
+            row=0, column=0, columnspan=2, sticky="w", pady=(0, 4))
+        tk.Label(f,
+                 text="Sinaliza a proposta preferida e submete para aprovação — os diretores podem adjudicar outra.",
+                 font=BG.FONT_SUB, fg="#555", bg=BG.BG).grid(
+            row=1, column=0, columnspan=2, sticky="w", pady=(0, 12))
+
+        ttk.Separator(f).grid(row=2, column=0, columnspan=2, sticky="ew", pady=(0, 12))
+
+        # ── pedido ────────────────────────────────────────────────────
+        tk.Label(f, text="Pedido:", bg=BG.BG, font=BG.FONT_SUB).grid(
+            row=3, column=0, sticky="w", pady=6, padx=(0, 12))
 
         pedidos = self.controller.listar_pedidos("criado")
         self._pedidos_map = {p.numero: p for p in pedidos}
-        numeros = list(self._pedidos_map.keys())
 
-        self.cb_pedido = ttk.Combobox(frame, values=numeros, state="readonly", width=20)
-        self.cb_pedido.grid(row=0, column=1, sticky="w", pady=4)
-        self.cb_pedido.bind("<<ComboboxSelected>>", self._on_pedido_select)
+        self.cb_pedido = ttk.Combobox(
+            f, values=list(self._pedidos_map), state="readonly", width=22)
+        self.cb_pedido.grid(row=3, column=1, sticky="w", pady=6)
+        self.cb_pedido.bind("<<ComboboxSelected>>", self._on_pedido)
 
-        if not numeros:
+        if not self._pedidos_map:
             self.cb_pedido.set("Sem pedidos em estado 'criado'")
             self.cb_pedido.config(state="disabled")
 
-        # ── descrição do pedido ───────────────────────────────────────
-        self.lbl_desc = ttk.Label(frame, text="", foreground="gray")
-        self.lbl_desc.grid(row=1, column=0, columnspan=2, sticky="w")
+        self.lbl_desc = tk.Label(f, text="", fg="#555", bg=BG.BG, font=BG.FONT_SUB)
+        self.lbl_desc.grid(row=4, column=0, columnspan=2, sticky="w", pady=(0, 8))
 
         # ── propostas ─────────────────────────────────────────────────
-        frame_prop = ttk.LabelFrame(frame, text="Propostas — seleccione a proposta a adjudicar",
-                                    padding=6)
-        frame_prop.grid(row=2, column=0, columnspan=2, sticky="ew", pady=8)
+        frame_prop = ttk.LabelFrame(f, text="Proposta que recomenda para adjudicação", padding=8)
+        frame_prop.grid(row=5, column=0, columnspan=2, sticky="ew", pady=6)
         frame_prop.columnconfigure(0, weight=1)
 
         cols = ("Fornecedor", "Valor (€)", "Documento")
-        self.tree_prop = ttk.Treeview(frame_prop, columns=cols, show="headings",
-                                      height=5, selectmode="browse")
-        self.tree_prop.heading("Fornecedor", text="Fornecedor")
-        self.tree_prop.heading("Valor (€)",  text="Valor (€)")
-        self.tree_prop.heading("Documento",  text="Documento")
-        self.tree_prop.column("Fornecedor", width=200)
-        self.tree_prop.column("Valor (€)",  width=100, anchor="e")
-        self.tree_prop.column("Documento",  width=380)
-        self.tree_prop.tag_configure("com_doc", foreground="#1a6bbf")
-        self.tree_prop.tag_configure("sem_doc", foreground="gray")
-        self.tree_prop.pack(fill="x", expand=True)
-        self.tree_prop.bind("<<TreeviewSelect>>", self._on_proposta_select)
-        self.tree_prop.bind("<Double-1>", self._abrir_documento)
+        self.tree = ttk.Treeview(frame_prop, columns=cols, show="headings",
+                                  height=4, selectmode="browse")
+        self.tree.heading("Fornecedor", text="Fornecedor")
+        self.tree.heading("Valor (€)",  text="Valor (€)")
+        self.tree.heading("Documento",  text="Documento")
+        self.tree.column("Fornecedor", width=200, anchor="w")
+        self.tree.column("Valor (€)",  width=100, anchor="e")
+        self.tree.column("Documento",  width=340, anchor="w")
+        self.tree.tag_configure("com_doc", foreground="#1a6bbf")
+        self.tree.tag_configure("sem_doc", foreground="gray")
+        self.tree.pack(fill="x")
+        self.tree.bind("<<TreeviewSelect>>", self._on_proposta)
+        self.tree.bind("<Double-1>",         self._abrir_doc_proposta)
 
-        self.lbl_proposta = ttk.Label(frame_prop, text="Nenhuma proposta seleccionada",
-                                      foreground="gray")
-        self.lbl_proposta.pack(anchor="w", pady=(4, 0))
+        self.lbl_prop = tk.Label(frame_prop, text="Seleccione um pedido.",
+                                  fg="gray", bg="white")
+        self.lbl_prop.pack(anchor="w", pady=(4, 0))
 
-        # ── anexos ────────────────────────────────────────────────────
-        frame_anx = ttk.LabelFrame(frame, text="Anexos", padding=6)
-        frame_anx.grid(row=3, column=0, columnspan=2, sticky="ew", pady=4)
+        # ── anexo ─────────────────────────────────────────────────────
+        frame_anx = ttk.LabelFrame(f, text="Anexo", padding=8)
+        frame_anx.grid(row=6, column=0, columnspan=2, sticky="ew", pady=6)
         frame_anx.columnconfigure(0, weight=1)
 
-        self.lst_anexos = tk.Listbox(frame_anx, height=4, selectmode="single")
-        sb_anx = ttk.Scrollbar(frame_anx, orient="vertical", command=self.lst_anexos.yview)
-        self.lst_anexos.configure(yscrollcommand=sb_anx.set)
-        self.lst_anexos.grid(row=0, column=0, sticky="ew")
-        sb_anx.grid(row=0, column=1, sticky="ns")
+        self.lbl_anexo = tk.Label(frame_anx, text="Nenhum ficheiro seleccionado",
+                                   fg="gray", bg="white", anchor="w")
+        self.lbl_anexo.grid(row=0, column=0, sticky="ew")
 
-        btn_anx = ttk.Frame(frame_anx)
-        btn_anx.grid(row=1, column=0, sticky="w", pady=(4, 0))
-        ttk.Button(btn_anx, text="➕ Adicionar anexo",
-                   command=self._adicionar_anexo).pack(side="left", padx=(0, 4))
-        ttk.Button(btn_anx, text="🗑 Remover",
-                   command=self._remover_anexo).pack(side="left", padx=(0, 4))
-        ttk.Button(btn_anx, text="📂 Abrir",
-                   command=self._abrir_anexo).pack(side="left")
+        btn_anx = tk.Frame(frame_anx, bg="white")
+        btn_anx.grid(row=1, column=0, sticky="w", pady=(6, 0))
+        ttk.Button(btn_anx, text="Escolher ficheiro", command=self._escolher_anexo).pack(side="left", padx=(0, 6))
+        ttk.Button(btn_anx, text="Remover",           command=self._remover_anexo).pack(side="left", padx=(0, 6))
+        ttk.Button(btn_anx, text="Abrir",             command=self._abrir_anexo).pack(side="left")
 
-        # ── observações ───────────────────────────────────────────────
-        ttk.Label(frame, text="Observações:").grid(row=4, column=0, sticky="nw", pady=4)
-        self.txt_obs = tk.Text(frame, width=50, height=3)
-        self.txt_obs.grid(row=4, column=1, sticky="ew", pady=4)
+        # ── diretores (informativo) ───────────────────────────────────
+        frame_dir = ttk.LabelFrame(f, text="Email de autorização será enviado a", padding=8)
+        frame_dir.grid(row=7, column=0, columnspan=2, sticky="ew", pady=6)
+        frame_dir.columnconfigure(1, weight=1)
+
+        tk.Label(frame_dir, text="Dir. Financeiro:", bg="white",
+                 font=BG.FONT_SUB).grid(row=0, column=0, sticky="w", padx=(0, 10), pady=2)
+        self.lbl_dir_fin = tk.Label(frame_dir, text="—", fg="gray", bg="white")
+        self.lbl_dir_fin.grid(row=0, column=1, sticky="w", pady=2)
+
+        tk.Label(frame_dir, text="2.º Diretor:", bg="white",
+                 font=BG.FONT_SUB).grid(row=1, column=0, sticky="w", padx=(0, 10), pady=2)
+        self._frame_dir2 = tk.Frame(frame_dir, bg="white")
+        self._frame_dir2.grid(row=1, column=1, sticky="ew", pady=2)
+        self.lbl_dir2 = tk.Label(self._frame_dir2, text="—", fg="gray", bg="white")
+        self.lbl_dir2.pack(side="left")
+        self.cb_dir2 = ttk.Combobox(self._frame_dir2, state="readonly", width=34)
+        self.cb_dir2.bind("<<ComboboxSelected>>", self._on_dir2)
 
         # ── botões ────────────────────────────────────────────────────
-        btn_frame = ttk.Frame(frame)
-        btn_frame.grid(row=5, column=0, columnspan=2, pady=12)
+        btn_row = tk.Frame(f, bg=BG.BG)
+        btn_row.grid(row=8, column=0, columnspan=2, pady=18)
 
-        self.btn_submeter = ttk.Button(
-            btn_frame, text="Submeter para Aprovação",
-            command=self._submeter, state="disabled"
-        )
-        self.btn_submeter.pack(side="left", padx=6)
+        self.btn_submeter = tk.Button(
+            btn_row, text="Submeter para Aprovação",
+            command=self._submeter, state="disabled",
+            bg=BG.BTN_BG, font=BG.FONT_BUTTON)
+        self.btn_submeter.pack(side="left", padx=8)
 
-        ttk.Button(btn_frame, text="Fechar",
-                   command=self.root.destroy).pack(side="left", padx=6)
+        tk.Button(btn_row, text="← Voltar",
+                  command=self.go_back,
+                  bg=BG.BTN_BG, font=BG.FONT_BUTTON).pack(side="left", padx=8)
 
-    # ── callbacks ─────────────────────────────────────────────────────
+        # carregar info de diretores
+        self._dir_fin       = self.controller.get_diretor_financeiro()
+        self._dirs_opcoes   = self.controller.get_diretores_para_segundo()
+        self._dir2_escolhido = None
+        self._mostrar_dir_fin()
 
-    def _on_pedido_select(self, event=None):
+    # ── diretores ─────────────────────────────────────────────────────
+
+    def _mostrar_dir_fin(self):
+        if self._dir_fin:
+            self.lbl_dir_fin.config(
+                text=f"{self._dir_fin.nome}  ({self._dir_fin.email})", fg="#1a1a1a")
+        else:
+            self.lbl_dir_fin.config(
+                text="Nenhum utilizador com perfil DirFin", fg="red")
+
+    def _actualizar_dir2(self, pedido):
+        """Determina o 2.º diretor após seleccionar pedido."""
+        self._dir2_escolhido = None
+        for w in self._frame_dir2.winfo_children():
+            w.pack_forget()
+
+        from core.security import PERFIS_DIRECAO
+        criador = self.controller.get_user_info(pedido.criado_por)
+
+        if criador and criador.perfil in PERFIS_DIRECAO:
+            # o criador é diretor — fica fixo
+            self._dir2_escolhido = criador
+            self.lbl_dir2.config(
+                text=f"{criador.nome}  (criador do pedido)", fg="#1a6bbf")
+            self.lbl_dir2.pack(side="left")
+        elif self._dirs_opcoes:
+            # dropdown de diretores disponíveis
+            self.cb_dir2.config(values=[u.nome for u in self._dirs_opcoes])
+            self.cb_dir2.set("")
+            self.cb_dir2.pack(side="left")
+        else:
+            self.lbl_dir2.config(text="Nenhum diretor disponível", fg="red")
+            self.lbl_dir2.pack(side="left")
+
+        self._actualizar_btn()
+
+    def _on_dir2(self, event=None):
+        idx = self.cb_dir2.current()
+        if 0 <= idx < len(self._dirs_opcoes):
+            self._dir2_escolhido = self._dirs_opcoes[idx]
+        self._actualizar_btn()
+
+    # ── pedido / proposta ─────────────────────────────────────────────
+
+    def _on_pedido(self, event=None):
         numero = self.cb_pedido.get().strip()
         pedido = self._pedidos_map.get(numero)
         if not pedido:
             return
-        self._pedido_actual = pedido
-        self._proposta_selecionada = None
-        self.lbl_proposta.config(text="Nenhuma proposta seleccionada")
-        self.btn_submeter.config(state="disabled")
-
+        self._pedido   = pedido
+        self._proposta = None
         self.lbl_desc.config(
-            text=f"{pedido.descricao}  |  {pedido.centro_custo}  |  {pedido.criado_por}"
-        )
+            text=f"{pedido.descricao}  |  {pedido.centro_custo}  |  criado por: {pedido.criado_por}")
 
-        # carregar propostas
-        self.tree_prop.delete(*self.tree_prop.get_children())
         mapa = self.controller.get_mapa_fornecedores()
-        for p in pedido.propostas:
-            nome = mapa.get(str(p.fornecedor_id), p.fornecedor_id)
+        self.tree.delete(*self.tree.get_children())
+        self._proposta_validas = pedido.propostas_validas() if hasattr(pedido, 'propostas_validas') else pedido.propostas
+
+        for p in self._proposta_validas:
+            nome  = mapa.get(str(p.fornecedor_id), str(p.fornecedor_id))
             valor = f"{p.valor:,.2f}" if p.valor is not None else "—"
             doc   = p.pdf_path or ""
-            tag   = "com_doc" if doc else "sem_doc"
-            self.tree_prop.insert("", "end",
-                values=(nome, valor, doc if doc else "— sem documento —"),
-                tags=(tag,)
-            )
+            self.tree.insert("", "end",
+                values=(nome, valor, doc or "— sem documento —"),
+                tags=("com_doc" if doc else "sem_doc",))
 
-        # se só há uma proposta, seleccionar automaticamente
-        children = self.tree_prop.get_children()
-        if len(children) == 1:
-            self.tree_prop.selection_set(children[0])
-            self._on_proposta_select()
+        if len(self._proposta_validas) == 1:
+            self.tree.selection_set(self.tree.get_children()[0])
+            self._on_proposta()
+        elif not self._proposta_validas:
+            self.lbl_prop.config(text="Sem propostas válidas neste pedido.", fg="red")
 
-        # carregar anexos existentes
-        self._carregar_anexos(numero)
+        self._actualizar_dir2(pedido)
 
-    def _on_proposta_select(self, event=None):
-        sel = self.tree_prop.selection()
-        if not sel or not self._pedido_actual:
-            return
-        idx = self.tree_prop.index(sel[0])
-        propostas = self._pedido_actual.propostas
-        if idx < len(propostas):
-            self._proposta_selecionada = propostas[idx]
-            nome = self.controller.get_mapa_fornecedores().get(
-                str(self._proposta_selecionada.fornecedor_id),
-                self._proposta_selecionada.fornecedor_id
-            )
-            valor = self._proposta_selecionada.valor
-            self.lbl_proposta.config(
-                text=f"✔ Seleccionada: {nome}  |  {valor:,.2f} €",
-                foreground="#1a6bbf"
-            )
-            self.btn_submeter.config(state="normal")
-
-    def _abrir_documento(self, event=None):
-        sel = self.tree_prop.selection()
+    def _on_proposta(self, event=None):
+        sel = self.tree.selection()
         if not sel:
             return
-        valores = self.tree_prop.item(sel[0], "values")
-        path = valores[2] if valores else ""
-        if not path or path.startswith("—"):
+        idx = self.tree.index(sel[0])
+        if idx < len(self._proposta_validas):
+            self._proposta = self._proposta_validas[idx]
+            mapa = self.controller.get_mapa_fornecedores()
+            nome = mapa.get(str(self._proposta.fornecedor_id), str(self._proposta.fornecedor_id))
+            self.lbl_prop.config(
+                text=f"Seleccionada: {nome}  |  {self._proposta.valor:,.2f} €",
+                fg="#1a6bbf")
+        self._actualizar_btn()
+
+    def _abrir_doc_proposta(self, event=None):
+        sel = self.tree.selection()
+        if not sel:
             return
-        self._abrir_path(path)
+        path = self.tree.item(sel[0], "values")[2]
+        if path and not path.startswith("—"):
+            self._abrir_path(path)
 
-    # ── anexos ────────────────────────────────────────────────────────
+    # ── anexo ─────────────────────────────────────────────────────────
 
-    def _carregar_anexos(self, pedido_numero: str):
-        self._anexos.clear()
-        self.lst_anexos.delete(0, tk.END)
-        try:
-            for anx in self.controller.listar_anexos(pedido_numero):
-                self._anexos.append(anx)
-                self.lst_anexos.insert(tk.END, anx["path"])
-        except Exception:
-            pass
-
-    def _adicionar_anexo(self):
-        if not self._pedido_actual:
-            messagebox.showwarning("Aviso", "Seleccione primeiro um pedido.",
-                                   parent=self.root)
-            return
+    def _escolher_anexo(self):
         path = filedialog.askopenfilename(
             title="Seleccionar Anexo",
-            filetypes=[
-                ("Documentos", "*.pdf *.xlsx *.xls *.docx *.doc"),
-                ("PDF", "*.pdf"),
-                ("Excel", "*.xlsx *.xls"),
-                ("Word", "*.docx *.doc"),
-                ("Todos", "*.*"),
-            ]
-        )
-        if not path:
-            return
-        try:
-            self.controller.adicionar_anexo(self._pedido_actual.numero, path)
-        except Exception as e:
-            messagebox.showerror("Erro", str(e), parent=self.root)
-            return
-        self._anexos.append({"id": None, "path": path})
-        self.lst_anexos.insert(tk.END, path)
+            filetypes=[("Documentos", "*.pdf *.docx *.doc *.xlsx *.xls"),
+                       ("Todos", "*.*")])
+        if path:
+            self._anexo_path = path
+            self.lbl_anexo.config(text=os.path.basename(path), fg="#1a1a1a")
 
     def _remover_anexo(self):
-        sel = self.lst_anexos.curselection()
-        if not sel:
-            return
-        idx = sel[0]
-        anexo = self._anexos[idx]
-        if not messagebox.askyesno("Confirmar", "Remover este anexo?",
-                                   parent=self.root):
-            return
-        if anexo.get("id"):
-            try:
-                self.controller.remover_anexo(anexo["id"])
-            except Exception as e:
-                messagebox.showerror("Erro", str(e), parent=self.root)
-                return
-        self._anexos.pop(idx)
-        self.lst_anexos.delete(idx)
+        self._anexo_path = None
+        self.lbl_anexo.config(text="Nenhum ficheiro seleccionado", fg="gray")
 
     def _abrir_anexo(self):
-        sel = self.lst_anexos.curselection()
-        if not sel:
-            return
-        path = self._anexos[sel[0]]["path"]
-        self._abrir_path(path)
+        if self._anexo_path:
+            self._abrir_path(self._anexo_path)
 
     def _abrir_path(self, path: str):
         if not os.path.exists(path):
-            messagebox.showerror("Ficheiro não encontrado",
-                                 f"Não foi possível encontrar:\n{path}",
-                                 parent=self.root)
+            messagebox.showerror("Ficheiro não encontrado", f"{path}", parent=self.root)
             return
         try:
             if sys.platform == "win32":
@@ -260,46 +275,55 @@ class PedirAprovacaoGUI(BG):
         except Exception as e:
             messagebox.showerror("Erro", str(e), parent=self.root)
 
+    # ── estado do botão ───────────────────────────────────────────────
+
+    def _actualizar_btn(self):
+        pode = (
+            self._pedido is not None
+            and self._proposta is not None
+            and self._dir2_escolhido is not None
+        )
+        self.btn_submeter.config(state="normal" if pode else "disabled")
+
     # ── submeter ──────────────────────────────────────────────────────
 
     def _submeter(self):
-        if not self._pedido_actual:
-            return
-        if not self._proposta_selecionada:
-            messagebox.showwarning("Aviso", "Seleccione a proposta a adjudicar.",
-                                   parent=self.root)
+        if not (self._pedido and self._proposta and self._dir2_escolhido):
             return
 
-        mapa = self.controller.get_mapa_fornecedores()
-        nome_forn = mapa.get(
-            str(self._proposta_selecionada.fornecedor_id),
-            self._proposta_selecionada.fornecedor_id
-        )
-        obs = self.txt_obs.get("1.0", "end").strip()
+        mapa      = self.controller.get_mapa_fornecedores()
+        nome_forn = mapa.get(str(self._proposta.fornecedor_id), str(self._proposta.fornecedor_id))
 
         if not messagebox.askyesno(
-            "Confirmar Submissão",
-            f"Pedido: {self._pedido_actual.numero}\n"
-            f"Proposta seleccionada: {nome_forn}  |  {self._proposta_selecionada.valor:,.2f} €\n\n"
-            "O pedido passará a estado 'pendente' e será enviado email para aprovação.\n\n"
-            "Confirma?",
-            parent=self.root
+            "Confirmar",
+            f"Pedido: {self._pedido.numero}\n"
+            f"Proposta: {nome_forn}  |  {self._proposta.valor:,.2f} €\n\n"
+            f"Email enviado a:\n"
+            f"  • {self._dir_fin.nome}  (Dir. Financeiro)\n"
+            f"  • {self._dir2_escolhido.nome}\n\n"
+            "Confirma a submissão?",
+            parent=self.root,
         ):
             return
 
         try:
+            # registar anexo no pedido se indicado
+            if self._anexo_path:
+                self.controller.adicionar_anexo(self._pedido.numero, self._anexo_path)
+
             self.controller.pedir_aprovacao(
-                numero=self._pedido_actual.numero,
-                proposta=self._proposta_selecionada,
-                observacoes=obs,
+                numero             = self._pedido.numero,
+                proposta           = self._proposta,
+                diretor_financeiro = self._dir_fin,
+                diretor2           = self._dir2_escolhido,
             )
             messagebox.showinfo(
                 "Submetido",
-                f"Pedido {self._pedido_actual.numero} submetido para aprovação.\n"
-                "Email enviado aos aprovadores.",
-                parent=self.root
+                f"Pedido {self._pedido.numero} submetido.\n"
+                f"Email enviado a {self._dir_fin.nome} e {self._dir2_escolhido.nome}.",
+                parent=self.root,
             )
-            self.root.destroy()
+            self.go_back()
         except Exception as e:
             logger.error(f"Erro ao pedir aprovação: {e}", exc_info=True)
             messagebox.showerror("Erro", str(e), parent=self.root)

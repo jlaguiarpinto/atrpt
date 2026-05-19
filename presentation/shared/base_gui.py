@@ -21,7 +21,10 @@
 #   - self.root  = janela real (Tk ou Toplevel) — para attributes(), etc.
 #   - self.frame = contentor de renderização (pode ser Frame)
 
+import getpass
 import tkinter as tk
+from datetime import date
+from pathlib import Path
 from tkinter import ttk
 from tkinter import simpledialog, messagebox as mb, filedialog
 from tkinter import Menu
@@ -72,6 +75,7 @@ class BaseGui:
         self.txt_output  = None
         self._view_stack = []
         self._back_btn   = None   # criado dinamicamente
+        self._modulo     = None
 
         if self.root is None:
             return
@@ -107,23 +111,47 @@ class BaseGui:
         self.frame_menu_back = tk.Frame(self.frame_menu, bg=self.BG)
         self.frame_menu_back.pack(side="right", padx=5)
 
-        # ── ÁREA DE TRABALHO ──────────────────────────
-        self.frame_work = tk.Frame(self.root, bg=self.BG)
-        self.frame_work.pack(fill="both", expand=True, padx=5, pady=5)
+        # ── DIVISOR TRABALHO / LOGS ───────────────────
+        paned = tk.PanedWindow(
+            self.root, orient="vertical", bg=self.BG,
+            sashwidth=6, sashrelief="raised",
+        )
+        paned.pack(fill="both", expand=True, padx=5, pady=5)
+
+        self.frame_work = tk.Frame(paned, bg=self.BG)
+        paned.add(self.frame_work, minsize=60)
+
+        self.frame_logs = tk.Frame(paned, bg=self.BG)
+        paned.add(self.frame_logs, minsize=80)
+
+        # posição inicial do sash: trabalho ocupa a maioria; logs ficam em baixo (~150 px)
+        def _posicionar_sash():
+            if len(paned.panes()) < 2:
+                return  # sash removido (janela modal sem zona de logs)
+            h = paned.winfo_height()
+            if h > 1:
+                paned.sash_place(0, 0, max(h - 150, 300))
+            else:
+                self.root.after(50, _posicionar_sash)
+        self.root.after(100, _posicionar_sash)
 
         # ── LOGS ──────────────────────────────────────
-        self.frame_logs = tk.Frame(self.root, bg=self.BG)
-        self.frame_logs.pack(fill="x", side="bottom")
+        log_inner = tk.Frame(self.frame_logs, bg="white")
+        log_inner.pack(fill="both", expand=True, padx=10, pady=6)
+
+        log_scroll = tk.Scrollbar(log_inner, orient="vertical")
+        log_scroll.pack(side="right", fill="y")
 
         self.txt_output = tk.Text(
-            self.frame_logs,
-            height=8,
-            bg="black",
-            fg="white",
+            log_inner,
+            bg="white",
+            fg="#222222",
             wrap="word",
             font=("Courier", 9),
+            yscrollcommand=log_scroll.set,
         )
-        self.txt_output.pack(fill="x", padx=10, pady=6)
+        self.txt_output.pack(side="left", fill="both", expand=True)
+        log_scroll.config(command=self.txt_output.yview)
 
         # ── LOGGING → GUI ─────────────────────────────
         root_logger = logging.getLogger()
@@ -133,6 +161,11 @@ class BaseGui:
                 logging.Formatter("%(asctime)s - %(message)s", "%H:%M:%S")
             )
             root_logger.addHandler(handler)
+
+        # ── Botão X da janela usa o mesmo fluxo de saída
+        if isinstance(self.root, tk.Tk):
+            self.root.protocol("WM_DELETE_WINDOW", self._sair)
+            self.root.state("zoomed")
 
     # --------------------------------------------------
     # Menu global (barra de menus nativa — só na Tk raiz)
@@ -151,7 +184,7 @@ class BaseGui:
             command=lambda: self._call_controller("importar_pim_xlsx")
         )
         m_file.add_separator()
-        m_file.add_command(label="Sair", command=self.root.quit)
+        m_file.add_command(label="Sair", command=self._sair)
         menuBar.add_cascade(label="Ficheiro", menu=m_file)
         self.root.config(menu=menuBar)
 
@@ -178,6 +211,7 @@ class BaseGui:
         set_title("Secretaria")
         set_title("Secretaria", "PIM")
         """
+        self._modulo = modulo
         for w in self.frame_top_left.winfo_children():
             w.destroy()
         for w in self.frame_top_right.winfo_children():
@@ -196,7 +230,7 @@ class BaseGui:
         tk.Button(
             self.frame_top_right,
             text="Sair",
-            command=self.root.quit,
+            command=self._sair,
             bg=self.BTN_BG,
             font=self.FONT_BUTTON,
             width=8,
@@ -218,7 +252,7 @@ class BaseGui:
         tk.Button(
             self.frame_top_right,
             text="Sair",
-            command=self.root.quit,
+            command=self._sair,
             bg=self.BTN_BG,
             font=self.FONT_BUTTON,
             width=10,
@@ -424,6 +458,84 @@ class BaseGui:
         tk.Label(frame, text=subtitulo, fg=self.FG, bg=self.BG, font=font_sub  ).pack(anchor="w")
 
         return frame
+
+    # --------------------------------------------------
+    # Saída com diálogo de feedback
+    # --------------------------------------------------
+
+    def _sair(self):
+        """Mostra diálogo de sugestão/erro antes de encerrar a aplicação."""
+        win = tk.Toplevel(self.root)
+        win.title("Antes de sair — ATRPT")
+        win.resizable(False, False)
+        win.transient(self.root)
+        win.grab_set()
+        win.focus_force()
+        self.center_window(win, 520, 300)
+
+        resultado = {"texto": None}
+
+        tk.Label(
+            win,
+            text="Sugestão ou erro a registar?",
+            font="Verdana 11 bold",
+            pady=10,
+        ).pack()
+        tk.Label(
+            win,
+            text="(deixe em branco para sair sem registar)",
+            font="Verdana 9",
+            fg="#666666",
+        ).pack()
+
+        txt = tk.Text(win, height=7, width=58, wrap="word", font=("Verdana", 10))
+        txt.pack(padx=15, pady=10)
+        txt.focus_set()
+
+        def _confirmar():
+            resultado["texto"] = txt.get("1.0", tk.END).strip()
+            win.destroy()
+
+        def _ignorar():
+            win.destroy()
+
+        frame_btns = tk.Frame(win, pady=6)
+        frame_btns.pack()
+        tk.Button(
+            frame_btns,
+            text="Guardar e sair",
+            command=_confirmar,
+            bg=self.BTN_BG,
+            font=self.FONT_BUTTON,
+        ).pack(side="left", padx=12)
+        tk.Button(
+            frame_btns,
+            text="Sair sem registar",
+            command=_ignorar,
+            font=self.FONT_BUTTON,
+            fg="#666666",
+        ).pack(side="left", padx=12)
+
+        win.bind("<Escape>", lambda e: _ignorar())
+        win.protocol("WM_DELETE_WINDOW", _ignorar)
+        win.wait_window()
+
+        if resultado["texto"]:
+            self._gravar_feedback(resultado["texto"])
+
+        self.root.quit()
+
+    def _gravar_feedback(self, texto: str):
+        hoje = date.today().isoformat()
+        user = getpass.getuser()
+        app  = self._modulo or "ATRPT"
+        linha = f"{hoje} - {user} - {app} - {texto}\n"
+        todos_path = Path(__file__).resolve().parents[2] / "ToDos.txt"
+        try:
+            with open(todos_path, "a", encoding="utf-8") as f:
+                f.write(linha)
+        except Exception:
+            pass
 
     # --------------------------------------------------
     # Logs

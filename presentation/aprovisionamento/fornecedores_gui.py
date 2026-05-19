@@ -7,18 +7,7 @@ from presentation.aprovisionamento.fornecedor_detalhe_gui import FornecedorDetal
 from presentation.aprovisionamento.fornecedor_classificar_gui import FornecedorClassificarGUI
 
 
-TIPOS_FORNECEDOR = [
-    "Serviços", "Material", "Equipamento", "Obras",
-    "Médico", "Enfermeiro", "Psicólogo", "Fisioterapeuta",
-    "Professor de Ginástica", "Maestro","Consumíveis"
-    "Talho", "Peixaria", "Mercearia",
-    "Energia", "Manutenção", "Outro",
-]
-
-TIPOS_RELACAO = [
-    "Pontual", "Contrato", "Preferencial",
-    "Avençado", "Prestador", "Suspenso",
-]
+from domain.aprovisionamento.fornecedor import TIPOS_FORNECEDOR, TIPOS_RELACAO
 
 
 class FornecedoresGUI(BG):
@@ -226,31 +215,36 @@ class FornecedoresGUI(BG):
         cb_pagamento.set(getattr(fornecedor, "metodo_pagamento", "") or "")
         cb_pagamento.grid(row=6, column=1, sticky="w", pady=3)
 
-        _sep(7)
+        _lbl(7, "Atividade:")
+        ent_atividade = ttk.Entry(frame, width=34)
+        ent_atividade.insert(0, getattr(fornecedor, "atividade", "") or "")
+        ent_atividade.grid(row=7, column=1, sticky="w", pady=3)
+
+        _sep(9)
 
         # contacto comercial
         ttk.Label(frame, text="Contacto Comercial", font=("Segoe UI", 9, "bold")).grid(
-            row=8, column=0, columnspan=3, sticky="w", pady=(0, 2))
-        _lbl(9, "Nome:")
-        ent_com_nome = _entry(9, getattr(fornecedor, "comercial_nome", ""))
-        _lbl(10, "Email:")
-        ent_com_email = _entry(10, getattr(fornecedor, "comercial_email", ""))
-        _lbl(11, "Telm:")
-        ent_com_telm = _entry(11, getattr(fornecedor, "comercial_telemovel", ""))
+            row=10, column=0, columnspan=3, sticky="w", pady=(0, 2))
+        _lbl(11, "Nome:")
+        ent_com_nome = _entry(11, getattr(fornecedor, "comercial_nome", ""))
+        _lbl(12, "Email:")
+        ent_com_email = _entry(12, getattr(fornecedor, "comercial_email", ""))
+        _lbl(13, "Telm:")
+        ent_com_telm = _entry(13, getattr(fornecedor, "comercial_telemovel", ""))
 
-        _sep(12)
+        _sep(14)
 
         # contacto administrativo
         ttk.Label(frame, text="Contacto Administrativo", font=("Segoe UI", 9, "bold")).grid(
-            row=13, column=0, columnspan=3, sticky="w", pady=(0, 2))
-        _lbl(14, "Nome:")
-        ent_adm_nome = _entry(14, getattr(fornecedor, "administrativo_nome", ""))
-        _lbl(15, "Email:")
-        ent_adm_email = _entry(15, getattr(fornecedor, "administrativo_email", ""))
-        _lbl(16, "Telm:")
-        ent_adm_telm = _entry(16, getattr(fornecedor, "administrativo_telemovel", ""))
+            row=15, column=0, columnspan=3, sticky="w", pady=(0, 2))
+        _lbl(16, "Nome:")
+        ent_adm_nome = _entry(16, getattr(fornecedor, "administrativo_nome", ""))
+        _lbl(17, "Email:")
+        ent_adm_email = _entry(17, getattr(fornecedor, "administrativo_email", ""))
+        _lbl(18, "Telm:")
+        ent_adm_telm = _entry(18, getattr(fornecedor, "administrativo_telemovel", ""))
 
-        _sep(17)
+        _sep(19)
 
 
 
@@ -265,6 +259,7 @@ class FornecedoresGUI(BG):
                 "tipo_fornecedor":         cb_tipo_forn.get() or None,
                 "tipo_relacao":            cb_tipo_rel.get() or None,
                 "metodo_pagamento":        cb_pagamento.get() or None,
+                "atividade":              ent_atividade.get().strip() or None,
                 "setor":                   getattr(fornecedor, "setor", None),
                 "comercial_nome":          ent_com_nome.get().strip() or None,
                 "comercial_email":         ent_com_email.get().strip() or None,

@@ -15,7 +15,7 @@ class PimContext:
     email_teste: Optional[str]
 
     # ---------- ledger ----------
-    pim_file: Path                # PIM.xlsx (estado corrente)
+    pim_file: object              # PimSQLiteRepository (estado corrente)
 
     # ---------- histórico ----------
     pim_mensal_file: Path        # PIM_2026_03.xlsx

@@ -63,13 +63,18 @@ class AprovisionamentoGUI(BG):
 
 class PedidosMenuGUI(BG):                                          #   Sub-menu Pedidos de Compra
 
-    def __init__(self, parent, controller):                                      
+    def __init__(self, parent, controller):
         super().__init__(parent, controller)
         # _build é chamado via _post_init pelo show_view, após injecção dos frames
 
     def _post_init(self):
         self._build()
 
+    def _pode_aprovar_encomendar(self) -> bool:
+        """Acesso a 'Pedir Aprovação' e 'Encomendar': permissão 'dev' ou perfil 'SG'."""
+        u = self.controller.user
+        perms  = set(getattr(u, "permissions", []) or [])
+        return "dev" in perms or getattr(u, "perfil", "") == "SG"
 
     # Estados conhecidos — ajustar conforme o domínio
     ESTADOS_DISPONIVEIS = ["criado","pendente", "autorizado", "encomendado", "recebido", "cancelado"]
@@ -79,10 +84,11 @@ class PedidosMenuGUI(BG):                                          #   Sub-menu 
             ("Criar Pedido",       self._criar_pedido),
             ("Adicionar Proposta", self._adicionar_proposta),
             ("Listar Pedidos",     self._dialogo_listar_pedidos),
-            ("Pedir Aprovação",    self._pedir_aprovacao),
             ("Autorizar",          self._autorizar),
-            ("Encomendar",         self._encomendar),
         ]
+        if self._pode_aprovar_encomendar():
+            opcoes.insert(3, ("Pedir Aprovação", self._pedir_aprovacao))
+            opcoes.append(    ("Encomendar",      self._encomendar))
         self.build_menu_buttons(opcoes)
 
     # ------------------------------------------------------------------
@@ -271,10 +277,7 @@ class PedidosMenuGUI(BG):                                          #   Sub-menu 
 
     def _pedir_aprovacao(self):
         from presentation.aprovisionamento.pedido_pedir_aprovacao_gui import PedirAprovacaoGUI
-        win = tk.Toplevel(self.root)
-        BG.make_modal(win, self.root)
-        PedirAprovacaoGUI(win, self.controller)
-        self.root.wait_window(win)
+        self.show_view(PedirAprovacaoGUI, self.controller)
     
     def _adicionar_proposta(self):
         from presentation.aprovisionamento.pedido_proposta_gui import JuntarPropostaGUI

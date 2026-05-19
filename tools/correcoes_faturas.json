@@ -1,0 +1,660 @@
+[
+  {
+    "pdf": "ADRICA_20250630_1391.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "2025-06-30",
+    "data": "2026-05-17T17:51:10"
+  },
+  {
+    "pdf": "ADRICA_20250630_1391.pdf",
+    "campo": "iva",
+    "extraido": "15.95",
+    "correto": "14.95",
+    "data": "2026-05-17T17:51:18"
+  },
+  {
+    "pdf": "AIRLIQ_20250703_1387.pdf",
+    "campo": "nif",
+    "extraido": "500794600",
+    "correto": "501576436",
+    "data": "2026-05-17T17:53:45"
+  },
+  {
+    "pdf": "AIRLIQ_20250703_1387.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "34",
+    "data": "2026-05-17T17:54:09"
+  },
+  {
+    "pdf": "AIRLIQ_20250703_1387.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7,82",
+    "data": "2026-05-17T17:54:16"
+  },
+  {
+    "pdf": "BHIAEQ_20250919_1500.pdf",
+    "campo": "n_fatura",
+    "extraido": "FT FA.2025",
+    "correto": "965",
+    "data": "2026-05-17T17:55:06"
+  },
+  {
+    "pdf": "BHIAEQ_20250919_1500.pdf",
+    "campo": "data",
+    "extraido": "2025-09-17",
+    "correto": "2025-09-19",
+    "data": "2026-05-17T17:56:18"
+  },
+  {
+    "pdf": "BHIAEQ_20250919_1500.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "2025-09-19",
+    "data": "2026-05-17T17:56:26"
+  },
+  {
+    "pdf": "fat_AIRLI_20250630.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41,82",
+    "data": "2026-05-17T19:07:44"
+  },
+  {
+    "pdf": "fat_AIRLI_20250630.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7,82",
+    "data": "2026-05-17T19:07:44"
+  },
+  {
+    "pdf": "fat_AIRLI_20250831.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41,82",
+    "data": "2026-05-17T19:08:08"
+  },
+  {
+    "pdf": "fat_AIRLI_20250831.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7,82",
+    "data": "2026-05-17T19:08:08"
+  },
+  {
+    "pdf": "fat_AIRLI_20250930.pdf",
+    "campo": "total",
+    "extraido": "186402527.0",
+    "correto": "211,67",
+    "data": "2026-05-17T19:09:04"
+  },
+  {
+    "pdf": "fat_AIRLI_20250930.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "25,27",
+    "data": "2026-05-17T19:09:05"
+  },
+  {
+    "pdf": "fat_AIRLI_20251031.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41,82",
+    "data": "2026-05-17T19:09:53"
+  },
+  {
+    "pdf": "fat_AIRLI_20251031.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7,82",
+    "data": "2026-05-17T19:09:53"
+  },
+  {
+    "pdf": "fat_AIRLI_20260228.pdf",
+    "campo": "total",
+    "extraido": "3478800.0",
+    "correto": "42,78",
+    "data": "2026-05-17T19:10:29"
+  },
+  {
+    "pdf": "fat_AIRLI_20260228.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "8",
+    "data": "2026-05-17T19:10:29"
+  },
+  {
+    "pdf": "fat_AIRLI_20260331.pdf",
+    "campo": "total",
+    "extraido": "3478800.0",
+    "correto": "42,78",
+    "data": "2026-05-17T19:10:39"
+  },
+  {
+    "pdf": "fat_AIRLI_20260331.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "8",
+    "data": "2026-05-17T19:10:39"
+  },
+  {
+    "pdf": "fat_AIRLI_20260430.pdf",
+    "campo": "total",
+    "extraido": "3478800.0",
+    "correto": "42,78",
+    "data": "2026-05-17T19:10:49"
+  },
+  {
+    "pdf": "fat_AIRLI_20260430.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "8",
+    "data": "2026-05-17T19:10:50"
+  },
+  {
+    "pdf": "fat_ALCIN_20250630.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "2025-06-30",
+    "data": "2026-05-17T19:13:04"
+  },
+  {
+    "pdf": "fat_ALCIN_20250630.pdf",
+    "campo": "iva",
+    "extraido": "15.95",
+    "correto": "14.95",
+    "data": "2026-05-17T19:13:04"
+  },
+  {
+    "pdf": "fat_ALCIN_20251030.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "2025-10-30",
+    "data": "2026-05-17T19:14:15"
+  },
+  {
+    "pdf": "fat_ALCIN_20251030.pdf",
+    "campo": "iva",
+    "extraido": "520.04",
+    "correto": "510.04",
+    "data": "2026-05-17T19:14:15"
+  },
+  {
+    "pdf": "fat_ALCIN_20260228.pdf",
+    "campo": "iva",
+    "extraido": "68.64",
+    "correto": "59.64",
+    "data": "2026-05-17T19:15:06"
+  },
+  {
+    "pdf": "fat_ALCIN_20260228_1.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "0",
+    "data": "2026-05-17T19:15:13"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "509408486",
+    "data": "2026-05-17T19:20:17"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "430,50",
+    "data": "2026-05-17T19:20:17"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "80,50",
+    "data": "2026-05-17T19:20:17"
+  },
+  {
+    "pdf": "fat_ALTER_20250827.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "409408486",
+    "data": "2026-05-17T19:21:09"
+  },
+  {
+    "pdf": "fat_ALTER_20250827.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "430.50",
+    "data": "2026-05-17T19:21:09"
+  },
+  {
+    "pdf": "fat_ALTER_20250827.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "80.50",
+    "data": "2026-05-17T19:21:09"
+  },
+  {
+    "pdf": "fat_AIRLI_20250630.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41.82",
+    "data": "2026-05-17T22:16:42"
+  },
+  {
+    "pdf": "fat_AIRLI_20250630.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7.82",
+    "data": "2026-05-17T22:16:42"
+  },
+  {
+    "pdf": "fat_AIRLI_20250831.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41.82",
+    "data": "2026-05-17T22:17:37"
+  },
+  {
+    "pdf": "fat_AIRLI_20250831.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7.82",
+    "data": "2026-05-17T22:17:37"
+  },
+  {
+    "pdf": "fat_AIRLI_20250630.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41.82",
+    "data": "2026-05-17T22:41:11"
+  },
+  {
+    "pdf": "fat_AIRLI_20250630.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7.82",
+    "data": "2026-05-17T22:41:11"
+  },
+  {
+    "pdf": "fat_AIRLI_20250831.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41.82",
+    "data": "2026-05-17T22:41:33"
+  },
+  {
+    "pdf": "fat_AIRLI_20250831.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7.82",
+    "data": "2026-05-17T22:41:33"
+  },
+  {
+    "pdf": "fat_AIRLI_20250930.pdf",
+    "campo": "total",
+    "extraido": "186402527.0",
+    "correto": "211.67",
+    "data": "2026-05-17T22:42:33"
+  },
+  {
+    "pdf": "fat_AIRLI_20250930.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "25.27",
+    "data": "2026-05-17T22:42:33"
+  },
+  {
+    "pdf": "fat_AIRLI_20251031.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41.82",
+    "data": "2026-05-17T22:43:07"
+  },
+  {
+    "pdf": "fat_AIRLI_20251031.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7.82",
+    "data": "2026-05-17T22:43:07"
+  },
+  {
+    "pdf": "fat_AIRLI_20260228.pdf",
+    "campo": "total",
+    "extraido": "3478800.0",
+    "correto": "42.78",
+    "data": "2026-05-17T22:43:33"
+  },
+  {
+    "pdf": "fat_AIRLI_20260228.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "8",
+    "data": "2026-05-17T22:43:33"
+  },
+  {
+    "pdf": "fat_AIRLI_20260331.pdf",
+    "campo": "total",
+    "extraido": "3478800.0",
+    "correto": "42.78",
+    "data": "2026-05-17T22:43:57"
+  },
+  {
+    "pdf": "fat_AIRLI_20260331.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "8",
+    "data": "2026-05-17T22:43:57"
+  },
+  {
+    "pdf": "fat_AIRLI_20260430.pdf",
+    "campo": "total",
+    "extraido": "3478800.0",
+    "correto": "42.78",
+    "data": "2026-05-17T22:44:08"
+  },
+  {
+    "pdf": "fat_AIRLI_20260430.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "8",
+    "data": "2026-05-17T22:44:08"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "509408486",
+    "data": "2026-05-17T22:47:29"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "430.50",
+    "data": "2026-05-17T22:47:29"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "80.50",
+    "data": "2026-05-17T22:47:29"
+  },
+  {
+    "pdf": "fat_ALTER_20250827.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "509408486",
+    "data": "2026-05-17T22:48:43"
+  },
+  {
+    "pdf": "fat_ALTER_20250827.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "430.50",
+    "data": "2026-05-17T22:48:43"
+  },
+  {
+    "pdf": "fat_ALTER_20250827.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "80.50",
+    "data": "2026-05-17T22:48:43"
+  },
+  {
+    "pdf": "fat_ALTER_20250929.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "501408489",
+    "data": "2026-05-17T22:49:31"
+  },
+  {
+    "pdf": "fat_ALTER_20250929.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "430.50",
+    "data": "2026-05-17T22:49:32"
+  },
+  {
+    "pdf": "fat_ALTER_20250929.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "80.50",
+    "data": "2026-05-17T22:49:32"
+  },
+  {
+    "pdf": "fat_ALTER_20251028.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "509408489",
+    "data": "2026-05-17T22:50:23"
+  },
+  {
+    "pdf": "fat_ALTER_20251028.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "122.39",
+    "data": "2026-05-17T22:50:23"
+  },
+  {
+    "pdf": "fat_ALTER_20251028.pdf",
+    "campo": "iva",
+    "extraido": "1.0",
+    "correto": "22.89",
+    "data": "2026-05-17T22:50:23"
+  },
+  {
+    "pdf": "fat_ALTER_20251029.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "509408489",
+    "data": "2026-05-17T22:51:04"
+  },
+  {
+    "pdf": "fat_ALTER_20251029.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "430.50",
+    "data": "2026-05-17T22:51:04"
+  },
+  {
+    "pdf": "fat_ALTER_20251029.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "80.50",
+    "data": "2026-05-17T22:51:04"
+  },
+  {
+    "pdf": "fat_AIRLI_20250630.pdf",
+    "campo": "total",
+    "extraido": "3400782.0",
+    "correto": "41.82",
+    "data": "2026-05-17T23:23:49"
+  },
+  {
+    "pdf": "fat_AIRLI_20250630.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "7.82",
+    "data": "2026-05-17T23:23:49"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "509408486",
+    "data": "2026-05-17T23:28:01"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "430.50",
+    "data": "2026-05-17T23:28:01"
+  },
+  {
+    "pdf": "fat_ALTER_20250729.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "80.5",
+    "data": "2026-05-17T23:28:01"
+  },
+  {
+    "pdf": "fat_AUTOC_20260423_1.pdf",
+    "campo": "n_fatura",
+    "extraido": null,
+    "correto": "8714",
+    "data": "2026-05-17T23:30:31"
+  },
+  {
+    "pdf": "fat_AUTOC_20260423_1.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "23-04-2026",
+    "data": "2026-05-17T23:30:31"
+  },
+  {
+    "pdf": "fat_AUTOC_20260423_1.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "524.04",
+    "data": "2026-05-17T23:30:31"
+  },
+  {
+    "pdf": "fat_AUTOC_20260423_1.pdf",
+    "campo": "iva",
+    "extraido": "98417.05",
+    "correto": "97.99",
+    "data": "2026-05-17T23:30:31"
+  },
+  {
+    "pdf": "fat_BHIAE_20250917.pdf",
+    "campo": "data",
+    "extraido": "2025-09-17",
+    "correto": "2025-09-19",
+    "data": "2026-05-17T23:31:29"
+  },
+  {
+    "pdf": "fat_BHIAE_20250917.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "2025-09-19",
+    "data": "2026-05-17T23:31:29"
+  },
+  {
+    "pdf": "fat_CESAR_20250616.pdf",
+    "campo": "n_fatura",
+    "extraido": null,
+    "correto": "577189",
+    "data": "2026-05-17T23:33:06"
+  },
+  {
+    "pdf": "fat_CESAR_20250616.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "16-06-2025",
+    "data": "2026-05-17T23:33:06"
+  },
+  {
+    "pdf": "fat_CESAR_20250616.pdf",
+    "campo": "iva",
+    "extraido": "140.0",
+    "correto": "9.03",
+    "data": "2026-05-17T23:33:06"
+  },
+  {
+    "pdf": "fat_ECOIN_20250630.pdf",
+    "campo": "n_fatura",
+    "extraido": null,
+    "correto": "27",
+    "data": "2026-05-17T23:33:45"
+  },
+  {
+    "pdf": "fat_EDPCO_20250822.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "508257972",
+    "data": "2026-05-17T23:37:44"
+  },
+  {
+    "pdf": "fat_EDPCO_20251205.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "503504564",
+    "data": "2026-05-17T23:40:54"
+  },
+  {
+    "pdf": "fat_EDPCO_20251205.pdf",
+    "campo": "total",
+    "extraido": "2281.12",
+    "correto": "2804.81",
+    "data": "2026-05-17T23:40:54"
+  },
+  {
+    "pdf": "fat_EDPCO_20251205.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "523.69",
+    "data": "2026-05-17T23:40:54"
+  },
+  {
+    "pdf": "fat_EDPCO_20260306.pdf",
+    "campo": "nif",
+    "extraido": null,
+    "correto": "503504564",
+    "data": "2026-05-17T23:42:36"
+  },
+  {
+    "pdf": "fat_EDPCO_20260306.pdf",
+    "campo": "total",
+    "extraido": "2493.67",
+    "correto": "3066.73",
+    "data": "2026-05-17T23:42:36"
+  },
+  {
+    "pdf": "fat_EDPCO_20260306.pdf",
+    "campo": "iva",
+    "extraido": null,
+    "correto": "573.06",
+    "data": "2026-05-17T23:42:36"
+  },
+  {
+    "pdf": "fat_EGOIL_20260111.pdf",
+    "campo": "vencimento",
+    "extraido": null,
+    "correto": "11-01-2026",
+    "data": "2026-05-17T23:43:40"
+  },
+  {
+    "pdf": "fat_EGOIL_20260111.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "10.61",
+    "data": "2026-05-17T23:43:40"
+  },
+  {
+    "pdf": "fat_EGOIL_20260111.pdf",
+    "campo": "iva",
+    "extraido": "8.63",
+    "correto": "1.98",
+    "data": "2026-05-17T23:43:40"
+  },
+  {
+    "pdf": "fat_FERRE_20240920_1.pdf",
+    "campo": "n_fatura",
+    "extraido": null,
+    "correto": "858",
+    "data": "2026-05-17T23:44:47"
+  },
+  {
+    "pdf": "fat_FERRE_20240920_1.pdf",
+    "campo": "total",
+    "extraido": null,
+    "correto": "1062.90",
+    "data": "2026-05-17T23:44:47"
+  }
+]
