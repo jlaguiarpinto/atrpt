@@ -17,16 +17,51 @@ class PedidoFormGUI(BG):
         super().__init__(root, controller)
         self.root.title("Novo Pedido")
         self.centros_custo = self.controller.get_centros_custo()
-        self._propostas_confirmadas = []   # lista de dicts já confirmados
-        self._widget_ativo = None          # PropostaFormWidget em edição (ou None)
-        self._frame_ativo  = None          # frame do widget em edição
+        self._propostas_confirmadas = []
+        self._widget_ativo = None
+        self._frame_ativo  = None
+        # Remover zona de logs — formulário modal não precisa de output
+        if hasattr(self, 'frame_logs') and self.frame_logs.winfo_exists():
+            paned = self.frame_logs.master
+            paned.forget(self.frame_logs)
+            self.frame_logs.destroy()
+            self.frame_logs = None
+            self.txt_output = None
         self._build()
+        self.root.update_idletasks()
+        self.root.minsize(720, 560)
+        if self.root.winfo_width() < 720 or self.root.winfo_height() < 560:
+            BG.center_window(self.root, 760, 600)
 
     # ── construção da interface ───────────────────────────────────────────────
 
     def _build(self):
-        frame = ttk.Frame(self.root, padding=10)
-        frame.pack(fill="both", expand=True)
+        # ── canvas scrollável dentro da área de trabalho ──────────────────────
+        work = self.abrir_work_area()
+
+        canvas = tk.Canvas(work, highlightthickness=0, bg=self.BG)
+        vsb = ttk.Scrollbar(work, orient="vertical", command=canvas.yview)
+        canvas.configure(yscrollcommand=vsb.set)
+        vsb.pack(side="right", fill="y")
+        canvas.pack(side="left", fill="both", expand=True)
+
+        frame = ttk.Frame(canvas, padding=10)
+        frame_id = canvas.create_window((0, 0), window=frame, anchor="nw")
+
+        def _on_canvas_resize(e):
+            canvas.itemconfig(frame_id, width=e.width)
+
+        def _on_frame_resize(e):
+            canvas.configure(scrollregion=canvas.bbox("all"))
+
+        def _on_mousewheel(e):
+            canvas.yview_scroll(-1 * (e.delta // 120), "units")
+
+        canvas.bind("<Configure>", _on_canvas_resize)
+        frame.bind("<Configure>", _on_frame_resize)
+        canvas.bind_all("<MouseWheel>", _on_mousewheel)
+
+        # ── conteúdo ──────────────────────────────────────────────────────────
 
         # Centro de Custo
         ttk.Label(frame, text="Centro de Custo:").grid(row=0, column=0, sticky="w")

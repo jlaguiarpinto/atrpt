@@ -27,7 +27,7 @@ class EmparelhamentoDialog(tk.Toplevel):
     ----------
     parent        : janela pai
     nao_resolvidos: list de (numero, nome) do ponto sem correspondência
-    enfermeiros   : list de Fornecedor com tipo_fornecedor == "Enfermeiro"
+    enfermeiros   : list de Fornecedor com atividade == "Enfermeiro"
     on_save       : callable(numero, nome, fornecedor_id) → chamado por cada emparelhamento confirmado
     """
 

@@ -1,4 +1,4 @@
-# presentation/secretaria/ponto_controller.py
+# presentation/ponto/ponto_controller.py
 
 import logging
 import threading
@@ -24,7 +24,7 @@ class PontoController:
         self.repo    = None
 
     def start(self, gui_host):
-        from presentation.secretaria.ponto_gui import PontoGUI
+        from presentation.ponto.ponto_gui import PontoGUI
         self.gui = gui_host
         gui_host.show_view(PontoGUI, self)
 
@@ -104,7 +104,7 @@ class PontoController:
             self.repo.guardar_mensal(df_editado)
             self._log(f"Resumo {mes_label} gravado apos edicao manual.")
 
-        from presentation.secretaria.ponto_resumo_mensal_view import ResumoMensalView
+        from presentation.ponto.ponto_resumo_mensal_view import ResumoMensalView
         ResumoMensalView(
             parent    = self.root,
             df        = df,
@@ -153,7 +153,7 @@ class PontoController:
 
         df_enriquecido = self._enriquecer_com_pessoas(df)
 
-        from presentation.secretaria.ponto_resumo_empregado_view import ResumoEmpregadoView
+        from presentation.ponto.ponto_resumo_empregado_view import ResumoEmpregadoView
         ResumoEmpregadoView(parent=self.root, df=df_enriquecido, mes_label=mes_label)
 
     # ── exportar inativos / não resolvidos ───────────────────────────────────
@@ -248,7 +248,7 @@ class PontoController:
         mapa_forn = {}
         if self.fornecedor_repo is not None:
             try:
-                for f in self.fornecedor_repo.list_by("tipo_fornecedor", "Enfermeiro"):
+                for f in self.fornecedor_repo.list_by("atividade", "Enfermeiro"):
                     mapa_forn[f.nome.strip().upper()] = f
             except Exception as ex:
                 logger.warning(f"Nao foi possivel aceder a BD de fornecedores: {ex}")
@@ -289,7 +289,7 @@ class PontoController:
             # 3ª tentativa — por nome na BD fornecedores
             if nome in mapa_forn:
                 f       = mapa_forn[nome]
-                tipo_f  = str(getattr(f, "tipo_fornecedor", "") or "").strip() or "Fornecedor"
+                tipo_f  = str(getattr(f, "atividade", "") or "").strip() or "Fornecedor"
                 ativo_f = str(getattr(f, "tipo_relacao",    "") or "").lower()
                 df.at[idx, "ativo_rh"]  = "Nao" if ativo_f == "suspenso" else "Sim"
                 df.at[idx, "tipo"]      = tipo_f
@@ -305,7 +305,7 @@ class PontoController:
                 try:
                     f = self.fornecedor_repo.get_by_id(fid)
                     if f:
-                        tipo_f  = str(getattr(f, "tipo_fornecedor", "") or "").strip() or "Enfermeiro"
+                        tipo_f  = str(getattr(f, "atividade", "") or "").strip() or "Enfermeiro"
                         ativo_f = str(getattr(f, "tipo_relacao",    "") or "").lower()
                         mask = (
                             df["numero"].astype(str).str.strip() == num
@@ -324,7 +324,7 @@ class PontoController:
         # -- diálogo de emparelhamento manual para os restantes -------
         if verdadeiramente_nao_resolvidos and self.fornecedor_repo is not None:
             try:
-                enfermeiros = self.fornecedor_repo.list_by("tipo_fornecedor", "Enfermeiro")
+                enfermeiros = self.fornecedor_repo.list_by("atividade", "Enfermeiro")
             except Exception:
                 enfermeiros = []
 
@@ -334,7 +334,7 @@ class PontoController:
                         self.mapa_repo.save(numero, nome, fornecedor_id)
                     f = next((x for x in enfermeiros if x.id == fornecedor_id), None)
                     if f:
-                        tipo_f  = str(getattr(f, "tipo_fornecedor", "") or "").strip() or "Enfermeiro"
+                        tipo_f  = str(getattr(f, "atividade", "") or "").strip() or "Enfermeiro"
                         ativo_f = str(getattr(f, "tipo_relacao",    "") or "").lower()
                         mask = (
                             df["numero"].astype(str).str.strip() == numero
@@ -345,7 +345,7 @@ class PontoController:
                         df.loc[mask, "tipo"]      = tipo_f
                         df.loc[mask, "categoria"] = tipo_f
 
-                from presentation.secretaria.ponto_emparelhamento_dialog import EmparelhamentoDialog
+                from presentation.ponto.ponto_emparelhamento_dialog import EmparelhamentoDialog
                 EmparelhamentoDialog(
                     parent          = self.root,
                     nao_resolvidos  = verdadeiramente_nao_resolvidos,

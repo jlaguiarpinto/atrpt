@@ -1,7 +1,7 @@
 # application/ponto/processar_ponto_usecase.py
 import logging
 import pandas as pd # type: ignore
-from domain.secretaria.ponto_processor import PontoProcessor # type: ignore
+from domain.ponto.ponto_processor import PontoProcessor # type: ignore
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class ProcessarPontoUseCase:
     def __init__(self):
         self.processor = PontoProcessor()
 
-    def executar(self, repo, ctx, on_progress=None):
+    def executar(self, repo, ctx, on_progress=None, ausencias=None):
         """
         Pipeline de processamento de ponto:
 
@@ -66,7 +66,13 @@ class ProcessarPontoUseCase:
             return 0, None
         log(f"📂 {len(ficheiros)} ficheiros encontrados")
 
-        mensal      = repo.ler_mensal()
+        mensal = repo.ler_mensal()
+
+        # ── modo incremental: resumo já existe ────────────────────────────────
+        if mensal is not None and not mensal.empty:
+            log("ℹ Resumo mensal existente — modo incremental.")
+            return self._executar_incremental(repo, mensal, ficheiros, log)
+
         total       = 0
         erros_total = []
 
@@ -209,6 +215,9 @@ class ProcessarPontoUseCase:
         mensal = self._calcular_horas_enfermeiro(mensal, _fer)
         mensal = self._calcular_falta_subref(mensal)
 
+        if ausencias:
+            mensal = self._aplicar_ausencias(mensal, ausencias, log)
+
         # hext
         for _c in ("hext50", "hext75", "hext100"):
             if _c not in mensal.columns:
@@ -256,6 +265,88 @@ class ProcessarPontoUseCase:
         log(f"{'⚠️ ' + str(n_erros) + ' erros de picagem' if n_erros else 'Sem erros de picagem'}")
         log(f"\n✔ {total} ficheiros processados")
         return total, output
+
+    # ── modo incremental ─────────────────────────────────────────────────────
+
+    def _executar_incremental(
+        self,
+        repo,
+        mensal: "pd.DataFrame",
+        ficheiros: list,
+        log,
+    ) -> "tuple[int, object]":
+        """
+        Chamado quando o resumo mensal já existe.
+
+        Granularidade: DIA (ficheiro diário = um dia).
+          • Se a data do ficheiro já consta no resumo → ignorado.
+          • Se a data não consta → todas as linhas do ficheiro são adicionadas.
+
+        Não re-executa o pipeline de cálculo sobre registos existentes.
+        """
+        def _data_str(raw) -> str:
+            t = pd.to_datetime(raw, errors="coerce")
+            return t.strftime("%Y-%m-%d") if not pd.isna(t) else str(raw).strip()
+
+        # datas já presentes no resumo
+        mask_nao_total = mensal["data"].astype(str) != "TOTAL"
+        datas_existentes: set[str] = {
+            _data_str(row["data"])
+            for _, row in mensal[mask_nao_total].iterrows()
+        }
+        log(f"   Resumo tem {len(datas_existentes)} dia(s) registado(s).")
+
+        linhas_novas: list = []
+        dias_novos:   list[str] = []
+        total = 0
+
+        for f in ficheiros:
+            try:
+                df_raw   = repo.ler_excel(f)
+                df_limpo = self.processor.limpar_registos(df_raw)
+                total   += 1
+            except Exception as e:
+                logger.error(f"Erro em {f.name}: {e}", exc_info=True)
+                log(f"Erro em {f.name}: {e}")
+                continue
+
+            # data representativa do ficheiro (primeira linha não-TOTAL)
+            datas_ficheiro: set[str] = {
+                _data_str(row.get("data"))
+                for _, row in df_limpo.iterrows()
+                if str(row.get("data", "")) != "TOTAL"
+            }
+            datas_ficheiro.discard("")
+
+            if datas_ficheiro <= datas_existentes:
+                # todas as datas do ficheiro já estão no resumo
+                log(f"⏭ {f.name} — já no resumo, ignorado.")
+                continue
+
+            # pelo menos uma data nova — adicionar todas as linhas do ficheiro
+            for _, row in df_limpo.iterrows():
+                if str(row.get("data", "")) == "TOTAL":
+                    continue
+                data_n = _data_str(row.get("data"))
+                if data_n not in datas_existentes:
+                    linhas_novas.append(row)
+
+            dias_novos.extend(sorted(datas_ficheiro - datas_existentes))
+            log(f"📄 {f.name} — {len(datas_ficheiro - datas_existentes)} dia(s) novo(s).")
+
+        if linhas_novas:
+            base       = mensal[mask_nao_total].copy()
+            mensal_upd = pd.concat(
+                [base, pd.DataFrame(linhas_novas)],
+                ignore_index=True,
+            )
+            repo.guardar_mensal(mensal_upd)
+            log(f"✔ {len(linhas_novas)} registo(s) de {len(set(dias_novos))} dia(s) "
+                f"adicionado(s) ao resumo.")
+            return total, repo.ficheiro_resumo
+        else:
+            log("ℹ Sem dias novos para adicionar.")
+            return total, None
 
     # ── merge preservando campos existentes ──────────────────────────────────
     # Chave: nome + data (número ignorado no cruzamento).
@@ -751,10 +842,10 @@ class ProcessarPontoUseCase:
         """
         Associa erros de picagem ao resumo mensal.
 
-        Chamado ANTES de _split_numero_nome — o mensal ainda tem o nome
-        no formato original "42 - João Silva". O cruzamento é feito pelo
-        nome completo (data + nome original), que existe em ambos os lados.
-        Normaliza datas para "YYYY-MM-DD" antes de comparar.
+        Os erros são gerados antes de _split_numero_nome, com o nome no formato
+        "42 - João Silva". O mensal pode estar antes ou depois do split.
+        O cruzamento normaliza ambos os lados extraindo apenas o nome (parte
+        depois de " - "), para ser robusto independentemente da ordem de chamada.
         """
         mensal = mensal.copy()
         mensal["erros_picagem"] = ""
@@ -762,12 +853,16 @@ class ProcessarPontoUseCase:
             return mensal
 
         def _norm_data(val) -> str:
-            """Normaliza qualquer representação de data para YYYY-MM-DD."""
             try:
                 ts = pd.to_datetime(val, errors="coerce")
                 return ts.strftime("%Y-%m-%d") if not pd.isna(ts) else str(val).strip()
             except Exception:
                 return str(val).strip()
+
+        def _so_nome(n: str) -> str:
+            """Extrai só o nome, descartando o prefixo 'NNNNN - ' se existir."""
+            parts = str(n).strip().split(" - ", 1)
+            return parts[1].strip() if len(parts) == 2 else parts[0].strip()
 
         try:
             df_erros = pd.concat(erros_total, ignore_index=True)
@@ -775,20 +870,18 @@ class ProcessarPontoUseCase:
             if df_erros.empty:
                 return mensal
 
-            # normalizar datas do mensal uma vez só
+            # normalizar datas e nomes do mensal uma vez só
             mensal_data_norm = mensal["data"].apply(_norm_data)
+            mensal_nome_norm = mensal["nome"].astype(str).apply(_so_nome)
 
             n_ok = 0
             n_nok = 0
             for _, err in df_erros.iterrows():
                 data_e = _norm_data(err.get("data", ""))
-                nome_e = str(err.get("nome", "")).strip()
+                nome_e = _so_nome(str(err.get("nome", "")))
                 msg    = str(err.get("erro", "")).strip()
 
-                # cruzar por data normalizada + nome completo
-                mask = (mensal_data_norm == data_e) & (
-                    mensal["nome"].astype(str).str.strip() == nome_e
-                )
+                mask = (mensal_data_norm == data_e) & (mensal_nome_norm == nome_e)
                 if mask.any():
                     idx   = mensal[mask].index[0]
                     atual = str(mensal.at[idx, "erros_picagem"] or "").strip()
@@ -930,6 +1023,45 @@ class ProcessarPontoUseCase:
 
         return df
 
+    def _aplicar_ausencias(self, df: pd.DataFrame, ausencias, log=None) -> pd.DataFrame:
+        """
+        Para cada ausência conhecida (férias/baixa/outro), nos dias que abrange:
+          - falta = 0
+          - subsidio_refeicao = 0
+          - ferias = 1  (se tipo=='ferias')
+          - baixa  = 1  (se tipo=='baixa')
+        Só afecta linhas de AAD (não enfermeiro) em dias úteis sem picagem.
+        """
+        df = df.copy()
+        datas_serie = pd.to_datetime(df["data"], errors="coerce").dt.date
+
+        for aus in ausencias:
+            numero_str = str(aus.empregado_numero)
+            mask = (
+                (df["numero"].astype(str).str.strip() == numero_str) &
+                (datas_serie >= aus.data_inicio) &
+                (datas_serie <= aus.data_fim) &
+                (df["data"].astype(str) != "TOTAL")
+            )
+            if not mask.any():
+                continue
+
+            n_dias = int(mask.sum())
+            df.loc[mask, "falta"]             = 0
+            df.loc[mask, "subsidio_refeicao"] = 0
+            if aus.tipo == "ferias":
+                df.loc[mask, "ferias"] = 1
+                df.loc[mask, "baixa"]  = 0
+            elif aus.tipo == "baixa":
+                df.loc[mask, "baixa"]  = 1
+                df.loc[mask, "ferias"] = 0
+
+            if log:
+                log(f"   ✓ Ausência {aus.tipo_label} emp.{numero_str}: "
+                    f"{aus.data_inicio} → {aus.data_fim} ({n_dias} dias)")
+
+        return df
+
     def _adicionar_totais(self, df):
         if df is None or df.empty:
             return df
@@ -978,18 +1110,22 @@ class ProcessarPontoUseCase:
             data_min_str = data_min.strftime("%Y-%m-%d")
         except Exception:
             return df_erros
+        def _so_nome(n: str) -> str:
+            parts = str(n).strip().split(" - ", 1)
+            return (parts[1].strip() if len(parts) == 2 else parts[0].strip()).upper()
+
         mensal_1dia = mensal[mensal["data"].astype(str).str.startswith(data_min_str)]
         noturno_ok = set(
             mensal_1dia[
                 pd.to_numeric(mensal_1dia.get("noturno",
                     pd.Series(dtype=float)), errors="coerce") > 0
-            ]["nome"].astype(str).str.strip().str.upper()
+            ]["nome"].astype(str).apply(_so_nome)
         )
         if not noturno_ok:
             return df_erros
         mask = (
             df_erros["data"].astype(str).str.startswith(data_min_str) &
-            df_erros["nome"].astype(str).str.strip().str.upper().isin(noturno_ok)
+            df_erros["nome"].astype(str).apply(_so_nome).isin(noturno_ok)
         )
         return df_erros[~mask].reset_index(drop=True)
 

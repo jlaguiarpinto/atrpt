@@ -8,6 +8,8 @@ from presentation.shared.base_gui import BaseGui as BG
 from presentation.secretaria.tesouraria_validacao_gui import TesourariaValidacaoGUI
 from domain.secretaria.pim_context import PimContext
 from application.secretaria.enviar_faturas_usecase import EnviarFaturasPimUseCase
+from application.secretaria.arquivar_pim_usecase import ArquivarPimUseCase
+from application.secretaria.atualizar_residentes_cc_usecase import AtualizarResidentesCCUseCase
 from core.paths import resolver_path_template
 
 
@@ -20,11 +22,11 @@ _MESES = [
 
 class SecretariaController:
     def __init__(self, root, user_context, cfg, emailer, pim_repo, residentes_repo, contacorrente_repo, inflow_repo, recibo_template_path,
-                 pessoas_repo=None, fornecedor_repo=None, mapa_repo=None):
+                 pessoas_repo=None, fornecedor_repo=None, mapa_repo=None, candidatos_repo=None):
         self.root = root
         self.user = user_context
         self.cfg = cfg
-        self.emailer = emailer        
+        self.emailer = emailer
         self.pim_repo = pim_repo
         self.gui = None
         self.tesouraria = None
@@ -32,9 +34,10 @@ class SecretariaController:
         self.cc_repo = contacorrente_repo
         self.inflow_repo = inflow_repo
         self.recibo_template_path = recibo_template_path
-        self.pessoas_repo    = pessoas_repo      # EmpregadoRepository — opcional
-        self.fornecedor_repo = fornecedor_repo   # FornecedorRepositorySQL — opcional
-        self.mapa_repo       = mapa_repo         # PontoMapaRepository — opcional
+        self.pessoas_repo    = pessoas_repo
+        self.fornecedor_repo = fornecedor_repo
+        self.mapa_repo       = mapa_repo
+        self.candidatos_repo = candidatos_repo
         self.tesouraria = self._build_tesouraria()
    
 
@@ -51,8 +54,12 @@ class SecretariaController:
         view = TesourariaView(self.gui)
         view.render(self)
 
+    def abrir_menu_pim(self):
+        from .pim_menu_view import PimMenuView
+        self.gui.show_view(PimMenuView, self)
+
     def abrir_pim(self):
-        from .farmacia_view import FarmaciaView 
+        from .farmacia_view import FarmaciaView
         from datetime import date
         mes = BG.perguntaMes(self.gui)       
         if not mes:
@@ -91,8 +98,8 @@ class SecretariaController:
 
     def abrir_ponto(self):
         from presentation.secretaria.ponto_controller import PontoController
-        from domain.secretaria.ponto_processor import PontoProcessor
-        from application.secretaria.processar_ponto_usecase import ProcessarPontoUseCase
+        from domain.ponto.ponto_processor import PontoProcessor
+        from application.ponto.processar_ponto_usecase import ProcessarPontoUseCase
         
         usecase = ProcessarPontoUseCase()
         controller = PontoController(
@@ -105,10 +112,199 @@ class SecretariaController:
         self._limpar_area_trabalho()
         controller.start(self.gui)
 
+    def _mostrar_conflitos_f3m(self, conflitos, _linhas_ignorado):
+        """Diálogo com scroll e checkboxes para resolver divergências F3M.
+        O utilizador selecciona quais valores F3M aceitar e grava directamente em SQLite."""
+        import tkinter as tk
+        from tkinter import ttk, messagebox as mb
+
+        win = tk.Toplevel(self.gui.root)
+        win.title("Divergências F3M")
+        win.transient(self.gui.root)
+        win.grab_set()
+        win.resizable(True, True)
+        win.geometry("780x460")
+
+        _NOMES = {"numero_socio": "Nº Sócio", "nif": "Contribuinte"}
+
+        # cabeçalho
+        tk.Label(
+            win,
+            text=f"{len(conflitos)} campo(s) diferem entre a base de dados local e o F3M.\n"
+                 "Seleccione as linhas cujo valor F3M pretende aceitar e clique em «Gravar seleccionados».",
+            justify="left", wraplength=740, pady=8,
+        ).pack(fill="x", padx=12)
+
+        ttk.Separator(win, orient="horizontal").pack(fill="x", padx=12)
+
+        # tabela com scroll
+        frame_tree = tk.Frame(win)
+        frame_tree.pack(fill="both", expand=True, padx=12, pady=6)
+        frame_tree.rowconfigure(0, weight=1)
+        frame_tree.columnconfigure(0, weight=1)
+
+        cols = ("sel", "nr", "campo", "local", "f3m")
+        tree = ttk.Treeview(frame_tree, columns=cols, show="headings", selectmode="none")
+        tree.heading("sel",   text="✓")
+        tree.heading("nr",    text="Nº Residente")
+        tree.heading("campo", text="Campo")
+        tree.heading("local", text="Valor local (SQLite)")
+        tree.heading("f3m",   text="Valor F3M")
+        tree.column("sel",   width=30,  anchor="center", stretch=False)
+        tree.column("nr",    width=100, anchor="center")
+        tree.column("campo", width=120, anchor="w")
+        tree.column("local", width=220, anchor="w")
+        tree.column("f3m",   width=220, anchor="w")
+
+        vsb = ttk.Scrollbar(frame_tree, orient="vertical",   command=tree.yview)
+        hsb = ttk.Scrollbar(frame_tree, orient="horizontal", command=tree.xview)
+        tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+        tree.grid(row=0, column=0, sticky="nsew")
+        vsb.grid(row=0, column=1, sticky="ns")
+        hsb.grid(row=1, column=0, sticky="ew")
+
+        selecionados = {}  # iid → bool var
+        for i, c in enumerate(conflitos):
+            iid = str(i)
+            nome_campo = _NOMES.get(c["campo"], c["campo"])
+            tree.insert("", "end", iid=iid, values=(
+                "☐", c["numero_residente"], nome_campo,
+                c["valor_local"], c["valor_f3m"],
+            ))
+            selecionados[iid] = False
+
+        def _toggle(event):
+            iid = tree.identify_row(event.y)
+            if not iid:
+                return
+            selecionados[iid] = not selecionados[iid]
+            vals = list(tree.item(iid, "values"))
+            vals[0] = "☑" if selecionados[iid] else "☐"
+            tree.item(iid, values=vals)
+
+        tree.bind("<Button-1>", _toggle)
+
+        def _selecionar_todos():
+            todos = not all(selecionados.values())
+            for iid in selecionados:
+                selecionados[iid] = todos
+                vals = list(tree.item(iid, "values"))
+                vals[0] = "☑" if todos else "☐"
+                tree.item(iid, values=vals)
+
+        # rodapé com botões
+        rodape = tk.Frame(win, pady=8)
+        rodape.pack(fill="x", padx=12)
+
+        tk.Button(rodape, text="Seleccionar todos", command=_selecionar_todos,
+                  font=("Segoe UI", 9), width=18).pack(side="left", padx=4)
+
+        def _gravar():
+            import sqlite3
+            escolhidos = [conflitos[int(iid)] for iid, ok in selecionados.items() if ok]
+            if not escolhidos:
+                mb.showwarning("Nada seleccionado", "Seleccione pelo menos uma linha.", parent=win)
+                return
+            db_path = str(self.cfg.paths["atrpt_db"])
+            try:
+                with sqlite3.connect(db_path) as conn:
+                    for c in escolhidos:
+                        conn.execute(
+                            f"UPDATE residentes SET {c['campo']} = ?, "
+                            f"atualizado_em = CURRENT_TIMESTAMP "
+                            f"WHERE numero_residente = ?",
+                            (c["valor_f3m"], int(c["numero_residente"])),
+                        )
+                mb.showinfo("Gravado", f"{len(escolhidos)} valor(es) actualizados com o valor F3M.", parent=win)
+                win.destroy()
+            except Exception as exc:
+                mb.showerror("Erro", str(exc), parent=win)
+
+        tk.Button(rodape, text="Gravar seleccionados", command=_gravar,
+                  font=("Segoe UI", 9, "bold"), bg="#c8e6c9", width=20).pack(side="right", padx=4)
+        tk.Button(rodape, text="Fechar sem gravar", command=win.destroy,
+                  font=("Segoe UI", 9), width=18).pack(side="right", padx=4)
+
+        win.wait_window()
+
+    def abrir_residentes(self):
+        from presentation.secretaria.residentes_menu_view import ResidentesMenuView
+        self.gui.show_view(ResidentesMenuView, self)
+
+    def abrir_residentes_ativos(self):
+        from application.secretaria.atualizar_residentes_cc_usecase import AtualizarResidentesCCUseCase
+        from presentation.secretaria.residentes_view import ResidentesView
+        try:
+            uc = AtualizarResidentesCCUseCase(
+                db_path     = self.cfg.paths["atrpt_db"],
+                f3m_path    = self.cfg.paths["residentes_f3m_file"],
+                quotas_path = self.cfg.paths["quotas_file"],
+            )
+            r = uc.execute()
+            logger.info(
+                "CC actualizado: %d registo(s) | sem_pim=%d | sem_quota=%d | conflitos=%d",
+                r["atualizados"], r["sem_pim"], r["sem_quota"], len(r.get("conflitos", [])),
+            )
+            conflitos = r.get("conflitos", [])
+            if conflitos:
+                _NOMES = {"numero_socio": "Nº Sócio", "nif": "Contribuinte"}
+                linhas = "\n".join(
+                    f"  Nº {c['numero_residente']} | {_NOMES.get(c['campo'], c['campo'])}: "
+                    f"local='{c['valor_local']}' / F3M='{c['valor_f3m']}'"
+                    for c in conflitos
+                )
+                self._mostrar_conflitos_f3m(conflitos, linhas)
+        except Exception as e:
+            logger.warning("Não foi possível actualizar CC antes de abrir Residentes: %s", e)
+        self.gui.show_view(ResidentesView, self)
+
+    def abrir_candidatos(self):
+        from presentation.secretaria.candidatos_view import CandidatosView
+        self.gui.show_view(CandidatosView, self)
+
+    def abrir_contrato_residente(self, pre_numero: int | None = None):
+        from presentation.secretaria.contrato_residente_view import ContratoResidenteView
+        self.gui.show_view(ContratoResidenteView, self, pre_numero=pre_numero)
+
+    def abrir_contrato_candidato(self, candidato: dict):
+        from presentation.secretaria.contrato_residente_view import ContratoResidenteView
+        self.gui.show_view(ContratoResidenteView, self, candidato=candidato)
+
     def abrir_saldos(self):
-        """Abrir módulo de saldos"""
-        logging.info("Módulo de saldos - a implementar")
-    
+        from presentation.secretaria.pim_corrente_view import PimCorrenteView
+        self.gui.show_view(PimCorrenteView, self)
+
+    def abrir_pim_em_curso(self):
+        from presentation.secretaria.pim_em_curso_view import PimEmCursoView
+        self.gui.show_view(PimEmCursoView, self)
+
+    def atualizar_residentes_cc(self):
+        """Actualiza residentes_cc (SQLite) a partir de F3M, PIM e quotas."""
+        if not self.gui.ask_yes_no(
+            "Actualizar Residentes CC",
+            "Atualizar residentes_cc com valores recentes de F3M, PIM e Quotas?\n\n"
+            "(Esta operação substitui atual, mensalidade, pim, anterior e quota.)",
+        ):
+            return
+        try:
+            uc = AtualizarResidentesCCUseCase(
+                db_path     = self.cfg.paths["atrpt_db"],
+                f3m_path    = self.cfg.paths["residentes_f3m_file"],
+                quotas_path = self.cfg.paths["quotas_file"],
+            )
+            r = uc.execute()
+            msg = (
+                f"Actualização concluída.\n\n"
+                f"Residentes actualizados: {r['atualizados']}\n"
+                f"Sem dados PIM:   {r['sem_pim']}\n"
+                f"Sem quota:       {r['sem_quota']}"
+            )
+            self.gui.log(msg.replace("\n", " | "))
+            self.gui.informuser("Actualizar CC", msg, "info")
+        except Exception as e:
+            logger.exception("Erro ao actualizar residentes_cc")
+            self.gui.informuser("Erro", str(e), "error")
+
     def sair_app(self):
         """Sair da aplicação"""
         self.root.quit()
@@ -127,15 +323,20 @@ class SecretariaController:
 
         from application.secretaria.tesouraria_service import TesourariaService
 
+        from pathlib import Path
+        from application.email.email_template_builder import EmailTemplateBuilder
+        recibo_path = Path(self.recibo_template_path)
+        template_builder = EmailTemplateBuilder(template_dir=recibo_path.parent)
+
         return TesourariaService(
             paths=self.cfg.paths,
             emailer=self.emailer,
             residentes_repo=self.residentes_repo,
             conta_corrente_repo=self.cc_repo,
-            comprovativo_repo=None,  # se não estiveres a usar ainda
+            comprovativo_repo=None,
             inflow_repo=self.inflow_repo,
             pim_repo=self.pim_repo,
-            recibo_template_path=self.recibo_template_path,
+            template_builder=template_builder,
             cfg=self.cfg,
             email_secretaria=self.cfg.email_secretaria,
             modo_teste=self.cfg.modo_teste,
@@ -394,7 +595,8 @@ class SecretariaController:
                                                                 ctx=self.ctx,
                                                                 faturacao_repo=self.faturacao_repo,
                                                                 envio_faturas_repo=self.envio_faturas_repo,
-                                                                logger=logging.getLogger("EnviarFaturasPimUseCase")
+                                                                logger=logging.getLogger("EnviarFaturasPimUseCase"),
+                                                                email_secretaria=self.cfg.email_secretaria,
                                                             )
 
     def processar_faturacao(self):
@@ -420,8 +622,18 @@ class SecretariaController:
  
     def produzir_pim(self):
         logging.info("A produzir o novo PIM...")
-        self.pim.construir_novo_pim()
-        return
+        pim_final = self.pim.construir_novo_pim()
+        # arquivar imediatamente em SQL para a view de residentes ter dados actualizados
+        try:
+            uc = ArquivarPimUseCase(db_path=self.cfg.paths["atrpt_db"])
+            r = uc.execute(
+                pim_df=pim_final,
+                ano=int(self.ano_str),
+                mes=int(self.mes_str),
+            )
+            logging.info("PIM arquivado em SQL: %d linha(s).", r["gravados"])
+        except Exception as e:
+            logger.warning("Não foi possível arquivar PIM em SQL: %s", e)
 
     def preparar_faturas(self):
         logging.info("A preparar emails para envio...")
@@ -431,6 +643,32 @@ class SecretariaController:
             "Preparação de faturas",
             f"{total} emails preparados para envio."
         )
+
+    def arquivar_pim(self):
+        if not self.gui.confirm(
+            "Arquivar PIM",
+            f"Arquivar o PIM de {self.mes_faturacao} {self.ano_str}?\n\n"
+            "Grava o estado actual na base de dados e cria a cópia Excel mensal.",
+        ):
+            return
+        try:
+            uc = ArquivarPimUseCase(db_path=self.cfg.paths["atrpt_db"])
+            pim_df = self.pim_repo.ler_pim()
+            r = uc.execute(
+                pim_df=pim_df,
+                ano=int(self.ano_str),
+                mes=int(self.mes_str),
+                pim_mensal_file=self.ctx.pim_mensal_file,
+            )
+            self.gui.informuser(
+                "PIM arquivado",
+                f"Residentes gravados : {r['gravados']}\n"
+                f"Excel mensal        : {r['excel']}",
+            )
+            logging.info("PIM arquivado: %s", r)
+        except Exception as e:
+            logging.exception("Erro ao arquivar PIM")
+            self.gui.informuser("Erro", str(e), tipo="error")
 
     def enviar_faturas(self):
         resultado = self.enviar_faturas_usecase.enviar(

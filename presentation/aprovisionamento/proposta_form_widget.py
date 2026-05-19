@@ -65,7 +65,7 @@ class PropostaFormWidget:
         # Carregar fornecedores se necessário
         if not self.fornecedores_lista:
             self._carregar_fornecedores()
-        
+
         # cor de fundo — LabelFrame (tk) suporta cget('bg'), ttk.Frame não
         _bg = self.frame.cget('bg') if show_label_frame else BG
 
@@ -73,10 +73,14 @@ class PropostaFormWidget:
         tk.Label(self.frame, text="Fornecedor:", bg=_bg).grid(
             row=row_start, column=0, sticky="w", padx=10, pady=6
         )
-        
-        # Entry com autocomplete inline (Toplevel flutuante)
-        self.cb_fornecedor = self._fazer_entry_autocomplete(
-            self.frame, self.fornecedores_lista or [], largura=40
+
+        # Combobox com autocomplete — usa método local para preservar texto
+        # não encontrado na lista (para que _verificar_novo_fornecedor possa actuar)
+        self.cb_fornecedor = self._criar_combobox_autocomplete(
+            self.frame,
+            valores=self.fornecedores_lista or [],
+            largura=40,
+            placeholder="Selecionar fornecedor...",
         )
         self.cb_fornecedor.grid(row=row_start, column=1, sticky="ew", padx=10, pady=6)
 
@@ -290,58 +294,25 @@ class PropostaFormWidget:
         ):
             return False
 
-        # diálogo simples para nome e NIF
-        win = tk.Toplevel(root)
-        win.title("Novo Fornecedor")
-        win.resizable(False, False)
-        win.grab_set()
+        from presentation.aprovisionamento.fornecedor_detalhe_gui import FornecedorDetalheGUI
+        dados = FornecedorDetalheGUI.form_dialog(root, nome_inicial=nome_digitado)
+        if not dados:
+            return False
 
-        frame = ttk.Frame(win, padding=12)
-        frame.pack(fill="both", expand=True)
-
-        ttk.Label(frame, text="Nome:").grid(row=0, column=0, sticky="w", pady=4)
-        ent_nome = ttk.Entry(frame, width=36)
-        ent_nome.insert(0, nome_digitado)
-        ent_nome.grid(row=0, column=1, pady=4)
-
-        ttk.Label(frame, text="NIF:").grid(row=1, column=0, sticky="w", pady=4)
-        ent_nif = ttk.Entry(frame, width=36)
-        ent_nif.grid(row=1, column=1, pady=4)
-
-        ttk.Label(
-            frame,
-            text="(opcional — pode ser preenchido posteriormente)",
-            foreground="gray",
-        ).grid(row=2, column=0, columnspan=2, sticky="w")
-
-        resultado = {"criado": False}
-
-        def _gravar():
-            nome = ent_nome.get().strip()
-            nif  = ent_nif.get().strip() or None   # NIF opcional → None se vazio
-            if not nome:
-                messagebox.showerror("Erro", "O nome é obrigatório.", parent=win)
-                return
-            try:
-                novo = self.controller.novo_fornecedor({"nome": nome, "nif": nif})
-                # recarregar lista e actualizar combobox
-                self._carregar_fornecedores()
-                self.cb_fornecedor._valores = self.fornecedores_lista
-                self.cb_fornecedor._valores_originais = self.fornecedores_lista
-                self.cb_fornecedor.set_value(nome)
-                resultado["criado"] = True
-                win.destroy()
-            except Exception as ex:
-                messagebox.showerror("Erro", str(ex), parent=win)
-
-        btn_f = ttk.Frame(frame)
-        btn_f.grid(row=3, column=0, columnspan=2, pady=10)
-        ttk.Button(btn_f, text="Criar Fornecedor", command=_gravar).pack(side="left", padx=4)
-        ttk.Button(btn_f, text="Cancelar", command=win.destroy).pack(side="left", padx=4)
-
-        ent_nif.focus()
-        root.wait_window(win)
-        return resultado["criado"]
+        try:
+            self.controller.novo_fornecedor(dados)
+            nome = dados["nome"]
+            self._carregar_fornecedores()
+            self.cb_fornecedor['values'] = self.fornecedores_lista
+            if hasattr(self.cb_fornecedor, '_valores_originais'):
+                self.cb_fornecedor._valores_originais = list(self.fornecedores_lista)
+            if hasattr(self.cb_fornecedor, '_valores_base'):
+                self.cb_fornecedor._valores_base = list(self.fornecedores_lista)
+            self.cb_fornecedor.set(nome)
+            return True
+        except Exception as ex:
+            messagebox.showerror("Erro", str(ex), parent=root)
+            return False
     
     def _selecionar_pdf(self):
         """Abre diálogo para seleccionar ficheiro PDF"""
@@ -362,8 +333,8 @@ class PropostaFormWidget:
         """
         fornecedor_nome = self.cb_fornecedor.get().strip()
         
-        # Verificar se é placeholder
-        if hasattr(self.cb_fornecedor, 'get') and self.cb_fornecedor.get() in ["", "Digite para pesquisar..."]:
+        _PLACEHOLDERS = {"", "Digite para pesquisar...", "Selecionar fornecedor..."}
+        if fornecedor_nome in _PLACEHOLDERS:
             return None, None, None
         
         if not fornecedor_nome or fornecedor_nome not in self.fornecedores_obj:
@@ -390,9 +361,10 @@ class PropostaFormWidget:
             tuple: (valido, fornecedor_id, valor, pdf_path)
         """
         fornecedor_nome = self.cb_fornecedor.get().strip()
-        
-        # Verificar placeholder
-        if hasattr(self.cb_fornecedor, 'get') and self.cb_fornecedor.get() == "Digite para pesquisar...":
+
+        # Verificar placeholder ou vazio
+        _PLACEHOLDERS = {"", "Digite para pesquisar...", "Selecionar fornecedor..."}
+        if fornecedor_nome in _PLACEHOLDERS:
             if show_errors:
                 messagebox.showerror("Erro", "Seleccione um fornecedor.", parent=parent)
             return False, None, None, None

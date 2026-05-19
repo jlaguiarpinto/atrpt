@@ -4,18 +4,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from presentation.shared.base_gui import BaseGui as BG
 
-TIPOS_FORNECEDOR = [
-    "Serviços", "Material", "Equipamento", "Obras",
-    "Médico", "Enfermeiro", "Psicólogo", "Fisioterapeuta",
-    "Professor de Ginástica", "Maestro",
-    "Talho", "Peixaria", "Mercearia",
-    "Energia", "Manutenção", "Outro",
-]
-
-TIPOS_RELACAO = [
-    "Pontual", "Contrato", "Preferencial",
-    "Avençado", "Prestador", "Suspenso",
-]
+from domain.aprovisionamento.fornecedor import TIPOS_FORNECEDOR, TIPOS_RELACAO
 
 
 class FornecedorDetalheGUI(BG):
@@ -116,7 +105,7 @@ class FornecedorDetalheGUI(BG):
         # ── linha 3: Tipo fornecedor + Tipo relação + Setor ───────────
         r3 = _row()
         _lbl(r3, "Tipo:").pack(side="left")
-        self.cb_tipo_forn = ttk.Combobox(r3, values=TIPOS_FORNECEDOR, state="readonly", width=18)
+        self.cb_tipo_forn = ttk.Combobox(r3, values=TIPOS_FORNECEDOR, state="readonly", width=22)
         self.cb_tipo_forn.pack(side="left", padx=(3, 12))
         _lbl(r3, "Relação:").pack(side="left")
         self.cb_tipo_rel = ttk.Combobox(r3, values=TIPOS_RELACAO, state="readonly", width=12)
@@ -124,6 +113,12 @@ class FornecedorDetalheGUI(BG):
         _lbl(r3, "Setor:").pack(side="left")
         self.lbl_setor = tk.Label(r3, text="", bg=self.BG, fg=self.FG, width=16, anchor="w")
         self.lbl_setor.pack(side="left", padx=(4, 0))
+
+        # ── linha 3b: Atividade ───────────────────────────────────────
+        r3b = _row()
+        _lbl(r3b, "Atividade:").pack(side="left")
+        self.ent_atividade = _entry(r3b, 50)
+        self.ent_atividade.pack(side="left", padx=(4, 0))
 
 
         # ── contactos ─────────────────────────────────────────────────
@@ -337,6 +332,8 @@ class FornecedorDetalheGUI(BG):
         self.cb_pagamento.set(getattr(f, "metodo_pagamento", "") or "")
         self._setor_actual = getattr(f, "setor", None)
         self.lbl_setor.config(text=self._setor_actual or "")
+        self.ent_atividade.delete(0, tk.END)
+        self.ent_atividade.insert(0, getattr(f, "atividade", "") or "")
 
     # ── gravar ────────────────────────────────────────────────────────
 
@@ -356,6 +353,7 @@ class FornecedorDetalheGUI(BG):
             "tipo_relacao":       self.cb_tipo_rel.get() or None,
             "metodo_pagamento":   self.cb_pagamento.get() or None,
             "setor":              getattr(self, "_setor_actual", None),
+            "atividade":          self.ent_atividade.get().strip() or None,
             "comercial_nome":     self.ent_c1_nome.get().strip() or None,
             "comercial_telefone": self.ent_c1_tel.get().strip() or None,
             "comercial_email":    self.ent_c1_email.get().strip() or None,
@@ -391,12 +389,13 @@ class FornecedorDetalheGUI(BG):
         self.cb_tipo_rel.set("")
         self.cb_pagamento.set("")
         self.lbl_setor.config(text="")
+        self.ent_atividade.delete(0, tk.END)
 
     # ── diálogo de criação de novo fornecedor ─────────────────────────
     @staticmethod
-    def form_dialog(parent) -> dict | None:
+    def form_dialog(parent, nome_inicial: str = "") -> dict | None:
         """
-        Abre janela modal simples para criar um novo fornecedor.
+        Abre janela modal para criar um novo fornecedor.
         Devolve dict com os dados ou None se cancelado.
         """
         result = {"dados": None}
@@ -422,6 +421,9 @@ class FornecedorDetalheGUI(BG):
             e.grid(row=i, column=1, sticky="w", pady=3)
             entries[key] = e
 
+        if nome_inicial:
+            entries["nome"].insert(0, nome_inicial)
+
         row = len(campos)
         ttk.Label(frame, text="Tipo:").grid(row=row, column=0, sticky="w", pady=3, padx=(0,8))
         cb_tipo = ttk.Combobox(frame, values=TIPOS_FORNECEDOR, state="readonly", width=20)
@@ -434,6 +436,10 @@ class FornecedorDetalheGUI(BG):
         ttk.Label(frame, text="Pagamento:").grid(row=row+2, column=0, sticky="w", pady=3, padx=(0,8))
         cb_pag = ttk.Combobox(frame, values=["TB", "DD", "MB", "OU"], state="readonly", width=6)
         cb_pag.grid(row=row+2, column=1, sticky="w", pady=3)
+
+        ttk.Label(frame, text="Atividade:").grid(row=row+3, column=0, sticky="w", pady=3, padx=(0,8))
+        ent_atividade = ttk.Entry(frame, width=38)
+        ent_atividade.grid(row=row+3, column=1, sticky="w", pady=3)
 
         def _confirmar():
             nome = entries["nome"].get().strip()
@@ -448,15 +454,19 @@ class FornecedorDetalheGUI(BG):
                 "tipo_fornecedor":  cb_tipo.get() or None,
                 "tipo_relacao":     cb_rel.get()  or None,
                 "metodo_pagamento": cb_pag.get()  or None,
+                "atividade":        ent_atividade.get().strip() or None,
             }
             win.destroy()
 
         bf = ttk.Frame(frame)
-        bf.grid(row=row+3, column=0, columnspan=2, pady=10)
+        bf.grid(row=row+4, column=0, columnspan=2, pady=10)
         ttk.Button(bf, text="Criar",    command=_confirmar).pack(side="left", padx=5)
         ttk.Button(bf, text="Cancelar", command=win.destroy).pack(side="left", padx=5)
 
-        entries["nome"].focus_set()
+        if nome_inicial:
+            entries["nif"].focus_set()
+        else:
+            entries["nome"].focus_set()
         win.bind("<Return>", lambda e: _confirmar())
         win.wait_window()
         return result["dados"]

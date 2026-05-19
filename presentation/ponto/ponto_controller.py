@@ -11,14 +11,16 @@ logger = logging.getLogger(__name__)
 class PontoController:
 
     def __init__(self, root, cfg, usecase, user_context=None,
-                 pessoas_repo=None, fornecedor_repo=None, mapa_repo=None):
-        self.root           = root
-        self.cfg            = cfg
-        self.usecase        = usecase
-        self.user           = user_context
-        self.pessoas_repo   = pessoas_repo      # EmpregadoRepository
-        self.fornecedor_repo= fornecedor_repo   # FornecedorRepositorySQL
-        self.mapa_repo      = mapa_repo         # PontoMapaRepository
+                 pessoas_repo=None, fornecedor_repo=None, mapa_repo=None,
+                 ausencia_repo=None):
+        self.root            = root
+        self.cfg             = cfg
+        self.usecase         = usecase
+        self.user            = user_context
+        self.pessoas_repo    = pessoas_repo      # EmpregadoRepository
+        self.fornecedor_repo = fornecedor_repo   # FornecedorRepositorySQL
+        self.mapa_repo       = mapa_repo         # PontoMapaRepository
+        self.ausencia_repo   = ausencia_repo     # AusenciaPontoRepository
         self.gui     = None
         self.ctx     = None
         self.repo    = None
@@ -41,12 +43,26 @@ class PontoController:
         )
         logger.info(f"Processar ponto — mes {mes}, pasta: {self.ctx.paths['pasta_mes']}")
 
+        # carregar ausências para o mês em processamento
+        ausencias = []
+        if self.ausencia_repo:
+            try:
+                nome_pasta = self.ctx.paths["pasta_mes"].name
+                ano_proc   = int(nome_pasta[:4])
+                mes_proc   = int(nome_pasta[4:])
+                ausencias  = self.ausencia_repo.listar_por_mes(ano_proc, mes_proc)
+                if ausencias:
+                    self._log(f"📋 {len(ausencias)} ausências conhecidas carregadas")
+            except Exception as ex:
+                logger.warning(f"Nao foi possivel carregar ausencias: {ex}")
+
         def job():
             try:
                 total, output = self.usecase.executar(
                     repo        = self.repo,
                     ctx         = self.ctx,
                     on_progress = self._log,
+                    ausencias   = ausencias,
                 )
                 logger.info(f"\n✔ {total} ficheiros processados")
                 if output:
@@ -153,11 +169,8 @@ class PontoController:
         from presentation.ponto.ponto_resumo_empregado_view import ResumoEmpregadoView
         ResumoEmpregadoView(parent=self.root, df=df_enriquecido, mes_label=mes_label)
 
-    # ── exportar inativos / não resolvidos ───────────────────────────────────
-    def exportar_inativos(self):
-        import pandas as pd
-        from tkinter import filedialog
-
+    # ── erros de picagem ─────────────────────────────────────────────────────
+    def ver_erros_picagem(self):
         mes = self.gui.perguntaMes()
         if not mes:
             return
@@ -167,47 +180,35 @@ class PontoController:
             pasta_mes       = self.ctx.paths["pasta_mes"],
             ficheiro_resumo = self.ctx.paths["ficheiro_resumo"],
         )
+
         df = self.repo.ler_mensal()
         if df is None or df.empty:
-            self.gui.informuser("Sem dados",
-                                "Nao existe resumo mensal para este mes.", "warning")
+            self.gui.informuser(
+                "Sem dados",
+                f"Nao existe resumo mensal para {mes}. Processe primeiro o ponto do mes.",
+                "warning",
+            )
             return
 
-        df_enriquecido = self._enriquecer_com_pessoas(df)
-
-        # filtrar: inativos ou desconhecidos — uma linha por pessoa (numero+nome únicos)
-        linhas = df_enriquecido[df_enriquecido["data"].astype(str) != "TOTAL"].copy()
-        resultado = (
-            linhas[
-                (linhas["ativo_rh"] == "Nao") |
-                (linhas["tipo"]     == "Desconhecido")
-            ]
-            .drop_duplicates(subset=["numero", "nome"])
-            [["numero", "nome", "tipo", "categoria", "ativo_rh"]]
-            .sort_values(["tipo", "nome"])
-            .reset_index(drop=True)
-        )
-
-        if resultado.empty:
-            self.gui.informuser("Sem registos",
-                                "Nao existem pessoas inativas ou nao resolvidas.", "info")
+        if "erros_picagem" not in df.columns:
+            self.gui.informuser(
+                "Sem erros",
+                "O resumo mensal nao tem coluna de erros de picagem.",
+                "info",
+            )
             return
 
-        # pedir caminho para guardar
-        path = filedialog.asksaveasfilename(
-            title="Guardar Excel",
-            defaultextension=".xlsx",
-            filetypes=[("Excel", "*.xlsx")],
-            initialfile=f"ponto_inativos_{mes}.xlsx",
-        )
-        if not path:
-            return
+        meses_pt = ["", "Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho",
+                    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+        try:
+            ano = int(str(mes)[:4])
+            m   = int(str(mes)[4:])
+            mes_label = f"{meses_pt[m]} {ano}"
+        except Exception:
+            mes_label = str(mes)
 
-        resultado.columns = ["Numero", "Nome", "Tipo", "Categoria", "Ativo RH"]
-        resultado.to_excel(path, index=False)
-        self._log(f"Exportado: {path} ({len(resultado)} registos)")
-        self.gui.informuser("Exportado",
-                            f"{len(resultado)} registos exportados para: {path}")
+        from presentation.ponto.ponto_erros_picagem_view import ErrosPicagemView
+        ErrosPicagemView(parent=self.root, df=df, mes_label=mes_label)
 
     # ── cruzamento com pessoas / fornecedores ────────────────────────────────
     def _enriquecer_com_pessoas(self, df: "pd.DataFrame") -> "pd.DataFrame":
@@ -245,7 +246,7 @@ class PontoController:
         mapa_forn = {}
         if self.fornecedor_repo is not None:
             try:
-                for f in self.fornecedor_repo.list_by("tipo_fornecedor", "Enfermeiro"):
+                for f in self.fornecedor_repo.list_by("atividade", "Enfermeiro"):
                     mapa_forn[f.nome.strip().upper()] = f
             except Exception as ex:
                 logger.warning(f"Nao foi possivel aceder a BD de fornecedores: {ex}")
@@ -286,7 +287,7 @@ class PontoController:
             # 3ª tentativa — por nome na BD fornecedores
             if nome in mapa_forn:
                 f       = mapa_forn[nome]
-                tipo_f  = str(getattr(f, "tipo_fornecedor", "") or "").strip() or "Fornecedor"
+                tipo_f  = str(getattr(f, "atividade", "") or "").strip() or "Fornecedor"
                 ativo_f = str(getattr(f, "tipo_relacao",    "") or "").lower()
                 df.at[idx, "ativo_rh"]  = "Nao" if ativo_f == "suspenso" else "Sim"
                 df.at[idx, "tipo"]      = tipo_f
@@ -302,7 +303,7 @@ class PontoController:
                 try:
                     f = self.fornecedor_repo.get_by_id(fid)
                     if f:
-                        tipo_f  = str(getattr(f, "tipo_fornecedor", "") or "").strip() or "Enfermeiro"
+                        tipo_f  = str(getattr(f, "atividade", "") or "").strip() or "Enfermeiro"
                         ativo_f = str(getattr(f, "tipo_relacao",    "") or "").lower()
                         mask = (
                             df["numero"].astype(str).str.strip() == num
@@ -327,6 +328,31 @@ class PontoController:
             )
 
         return df
+
+    # ── ausências conhecidas ─────────────────────────────────────────────────
+    def gerir_ausencias(self):
+        from presentation.ponto.ausencias_ponto_gui import AusenciasPontoGUI
+        self.gui.show_view(AusenciasPontoGUI, self)
+
+    def listar_empregados_ativos(self):
+        if not self.pessoas_repo:
+            return []
+        return self.pessoas_repo.list_all(apenas_ativos=False)
+
+    def listar_ausencias(self):
+        if not self.ausencia_repo:
+            return []
+        return self.ausencia_repo.listar_todos()
+
+    def guardar_ausencia(self, aus):
+        if not self.ausencia_repo:
+            raise RuntimeError("Repositório de ausências não configurado.")
+        return self.ausencia_repo.guardar(aus)
+
+    def remover_ausencia(self, ausencia_id: int):
+        if not self.ausencia_repo:
+            raise RuntimeError("Repositório de ausências não configurado.")
+        self.ausencia_repo.remover(ausencia_id)
 
     # ── helpers ───────────────────────────────────────────────────────────────
     def _log(self, msg):

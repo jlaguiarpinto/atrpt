@@ -17,8 +17,6 @@ class PontoGUI(BG):
     def _build(self):
         frame = self.abrir_work_area()
 
-        self.build_header(frame, "Secretaria", "Registo de Ponto")
-
         # ── botões de acção ───────────────────────────────────────────────────
         btn_frame = tk.Frame(frame, bg=self.BG)
         btn_frame.pack(fill="x", pady=8, padx=10)
@@ -52,14 +50,21 @@ class PontoGUI(BG):
 
         tk.Button(
             btn_frame,
-            text="Exportar Inativos",
-            command=self._on_exportar_inativos,
+            text="Erros de Picagem",
+            command=self._on_erros_picagem,
             font=self.FONT_BUTTON,
             bg=self.BTN_BG,
             fg=self.FG,
         ).pack(side="left", padx=(0, 8))
 
-
+        tk.Button(
+            btn_frame,
+            text="Ausências (Férias/Baixas)",
+            command=self._on_ausencias,
+            font=self.FONT_BUTTON,
+            bg=self.BTN_BG,
+            fg=self.FG,
+        ).pack(side="left", padx=(0, 8))
 
         # ── área de log ───────────────────────────────────────────────────────
         log_frame = tk.Frame(frame, bg=self.BG)
@@ -84,8 +89,11 @@ class PontoGUI(BG):
     def _on_resumo_empregado(self):
         self.controller.resumo_empregado()
 
-    def _on_exportar_inativos(self):
-        self.controller.exportar_inativos()
+    def _on_erros_picagem(self):
+        self.controller.ver_erros_picagem()
+
+    def _on_ausencias(self):
+        self.controller.gerir_ausencias()
 
 
     def log(self, msg):

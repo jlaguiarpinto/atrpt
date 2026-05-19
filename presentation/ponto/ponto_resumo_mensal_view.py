@@ -661,8 +661,9 @@ class ResumoMensalView(tk.Toplevel):
         if linhas.empty:
             return "--:--"
         presenca = pd.to_numeric(linhas.get("presenca", 0), errors="coerce").fillna(0)
+        feriado  = pd.to_numeric(linhas.get("feriado",  0), errors="coerce").fillna(0)
         noturno  = pd.to_numeric(linhas.get("noturno",  0), errors="coerce").fillna(0)
-        horas_dia = presenca + noturno
+        horas_dia = presenca + feriado + noturno
         dias_trabalhados = (horas_dia > 0).sum()
         if dias_trabalhados == 0:
             return "--:--"
